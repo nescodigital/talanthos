@@ -1,20 +1,30 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Crimson_Pro } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const crimson = Crimson_Pro({
   subsets: ["latin"],
+  variable: "--font-crimson",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "Talanthos",
-  description: "Talanthos — coming soon",
+  title: "Talanthos — Discover Your Biblical Money Type",
+  description:
+    "A free 90-second quiz reveals the financial archetype God wired into you — and the personalized path forward for your money.",
+  openGraph: {
+    title: "Talanthos — Discover Your Biblical Money Type",
+    description:
+      "A free 90-second quiz reveals the financial archetype God wired into you — and the personalized path forward for your money.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -23,11 +33,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={`${inter.variable} ${crimson.variable}`}>
+      <body className="min-h-full antialiased">{children}</body>
     </html>
   );
 }
