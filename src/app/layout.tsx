@@ -1,28 +1,44 @@
 import type { Metadata } from "next";
-import { Inter, Crimson_Pro } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
+import { Instrument_Serif, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const geist = Geist({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-geist",
   display: "swap",
 });
 
-const crimson = Crimson_Pro({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
-  variable: "--font-crimson",
+  variable: "--font-geist-mono",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+});
+
+const instrument = Instrument_Serif({
+  subsets: ["latin"],
+  variable: "--font-instrument",
+  display: "swap",
+  weight: ["400"],
+  style: ["normal", "italic"],
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-cormorant",
+  display: "swap",
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
   title: "Talanthos — Discover Your Biblical Money Type",
   description:
-    "A free 90-second quiz reveals the financial archetype God wired into you — and the personalized path forward for your money.",
+    "A two-minute assessment, grounded in Scripture, that names the way God has uniquely wired you to relate to money.",
   openGraph: {
     title: "Talanthos — Discover Your Biblical Money Type",
     description:
-      "A free 90-second quiz reveals the financial archetype God wired into you — and the personalized path forward for your money.",
+      "A two-minute assessment, grounded in Scripture, that names the way God has uniquely wired you to relate to money.",
     type: "website",
   },
 };
@@ -33,7 +49,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${crimson.variable}`}>
+    <html
+      lang="en"
+      className={`${geist.variable} ${geistMono.variable} ${instrument.variable} ${cormorant.variable}`}
+    >
       <body className="min-h-full antialiased">{children}</body>
     </html>
   );
