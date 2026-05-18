@@ -14,8 +14,8 @@ import TxButton from "@/components/tx/TxButton";
 
 const TYPE_NAMES: Record<string, string> = {
   builder: "The Builder",
-  steward: "The Steward",
-  sower: "The Sower",
+  guardian: "The Guardian",
+  giver: "The Giver",
   visionary: "The Visionary",
 };
 

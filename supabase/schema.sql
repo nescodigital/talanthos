@@ -18,8 +18,8 @@ CREATE TABLE quiz_sessions (
   primary_type TEXT,
   secondary_type TEXT,
   builder_score INT,
-  steward_score INT,
-  sower_score INT,
+  guardian_score INT,
+  giver_score INT,
   visionary_score INT,
   status TEXT DEFAULT 'started'
 );

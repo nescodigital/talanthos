@@ -12,8 +12,7 @@ export default function TxText({ height = 32, dark = false }: TxTextProps) {
       className="tx-text-img block"
       src={src}
       alt="Talanthos — Faith. Finances. Purpose."
-      height={height}
-      style={{ width: "auto" }}
+      style={{ height: height + "px", width: "auto" }}
     />
   );
 }

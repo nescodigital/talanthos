@@ -24,15 +24,15 @@ import TxButton from "@/components/tx/TxButton";
 
 const TYPE_NAMES: Record<string, string> = {
   builder: "The Builder",
-  steward: "The Steward",
-  sower: "The Sower",
+  guardian: "The Guardian",
+  giver: "The Giver",
   visionary: "The Visionary",
 };
 
 const TYPE_GRADIENTS: Record<string, string> = {
   builder: "from-slate-700 to-slate-900",
-  steward: "from-amber-700/40 to-amber-900/60",
-  sower: "from-emerald-700/40 to-emerald-900/60",
+  guardian: "from-amber-700/40 to-amber-900/60",
+  giver: "from-emerald-700/40 to-emerald-900/60",
   visionary: "from-violet-700/40 to-violet-900/60",
 };
 
@@ -44,7 +44,7 @@ const PREVIEWS = [
 ];
 
 const VALUE_ITEMS = [
-  { icon: Compass, title: "Your 4-Dimensional Score", desc: "Detailed breakdown of how you score on Builder, Steward, Sower, and Visionary scales" },
+  { icon: Compass, title: "Your 4-Dimensional Score", desc: "Detailed breakdown of how you score on Vision, Guard, Give, and Build scales" },
   { icon: BookOpen, title: "30 Curated Scripture Passages", desc: "Carefully selected verses for your specific type, with reflections" },
   { icon: TrendingUp, title: "Personalized Growth Roadmap", desc: "Your specific blind spots and how to address them step by step" },
   { icon: Target, title: "30-Day Action Plan", desc: "Daily micro-actions designed for your archetype" },
@@ -68,7 +68,7 @@ function PaywallContent() {
   }, [type, router]);
 
   const typeName = TYPE_NAMES[type || ""] || "Your Type";
-  const gradient = TYPE_GRADIENTS[type || ""] || TYPE_GRADIENTS.steward;
+  const gradient = TYPE_GRADIENTS[type || ""] || TYPE_GRADIENTS.guardian;
 
   return (
     <div className="flex min-h-full flex-col relative z-[1]">

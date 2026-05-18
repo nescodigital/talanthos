@@ -4,7 +4,7 @@ import { getServiceRoleClient } from "@/lib/supabase/client";
 
 const leadSchema = z.object({
   email: z.string().email().max(100),
-  primary_type: z.enum(["builder", "steward", "sower", "visionary"]),
+  primary_type: z.enum(["builder", "guardian", "giver", "visionary"]),
   session_id: z.string().uuid(),
   marketing_consent: z.boolean(),
   first_name: z.string().max(50).optional(),

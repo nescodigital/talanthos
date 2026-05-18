@@ -17,8 +17,8 @@ export interface QuizSession {
   primary_type: string | null;
   secondary_type: string | null;
   builder_score: number | null;
-  steward_score: number | null;
-  sower_score: number | null;
+  guardian_score: number | null;
+  giver_score: number | null;
   visionary_score: number | null;
   status: string;
 }

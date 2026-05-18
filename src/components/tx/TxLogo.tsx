@@ -12,8 +12,7 @@ export default function TxLogo({ height = 72, dark = false }: TxLogoProps) {
       className="tx-logo-img block"
       src={src}
       alt="Talanthos — Faith. Finances. Purpose."
-      height={height}
-      style={{ width: "auto" }}
+      style={{ height: height + "px", width: "auto" }}
     />
   );
 }

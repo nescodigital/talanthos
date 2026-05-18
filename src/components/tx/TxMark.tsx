@@ -12,8 +12,7 @@ export default function TxMark({ size = 56, dark = false }: TxMarkProps) {
       className="tx-mark-img block"
       src={src}
       alt="Talanthos mark"
-      width={size}
-      style={{ height: "auto" }}
+      style={{ width: size + "px", height: "auto" }}
     />
   );
 }

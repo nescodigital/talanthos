@@ -18,9 +18,9 @@ const trust = [
 
 const fourTypes = [
   { id: "visionary", figure: "Solomon", label: "Visionary", glyph: "crown" },
-  { id: "builder", figure: "Nehemiah", label: "Builder", glyph: "wall" },
-  { id: "giver", figure: "Macedonians", label: "Giver", glyph: "open-hand" },
   { id: "guardian", figure: "Joseph", label: "Guardian", glyph: "shield" },
+  { id: "giver", figure: "Macedonians", label: "Giver", glyph: "open-hand" },
+  { id: "builder", figure: "Nehemiah", label: "Builder", glyph: "wall" },
 ];
 
 export default function Home() {
@@ -31,7 +31,7 @@ export default function Home() {
         <main className="tx-screen tx-landing">
           <div className="tx-landing-frame">
             <div className="tx-landing-hero">
-              <TxMark size={72} />
+              <TxMark size={56} />
               <TxEyebrow align="center">A Stewardship Assessment</TxEyebrow>
               <h1 className="tx-display">
                 Discover your<br />

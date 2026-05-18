@@ -8,7 +8,7 @@ export default function TxFooter() {
     <footer className="px-4 sm:px-6 lg:px-14 pt-10 pb-8 border-t border-[var(--rule)] flex flex-col gap-6">
       <div className="flex items-center justify-between flex-wrap gap-6">
         <div className="inline-flex items-center leading-[0]">
-          <TxLockup size="md" />
+          <TxLockup size="sm" />
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-2">
           <Link href="#" className="text-[var(--ink-2)] no-underline text-[13px] border-b border-transparent pb-0.5 transition-colors duration-200 hover:text-[var(--accent)] hover:border-[var(--accent)]">
