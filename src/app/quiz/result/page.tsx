@@ -62,6 +62,11 @@ export default function ResultPage() {
   const typeData: BiblicalTypeData = BIBLICAL_TYPES[result.primary_type];
   if (!typeData) return null;
 
+  const sessionId = typeof window !== "undefined" ? localStorage.getItem("talanthos_session_id") : null;
+  const emailHref = sessionId
+    ? `/quiz/email?type=${encodeURIComponent(result.primary_type)}&session=${encodeURIComponent(sessionId)}`
+    : "/quiz";
+
   const strengthsVisible = typeData.strengths.slice(0, 2);
   const strengthsLocked = typeData.strengths.slice(2);
   const blindSpotsVisible = typeData.blindSpots.slice(0, 1);
@@ -165,7 +170,7 @@ export default function ResultPage() {
           </motion.div>
         </div>
 
-        <LockedSection typeName={typeData.name} />
+        <LockedSection typeName={typeData.name} href={emailHref} />
       </div>
     </div>
   );

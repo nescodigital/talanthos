@@ -1,0 +1,127 @@
+export const metadata = {
+  title: "Privacy Policy — Talanthos",
+};
+
+export default function PrivacyPage() {
+  return (
+    <main className="mx-auto max-w-[720px] px-6 py-16">
+      <h1 className="font-display text-3xl font-semibold text-foreground">Privacy Policy</h1>
+      <p className="mt-2 text-sm text-foreground-muted">Last updated: May 17, 2026</p>
+
+      <div className="mt-10 space-y-8 text-foreground-muted">
+        <section>
+          <h2 className="text-lg font-semibold text-foreground">1. Introduction</h2>
+          <p className="mt-2">
+            Talanthos (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) respects your privacy. This Privacy Policy explains how we
+            collect, use, and protect your information when you use our website and services.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-semibold text-foreground">2. Information We Collect</h2>
+          <ul className="mt-2 list-disc space-y-1 pl-5">
+            <li>Email address (when you submit the quiz)</li>
+            <li>Quiz answers (anonymous, linked to your session)</li>
+            <li>Marketing consent preference</li>
+            <li>Purchase information (processed via Stripe — we never store card details)</li>
+            <li>Technical data (IP address, browser type, device type)</li>
+            <li>UTM parameters and referral sources</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-semibold text-foreground">3. How We Use Your Information</h2>
+          <ul className="mt-2 list-disc space-y-1 pl-5">
+            <li>To deliver your personalized Biblical Money Type report</li>
+            <li>To send you the report PDF and related materials</li>
+            <li>To send marketing emails if you consented (you can unsubscribe anytime)</li>
+            <li>To improve our quiz and product</li>
+            <li>To detect fraud and abuse</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-semibold text-foreground">4. Data Sharing</h2>
+          <p className="mt-2">
+            We do not sell your personal data. We share data only with:
+          </p>
+          <ul className="mt-2 list-disc space-y-1 pl-5">
+            <li>Stripe (for payment processing)</li>
+            <li>Resend (for email delivery)</li>
+            <li>Supabase (for secure data storage)</li>
+            <li>Meta and Google (only aggregated conversion events, never personal data)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-semibold text-foreground">5. Cookies and Tracking</h2>
+          <p className="mt-2">
+            We use cookies and similar technologies to track quiz progress, measure ad performance,
+            and improve site functionality. You can disable cookies in your browser settings.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-semibold text-foreground">6. Your Rights</h2>
+          <p className="mt-2">You have the right to:</p>
+          <ul className="mt-2 list-disc space-y-1 pl-5">
+            <li>Access your data</li>
+            <li>Request deletion of your data</li>
+            <li>Withdraw marketing consent</li>
+            <li>Export your data</li>
+          </ul>
+          <p className="mt-2">
+            Contact us at{" "}
+            <a href="mailto:privacy@talanthos.com" className="text-accent hover:underline">
+              privacy@talanthos.com
+            </a>{" "}
+            to exercise these rights.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-semibold text-foreground">7. Data Retention</h2>
+          <p className="mt-2">
+            We keep your data as long as necessary to provide our services. After that, we delete it
+            within 30 days unless legally required to retain it longer.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-semibold text-foreground">8. Children&apos;s Privacy</h2>
+          <p className="mt-2">
+            Our services are not intended for users under 18. We do not knowingly collect data from
+            minors.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-semibold text-foreground">9. International Data Transfers</h2>
+          <p className="mt-2">
+            Our servers may be located outside your country. By using Talanthos, you consent to your
+            data being transferred internationally.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-semibold text-foreground">10. Changes to This Policy</h2>
+          <p className="mt-2">
+            We may update this policy from time to time. The &ldquo;Last updated&rdquo; date will reflect any
+            changes.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-semibold text-foreground">11. Contact</h2>
+          <p className="mt-2">
+            Privacy questions:{" "}
+            <a href="mailto:privacy@talanthos.com" className="text-accent hover:underline">
+              privacy@talanthos.com
+            </a>
+          </p>
+          <p className="mt-1">Mail: DEXARA SRL, Bucharest, Romania</p>
+        </section>
+      </div>
+    </main>
+  );
+}

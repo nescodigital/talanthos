@@ -6,9 +6,10 @@ import Link from "next/link";
 
 interface LockedSectionProps {
   typeName: string;
+  href: string;
 }
 
-export default function LockedSection({ typeName }: LockedSectionProps) {
+export default function LockedSection({ typeName, href }: LockedSectionProps) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -47,7 +48,7 @@ export default function LockedSection({ typeName }: LockedSectionProps) {
         </li>
       </ul>
       <Link
-        href="/coming-soon"
+        href={href}
         className="mt-8 inline-flex items-center justify-center rounded-lg bg-accent px-8 py-4 text-base font-medium text-bg transition-all hover:scale-[1.02] hover:bg-accent-hover"
       >
         Get My Full Report
