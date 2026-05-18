@@ -1,94 +1,79 @@
 export type AnswerLetter = 'A' | 'B' | 'C' | 'D';
-export type BiblicalType = 'builder' | 'steward' | 'sower' | 'visionary';
-
-export interface AnswerScoring {
-  builder: number;
-  steward: number;
-  sower: number;
-  visionary: number;
-}
+export type BiblicalType = 'visionary' | 'guardian' | 'giver' | 'builder';
 
 export interface AnswerOption {
   letter: AnswerLetter;
   text: string;
-  scoring: AnswerScoring;
+  type: BiblicalType;
 }
 
 export interface Question {
-  number: number;
-  question: string;
+  q: string;
   options: AnswerOption[];
 }
 
 export const QUIZ_QUESTIONS: Question[] = [
   {
-    number: 1,
-    question: "When you receive unexpected money (bonus, gift, refund), what's your first instinct?",
+    q: "When unexpected money arrives, your first instinct is to —",
     options: [
-      { letter: 'A', text: "Put it straight into savings or emergency fund", scoring: { builder: 3, steward: 1, sower: 0, visionary: 0 } },
-      { letter: 'B', text: "Tithe first, then split between savings and a need", scoring: { builder: 1, steward: 3, sower: 1, visionary: 0 } },
-      { letter: 'C', text: "Share it with someone who needs it more than me", scoring: { builder: 0, steward: 1, sower: 3, visionary: 0 } },
-      { letter: 'D', text: "Invest it in something that could grow or create income", scoring: { builder: 0, steward: 0, sower: 0, visionary: 3 } },
+      { letter: 'A', text: "Run the numbers on what it could become", type: 'visionary' },
+      { letter: 'B', text: "Set most of it aside before it gets spent", type: 'guardian' },
+      { letter: 'C', text: "Think of someone who needs it more than I do", type: 'giver' },
+      { letter: 'D', text: "Apply it to the plan I'm already executing", type: 'builder' },
     ],
   },
   {
-    number: 2,
-    question: "Your biggest financial worry right now is...",
+    q: "Where you feel money is most often quietly working against you —",
     options: [
-      { letter: 'A', text: "Not having enough saved for the future", scoring: { builder: 3, steward: 1, sower: 0, visionary: 0 } },
-      { letter: 'B', text: "Not managing what I have well enough to honor God", scoring: { builder: 1, steward: 3, sower: 1, visionary: 0 } },
-      { letter: 'C', text: "Friends or family who keep needing financial help", scoring: { builder: 0, steward: 1, sower: 3, visionary: 0 } },
-      { letter: 'D', text: "Missing opportunities to build something meaningful", scoring: { builder: 0, steward: 0, sower: 0, visionary: 3 } },
+      { letter: 'A', text: "I'm moving faster than my counsel can keep up with", type: 'visionary' },
+      { letter: 'B', text: "I'm hoarding what I was meant to deploy", type: 'guardian' },
+      { letter: 'C', text: "I'm giving from a place I haven't fully resourced", type: 'giver' },
+      { letter: 'D', text: "I'm finishing systems no one asked me to build", type: 'builder' },
     ],
   },
   {
-    number: 3,
-    question: "How do you typically handle debt?",
+    q: "The scripture that most often steadies your hand —",
     options: [
-      { letter: 'A', text: "I avoid it completely. Debt scares me.", scoring: { builder: 3, steward: 1, sower: 0, visionary: -1 } },
-      { letter: 'B', text: "I have some, but I have a plan to pay it off", scoring: { builder: 1, steward: 3, sower: 0, visionary: 1 } },
-      { letter: 'C', text: "I sometimes go into debt helping others", scoring: { builder: 0, steward: -1, sower: 3, visionary: 0 } },
-      { letter: 'D', text: "I use it strategically to grow assets", scoring: { builder: -1, steward: 0, sower: 0, visionary: 3 } },
+      { letter: 'A', text: '"To whom much is given, much will be required."', type: 'visionary' },
+      { letter: 'B', text: '"The prudent see danger and take refuge."', type: 'guardian' },
+      { letter: 'C', text: '"It is more blessed to give than to receive."', type: 'giver' },
+      { letter: 'D', text: '"Unless the Lord builds the house, the builders labor in vain."', type: 'builder' },
     ],
   },
   {
-    number: 4,
-    question: "When it comes to tithing or giving regularly...",
+    q: "In a season of plenty, you tend to —",
     options: [
-      { letter: 'A', text: "I want to give more but worry about my own security", scoring: { builder: 3, steward: 0, sower: 1, visionary: 0 } },
-      { letter: 'B', text: "I tithe consistently. 10% off the top, every time.", scoring: { builder: 1, steward: 3, sower: 1, visionary: 1 } },
-      { letter: 'C', text: "I give whenever I see a need, often more than 10%", scoring: { builder: 0, steward: 1, sower: 3, visionary: 0 } },
-      { letter: 'D', text: "I give big when I have big, small when I have small", scoring: { builder: 0, steward: 0, sower: 1, visionary: 3 } },
+      { letter: 'A', text: "Scout the next thing the abundance is meant to seed", type: 'visionary' },
+      { letter: 'B', text: "Quietly extend the runway against future lean", type: 'guardian' },
+      { letter: 'C', text: "Open my hand wider than my comfort", type: 'giver' },
+      { letter: 'D', text: "Reinforce the structures I've already built", type: 'builder' },
     ],
   },
   {
-    number: 5,
-    question: "Your ideal financial future looks like...",
+    q: "The risk you are most likely to under-rate —",
     options: [
-      { letter: 'A', text: "Debt-free, stable, with a strong safety net", scoring: { builder: 3, steward: 1, sower: 0, visionary: 0 } },
-      { letter: 'B', text: "Faithfully managing what God gives, growing steadily", scoring: { builder: 1, steward: 3, sower: 1, visionary: 1 } },
-      { letter: 'C', text: "Having enough to bless others generously", scoring: { builder: 0, steward: 1, sower: 3, visionary: 1 } },
-      { letter: 'D', text: "Building wealth that funds Kingdom impact at scale", scoring: { builder: 0, steward: 1, sower: 0, visionary: 3 } },
+      { letter: 'A', text: "Outrunning the wisdom that was supposed to govern me", type: 'visionary' },
+      { letter: 'B', text: "Mistaking caution for obedience", type: 'guardian' },
+      { letter: 'C', text: "Bleeding generosity past where I was sent", type: 'giver' },
+      { letter: 'D', text: "Loving the blueprint more than the people in the house", type: 'builder' },
     ],
   },
   {
-    number: 6,
-    question: "Which Bible verse resonates most with how you see money?",
+    q: "When you imagine being faithful with money twenty years from now, you mostly see —",
     options: [
-      { letter: 'A', text: "\"The wise store up choice food and oil\" (Proverbs 21:20)", scoring: { builder: 3, steward: 1, sower: 0, visionary: 0 } },
-      { letter: 'B', text: "\"Well done, good and faithful servant\" (Matthew 25:21)", scoring: { builder: 1, steward: 3, sower: 1, visionary: 1 } },
-      { letter: 'C', text: "\"Give, and it will be given to you\" (Luke 6:38)", scoring: { builder: 0, steward: 1, sower: 3, visionary: 0 } },
-      { letter: 'D', text: "\"I will give you wisdom and wealth\" (1 Kings 3:13)", scoring: { builder: 0, steward: 1, sower: 0, visionary: 3 } },
+      { letter: 'A', text: "Ventures, institutions, things that were not there before", type: 'visionary' },
+      { letter: 'B', text: "A household and a community that weathered every storm", type: 'guardian' },
+      { letter: 'C', text: "Names of people whose lives were redirected by what I sent", type: 'giver' },
+      { letter: 'D', text: "Walls, systems, rhythms that outlast me", type: 'builder' },
     ],
   },
   {
-    number: 7,
-    question: "What's the most important next step for your finances?",
+    q: "Finish the sentence. Money, for me, is most truly —",
     options: [
-      { letter: 'A', text: "Build a stronger emergency fund", scoring: { builder: 3, steward: 1, sower: 0, visionary: 0 } },
-      { letter: 'B', text: "Set up a budget I can actually follow", scoring: { builder: 1, steward: 3, sower: 0, visionary: 0 } },
-      { letter: 'C', text: "Learn to give without depleting myself", scoring: { builder: 0, steward: 1, sower: 3, visionary: 0 } },
-      { letter: 'D', text: "Start investing or creating new income", scoring: { builder: 0, steward: 0, sower: 0, visionary: 3 } },
+      { letter: 'A', text: "A seed waiting to be planted somewhere wiser", type: 'visionary' },
+      { letter: 'B', text: "A trust I was handed to keep, not to consume", type: 'guardian' },
+      { letter: 'C', text: "A current that runs cold the moment it stops moving", type: 'giver' },
+      { letter: 'D', text: "A material — useful only when it's been shaped on purpose", type: 'builder' },
     ],
   },
 ];

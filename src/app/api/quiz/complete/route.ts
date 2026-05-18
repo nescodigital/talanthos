@@ -1,14 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getServiceRoleClient } from "@/lib/supabase/client";
 import { calculateScores } from "@/lib/quiz/scoring";
-import { AnswerLetter } from "@/lib/quiz/questions";
+import { BiblicalType } from "@/lib/quiz/questions";
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const supabase = getServiceRoleClient();
 
-    const answers: { question: number; letter: AnswerLetter }[] = body.answers || [];
+    const answers: { type: BiblicalType }[] = (body.answers || []).map((a: { type?: string }) => ({
+      type: a.type as BiblicalType,
+    }));
     const result = calculateScores(answers);
 
     const { error } = await supabase
@@ -17,8 +19,8 @@ export async function POST(req: NextRequest) {
         primary_type: result.primaryType,
         secondary_type: result.secondaryType,
         builder_score: result.scores.builder,
-        steward_score: result.scores.steward,
-        sower_score: result.scores.sower,
+        steward_score: result.scores.guardian,
+        sower_score: result.scores.giver,
         visionary_score: result.scores.visionary,
         completed_at: new Date().toISOString(),
         status: "completed",

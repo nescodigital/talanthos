@@ -1,35 +1,25 @@
-import { QUIZ_QUESTIONS, AnswerLetter, BiblicalType } from './questions';
+import { BiblicalType } from './types';
 
 export interface ScoreResult {
-  scores: { builder: number; steward: number; sower: number; visionary: number };
+  scores: { visionary: number; guardian: number; giver: number; builder: number };
   primaryType: BiblicalType;
   secondaryType: BiblicalType | null;
 }
 
-export function calculateScores(answers: { question: number; letter: AnswerLetter }[]): ScoreResult {
-  const scores = { builder: 0, steward: 0, sower: 0, visionary: 0 };
+export function calculateScores(answers: { type: BiblicalType }[]): ScoreResult {
+  const scores = { visionary: 0, guardian: 0, giver: 0, builder: 0 };
 
   for (const answer of answers) {
-    const question = QUIZ_QUESTIONS.find(q => q.number === answer.question);
-    if (!question) continue;
-    const option = question.options.find(o => o.letter === answer.letter);
-    if (!option) continue;
-    scores.builder += option.scoring.builder;
-    scores.steward += option.scoring.steward;
-    scores.sower += option.scoring.sower;
-    scores.visionary += option.scoring.visionary;
+    scores[answer.type] = (scores[answer.type] || 0) + 1;
   }
 
-  // Tie-breaking priority: steward > builder > sower > visionary
-  const priorityOrder: BiblicalType[] = ['steward', 'builder', 'sower', 'visionary'];
-  const sortedTypes = priorityOrder.sort((a, b) => scores[b] - scores[a]);
+  const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]) as [BiblicalType, number][];
+  const primaryType = sorted[0][0];
+  const primaryScore = sorted[0][1];
+  const secondaryScore = sorted[1][1];
 
-  const primaryType = sortedTypes[0];
-  const secondaryScore = scores[sortedTypes[1]];
-  const primaryScore = scores[primaryType];
-
-  // Secondary only shown if within 2 points of primary
-  const secondaryType = (primaryScore - secondaryScore) <= 2 ? sortedTypes[1] : null;
+  // Secondary only shown if within 1 point of primary
+  const secondaryType = primaryScore - secondaryScore <= 1 ? sorted[1][0] : null;
 
   return { scores, primaryType, secondaryType };
 }

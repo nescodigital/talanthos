@@ -28,37 +28,28 @@ export default function CalculatingPage() {
   }, [router]);
 
   return (
-    <div className="flex min-h-full flex-col relative z-[1]">
+    <div className="tx-page">
       <TxNav minimal />
-      <main className="flex-1 flex flex-col items-center justify-center px-5 sm:px-6 lg:px-14 min-h-[80vh]">
-        <div className="flex flex-col items-center gap-12 text-center m-auto">
-          <div className="relative w-[180px] h-[180px] flex items-center justify-center">
-            <span className="absolute inset-0 rounded-full border border-[var(--rule-strong)] border-t-[var(--accent)] animate-[spin_2.2s_linear_infinite]" />
-            <span
-              className="absolute rounded-full border border-[var(--rule)] border-r-[var(--accent)] animate-[spin_3.2s_linear_infinite]"
-              style={{ inset: 22, animationDirection: "reverse" }}
-            />
-            <span className="relative text-[var(--accent)]">
-              <TxMark size={56} />
-            </span>
+      <div className="tx-route">
+        <main className="tx-screen tx-calc">
+          <div className="tx-calc-frame">
+            <div className="tx-calc-orbit">
+              <span className="tx-calc-orbit-ring" />
+              <span className="tx-calc-orbit-ring tx-calc-orbit-ring-2" />
+              <span className="tx-calc-orbit-core">
+                <TxMark size={56} />
+              </span>
+            </div>
+            <div className="tx-calc-lines">
+              {lines.map((l, i) => (
+                <div className={"tx-calc-line" + (i <= stage ? " is-on" : "")} key={i}>
+                  {l}
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="flex flex-col gap-3" style={{ fontFamily: "var(--serif)", fontSize: 20, color: "var(--ink-2)", fontStyle: "italic" }}>
-            {lines.map((l, i) => (
-              <div
-                key={i}
-                className="transition-all duration-500"
-                style={{
-                  opacity: i <= stage ? 1 : 0,
-                  transform: i <= stage ? "none" : "translateY(6px)",
-                  color: i <= stage ? "var(--ink)" : "var(--ink-2)",
-                }}
-              >
-                {l}
-              </div>
-            ))}
-          </div>
-        </div>
-      </main>
+        </main>
+      </div>
       <TxFooter />
     </div>
   );
