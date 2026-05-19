@@ -12,6 +12,7 @@ import TxCard from "@/components/tx/TxCard";
 import TxButton from "@/components/tx/TxButton";
 import TxIcon from "@/components/tx/TxIcon";
 import ExitIntentShare from "@/components/quiz/ExitIntentShare";
+import { TextEffect } from "@/components/ui/text-effect";
 
 interface StoredAnswer {
   step: number;
@@ -138,8 +139,14 @@ export default function ResultPage() {
                 <TxIcon name={t.glyph} size={28} strokeWidth={1.3} />
               </div>
               <TxEyebrow align="center">You are</TxEyebrow>
-              <h1 className="tx-display tx-result-title">{t.label}</h1>
-              <div className="tx-result-figure">{t.figure} &nbsp;&middot;&nbsp; {t.tagline}</div>
+              <h1 className="tx-display tx-result-title">
+                <TextEffect per="word" preset="blur" as="span">{t.label}</TextEffect>
+              </h1>
+              <div className="tx-result-figure">
+                <TextEffect per="word" preset="fade" delay={0.3} as="span">
+                  {`${t.figure} \u00b7 ${t.tagline}`}
+                </TextEffect>
+              </div>
               <TxRule width={70} />
               <p className="tx-result-blurb">{t.blurb}</p>
 

@@ -21,6 +21,7 @@ import {
 import TxNav from "@/components/tx/TxNav";
 import TxFooter from "@/components/tx/TxFooter";
 import TxButton from "@/components/tx/TxButton";
+import { TextEffect } from "@/components/ui/text-effect";
 
 const TYPE_NAMES: Record<string, string> = {
   builder: "The Builder",
@@ -82,10 +83,14 @@ function PaywallContent() {
               Quiz Complete. Your Report Is Ready
             </span>
             <h1 className="mt-6 text-[var(--ink)] m-0" style={{ fontFamily: "var(--serif)", fontSize: "clamp(36px, 5vw, 56px)", lineHeight: 1.05 }}>
-              Your Full {typeName} Report
+              <TextEffect per="word" preset="blur" as="span">
+                {`Your Full ${typeName} Report`}
+              </TextEffect>
             </h1>
             <p className="mx-auto mt-4 max-w-xl text-lg text-[var(--ink-2)]" style={{ fontFamily: "var(--serif)" }}>
-              A 47-page personalized financial blueprint, rooted in Scripture and tailored to how God wired you.
+              <TextEffect per="word" preset="slide" delay={0.3} as="span">
+                A 47-page personalized financial blueprint, rooted in Scripture and tailored to how God wired you.
+              </TextEffect>
             </p>
             <div className="mx-auto mt-10 grid max-w-2xl grid-cols-2 gap-4 md:grid-cols-4">
               {PREVIEWS.map((preview, i) => (

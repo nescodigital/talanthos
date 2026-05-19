@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import TxNav from "@/components/tx/TxNav";
 import TxFooter from "@/components/tx/TxFooter";
 import TxButton from "@/components/tx/TxButton";
+import { TextEffect } from "@/components/ui/text-effect";
 
 function QuizIntroContent() {
   const router = useRouter();
@@ -48,13 +49,19 @@ function QuizIntroContent() {
           <div className="tx-quiz-frame">
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 22, padding: "clamp(32px, 6vw, 64px) 0 48px" }}>
               <h1 className="tx-display" style={{ fontSize: "clamp(32px, 5vw, 48px)" }}>
-                Your Biblical Money Type Quiz
+                <TextEffect per="word" preset="blur" as="span">
+                  Your Biblical Money Type Quiz
+                </TextEffect>
               </h1>
               <p className="tx-lede">
-                15 questions. About 3–4 minutes. No email needed to start.
+                <TextEffect per="word" preset="slide" delay={0.3} as="span">
+                  15 questions. About 3-4 minutes. No email needed to start.
+                </TextEffect>
               </p>
               <p style={{ fontFamily: "var(--serif)", fontSize: 18, color: "var(--muted)", fontStyle: "italic", margin: 0 }}>
-                There are no right or wrong answers. Just honest ones.
+                <TextEffect per="word" preset="fade" delay={0.6} as="span">
+                  There are no right or wrong answers. Just honest ones.
+                </TextEffect>
               </p>
               <div className="tx-cta-row">
                 <TxButton onClick={handleBegin} size="lg" disabled={isStarting}>

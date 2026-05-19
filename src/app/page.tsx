@@ -10,6 +10,7 @@ import TxNav from "@/components/tx/TxNav";
 import TxFooter from "@/components/tx/TxFooter";
 import LiveCounter from "@/components/ui/LiveCounter";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import { TextEffect } from "@/components/ui/text-effect";
 
 const trust = [
   { stat: "believers", label: "Believers assessed", live: true, start: 12847 },
@@ -37,13 +38,14 @@ export default function Home() {
                 <TxMark size={56} />
                 <TxEyebrow align="center">A Stewardship Assessment</TxEyebrow>
                 <h1 className="tx-display">
-                  Discover your<br />
-                  <em>Biblical Money Type.</em>
+                  <TextEffect per="word" preset="blur" as="span">
+                    Discover your Biblical Money Type.
+                  </TextEffect>
                 </h1>
                 <p className="tx-lede">
-                  A 3-4 minute assessment, grounded in Scripture, that names the way
-                  God has uniquely wired you to relate to money. Your strengths, your
-                  blind spots, and the next step that&apos;s yours alone.
+                  <TextEffect per="word" preset="slide" delay={0.4} as="span">
+                    A 3-4 minute assessment, grounded in Scripture, that names the way God has uniquely wired you to relate to money.
+                  </TextEffect>
                 </p>
                 <div className="tx-cta-row">
                   <Link href="/quiz">
