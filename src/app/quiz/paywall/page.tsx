@@ -271,7 +271,7 @@ function PaywallContent() {
           </section>
 
           {/* Section 5: Pricing + CTA */}
-          <section className="px-5 sm:px-6 lg:px-14 py-14">
+          <section id="pricing" className="px-5 sm:px-6 lg:px-14 py-14">
             <BlurFade delay={0.1}>
               <div className="mx-auto max-w-[640px] text-center">
                 <p className="text-xs font-medium uppercase tracking-widest text-[var(--accent)]">Choose what it is worth to you</p>
@@ -404,13 +404,13 @@ function PaywallContent() {
                   You took the quiz because something in you knew your financial life could be more aligned, more intentional, more faithful. This report is the bridge between knowing your type and living it.
                 </p>
                 <div className="mt-8">
-                  <Link
-                    href={`/checkout?amount=1799&type=${encodeURIComponent(type || "")}`}
+                  <button
+                    onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
                     className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-8 py-3.5 text-base font-medium text-white transition-all hover:-translate-y-px hover:shadow-[0_16px_32px_-16px_rgba(40,30,10,0.5)]"
                   >
-                    Get My Full Report — $17.99 <ArrowRight className="h-4 w-4" />
-                  </Link>
-                  <p className="mt-3 text-xs text-[var(--muted)]">Most people choose this. 30-day refund guarantee.</p>
+                    Get My Full Report <ArrowRight className="h-4 w-4" />
+                  </button>
+                  <p className="mt-3 text-xs text-[var(--muted)]">Choose what it is worth to you. 30-day refund guarantee.</p>
                 </div>
                 <div className="mt-6">
                   <Link href="/" className="text-xs text-[var(--muted)] hover:text-[var(--ink)] transition-colors">Maybe later. Send me a reminder.</Link>
