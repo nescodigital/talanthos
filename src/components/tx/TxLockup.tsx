@@ -19,7 +19,9 @@ export default function TxLockup({ size = "md", dark = false }: TxLockupProps) {
   return (
     <span className="tx-lockup inline-flex items-center" style={{ gap: s.gap }}>
       <TxMark size={s.mark} dark={dark} />
-      <TxText height={s.text} dark={dark} />
+      <span style={{ transform: "translateY(6px)", display: "inline-block" }}>
+        <TxText height={s.text} dark={dark} />
+      </span>
     </span>
   );
 }

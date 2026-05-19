@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, Suspense } from "react";
+import { useEffect, Suspense, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -17,6 +17,7 @@ import {
   Lock,
   Zap,
   CheckCircle2,
+  Heart,
 } from "lucide-react";
 import TxNav from "@/components/tx/TxNav";
 import TxFooter from "@/components/tx/TxFooter";
@@ -56,12 +57,20 @@ const VALUE_ITEMS = [
   { icon: Sparkles, title: "Your Hidden Gift", desc: "The unique way God has wired you to handle money, and how to use it" },
 ];
 
+const TIERS = [
+  { amount: 999, label: "$9.99", desc: "Access the full report" },
+  { amount: 1499, label: "$14.99", desc: "Most people choose this", popular: true },
+  { amount: 1999, label: "$19.99", desc: "Includes future updates" },
+  { amount: 2999, label: "$29.99", desc: "Support the mission" },
+];
+
 function PaywallContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const type = searchParams.get("type");
   const session = searchParams.get("session");
   const email = searchParams.get("email");
+  const [customAmount, setCustomAmount] = useState("");
 
   useEffect(() => {
     if (!type || !TYPE_NAMES[type]) {
@@ -135,28 +144,65 @@ function PaywallContent() {
         {/* Section 3: Pricing + CTA */}
         <section className="px-5 sm:px-6 lg:px-14 py-16">
           <BlurFade delay={0.1}>
-          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
-            className="mx-auto max-w-[540px] rounded-2xl border border-[var(--rule)] bg-[var(--surface)] px-8 py-12 text-center shadow-[var(--shadow)]" style={{ position: "relative", overflow: "hidden" }}>
-            <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: "linear-gradient(90deg, var(--accent), var(--accent-soft))" }} />
-            <p className="text-xs font-medium uppercase tracking-widest text-[var(--accent)]">Limited intro pricing</p>
-            <div className="mt-4 flex items-center justify-center gap-3">
-              <span className="text-[var(--ink)] m-0" style={{ fontFamily: "var(--serif)", fontSize: "clamp(40px, 5vw, 64px)", fontWeight: 400 }}>$9.99</span>
-              <span className="text-lg text-[var(--muted)] line-through">$19.99</span>
+            <div className="mx-auto max-w-[600px] text-center">
+              <p className="text-xs font-medium uppercase tracking-widest text-[var(--accent)]">Choose what it is worth to you</p>
+              <h2 className="mt-3 text-[var(--ink)] m-0" style={{ fontFamily: "var(--serif)", fontSize: "clamp(24px, 3vw, 32px)" }}>
+                Pay what feels right
+              </h2>
+              <p className="mt-2 text-sm text-[var(--muted)]" style={{ fontFamily: "var(--serif)", fontStyle: "italic" }}>
+                Every purchase helps us build more resources for believers learning to steward money faithfully.
+              </p>
+
+              <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4">
+                {TIERS.map((tier) => (
+                  <Link
+                    key={tier.amount}
+                    href={`/coming-soon-checkout?amount=${tier.amount}&type=${encodeURIComponent(type || "")}`}
+                    className="relative flex flex-col items-center rounded-xl border border-[var(--rule)] bg-[var(--surface)] p-4 sm:p-5 text-center shadow-[var(--shadow)] transition-all hover:-translate-y-px hover:border-[var(--accent-line)] hover:shadow-[0_12px_30px_-16px_rgba(40,30,10,0.25)]"
+                  >
+                    {tier.popular && (
+                      <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-[var(--accent)] px-2.5 py-0.5 text-[10px] font-medium text-white uppercase tracking-wider">
+                        <Heart className="h-3 w-3" /> Most chosen
+                      </span>
+                    )}
+                    <span className="text-[var(--ink)] m-0" style={{ fontFamily: "var(--serif)", fontSize: "clamp(22px, 3vw, 30px)", fontWeight: 400 }}>
+                      {tier.label}
+                    </span>
+                    <span className="mt-1 text-xs text-[var(--muted)]">{tier.desc}</span>
+                  </Link>
+                ))}
+              </div>
+
+              <div className="mt-6 rounded-xl border border-[var(--rule)] bg-[var(--surface)] p-5 shadow-[var(--shadow)]">
+                <p className="text-xs font-medium uppercase tracking-widest text-[var(--muted)] mb-3">Or choose your own amount</p>
+                <div className="flex items-center justify-center gap-3">
+                  <span className="text-[var(--ink)] text-lg">$</span>
+                  <input
+                    type="number"
+                    min="10"
+                    step="1"
+                    placeholder="15"
+                    value={customAmount}
+                    onChange={(e) => setCustomAmount(e.target.value)}
+                    className="w-24 rounded-lg border border-[var(--rule-strong)] bg-[var(--bg)] px-3 py-2 text-center text-[var(--ink)] outline-none transition-colors focus:border-[var(--accent)]"
+                    style={{ fontFamily: "var(--serif)", fontSize: 18 }}
+                  />
+                  <Link
+                    href={`/coming-soon-checkout?amount=${Math.max(1000, parseInt(customAmount || "15", 10) * 100)}&type=${encodeURIComponent(type || "")}`}
+                    className="rounded-full bg-[var(--accent)] px-5 py-2.5 text-sm font-medium text-white transition-all hover:-translate-y-px hover:shadow-[0_12px_24px_-16px_rgba(40,30,10,0.6)]"
+                  >
+                    Continue
+                  </Link>
+                </div>
+                <p className="mt-2 text-[10px] text-[var(--muted)]" style={{ fontFamily: "var(--mono)" }}>Minimum $10</p>
+              </div>
+
+              <div className="mt-6 space-y-2 text-xs text-[var(--muted)]">
+                <p className="flex items-center justify-center gap-1.5"><Shield className="h-3.5 w-3.5" />60-day money-back guarantee</p>
+                <p className="flex items-center justify-center gap-1.5"><Lock className="h-3.5 w-3.5" />Secure checkout via Stripe</p>
+                <p className="flex items-center justify-center gap-1.5"><Zap className="h-3.5 w-3.5" />Delivered to your inbox in 60 seconds</p>
+              </div>
             </div>
-            <p className="mt-2 text-sm text-[var(--muted)]">No subscription. One PDF. Yours forever.</p>
-            <p className="mt-3 text-sm" style={{ fontFamily: "var(--serif)", color: "var(--ink-soft)", fontStyle: "italic" }}>
-              This is not a generic download. It is a 47-page guidebook written for {typeName}, based on your exact answers.
-            </p>
-            <Link href="/coming-soon-checkout"
-              className="mt-8 block w-full rounded-full bg-[var(--accent)] py-4 text-base font-medium text-white transition-all hover:-translate-y-px hover:shadow-[0_18px_30px_-16px_rgba(40,30,10,0.7)] text-center">
-              Get My Report Now
-            </Link>
-            <div className="mt-6 space-y-2 text-xs text-[var(--muted)]">
-              <p className="flex items-center justify-center gap-1.5"><Shield className="h-3.5 w-3.5" />60-day money-back guarantee</p>
-              <p className="flex items-center justify-center gap-1.5"><Lock className="h-3.5 w-3.5" />Secure checkout via Stripe</p>
-              <p className="flex items-center justify-center gap-1.5"><Zap className="h-3.5 w-3.5" />Delivered to your inbox in 60 seconds</p>
-            </div>
-          </motion.div>
           </BlurFade>
           <div className="mt-8 text-center">
             <Link href="/" className="text-xs text-[var(--muted)] hover:text-[var(--ink)] transition-colors">Maybe later. Send me a reminder.</Link>

@@ -31,12 +31,6 @@ const tabLabels = [
   { id: "next", label: "Next step" },
 ];
 
-function formatTime(totalSeconds: number) {
-  const m = Math.floor(totalSeconds / 60);
-  const s = totalSeconds % 60;
-  return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
-}
-
 export default function ResultPage() {
   const router = useRouter();
   const [typeId, setTypeId] = useState<BiblicalType | null>(null);
@@ -45,8 +39,6 @@ export default function ResultPage() {
   const [tab, setTab] = useState("overview");
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  const [secondsLeft, setSecondsLeft] = useState(900);
-  const [spotsLeft, setSpotsLeft] = useState(6);
 
   useEffect(() => {
     async function computeResult() {
@@ -78,28 +70,6 @@ export default function ResultPage() {
 
     computeResult();
   }, [router]);
-
-  useEffect(() => {
-    if (secondsLeft <= 0) return;
-    const timer = setInterval(() => {
-      setSecondsLeft((s) => {
-        if (s <= 1) {
-          clearInterval(timer);
-          return 0;
-        }
-        return s - 1;
-      });
-    }, 1000);
-    return () => clearInterval(timer);
-  }, [secondsLeft]);
-
-  useEffect(() => {
-    if (spotsLeft <= 1) return;
-    const spotTimer = setInterval(() => {
-      setSpotsLeft((s) => (s > 1 ? s - 1 : s));
-    }, 45000);
-    return () => clearInterval(spotTimer);
-  }, [spotsLeft]);
 
   if (loading) {
     return (
@@ -282,43 +252,20 @@ export default function ResultPage() {
                   </span>
                 </div>
 
-                <div
+                <p
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: 24,
-                    marginBottom: 20,
-                    flexWrap: "wrap",
+                    fontFamily: "var(--serif)",
+                    fontSize: 13,
+                    color: "var(--muted)",
+                    fontStyle: "italic",
+                    margin: "0 0 20px",
+                    maxWidth: 400,
+                    marginLeft: "auto",
+                    marginRight: "auto",
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily: "var(--mono)",
-                      fontSize: 12,
-                      color: secondsLeft <= 60 ? "#c44" : "var(--muted)",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 6,
-                    }}
-                  >
-                    <TxIcon name="clock" size={14} />
-                    {secondsLeft > 0 ? `Offer expires in ${formatTime(secondsLeft)}` : "Offer expired"}
-                  </span>
-                  <span
-                    style={{
-                      fontFamily: "var(--mono)",
-                      fontSize: 12,
-                      color: "var(--accent)",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 6,
-                    }}
-                  >
-                    <TxIcon name="flame" size={14} />
-                    Only {spotsLeft} left at this price
-                  </span>
-                </div>
+                  Your payment helps us build more resources for believers who want to steward money faithfully.
+                </p>
 
                 <div style={{ display: "flex", justifyContent: "center" }}>
                   <TxButton
