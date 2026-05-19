@@ -9,9 +9,9 @@ interface TxLockupProps {
 }
 
 const sizes = {
-  sm: { mark: 32, text: 16, gap: 12 },
-  md: { mark: 42, text: 22, gap: 14 },
-  lg: { mark: 56, text: 30, gap: 18 },
+  sm: { mark: 32, text: 26, gap: 10 },
+  md: { mark: 42, text: 34, gap: 12 },
+  lg: { mark: 56, text: 45, gap: 14 },
 };
 
 export default function TxLockup({ size = "md", dark = false }: TxLockupProps) {

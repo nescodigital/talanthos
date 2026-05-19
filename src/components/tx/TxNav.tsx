@@ -12,9 +12,9 @@ export default function TxNav({ minimal = false }: TxNavProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const links = [
-    { label: "About", href: "#" },
-    { label: "The Four Types", href: "#" },
-    { label: "Journal", href: "#" },
+    { label: "About", href: "/coming-soon" },
+    { label: "The Four Types", href: "/coming-soon" },
+    { label: "Journal", href: "/coming-soon" },
     { label: "Contact", href: "/contact" },
   ];
 

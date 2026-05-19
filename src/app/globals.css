@@ -817,8 +817,8 @@ html[data-theme="vellum"] .tx-option.is-selected .tx-option-letter { color: #fff
 @media (max-width: 900px) {
   .tx-nav-links { display: none; }
   .tx-nav-burger { display: inline-flex; }
-  .tx-lockup .tx-mark-img { width: 36px !important; }
-  .tx-lockup .tx-text-img { height: 18px !important; }
+  .tx-lockup .tx-mark-img { width: 32px !important; }
+  .tx-lockup .tx-text-img { height: 26px !important; }
 }
 
 @media (max-width: 720px) {
