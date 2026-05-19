@@ -149,7 +149,7 @@ function PaywallContent() {
               <h2 className="mt-3 text-[var(--ink)] m-0" style={{ fontFamily: "var(--serif)", fontSize: "clamp(24px, 3vw, 32px)" }}>
                 Pay what feels right
               </h2>
-              <p className="mt-2 text-sm text-[var(--muted)]" style={{ fontFamily: "var(--serif)", fontStyle: "italic" }}>
+              <p className="mt-4 text-[var(--ink-soft)]" style={{ fontFamily: "var(--serif)", fontSize: 15, lineHeight: 1.5, fontStyle: "italic", paddingLeft: 16, borderLeft: "2px solid var(--accent-soft)" }}>
                 We rely on the generosity of people like you to keep building resources that help believers steward money faithfully.
               </p>
 
@@ -213,7 +213,7 @@ function PaywallContent() {
               <div className="mt-6 space-y-2 text-xs text-[var(--muted)]">
                 <p className="flex items-center justify-center gap-1.5"><Shield className="h-3.5 w-3.5" />Instant email delivery</p>
                 <p className="flex items-center justify-center gap-1.5"><Lock className="h-3.5 w-3.5" />Secure checkout via Stripe</p>
-                <p className="flex items-center justify-center gap-1.5"><Zap className="h-3.5 w-3.5" />Delivered to your inbox in 60 seconds</p>
+                <p className="flex items-center justify-center gap-1.5"><Zap className="h-3.5 w-3.5" />Delivered within 30 minutes</p>
               </div>
             </div>
           </BlurFade>
