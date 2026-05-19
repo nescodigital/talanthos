@@ -11,6 +11,7 @@ import TxRule from "@/components/tx/TxRule";
 import TxCard from "@/components/tx/TxCard";
 import TxButton from "@/components/tx/TxButton";
 import TxIcon from "@/components/tx/TxIcon";
+import ExitIntentShare from "@/components/quiz/ExitIntentShare";
 
 interface StoredAnswer {
   step: number;
@@ -227,6 +228,8 @@ export default function ResultPage() {
               <div className="tx-locked-body">
                 <TxEyebrow>Your full report</TxEyebrow>
                 <h3 className="tx-locked-h">Forty-seven pages, written for the {t.label}.</h3>
+                <p className="tx-locked-pitch">{t.reportPitch}</p>
+                <p className="tx-locked-fear">{t.reportFear}</p>
                 <ul className="tx-locked-list">
                   <li><span>01</span>Your four-dimensional stewardship score</li>
                   <li><span>02</span>A 30-day action plan, paced for your type</li>
@@ -276,6 +279,7 @@ export default function ResultPage() {
           </div>
         </main>
       </div>
+      <ExitIntentShare typeData={t} />
       <TxFooter />
     </div>
   );

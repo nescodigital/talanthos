@@ -10,6 +10,9 @@ export interface BiblicalTypeData {
   blindSpots: string[];
   verse: { text: string; ref: string };
   nextStep: string;
+  reportPitch: string;
+  reportFear: string;
+  shareMessage: string;
 }
 
 export type BiblicalType = 'visionary' | 'guardian' | 'giver' | 'builder';
@@ -44,6 +47,12 @@ export const BIBLICAL_TYPES: Record<string, BiblicalTypeData> = {
     },
     nextStep:
       "Solomon had wisdom AND wealth. He lost his way when he stopped letting wisdom govern the wealth. This week, name the one decision where your vision is currently moving faster than your counsel. Bring it to a wise voice before you bring it to the market.",
+    reportPitch:
+      "You see what others miss. But who's governing your speed? Solomon had wisdom and wealth — and lost both when vision outran counsel. This report maps your multiplication instinct against the guardrails that keep it from becoming recklessness. Without it, you're one fast decision away from a crater.",
+    reportFear:
+      "The Visionary who never reads the full report keeps building at full speed — with no one in the passenger seat. The crater doesn't announce itself.",
+    shareMessage:
+      "Just discovered I'm a Visionary — the Solomon archetype. This assessment mapped how I see opportunity where others see risk. What's your Biblical Money Type?",
   },
   guardian: {
     id: "guardian",
@@ -74,6 +83,12 @@ export const BIBLICAL_TYPES: Record<string, BiblicalTypeData> = {
     },
     nextStep:
       "Joseph stored for seven years — then he opened the storehouses. This week, identify one storehouse in your life God may be asking you to open. Set a date. Move it from posture to plan.",
+    reportPitch:
+      "You know how to save. But do you know when to deploy? Joseph stored grain for seven years — then he opened the storehouses. The Guardian's greatest risk isn't scarcity; it's the paralysis of never opening the door. This report shows you exactly when caution becomes disobedience, and gives you the framework to move from storage to sending.",
+    reportFear:
+      "The Guardian who never reads the full report keeps storing — while the famine outside their door was the very reason God asked them to gather in the first place.",
+    shareMessage:
+      "Just discovered I'm a Guardian — the Joseph archetype. This assessment showed me why I save and when I'm supposed to open the storehouse. What's your Biblical Money Type?",
   },
   giver: {
     id: "giver",
@@ -104,6 +119,12 @@ export const BIBLICAL_TYPES: Record<string, BiblicalTypeData> = {
     },
     nextStep:
       "Generosity without structure burns the giver. This week, write down your floor — the non-negotiable provision for those entrusted to you — and your ceiling — the limit beyond which giving becomes evasion. Then give freely in between.",
+    reportPitch:
+      "The Macedonians gave out of extreme poverty. You give out of overflow — but is your household still standing? The Giver's greatest deception is believing generosity excuses structure. This report gives you the floor-and-ceiling framework so you can keep giving without burning down what God entrusted you to protect.",
+    reportFear:
+      "The Giver who never reads the full report keeps saying yes — while their own roof leaks and their children's margin disappears. Grace is not a budget.",
+    shareMessage:
+      "Just discovered I'm a Giver — the Macedonian archetype. This assessment showed me why I give first and how to protect what I'm entrusted with. What's your Biblical Money Type?",
   },
   builder: {
     id: "builder",
@@ -134,5 +155,11 @@ export const BIBLICAL_TYPES: Record<string, BiblicalTypeData> = {
     },
     nextStep:
       "Nehemiah built with a trowel in one hand and a sword in the other — but he also stopped to read the law aloud. This week, schedule the pause before the next phase. Read. Receive. Then keep building.",
+    reportPitch:
+      "You finish what you start — but do you finish WITH people? Nehemiah built with a trowel in one hand and a sword in the other. But he also stopped to read the law aloud. The Builder's report shows you when your systems become walls that others can't scale, and gives you the blueprint for building that includes rest, celebration, and human connection.",
+    reportFear:
+      "The Builder who never reads the full report finishes the wall alone — and wonders why no one is left inside to celebrate.",
+    shareMessage:
+      "Just discovered I'm a Builder — the Nehemiah archetype. This assessment mapped how I finish what I start and where my systems become walls. What's your Biblical Money Type?",
   },
 };
