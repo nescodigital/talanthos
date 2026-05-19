@@ -284,7 +284,7 @@ export default function ResultPage() {
                     marginTop: 12,
                   }}
                 >
-                  One PDF. No subscription. 60-day money-back guarantee.
+                  One document. No subscription.
                 </p>
               </div>
             </section>
@@ -424,7 +424,7 @@ export default function ResultPage() {
                     <TxButton size="md">Send my full report</TxButton>
                   </form>
                 )}
-                <p className="tx-locked-fine">No subscription. One PDF, one follow-up. Unsubscribe any time.</p>
+                <p className="tx-locked-fine">No subscription. One document, one follow-up. Unsubscribe any time.</p>
               </div>
             </section>
             </BlurFade>

@@ -211,7 +211,7 @@ function PaywallContent() {
               </div>
 
               <div className="mt-6 space-y-2 text-xs text-[var(--muted)]">
-                <p className="flex items-center justify-center gap-1.5"><Shield className="h-3.5 w-3.5" />60-day money-back guarantee</p>
+                <p className="flex items-center justify-center gap-1.5"><Shield className="h-3.5 w-3.5" />Instant email delivery</p>
                 <p className="flex items-center justify-center gap-1.5"><Lock className="h-3.5 w-3.5" />Secure checkout via Stripe</p>
                 <p className="flex items-center justify-center gap-1.5"><Zap className="h-3.5 w-3.5" />Delivered to your inbox in 60 seconds</p>
               </div>

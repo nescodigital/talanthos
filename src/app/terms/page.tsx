@@ -44,8 +44,8 @@ export default function TermsPage() {
           <section>
             <h2 className="text-lg font-semibold text-[var(--ink)]">4. Purchases and Refunds</h2>
             <p className="mt-2">
-              All sales are processed in USD via Stripe. We offer a 30-day money-back guarantee on the
-              main report. To request a refund, email{" "}
+              All sales are processed in USD via Stripe and are final. For any issues with your
+              delivery, email{" "}
               <a href="mailto:support@talanthos.com" className="text-[var(--accent)] hover:underline">
                 support@talanthos.com
               </a>{" "}

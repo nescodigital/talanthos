@@ -551,7 +551,9 @@ html[data-theme="vellum"] .tx-option.is-selected .tx-option-letter { color: #fff
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
   overflow-x: auto;
+  scrollbar-width: none;
 }
+.tx-tabs::-webkit-scrollbar { display: none; }
 .tx-tab {
   appearance: none; border: 0; background: transparent;
   padding: 18px 22px;
