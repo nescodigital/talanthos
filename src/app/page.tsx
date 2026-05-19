@@ -11,6 +11,7 @@ import TxFooter from "@/components/tx/TxFooter";
 import LiveCounter from "@/components/ui/LiveCounter";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { TextEffect } from "@/components/ui/text-effect";
+import { BlurFade } from "@/components/ui/blur-fade";
 
 const trust = [
   { stat: "believers", label: "Believers assessed", live: true, start: 12847 },
@@ -56,44 +57,52 @@ export default function Home() {
               </div>
             </AuroraBackground>
 
-            <div className="tx-trust">
-              {trust.map((t, i) => (
-                <div className="tx-trust-cell" key={i}>
-                  <div className="tx-trust-stat">
-                    {t.live ? <LiveCounter start={t.start || 12847} /> : t.stat}
-                  </div>
-                  <div className="tx-trust-label">{t.label}</div>
-                </div>
-              ))}
-            </div>
-
-            <div className="tx-four">
-              <TxEyebrow align="center">The Four Types</TxEyebrow>
-              <div className="tx-four-grid">
-                {fourTypes.map((t) => (
-                  <article className="tx-four-card" key={t.id}>
-                    <div className="tx-four-glyph">
-                      <TxIcon name={t.glyph} size={28} strokeWidth={1.3} />
+            <BlurFade delay={0.2}>
+              <div className="tx-trust">
+                {trust.map((t, i) => (
+                  <div className="tx-trust-cell" key={i}>
+                    <div className="tx-trust-stat">
+                      {t.live ? <LiveCounter start={t.start || 12847} /> : t.stat}
                     </div>
-                    <div className="tx-four-figure">{t.figure}</div>
-                    <div className="tx-four-label">The {t.label}</div>
-                  </article>
+                    <div className="tx-trust-label">{t.label}</div>
+                  </div>
                 ))}
               </div>
-              <p className="tx-four-note">
-                Each type is <em>good</em>. None is better. The point is not to become
-                another. It is to become more faithfully who He already made you to be.
-              </p>
-            </div>
+            </BlurFade>
 
-            <blockquote className="tx-landing-verse">
-              <TxIcon name="quote" size={22} />
-              <p>
-                &ldquo;Each of you should use whatever gift you have received to serve
-                others, as faithful stewards of God&apos;s grace in its various forms.&rdquo;
-              </p>
-              <cite>1 Peter 4:10</cite>
-            </blockquote>
+            <BlurFade delay={0.3}>
+              <div className="tx-four">
+                <TxEyebrow align="center">The Four Types</TxEyebrow>
+                <div className="tx-four-grid">
+                  {fourTypes.map((t, i) => (
+                    <BlurFade key={t.id} delay={0.3 + i * 0.1}>
+                      <article className="tx-four-card">
+                        <div className="tx-four-glyph">
+                          <TxIcon name={t.glyph} size={28} strokeWidth={1.3} />
+                        </div>
+                        <div className="tx-four-figure">{t.figure}</div>
+                        <div className="tx-four-label">The {t.label}</div>
+                      </article>
+                    </BlurFade>
+                  ))}
+                </div>
+                <p className="tx-four-note">
+                  Each type is <em>good</em>. None is better. The point is not to become
+                  another. It is to become more faithfully who He already made you to be.
+                </p>
+              </div>
+            </BlurFade>
+
+            <BlurFade delay={0.4}>
+              <blockquote className="tx-landing-verse">
+                <TxIcon name="quote" size={22} />
+                <p>
+                  &ldquo;Each of you should use whatever gift you have received to serve
+                  others, as faithful stewards of God&apos;s grace in its various forms.&rdquo;
+                </p>
+                <cite>1 Peter 4:10</cite>
+              </blockquote>
+            </BlurFade>
           </div>
         </main>
       </div>

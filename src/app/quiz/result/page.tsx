@@ -13,6 +13,7 @@ import TxButton from "@/components/tx/TxButton";
 import TxIcon from "@/components/tx/TxIcon";
 import ExitIntentShare from "@/components/quiz/ExitIntentShare";
 import { TextEffect } from "@/components/ui/text-effect";
+import { BlurFade } from "@/components/ui/blur-fade";
 
 interface StoredAnswer {
   step: number;
@@ -148,10 +149,13 @@ export default function ResultPage() {
                 </TextEffect>
               </div>
               <TxRule width={70} />
-              <p className="tx-result-blurb">{t.blurb}</p>
+              <BlurFade delay={0.4}>
+                <p className="tx-result-blurb">{t.blurb}</p>
+              </BlurFade>
 
               {/* Dimensional bars */}
-              <div className="tx-bars">
+              <BlurFade delay={0.5}>
+                <div className="tx-bars">
                 {scoreOrder.map(({ key, label }) => {
                   const v = scores[key];
                   const pct = (v / maxScore) * 100;
@@ -169,9 +173,11 @@ export default function ResultPage() {
                   );
                 })}
               </div>
+              </BlurFade>
             </header>
 
             {/* URGENCY BANNER — sales first */}
+            <BlurFade delay={0.2}>
             <section
               style={{
                 background: "var(--surface)",
@@ -336,6 +342,7 @@ export default function ResultPage() {
               </div>
             </section>
 
+            <BlurFade delay={0.1}>
             {/* Tabs */}
             <nav className="tx-tabs" role="tablist">
               {tabLabels.map((x) => (
@@ -351,6 +358,7 @@ export default function ResultPage() {
               ))}
             </nav>
 
+            </BlurFade>
             <div className="tx-tab-panel">
               {tab === "overview" && (
                 <div className="tx-grid-2">
@@ -401,8 +409,10 @@ export default function ResultPage() {
                 </TxCard>
               )}
             </div>
+            </BlurFade>
 
             {/* Locked teaser — secondary CTA */}
+            <BlurFade delay={0.2}>
             <section className="tx-locked">
               <div className="tx-locked-preview" aria-hidden>
                 {[0, 1, 2].map((i) => (
@@ -470,6 +480,7 @@ export default function ResultPage() {
                 <p className="tx-locked-fine">No subscription. One PDF, one follow-up. Unsubscribe any time.</p>
               </div>
             </section>
+            </BlurFade>
 
             <div className="tx-result-foot">
               <button className="tx-link" onClick={() => {

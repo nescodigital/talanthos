@@ -8,6 +8,7 @@ import TxOption from "@/components/tx/TxOption";
 import TxRule from "@/components/tx/TxRule";
 import TxNav from "@/components/tx/TxNav";
 import TxFooter from "@/components/tx/TxFooter";
+import { BlurFade } from "@/components/ui/blur-fade";
 
 interface QuizCardProps {
   step: number;
@@ -116,7 +117,9 @@ export default function QuizCard({ step }: QuizCardProps) {
                 {String(step).padStart(2, "0")}
                 <span className="tx-quiz-numeral-of">/{String(total).padStart(2, "0")}</span>
               </div>
-              <h2 className="tx-quiz-q">{question.q}</h2>
+              <BlurFade delay={0.05} blur="4px" key={`q-${step}`}>
+                <h2 className="tx-quiz-q">{question.q}</h2>
+              </BlurFade>
               <TxRule width={50} />
 
               {question.type === "choice" && isChoiceQuestion(question) && (

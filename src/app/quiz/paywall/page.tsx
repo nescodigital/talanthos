@@ -22,6 +22,7 @@ import TxNav from "@/components/tx/TxNav";
 import TxFooter from "@/components/tx/TxFooter";
 import TxButton from "@/components/tx/TxButton";
 import { TextEffect } from "@/components/ui/text-effect";
+import { BlurFade } from "@/components/ui/blur-fade";
 
 const TYPE_NAMES: Record<string, string> = {
   builder: "The Builder",
@@ -107,21 +108,25 @@ function PaywallContent() {
         {/* Section 2: What's Inside */}
         <section className="px-5 sm:px-6 lg:px-14 py-16">
           <div className="mx-auto max-w-4xl">
-            <h2 className="text-center text-[var(--ink)] m-0" style={{ fontFamily: "var(--serif)", fontSize: "clamp(28px, 3vw, 36px)" }}>
-              What&apos;s Inside Your Report
-            </h2>
+            <BlurFade delay={0.1}>
+              <h2 className="text-center text-[var(--ink)] m-0" style={{ fontFamily: "var(--serif)", fontSize: "clamp(28px, 3vw, 36px)" }}>
+                What&apos;s Inside Your Report
+              </h2>
+            </BlurFade>
             <div className="mt-10 grid gap-6 md:grid-cols-2">
               {VALUE_ITEMS.map((item, i) => (
-                <motion.div key={item.title} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.06 }}
-                  className="flex gap-4 rounded-xl border border-[var(--rule)] bg-[var(--surface)] p-6 shadow-[var(--shadow)]">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--accent-soft)]">
-                    <item.icon className="h-5 w-5 text-[var(--accent)]" strokeWidth={1.5} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-[var(--ink)]">{item.title}</h3>
-                    <p className="mt-1 text-sm text-[var(--muted)]">{item.desc}</p>
-                  </div>
-                </motion.div>
+                <BlurFade key={item.title} delay={0.15 + i * 0.08}>
+                  <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.06 }}
+                    className="flex gap-4 rounded-xl border border-[var(--rule)] bg-[var(--surface)] p-6 shadow-[var(--shadow)]">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--accent-soft)]">
+                      <item.icon className="h-5 w-5 text-[var(--accent)]" strokeWidth={1.5} />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-[var(--ink)]">{item.title}</h3>
+                      <p className="mt-1 text-sm text-[var(--muted)]">{item.desc}</p>
+                    </div>
+                  </motion.div>
+                </BlurFade>
               ))}
             </div>
           </div>
@@ -129,6 +134,7 @@ function PaywallContent() {
 
         {/* Section 3: Pricing + CTA */}
         <section className="px-5 sm:px-6 lg:px-14 py-16">
+          <BlurFade delay={0.1}>
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
             className="mx-auto max-w-[540px] rounded-2xl border border-[var(--rule)] bg-[var(--surface)] px-8 py-12 text-center shadow-[var(--shadow)]" style={{ position: "relative", overflow: "hidden" }}>
             <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: "linear-gradient(90deg, var(--accent), var(--accent-soft))" }} />
@@ -151,6 +157,7 @@ function PaywallContent() {
               <p className="flex items-center justify-center gap-1.5"><Zap className="h-3.5 w-3.5" />Delivered to your inbox in 60 seconds</p>
             </div>
           </motion.div>
+          </BlurFade>
           <div className="mt-8 text-center">
             <Link href="/" className="text-xs text-[var(--muted)] hover:text-[var(--ink)] transition-colors">Maybe later. Send me a reminder.</Link>
           </div>
