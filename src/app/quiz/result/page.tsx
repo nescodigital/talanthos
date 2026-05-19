@@ -37,8 +37,7 @@ export default function ResultPage() {
   const [scores, setScores] = useState<{ visionary: number; guardian: number; giver: number; builder: number } | null>(null);
   const [loading, setLoading] = useState(true);
   const [tab, setTab] = useState("overview");
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+
 
   useEffect(() => {
     async function computeResult() {
@@ -94,8 +93,7 @@ export default function ResultPage() {
     { key: "builder", label: "Build" },
   ];
 
-  const emailHref = `/quiz/email?type=${encodeURIComponent(typeId)}&session=${encodeURIComponent(localStorage.getItem("talanthos_session_id") || "")}`;
-  const paywallHref = `/quiz/paywall?type=${encodeURIComponent(typeId)}&session=${encodeURIComponent(localStorage.getItem("talanthos_session_id") || "")}`;
+
 
   return (
     <div className="tx-page">
@@ -212,6 +210,22 @@ export default function ResultPage() {
                   </div>
                 </div>
               </BlurFade>
+
+              {/* Primary CTA — under pillars */}
+              <BlurFade delay={0.6}>
+                <div style={{ marginTop: 28, display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
+                  <TxButton size="lg" onClick={() => {
+                    const savedEmail = localStorage.getItem("talanthos_email");
+                    const base = `/quiz/paywall?type=${encodeURIComponent(typeId)}&session=${encodeURIComponent(localStorage.getItem("talanthos_session_id") || "")}`;
+                    router.push(savedEmail ? `${base}&email=${encodeURIComponent(savedEmail)}` : base);
+                  }}>
+                    Get my full report →
+                  </TxButton>
+                  <span style={{ fontFamily: "var(--mono)", fontSize: 11, color: "var(--muted)", letterSpacing: "0.06em" }}>
+                    47 pages · Personalized · Delivered in ~30 min
+                  </span>
+                </div>
+              </BlurFade>
             </header>
 
             <BlurFade delay={0.1}>
@@ -323,32 +337,16 @@ export default function ResultPage() {
                   <li><span>06</span>A giving rhythm that won&apos;t burn you out</li>
                 </ul>
 
-                {submitted ? (
-                  <div className="tx-locked-ack">
-                    <TxIcon name="check" size={18} />
-                    <span>Sent to <strong>{email}</strong>. Check your inbox in the next minute.</span>
-                  </div>
-                ) : (
-                  <form
-                    className="tx-locked-form"
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      if (email.includes("@")) {
-                        router.push(emailHref);
-                      }
-                    }}
-                  >
-                    <input
-                      type="email"
-                      placeholder="you@yourchurch.com"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                    />
-                    <TxButton size="md">Send my full report</TxButton>
-                  </form>
-                )}
-                <p className="tx-locked-fine">No subscription. One document, one follow-up. Unsubscribe any time.</p>
+                <div style={{ display: "flex", flexDirection: "column", gap: 12, alignItems: "flex-start" }}>
+                  <TxButton size="lg" onClick={() => {
+                    const savedEmail = localStorage.getItem("talanthos_email");
+                    const base = `/quiz/paywall?type=${encodeURIComponent(typeId)}&session=${encodeURIComponent(localStorage.getItem("talanthos_session_id") || "")}`;
+                    router.push(savedEmail ? `${base}&email=${encodeURIComponent(savedEmail)}` : base);
+                  }}>
+                    Get my full report →
+                  </TxButton>
+                  <p className="tx-locked-fine">No subscription. One document, one follow-up. Unsubscribe any time.</p>
+                </div>
               </div>
             </section>
             </BlurFade>

@@ -8,7 +8,7 @@ const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
 const leadSchema = z.object({
   email: z.string().email().max(100),
-  primary_type: z.enum(["builder", "guardian", "giver", "visionary"]),
+  primary_type: z.enum(["builder", "guardian", "giver", "visionary", "unknown"]).optional().default("unknown"),
   session_id: z.string().uuid(),
   marketing_consent: z.boolean(),
   first_name: z.string().max(50).optional(),
@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
       const { error } = await supabase
         .from("leads")
         .update({
-          primary_type: parsed.data.primary_type,
+          primary_type: parsed.data.primary_type === "unknown" ? undefined : parsed.data.primary_type,
           session_id: parsed.data.session_id,
           marketing_consent: parsed.data.marketing_consent,
           first_name: parsed.data.first_name || null,
