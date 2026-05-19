@@ -2,7 +2,7 @@ import TxNav from "@/components/tx/TxNav";
 import TxFooter from "@/components/tx/TxFooter";
 
 export const metadata = {
-  title: "Privacy Policy — Talanthos",
+  title: "Privacy Policy. Talanthos",
 };
 
 export default function PrivacyPage() {
@@ -30,7 +30,7 @@ export default function PrivacyPage() {
               <li>Email address (when you submit the quiz)</li>
               <li>Quiz answers (anonymous, linked to your session)</li>
               <li>Marketing consent preference</li>
-              <li>Purchase information (processed via Stripe — we never store card details)</li>
+              <li>Purchase information (processed via Stripe. We never store card details)</li>
               <li>Technical data (IP address, browser type, device type)</li>
               <li>UTM parameters and referral sources</li>
             </ul>

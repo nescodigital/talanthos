@@ -19,7 +19,7 @@ body {
 button { font-family: inherit; }
 
 :root {
-  /* default theme — parchment */
+  /* default theme: parchment */
   --bg:#f3ece0; --bg-2:#ede4d3; --surface:#f8f2e6; --surface-2:#efe6d4;
   --ink:#1c1a14; --ink-2:#46412f; --muted:#7a7359;
   --rule:rgba(28,26,20,0.12); --rule-strong:rgba(28,26,20,0.22);

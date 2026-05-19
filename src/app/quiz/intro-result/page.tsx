@@ -29,7 +29,7 @@ export default function IntroResultPage() {
                 &ldquo;Each of you should use whatever gift you have received to serve
                 others, as faithful stewards of God&apos;s grace in its various forms.&rdquo;
               </p>
-              <cite>— 1 Peter 4:10</cite>
+              <cite>1 Peter 4:10</cite>
             </blockquote>
             <TxRule width={80} />
             <p className="tx-intro-body">
@@ -37,7 +37,7 @@ export default function IntroResultPage() {
               <br /><br />
               There is no <em>better</em> type. Each one reflects how God has
               uniquely wired you to handle wealth. The point of seeing it is not
-              to perform it — it is to receive it, to repent of where it has bent
+              to perform it. It is to receive it, to repent of where it has bent
               inward, and to steward it with the people He has put in front of you.
             </p>
             {showCta && (

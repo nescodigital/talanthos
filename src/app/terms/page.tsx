@@ -2,7 +2,7 @@ import TxNav from "@/components/tx/TxNav";
 import TxFooter from "@/components/tx/TxFooter";
 
 export const metadata = {
-  title: "Terms of Service — Talanthos",
+  title: "Terms of Service. Talanthos",
 };
 
 export default function TermsPage() {

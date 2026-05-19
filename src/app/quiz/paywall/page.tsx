@@ -48,10 +48,10 @@ const VALUE_ITEMS = [
   { icon: BookOpen, title: "30 Curated Scripture Passages", desc: "Carefully selected verses for your specific type, with reflections" },
   { icon: TrendingUp, title: "Personalized Growth Roadmap", desc: "Your specific blind spots and how to address them step by step" },
   { icon: Target, title: "30-Day Action Plan", desc: "Daily micro-actions designed for your archetype" },
-  { icon: Banknote, title: "Debt Strategy for Your Type", desc: "The right debt approach for your type — others may not work" },
+  { icon: Banknote, title: "Debt Strategy for Your Type", desc: "The right debt approach for your type. Others may not work." },
   { icon: LineChart, title: "Investment Philosophy", desc: "How your type should think about growing wealth biblically" },
   { icon: HandHeart, title: "Giving Strategy", desc: "Tithing and generosity calibrated to your strengths and blind spots" },
-  { icon: Sparkles, title: "Your Hidden Gift", desc: "The unique way God has wired you to handle money — and how to use it" },
+  { icon: Sparkles, title: "Your Hidden Gift", desc: "The unique way God has wired you to handle money, and how to use it" },
 ];
 
 function PaywallContent() {
@@ -74,12 +74,12 @@ function PaywallContent() {
     <div className="flex min-h-full flex-col relative z-[1]">
       <TxNav minimal />
       <main className="flex-1 flex flex-col">
-        {/* Section 1 — Hero */}
+        {/* Section 1: Hero */}
         <section className="px-5 sm:px-6 lg:px-14 pt-16 pb-12 text-center">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--accent-line)] bg-[var(--accent-soft)] px-4 py-1.5 text-xs font-medium text-[var(--accent)]">
               <CheckCircle2 className="h-3.5 w-3.5" />
-              Quiz Complete — Your Report Is Ready
+              Quiz Complete. Your Report Is Ready
             </span>
             <h1 className="mt-6 text-[var(--ink)] m-0" style={{ fontFamily: "var(--serif)", fontSize: "clamp(36px, 5vw, 56px)", lineHeight: 1.05 }}>
               Your Full {typeName} Report
@@ -99,7 +99,7 @@ function PaywallContent() {
           </motion.div>
         </section>
 
-        {/* Section 2 — What's Inside */}
+        {/* Section 2: What's Inside */}
         <section className="px-5 sm:px-6 lg:px-14 py-16">
           <div className="mx-auto max-w-4xl">
             <h2 className="text-center text-[var(--ink)] m-0" style={{ fontFamily: "var(--serif)", fontSize: "clamp(28px, 3vw, 36px)" }}>
@@ -122,28 +122,32 @@ function PaywallContent() {
           </div>
         </section>
 
-        {/* Section 3 — Pricing + CTA */}
+        {/* Section 3: Pricing + CTA */}
         <section className="px-5 sm:px-6 lg:px-14 py-16">
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
-            className="mx-auto max-w-[540px] rounded-2xl border border-[var(--rule)] bg-[var(--surface)] px-8 py-12 text-center shadow-[var(--shadow)]">
-            <p className="text-xs font-medium uppercase tracking-widest text-[var(--muted)]">One-Time Purchase</p>
+            className="mx-auto max-w-[540px] rounded-2xl border border-[var(--rule)] bg-[var(--surface)] px-8 py-12 text-center shadow-[var(--shadow)]" style={{ position: "relative", overflow: "hidden" }}>
+            <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: "linear-gradient(90deg, var(--accent), var(--accent-soft))" }} />
+            <p className="text-xs font-medium uppercase tracking-widest text-[var(--accent)]">Limited intro pricing</p>
             <div className="mt-4 flex items-center justify-center gap-3">
-              <span className="text-[var(--ink)] m-0" style={{ fontFamily: "var(--serif)", fontSize: "clamp(40px, 5vw, 64px)", fontWeight: 400 }}>$19</span>
-              <span className="text-lg text-[var(--muted)] line-through">$47</span>
+              <span className="text-[var(--ink)] m-0" style={{ fontFamily: "var(--serif)", fontSize: "clamp(40px, 5vw, 64px)", fontWeight: 400 }}>$9.99</span>
+              <span className="text-lg text-[var(--muted)] line-through">$19.99</span>
             </div>
-            <p className="mt-2 text-sm text-[var(--muted)]">No subscription. Yours forever.</p>
+            <p className="mt-2 text-sm text-[var(--muted)]">No subscription. One PDF. Yours forever.</p>
+            <p className="mt-3 text-sm" style={{ fontFamily: "var(--serif)", color: "var(--ink-soft)", fontStyle: "italic" }}>
+              This is not a generic download. It is a 47-page guidebook written for {typeName}, based on your exact answers.
+            </p>
             <Link href="/coming-soon-checkout"
               className="mt-8 block w-full rounded-full bg-[var(--accent)] py-4 text-base font-medium text-white transition-all hover:-translate-y-px hover:shadow-[0_18px_30px_-16px_rgba(40,30,10,0.7)] text-center">
               Get My Report Now
             </Link>
             <div className="mt-6 space-y-2 text-xs text-[var(--muted)]">
-              <p className="flex items-center justify-center gap-1.5"><Shield className="h-3.5 w-3.5" />30-day money-back guarantee</p>
+              <p className="flex items-center justify-center gap-1.5"><Shield className="h-3.5 w-3.5" />60-day money-back guarantee</p>
               <p className="flex items-center justify-center gap-1.5"><Lock className="h-3.5 w-3.5" />Secure checkout via Stripe</p>
               <p className="flex items-center justify-center gap-1.5"><Zap className="h-3.5 w-3.5" />Delivered to your inbox in 60 seconds</p>
             </div>
           </motion.div>
           <div className="mt-8 text-center">
-            <Link href="/" className="text-xs text-[var(--muted)] hover:text-[var(--ink)] transition-colors">Maybe later — send me a reminder</Link>
+            <Link href="/" className="text-xs text-[var(--muted)] hover:text-[var(--ink)] transition-colors">Maybe later. Send me a reminder.</Link>
           </div>
         </section>
       </main>

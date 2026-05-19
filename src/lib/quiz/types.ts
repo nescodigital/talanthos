@@ -26,11 +26,11 @@ export const BIBLICAL_TYPES: Record<string, BiblicalTypeData> = {
     monogram: "I",
     glyph: "crown",
     blurb:
-      "You see what others miss. Resources, in your hand, become engines for what's next — a business, a movement, a legacy. You don't fear wealth; you steward its multiplication.",
+      "You see what others miss. Resources, in your hand, become engines for what's next: a business, a movement, a legacy. You don't fear wealth; you steward its multiplication.",
     strengths: [
       "Reads opportunity where others read risk",
       "Multiplies what's been entrusted to you",
-      "Naturally long-horizon — thinks in decades",
+      "Naturally long-horizon; thinks in decades",
       "Connects wisdom to capital allocation",
       "Inspires others to dream practically",
     ],
@@ -42,17 +42,17 @@ export const BIBLICAL_TYPES: Record<string, BiblicalTypeData> = {
       "Risk of treating relationships as resources",
     ],
     verse: {
-      text: "Moreover, I will give you what you have not asked for — both riches and honor — so that in your lifetime you will have no equal among kings.",
+      text: "Moreover, I will give you what you have not asked for: both riches and honor, so that in your lifetime you will have no equal among kings.",
       ref: "1 Kings 3:13",
     },
     nextStep:
       "Solomon had wisdom AND wealth. He lost his way when he stopped letting wisdom govern the wealth. This week, name the one decision where your vision is currently moving faster than your counsel. Bring it to a wise voice before you bring it to the market.",
     reportPitch:
-      "You see what others miss. But who's governing your speed? Solomon had wisdom and wealth — and lost both when vision outran counsel. This report maps your multiplication instinct against the guardrails that keep it from becoming recklessness. Without it, you're one fast decision away from a crater.",
+      "You see what others miss. But who's governing your speed? Solomon had wisdom and wealth, and lost both when vision outran counsel. This report maps your multiplication instinct against the guardrails that keep it from becoming recklessness. Without it, you're one fast decision away from a crater.",
     reportFear:
-      "The Visionary who never reads the full report keeps building at full speed — with no one in the passenger seat. The crater doesn't announce itself.",
+      "The Visionary who never reads the full report keeps building at full speed, with no one in the passenger seat. The crater doesn't announce itself.",
     shareMessage:
-      "Just discovered I'm a Visionary — the Solomon archetype. This assessment mapped how I see opportunity where others see risk. What's your Biblical Money Type?",
+      "I just took a 3-minute assessment that named something about money I could never articulate. Turns out I'm a Visionary, the Solomon archetype. What is your Biblical Money Type? I need to know.",
   },
   guardian: {
     id: "guardian",
@@ -62,10 +62,10 @@ export const BIBLICAL_TYPES: Record<string, BiblicalTypeData> = {
     monogram: "II",
     glyph: "shield",
     blurb:
-      "You see the lean years coming. While others spend the harvest, you store it — quietly, faithfully, with a discipline that protects families, businesses, and futures from the famine no one else is preparing for.",
+      "You see the lean years coming. While others spend the harvest, you store it: quietly, faithfully, with a discipline that protects families, businesses, and futures from the famine no one else is preparing for.",
     strengths: [
       "Disciplined saver; runway is your love language",
-      "Long-memory — learns from past scarcity",
+      "Long-memory; learns from past scarcity",
       "Calm in volatility; you've already modeled it",
       "Protective instinct for dependents and team",
       "Trusted with other people's resources",
@@ -82,13 +82,13 @@ export const BIBLICAL_TYPES: Record<string, BiblicalTypeData> = {
       ref: "Genesis 41:49",
     },
     nextStep:
-      "Joseph stored for seven years — then he opened the storehouses. This week, identify one storehouse in your life God may be asking you to open. Set a date. Move it from posture to plan.",
+      "Joseph stored for seven years, then he opened the storehouses. This week, identify one storehouse in your life God may be asking you to open. Set a date. Move it from posture to plan.",
     reportPitch:
-      "You know how to save. But do you know when to deploy? Joseph stored grain for seven years — then he opened the storehouses. The Guardian's greatest risk isn't scarcity; it's the paralysis of never opening the door. This report shows you exactly when caution becomes disobedience, and gives you the framework to move from storage to sending.",
+      "You know how to save. But do you know when to deploy? Joseph stored grain for seven years, then he opened the storehouses. The Guardian's greatest risk isn't scarcity; it's the paralysis of never opening the door. This report shows you exactly when caution becomes disobedience, and gives you the framework to move from storage to sending.",
     reportFear:
-      "The Guardian who never reads the full report keeps storing — while the famine outside their door was the very reason God asked them to gather in the first place.",
+      "The Guardian who never reads the full report keeps storing, while the famine outside their door was the very reason God asked them to gather in the first place.",
     shareMessage:
-      "Just discovered I'm a Guardian — the Joseph archetype. This assessment showed me why I save and when I'm supposed to open the storehouse. What's your Biblical Money Type?",
+      "I just took a 3-minute assessment that explained why I handle money the way I do. Turns out I'm a Guardian, the Joseph archetype. What is your Biblical Money Type? I need to know.",
   },
   giver: {
     id: "giver",
@@ -98,7 +98,7 @@ export const BIBLICAL_TYPES: Record<string, BiblicalTypeData> = {
     monogram: "III",
     glyph: "open-hand",
     blurb:
-      "Generosity isn't a line item for you — it's the lens. You give early, you give first, you give past comfort. People feel seen because you make a way for them with what's in your hand.",
+      "Generosity isn't a line item for you. It's the lens. You give early, you give first, you give past comfort. People feel seen because you make a way for them with what's in your hand.",
     strengths: [
       "Generous beyond your own balance sheet",
       "Reads the unspoken need in a room",
@@ -118,13 +118,13 @@ export const BIBLICAL_TYPES: Record<string, BiblicalTypeData> = {
       ref: "2 Corinthians 8:2",
     },
     nextStep:
-      "Generosity without structure burns the giver. This week, write down your floor — the non-negotiable provision for those entrusted to you — and your ceiling — the limit beyond which giving becomes evasion. Then give freely in between.",
+      "Generosity without structure burns the giver. This week, write down your floor, the non-negotiable provision for those entrusted to you, and your ceiling, the limit beyond which giving becomes evasion. Then give freely in between.",
     reportPitch:
-      "The Macedonians gave out of extreme poverty. You give out of overflow — but is your household still standing? The Giver's greatest deception is believing generosity excuses structure. This report gives you the floor-and-ceiling framework so you can keep giving without burning down what God entrusted you to protect.",
+      "The Macedonians gave out of extreme poverty. You give out of overflow, but is your household still standing? The Giver's greatest deception is believing generosity excuses structure. This report gives you the floor-and-ceiling framework so you can keep giving without burning down what God entrusted you to protect.",
     reportFear:
-      "The Giver who never reads the full report keeps saying yes — while their own roof leaks and their children's margin disappears. Grace is not a budget.",
+      "The Giver who never reads the full report keeps saying yes, while their own roof leaks and their children's margin disappears. Grace is not a budget.",
     shareMessage:
-      "Just discovered I'm a Giver — the Macedonian archetype. This assessment showed me why I give first and how to protect what I'm entrusted with. What's your Biblical Money Type?",
+      "I just took a 3-minute assessment that finally explained my relationship with money. Turns out I'm a Giver, the Macedonian archetype. What is your Biblical Money Type? I need to know.",
   },
   builder: {
     id: "builder",
@@ -134,7 +134,7 @@ export const BIBLICAL_TYPES: Record<string, BiblicalTypeData> = {
     monogram: "IV",
     glyph: "wall",
     blurb:
-      "You don't chase the new — you restore what's broken and finish what others abandoned. Brick by brick, system by system, your money builds walls that protect what matters for a generation.",
+      "You don't chase the new. You restore what's broken and finish what others abandoned. Brick by brick, system by system, your money builds walls that protect what matters for a generation.",
     strengths: [
       "Patient compounder; you finish what you start",
       "Translates conviction into systems and plans",
@@ -154,12 +154,12 @@ export const BIBLICAL_TYPES: Record<string, BiblicalTypeData> = {
       ref: "Nehemiah 4:6",
     },
     nextStep:
-      "Nehemiah built with a trowel in one hand and a sword in the other — but he also stopped to read the law aloud. This week, schedule the pause before the next phase. Read. Receive. Then keep building.",
+      "Nehemiah built with a trowel in one hand and a sword in the other, but he also stopped to read the law aloud. This week, schedule the pause before the next phase. Read. Receive. Then keep building.",
     reportPitch:
-      "You finish what you start — but do you finish WITH people? Nehemiah built with a trowel in one hand and a sword in the other. But he also stopped to read the law aloud. The Builder's report shows you when your systems become walls that others can't scale, and gives you the blueprint for building that includes rest, celebration, and human connection.",
+      "You finish what you start, but do you finish WITH people? Nehemiah built with a trowel in one hand and a sword in the other. But he also stopped to read the law aloud. The Builder's report shows you when your systems become walls that others can't scale, and gives you the blueprint for building that includes rest, celebration, and human connection.",
     reportFear:
-      "The Builder who never reads the full report finishes the wall alone — and wonders why no one is left inside to celebrate.",
+      "The Builder who never reads the full report finishes the wall alone, and wonders why no one is left inside to celebrate.",
     shareMessage:
-      "Just discovered I'm a Builder — the Nehemiah archetype. This assessment mapped how I finish what I start and where my systems become walls. What's your Biblical Money Type?",
+      "I just took a 3-minute assessment that named a pattern in my finances I never saw before. Turns out I'm a Builder, the Nehemiah archetype. What is your Biblical Money Type? I need to know.",
   },
 };

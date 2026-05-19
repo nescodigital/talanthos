@@ -39,7 +39,7 @@ export default function Home() {
               </h1>
               <p className="tx-lede">
                 A two-minute assessment, grounded in Scripture, that names the way
-                God has uniquely wired you to relate to money — your strengths, your
+                God has uniquely wired you to relate to money. Your strengths, your
                 blind spots, and the next step that&apos;s yours alone.
               </p>
               <div className="tx-cta-row">
@@ -74,7 +74,7 @@ export default function Home() {
               </div>
               <p className="tx-four-note">
                 Each type is <em>good</em>. None is better. The point is not to become
-                another — it is to become more faithfully who He already made you to be.
+                another. It is to become more faithfully who He already made you to be.
               </p>
             </div>
 
@@ -84,7 +84,7 @@ export default function Home() {
                 &ldquo;Each of you should use whatever gift you have received to serve
                 others, as faithful stewards of God&apos;s grace in its various forms.&rdquo;
               </p>
-              <cite>— 1 Peter 4:10</cite>
+              <cite>1 Peter 4:10</cite>
             </blockquote>
           </div>
         </main>

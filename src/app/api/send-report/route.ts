@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
       text: `
 Hi there,
 
-You are ${t.label} — ${t.tagline}
+You are ${t.label}. ${t.tagline}
 
 ${t.blurb}
 
@@ -53,7 +53,7 @@ Your scores:
 ${scoreLines}
 
 Key verse:
-"${t.verse.text}" — ${t.verse.ref}
+"${t.verse.text}" ${t.verse.ref}
 
 Your next step:
 ${t.nextStep}
@@ -69,7 +69,7 @@ Talanthos
           ${scoreLines ? `<pre style="background: #efe6d4; padding: 16px; border-radius: 8px; font-size: 13px; line-height: 1.6;">${scoreLines}</pre>` : ""}
           <blockquote style="border-left: 2px solid #b88a4a; padding-left: 16px; margin: 24px 0; font-style: italic; color: #46412f;">
             "${t.verse.text}"
-            <br><span style="font-style: normal; font-size: 12px; color: #7a7359;">— ${t.verse.ref}</span>
+            <br><span style="font-style: normal; font-size: 12px; color: #7a7359;">${t.verse.ref}</span>
           </blockquote>
           <p style="font-size: 15px; line-height: 1.6; margin: 0;"><strong>Your next step:</strong><br>${t.nextStep}</p>
           <hr style="border: 0; border-top: 1px solid rgba(28,26,20,0.12); margin: 32px 0;">

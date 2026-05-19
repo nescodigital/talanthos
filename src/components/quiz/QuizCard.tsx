@@ -195,7 +195,7 @@ export default function QuizCard({ step }: QuizCardProps) {
                   ← Previous
                 </button>
                 <span className="tx-quiz-hint">
-                  {question.type === "text" ? "Write freely — then continue" : "Select an answer to continue"}
+                  {question.type === "text" ? "Write freely, then continue" : "Select an answer to continue"}
                 </span>
               </div>
             </div>

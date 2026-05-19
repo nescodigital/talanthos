@@ -29,6 +29,12 @@ const tabLabels = [
   { id: "next", label: "Next step" },
 ];
 
+function formatTime(totalSeconds: number) {
+  const m = Math.floor(totalSeconds / 60);
+  const s = totalSeconds % 60;
+  return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+}
+
 export default function ResultPage() {
   const router = useRouter();
   const [typeId, setTypeId] = useState<BiblicalType | null>(null);
@@ -37,6 +43,8 @@ export default function ResultPage() {
   const [tab, setTab] = useState("overview");
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [secondsLeft, setSecondsLeft] = useState(900);
+  const [spotsLeft, setSpotsLeft] = useState(6);
 
   useEffect(() => {
     async function computeResult() {
@@ -69,6 +77,28 @@ export default function ResultPage() {
     computeResult();
   }, [router]);
 
+  useEffect(() => {
+    if (secondsLeft <= 0) return;
+    const timer = setInterval(() => {
+      setSecondsLeft((s) => {
+        if (s <= 1) {
+          clearInterval(timer);
+          return 0;
+        }
+        return s - 1;
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [secondsLeft]);
+
+  useEffect(() => {
+    if (spotsLeft <= 1) return;
+    const spotTimer = setInterval(() => {
+      setSpotsLeft((s) => (s > 1 ? s - 1 : s));
+    }, 45000);
+    return () => clearInterval(spotTimer);
+  }, [spotsLeft]);
+
   if (loading) {
     return (
       <div className="tx-page">
@@ -93,6 +123,7 @@ export default function ResultPage() {
   ];
 
   const emailHref = `/quiz/email?type=${encodeURIComponent(typeId)}&session=${encodeURIComponent(localStorage.getItem("talanthos_session_id") || "")}`;
+  const paywallHref = `/quiz/paywall?type=${encodeURIComponent(typeId)}&session=${encodeURIComponent(localStorage.getItem("talanthos_session_id") || "")}`;
 
   return (
     <div className="tx-page">
@@ -108,7 +139,7 @@ export default function ResultPage() {
               </div>
               <TxEyebrow align="center">You are</TxEyebrow>
               <h1 className="tx-display tx-result-title">{t.label}</h1>
-              <div className="tx-result-figure">{t.figure} &nbsp;·&nbsp; {t.tagline}</div>
+              <div className="tx-result-figure">{t.figure} &nbsp;&middot;&nbsp; {t.tagline}</div>
               <TxRule width={70} />
               <p className="tx-result-blurb">{t.blurb}</p>
 
@@ -132,6 +163,171 @@ export default function ResultPage() {
                 })}
               </div>
             </header>
+
+            {/* URGENCY BANNER — sales first */}
+            <section
+              style={{
+                background: "var(--surface)",
+                border: "1px solid var(--rule)",
+                borderRadius: 18,
+                padding: "clamp(24px, 4vw, 40px)",
+                margin: "32px 0",
+                position: "relative",
+                overflow: "hidden",
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: 3,
+                  background: "linear-gradient(90deg, var(--accent), var(--accent-soft))",
+                }}
+              />
+              <div style={{ textAlign: "center" }}>
+                <p
+                  style={{
+                    fontFamily: "var(--mono)",
+                    fontSize: 11,
+                    color: "var(--accent)",
+                    letterSpacing: "0.14em",
+                    textTransform: "uppercase",
+                    margin: "0 0 10px",
+                  }}
+                >
+                  Your personalized guidebook is ready
+                </p>
+                <h3
+                  style={{
+                    fontFamily: "var(--serif)",
+                    fontSize: "clamp(22px, 2.6vw, 30px)",
+                    lineHeight: 1.2,
+                    color: "var(--ink)",
+                    margin: "0 0 12px",
+                  }}
+                >
+                  A 47-page report written for you, not a template.
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "var(--serif)",
+                    fontSize: "clamp(15px, 1.3vw, 17px)",
+                    lineHeight: 1.5,
+                    color: "var(--ink-soft)",
+                    margin: "0 0 18px",
+                    maxWidth: 520,
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                  }}
+                >
+                  Every answer you gave shaped this. Your age, your regrets, your financial situation, your faith tradition. It is a guide you will return to for years.
+                </p>
+
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 16,
+                    marginBottom: 18,
+                    flexWrap: "wrap",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "var(--serif)",
+                      fontSize: "clamp(28px, 3vw, 36px)",
+                      color: "var(--ink)",
+                      fontWeight: 600,
+                    }}
+                  >
+                    $9.99
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: "var(--sans)",
+                      fontSize: 16,
+                      color: "var(--muted)",
+                      textDecoration: "line-through",
+                    }}
+                  >
+                    $19.99
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: "var(--mono)",
+                      fontSize: 11,
+                      color: "var(--accent)",
+                      background: "var(--accent-soft)",
+                      padding: "4px 10px",
+                      borderRadius: 20,
+                    }}
+                  >
+                    50% off
+                  </span>
+                </div>
+
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 24,
+                    marginBottom: 20,
+                    flexWrap: "wrap",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "var(--mono)",
+                      fontSize: 12,
+                      color: secondsLeft <= 60 ? "#c44" : "var(--muted)",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 6,
+                    }}
+                  >
+                    <TxIcon name="clock" size={14} />
+                    {secondsLeft > 0 ? `Offer expires in ${formatTime(secondsLeft)}` : "Offer expired"}
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: "var(--mono)",
+                      fontSize: 12,
+                      color: "var(--accent)",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 6,
+                    }}
+                  >
+                    <TxIcon name="flame" size={14} />
+                    Only {spotsLeft} left at this price
+                  </span>
+                </div>
+
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  <TxButton
+                    size="lg"
+                    onClick={() => router.push(paywallHref)}
+                  >
+                    Get My Full Report
+                  </TxButton>
+                </div>
+
+                <p
+                  style={{
+                    fontFamily: "var(--mono)",
+                    fontSize: 10,
+                    color: "var(--muted)",
+                    marginTop: 12,
+                  }}
+                >
+                  One PDF. No subscription. 60-day money-back guarantee.
+                </p>
+              </div>
+            </section>
 
             {/* Tabs */}
             <nav className="tx-tabs" role="tablist">
@@ -188,7 +384,7 @@ export default function ResultPage() {
                 <TxCard eyebrow="Your key verse" icon="book" tone="verse">
                   <blockquote className="tx-verse-big">
                     <p>"{t.verse.text}"</p>
-                    <cite>— {t.verse.ref}</cite>
+                    <cite>{t.verse.ref}</cite>
                   </blockquote>
                 </TxCard>
               )}
@@ -199,7 +395,7 @@ export default function ResultPage() {
               )}
             </div>
 
-            {/* Locked teaser */}
+            {/* Locked teaser — secondary CTA */}
             <section className="tx-locked">
               <div className="tx-locked-preview" aria-hidden>
                 {[0, 1, 2].map((i) => (
@@ -274,7 +470,7 @@ export default function ResultPage() {
                 localStorage.removeItem("talanthos_answers");
                 router.push("/quiz");
               }}>← Retake the assessment</button>
-              <span className="tx-result-share">Share &nbsp;·&nbsp; Print &nbsp;·&nbsp; Save</span>
+              <span className="tx-result-share">Share &nbsp;&middot;&nbsp; Print &nbsp;&middot;&nbsp; Save</span>
             </div>
           </div>
         </main>

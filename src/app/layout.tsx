@@ -32,11 +32,11 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Talanthos — Discover Your Biblical Money Type",
+  title: "Talanthos. Discover Your Biblical Money Type",
   description:
     "A two-minute assessment, grounded in Scripture, that names the way God has uniquely wired you to relate to money.",
   openGraph: {
-    title: "Talanthos — Discover Your Biblical Money Type",
+    title: "Talanthos. Discover Your Biblical Money Type",
     description:
       "A two-minute assessment, grounded in Scripture, that names the way God has uniquely wired you to relate to money.",
     type: "website",
