@@ -59,9 +59,9 @@ const VALUE_ITEMS = [
 
 const TIERS = [
   { amount: 999, label: "$9.99", desc: "Access the full report" },
-  { amount: 1499, label: "$14.99", desc: "Most people choose this", popular: true },
-  { amount: 1999, label: "$19.99", desc: "Includes future updates" },
-  { amount: 2999, label: "$29.99", desc: "Support the mission" },
+  { amount: 1399, label: "$13.99", desc: "Support the work" },
+  { amount: 1799, label: "$17.99", desc: "Most people choose this", popular: true },
+  { amount: 2999, label: "$29.99", desc: "Go above and beyond" },
 ];
 
 function PaywallContent() {
@@ -150,7 +150,7 @@ function PaywallContent() {
                 Pay what feels right
               </h2>
               <p className="mt-2 text-sm text-[var(--muted)]" style={{ fontFamily: "var(--serif)", fontStyle: "italic" }}>
-                Every purchase helps us build more resources for believers learning to steward money faithfully.
+                We rely on the generosity of people like you to keep building resources that help believers steward money faithfully.
               </p>
 
               <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4">

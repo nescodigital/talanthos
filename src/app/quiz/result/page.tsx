@@ -132,7 +132,7 @@ export default function ResultPage() {
                       alignItems: "flex-end",
                       justifyContent: "center",
                       gap: "clamp(8px, 2vw, 20px)",
-                      height: 220,
+                      height: 260,
                       padding: "0 8px",
                     }}
                   >
@@ -161,8 +161,8 @@ export default function ResultPage() {
                           <div
                             style={{
                               width: "100%",
-                              height: `${pct * 1.8}px`,
-                              minHeight: 28,
+                              height: `${pct * 2.2}px`,
+                              minHeight: 48,
                               borderRadius: "14px 14px 4px 4px",
                               background: isHi
                                 ? "linear-gradient(180deg, var(--accent) 0%, #c9a96e 100%)"
@@ -174,7 +174,7 @@ export default function ResultPage() {
                               flexDirection: "column",
                               alignItems: "center",
                               justifyContent: "flex-end",
-                              paddingBottom: 10,
+                              paddingBottom: 16,
                               position: "relative",
                               transition: "all 0.6s ease-out",
                             }}
@@ -191,8 +191,8 @@ export default function ResultPage() {
                               {v}
                             </span>
                           </div>
-                          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
-                            <TxIcon name={glyphMap[key]} size={isHi ? 20 : 16} strokeWidth={1.4} />
+                          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 3, marginTop: -2 }}>
+                            <TxIcon name={glyphMap[key]} size={isHi ? 18 : 14} strokeWidth={1.4} />
                             <span
                               style={{
                                 fontFamily: "var(--mono)",
