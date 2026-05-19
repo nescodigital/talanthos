@@ -814,6 +814,44 @@ html[data-theme="vellum"] .tx-option.is-selected .tx-option-letter { color: #fff
 }
 
 /* ───────────────────────────────────────────────────────────────────
+   ARTICLE BODY
+─────────────────────────────────────────────────────────────────── */
+.article-body h3 {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--ink);
+  margin: 32px 0 14px;
+  line-height: 1.3;
+}
+.article-body p {
+  margin-bottom: 16px;
+}
+.article-body p a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-line);
+  transition: border-color .2s;
+}
+.article-body p a:hover {
+  border-bottom-color: var(--accent);
+}
+.article-body em {
+  font-style: italic;
+  color: var(--accent);
+}
+.article-body strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.journal-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-line) !important;
+  box-shadow: 0 12px 30px -15px rgba(40,30,10,0.15);
+}
+
+/* ───────────────────────────────────────────────────────────────────
    RESPONSIVE
 ─────────────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
