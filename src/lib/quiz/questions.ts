@@ -51,6 +51,20 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
   },
   {
+    id: 'denomination',
+    type: 'select',
+    q: 'Your faith tradition —',
+    options: [
+      { value: 'catholic', text: 'Roman Catholic' },
+      { value: 'orthodox', text: 'Eastern Orthodox (Greek, Russian, Romanian, Serbian…)' },
+      { value: 'protestant-liturgical', text: 'Protestant — Lutheran, Anglican, Presbyterian, Methodist, Reformed' },
+      { value: 'protestant-evangelical', text: 'Protestant — Baptist, Evangelical, Non-denominational' },
+      { value: 'pentecostal', text: 'Pentecostal / Charismatic' },
+      { value: 'other-christian', text: 'Another Christian tradition (Adventist, LDS, Jehovah\'s Witness…)' },
+      { value: 'exploring', text: 'Exploring faith / Not Christian' },
+    ],
+  },
+  {
     id: 'age',
     type: 'select',
     q: 'Your age —',

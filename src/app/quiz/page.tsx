@@ -51,7 +51,7 @@ function QuizIntroContent() {
                 Your Biblical Money Type Quiz
               </h1>
               <p className="tx-lede">
-                13 questions. About 3 minutes. No email needed to start.
+                15 questions. About 3–4 minutes. No email needed to start.
               </p>
               <p style={{ fontFamily: "var(--serif)", fontSize: 18, color: "var(--muted)", fontStyle: "italic", margin: 0 }}>
                 There are no right or wrong answers. Just honest ones.
