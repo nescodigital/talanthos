@@ -24,6 +24,8 @@ button { font-family: inherit; }
   --ink:#1c1a14; --ink-2:#46412f; --muted:#7a7359;
   --rule:rgba(28,26,20,0.12); --rule-strong:rgba(28,26,20,0.22);
   --accent:#b88a4a; --accent-soft:#b88a4a22; --accent-line:#b88a4a55;
+  --accent-aurora-1:#c9a96e; --accent-aurora-2:#d4b87a; --accent-aurora-3:#b88a4a; --accent-aurora-4:#e8d5a8;
+  --transparent:transparent;
   --shadow:0 1px 0 rgba(255,255,255,0.6) inset, 0 20px 50px -30px rgba(40,30,10,0.25);
   --serif: var(--font-instrument), 'EB Garamond', Georgia, serif;
   --sans: var(--font-geist), ui-sans-serif, system-ui, -apple-system, sans-serif;
@@ -801,6 +803,10 @@ html[data-theme="vellum"] .tx-option.is-selected .tx-option-letter { color: #fff
 ─────────────────────────────────────────────────────────────────── */
 @keyframes txFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 @keyframes txFadeInUp { from { opacity: 0; transform: translateY(20px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes aurora {
+  from { background-position: 50% 50%, 50% 50%; }
+  to { background-position: 350% 50%, 350% 50%; }
+}
 
 /* ───────────────────────────────────────────────────────────────────
    RESPONSIVE

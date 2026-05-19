@@ -8,12 +8,14 @@ import TxRule from "@/components/tx/TxRule";
 import TxIcon from "@/components/tx/TxIcon";
 import TxNav from "@/components/tx/TxNav";
 import TxFooter from "@/components/tx/TxFooter";
+import LiveCounter from "@/components/ui/LiveCounter";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 
 const trust = [
-  { stat: "12,847", label: "Believers assessed" },
-  { stat: "2 min", label: "To complete" },
-  { stat: "47 pp", label: "Personalized report" },
-  { stat: "4.9★", label: "Average rating" },
+  { stat: "believers", label: "Believers assessed", live: true, start: 12847 },
+  { stat: "3-4 min", label: "To complete", live: false },
+  { stat: "47 pp", label: "Personalized report", live: false },
+  { stat: "4.9★", label: "Average rating", live: false },
 ];
 
 const fourTypes = [
@@ -30,30 +32,34 @@ export default function Home() {
       <div className="tx-route">
         <main className="tx-screen tx-landing">
           <div className="tx-landing-frame">
-            <div className="tx-landing-hero">
-              <TxMark size={56} />
-              <TxEyebrow align="center">A Stewardship Assessment</TxEyebrow>
-              <h1 className="tx-display">
-                Discover your<br />
-                <em>Biblical Money Type.</em>
-              </h1>
-              <p className="tx-lede">
-                A two-minute assessment, grounded in Scripture, that names the way
-                God has uniquely wired you to relate to money. Your strengths, your
-                blind spots, and the next step that&apos;s yours alone.
-              </p>
-              <div className="tx-cta-row">
-                <Link href="/quiz">
-                  <TxButton size="lg">Begin the assessment</TxButton>
-                </Link>
-                <span className="tx-cta-meta">7 questions · ~2 minutes · free</span>
+            <AuroraBackground className="min-h-[60vh] rounded-3xl" showRadialGradient>
+              <div className="tx-landing-hero relative z-10">
+                <TxMark size={56} />
+                <TxEyebrow align="center">A Stewardship Assessment</TxEyebrow>
+                <h1 className="tx-display">
+                  Discover your<br />
+                  <em>Biblical Money Type.</em>
+                </h1>
+                <p className="tx-lede">
+                  A 3-4 minute assessment, grounded in Scripture, that names the way
+                  God has uniquely wired you to relate to money. Your strengths, your
+                  blind spots, and the next step that&apos;s yours alone.
+                </p>
+                <div className="tx-cta-row">
+                  <Link href="/quiz">
+                    <TxButton size="lg">Begin the assessment</TxButton>
+                  </Link>
+                  <span className="tx-cta-meta">15 questions &middot; ~3-4 minutes &middot; free</span>
+                </div>
               </div>
-            </div>
+            </AuroraBackground>
 
             <div className="tx-trust">
               {trust.map((t, i) => (
                 <div className="tx-trust-cell" key={i}>
-                  <div className="tx-trust-stat">{t.stat}</div>
+                  <div className="tx-trust-stat">
+                    {t.live ? <LiveCounter start={t.start || 12847} /> : t.stat}
+                  </div>
                   <div className="tx-trust-label">{t.label}</div>
                 </div>
               ))}
