@@ -29,33 +29,37 @@ const fourTypes = [
 
 export default function Home() {
   return (
-    <div className="tx-page">
+    <div className="tx-page" style={{ position: "relative" }}>
+      {/* Full-page aurora background */}
+      <div style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }}>
+        <AuroraBackground showRadialGradient className="h-full w-full" />
+      </div>
+
+      <div style={{ position: "relative", zIndex: 1 }}>
       <TxNav />
       <div className="tx-route">
         <main className="tx-screen tx-landing">
           <div className="tx-landing-frame">
-            <AuroraBackground className="min-h-[60vh] rounded-3xl" showRadialGradient>
-              <div className="tx-landing-hero relative z-10">
-                <TxMark size={56} />
-                <TxEyebrow align="center">A Stewardship Assessment</TxEyebrow>
-                <h1 className="tx-display">
-                  <TextEffect per="word" preset="blur" as="span">
-                    Discover your Biblical Money Type.
-                  </TextEffect>
-                </h1>
-                <p className="tx-lede">
-                  <TextEffect per="word" preset="slide" delay={0.4} as="span">
-                    A 3-4 minute assessment, grounded in Scripture, that names the way God has uniquely wired you to relate to money.
-                  </TextEffect>
-                </p>
-                <div className="tx-cta-row">
-                  <Link href="/quiz">
-                    <TxButton size="lg">Begin the assessment</TxButton>
-                  </Link>
-                  <span className="tx-cta-meta">15 questions &middot; ~3-4 minutes &middot; free</span>
-                </div>
+            <div className="tx-landing-hero" style={{ paddingTop: "clamp(48px, 8vw, 96px)", paddingBottom: "clamp(48px, 8vw, 96px)" }}>
+              <TxMark size={56} />
+              <TxEyebrow align="center">A Stewardship Assessment</TxEyebrow>
+              <h1 className="tx-display">
+                <TextEffect per="word" preset="blur" as="span">
+                  Discover your Biblical Money Type.
+                </TextEffect>
+              </h1>
+              <p className="tx-lede">
+                <TextEffect per="word" preset="slide" delay={0.4} as="span">
+                  A 3-4 minute assessment, grounded in Scripture, that names the way God has uniquely wired you to relate to money.
+                </TextEffect>
+              </p>
+              <div className="tx-cta-row">
+                <Link href="/quiz">
+                  <TxButton size="lg">Begin the assessment</TxButton>
+                </Link>
+                <span className="tx-cta-meta">15 questions &middot; ~3-4 minutes &middot; free</span>
               </div>
-            </AuroraBackground>
+            </div>
 
             <BlurFade delay={0.2}>
               <div className="tx-trust">
@@ -107,6 +111,7 @@ export default function Home() {
         </main>
       </div>
       <TxFooter />
+      </div>
     </div>
   );
 }
