@@ -23,10 +23,21 @@ function QuizIntroContent() {
       }
     );
 
-    const sessionId = crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2) + Date.now().toString(36);
-    localStorage.setItem("talanthos_session_id", sessionId);
-    localStorage.removeItem("talanthos_answers");
-    router.push("/quiz/1");
+    try {
+      const res = await fetch("/api/quiz/start", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(utmParams),
+      });
+      const data = await res.json();
+      if (data.session_id) {
+        localStorage.setItem("talanthos_session_id", data.session_id);
+        localStorage.removeItem("talanthos_answers");
+        router.push("/quiz/1");
+      }
+    } catch {
+      setIsStarting(false);
+    }
   };
 
   return (

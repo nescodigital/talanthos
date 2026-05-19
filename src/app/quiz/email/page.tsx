@@ -49,11 +49,31 @@ function EmailCaptureContent() {
   });
 
   const onSubmit = async (data: EmailForm) => {
-    localStorage.setItem("talanthos_email", data.email);
-    localStorage.setItem("talanthos_email_consent", String(data.marketing_consent));
-    router.push(
-      `/quiz/paywall?type=${encodeURIComponent(type || "")}&session=${encodeURIComponent(session || "")}&email=${encodeURIComponent(data.email)}`
-    );
+    try {
+      const res = await fetch("/api/leads/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: data.email,
+          primary_type: type,
+          session_id: session,
+          marketing_consent: data.marketing_consent,
+        }),
+      });
+
+      const result = await res.json();
+
+      if (!res.ok) {
+        setError("email", { message: result.error || "Something went wrong. Please try again." });
+        return;
+      }
+
+      router.push(
+        `/quiz/paywall?type=${encodeURIComponent(type || "")}&session=${encodeURIComponent(session || "")}&email=${encodeURIComponent(data.email)}`
+      );
+    } catch {
+      setError("email", { message: "Network error. Please try again." });
+    }
   };
 
   const typeName = TYPE_NAMES[type || ""] || "Your Type";

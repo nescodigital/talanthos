@@ -48,6 +48,16 @@ export default function ResultPage() {
       const answers: StoredAnswer[] = JSON.parse(answersRaw);
       const result = calculateScores(answers.map((a) => ({ type: a.type })));
 
+      try {
+        await fetch("/api/quiz/complete", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ session_id: sessionId, answers: answers.map((a) => ({ question: a.question, letter: a.letter })) }),
+        });
+      } catch {
+        // continue
+      }
+
       setTypeId(result.primaryType);
       setScores(result.scores);
       setLoading(false);

@@ -40,6 +40,20 @@ export default function QuizCard({ step }: QuizCardProps) {
       updated.push({ question: step, letter, type });
       localStorage.setItem("talanthos_answers", JSON.stringify(updated));
 
+      try {
+        await fetch("/api/quiz/answer", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            session_id: sessionId,
+            question_number: step,
+            answer_letter: letter,
+          }),
+        });
+      } catch {
+        // continue
+      }
+
       setTimeout(() => {
         if (step >= 7) {
           router.push("/quiz/calculating");
