@@ -63,6 +63,10 @@ export default function QuizCard({ step }: QuizCardProps) {
       setTimeout(() => {
         if (step >= total) {
           router.push("/quiz/calculating");
+        } else if (step === 5) {
+          router.push("/quiz/motivation/1");
+        } else if (step === 8) {
+          router.push("/quiz/motivation/2");
         } else {
           router.push(`/quiz/${step + 1}`);
         }
