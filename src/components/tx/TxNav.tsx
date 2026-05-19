@@ -19,7 +19,7 @@ export default function TxNav({ minimal = false }: TxNavProps) {
   ];
 
   return (
-    <nav className="relative flex items-center justify-between gap-4 px-4 sm:px-6 lg:px-14 py-[18px] border-b border-[var(--rule)]">
+    <nav className={`relative flex items-center gap-4 px-4 sm:px-6 lg:px-14 py-[18px] border-b border-[var(--rule)] ${minimal ? "justify-center" : "justify-between"}`}>
       <Link href="/" className="appearance-none border-0 bg-transparent text-[var(--ink)] inline-flex items-center cursor-pointer p-0 leading-[0] shrink-0">
         <TxLockup size="sm" />
       </Link>
