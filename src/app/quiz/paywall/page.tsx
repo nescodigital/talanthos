@@ -157,7 +157,7 @@ function PaywallContent() {
                 {TIERS.map((tier) => (
                   <Link
                     key={tier.amount}
-                    href={`/coming-soon-checkout?amount=${tier.amount}&type=${encodeURIComponent(type || "")}`}
+                    href={`/checkout?amount=${tier.amount}&type=${encodeURIComponent(type || "")}`}
                     className="relative flex flex-col items-center rounded-xl border border-[var(--rule)] bg-[var(--surface)] p-4 sm:p-5 text-center shadow-[var(--shadow)] transition-all hover:-translate-y-px hover:border-[var(--accent-line)] hover:shadow-[0_12px_30px_-16px_rgba(40,30,10,0.25)]"
                   >
                     {tier.popular && (
@@ -188,13 +188,26 @@ function PaywallContent() {
                     style={{ fontFamily: "var(--serif)", fontSize: 18 }}
                   />
                   <Link
-                    href={`/coming-soon-checkout?amount=${Math.max(1000, parseInt(customAmount || "15", 10) * 100)}&type=${encodeURIComponent(type || "")}`}
+                    href={`/checkout?amount=${Math.max(1000, parseInt(customAmount || "15", 10) * 100)}&type=${encodeURIComponent(type || "")}`}
                     className="rounded-full bg-[var(--accent)] px-5 py-2.5 text-sm font-medium text-white transition-all hover:-translate-y-px hover:shadow-[0_12px_24px_-16px_rgba(40,30,10,0.6)]"
                   >
                     Continue
                   </Link>
                 </div>
                 <p className="mt-2 text-[10px] text-[var(--muted)]" style={{ fontFamily: "var(--mono)" }}>Minimum $10</p>
+              </div>
+
+              <div className="mt-4 rounded-xl border border-dashed border-[var(--rule-strong)] bg-[var(--surface)] p-4">
+                <p className="text-xs font-medium uppercase tracking-widest text-[var(--muted)] mb-2">Have a promo code?</p>
+                <div className="flex items-center justify-center gap-3">
+                  <input
+                    type="text"
+                    placeholder="META20"
+                    className="w-32 rounded-lg border border-[var(--rule-strong)] bg-[var(--bg)] px-3 py-2 text-center text-[var(--ink)] uppercase outline-none transition-colors focus:border-[var(--accent)]"
+                    style={{ fontFamily: "var(--mono)", fontSize: 13, letterSpacing: "0.08em" }}
+                  />
+                  <span className="text-xs text-[var(--muted)]">Applied at checkout</span>
+                </div>
               </div>
 
               <div className="mt-6 space-y-2 text-xs text-[var(--muted)]">
