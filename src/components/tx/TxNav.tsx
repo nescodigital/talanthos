@@ -15,7 +15,7 @@ export default function TxNav({ minimal = false }: TxNavProps) {
     { label: "About", href: "#" },
     { label: "The Four Types", href: "#" },
     { label: "Journal", href: "#" },
-    { label: "Contact", href: "mailto:support@talanthos.com" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (

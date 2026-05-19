@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+import { Resend } from "resend";
 import { getServiceRoleClient } from "@/lib/supabase/client";
+
+const resendApiKey = process.env.RESEND_API_KEY;
+const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
 const leadSchema = z.object({
   email: z.string().email().max(100),
@@ -70,6 +74,32 @@ export async function POST(req: NextRequest) {
 
       leadId = data.id;
       console.log(`[LEAD CREATED] ${parsed.data.email} → ${parsed.data.primary_type}`);
+    }
+
+    if (resend) {
+      try {
+        await resend.emails.send({
+        from: "Talanthos <info@talanthos.com>",
+        to: [parsed.data.email],
+        subject: "Your Biblical Money Type report is on its way",
+        text: `Hi there,\n\nThank you for taking the Talanthos Biblical Money Type assessment.\n\nWe have received your request and your personalized report will be sent to this address shortly.\n\nIn His service,\nTalanthos`,
+        html: `
+          <div style="font-family: Georgia, serif; max-width: 560px; margin: 0 auto; color: #1c1a14; background: #f3ece0; padding: 40px;">
+            <h1 style="font-weight: 400; font-size: 24px; margin: 0 0 16px;">Thank you</h1>
+            <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">
+              Thank you for taking the Talanthos Biblical Money Type assessment.
+            </p>
+            <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">
+              We have received your request and your personalized report will be sent to this address shortly.
+            </p>
+            <hr style="border: 0; border-top: 1px solid rgba(28,26,20,0.12); margin: 24px 0;">
+            <p style="font-size: 12px; color: #7a7359; margin: 0;">Talanthos · Faith. Finances. Purpose.</p>
+          </div>
+        `,
+      });
+      } catch (emailErr) {
+        console.error("[LEAD EMAIL ERROR]", emailErr);
+      }
     }
 
     return NextResponse.json({ success: true, lead_id: leadId });

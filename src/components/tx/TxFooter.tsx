@@ -26,9 +26,9 @@ export default function TxFooter() {
           <Link href="/terms" className="text-[var(--ink-2)] no-underline text-[13px] border-b border-transparent pb-0.5 transition-colors duration-200 hover:text-[var(--accent)] hover:border-[var(--accent)]">
             Terms
           </Link>
-          <a href="mailto:support@talanthos.com" className="text-[var(--ink-2)] no-underline text-[13px] border-b border-transparent pb-0.5 transition-colors duration-200 hover:text-[var(--accent)] hover:border-[var(--accent)]">
+          <Link href="/contact" className="text-[var(--ink-2)] no-underline text-[13px] border-b border-transparent pb-0.5 transition-colors duration-200 hover:text-[var(--accent)] hover:border-[var(--accent)]">
             Contact
-          </a>
+          </Link>
         </div>
       </div>
       <div className="font-[var(--mono)] text-[10px] uppercase tracking-[0.16em] text-[var(--muted)]">
