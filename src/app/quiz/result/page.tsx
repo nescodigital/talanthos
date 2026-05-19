@@ -123,26 +123,94 @@ export default function ResultPage() {
                 <p className="tx-result-blurb">{t.blurb}</p>
               </BlurFade>
 
-              {/* Dimensional bars */}
+              {/* Dimensional pillars */}
               <BlurFade delay={0.5}>
-                <div className="tx-bars">
-                {scoreOrder.map(({ key, label }) => {
-                  const v = scores[key];
-                  const pct = (v / maxScore) * 100;
-                  const isHi = key === typeId;
-                  return (
-                    <div className={"tx-bar" + (isHi ? " is-hi" : "")} key={key}>
-                      <div className="tx-bar-meta">
-                        <span>{label}</span>
-                        <span>{v}</span>
-                      </div>
-                      <div className="tx-bar-track">
-                        <div className="tx-bar-fill" style={{ width: `${pct}%` }} />
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+                <div style={{ marginTop: 32 }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-end",
+                      justifyContent: "center",
+                      gap: "clamp(8px, 2vw, 20px)",
+                      height: 220,
+                      padding: "0 8px",
+                    }}
+                  >
+                    {scoreOrder.map(({ key, label }) => {
+                      const v = scores[key];
+                      const pct = Math.max(12, (v / maxScore) * 100);
+                      const isHi = key === typeId;
+                      const glyphMap: Record<string, string> = {
+                        visionary: "crown",
+                        guardian: "shield",
+                        giver: "open-hand",
+                        builder: "wall",
+                      };
+                      return (
+                        <div
+                          key={key}
+                          style={{
+                            flex: 1,
+                            maxWidth: 90,
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            gap: 10,
+                          }}
+                        >
+                          <div
+                            style={{
+                              width: "100%",
+                              height: `${pct * 1.8}px`,
+                              minHeight: 28,
+                              borderRadius: "14px 14px 4px 4px",
+                              background: isHi
+                                ? "linear-gradient(180deg, var(--accent) 0%, #c9a96e 100%)"
+                                : "var(--bg-2)",
+                              border: isHi
+                                ? "1px solid var(--accent)"
+                                : "1px solid var(--rule)",
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "center",
+                              justifyContent: "flex-end",
+                              paddingBottom: 10,
+                              position: "relative",
+                              transition: "all 0.6s ease-out",
+                            }}
+                          >
+                            <span
+                              style={{
+                                fontFamily: "var(--serif)",
+                                fontSize: isHi ? "clamp(20px, 2.5vw, 26px)" : "clamp(15px, 2vw, 18px)",
+                                fontWeight: 600,
+                                color: isHi ? "#fff" : "var(--ink)",
+                                lineHeight: 1,
+                              }}
+                            >
+                              {v}
+                            </span>
+                          </div>
+                          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
+                            <TxIcon name={glyphMap[key]} size={isHi ? 20 : 16} strokeWidth={1.4} />
+                            <span
+                              style={{
+                                fontFamily: "var(--mono)",
+                                fontSize: 10,
+                                color: isHi ? "var(--accent)" : "var(--muted)",
+                                letterSpacing: "0.1em",
+                                textTransform: "uppercase",
+                                fontWeight: isHi ? 600 : 400,
+                              }}
+                            >
+                              {label}
+                            </span>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
               </BlurFade>
             </header>
 
