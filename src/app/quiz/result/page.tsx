@@ -13,9 +13,11 @@ import TxButton from "@/components/tx/TxButton";
 import TxIcon from "@/components/tx/TxIcon";
 
 interface StoredAnswer {
-  question: number;
-  letter: string;
-  type: BiblicalType;
+  step: number;
+  questionId: string;
+  value: string;
+  type?: BiblicalType;
+  letter?: string;
 }
 
 const tabLabels = [
@@ -52,7 +54,7 @@ export default function ResultPage() {
         await fetch("/api/quiz/complete", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ session_id: sessionId, answers: answers.map((a) => ({ question: a.question, letter: a.letter })) }),
+          body: JSON.stringify({ session_id: sessionId, answers: answers.map((a) => ({ question: a.step, question_id: a.questionId, letter: a.letter, value: a.value, type: a.type })) }),
         });
       } catch {
         // continue

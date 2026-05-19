@@ -6,11 +6,13 @@ export interface ScoreResult {
   secondaryType: BiblicalType | null;
 }
 
-export function calculateScores(answers: { type: BiblicalType }[]): ScoreResult {
+export function calculateScores(answers: { type?: BiblicalType }[]): ScoreResult {
   const scores = { visionary: 0, guardian: 0, giver: 0, builder: 0 };
 
   for (const answer of answers) {
-    scores[answer.type] = (scores[answer.type] || 0) + 1;
+    if (answer.type) {
+      scores[answer.type] = (scores[answer.type] || 0) + 1;
+    }
   }
 
   const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]) as [BiblicalType, number][];

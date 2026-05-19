@@ -11,7 +11,9 @@ export async function POST(req: NextRequest) {
       .insert({
         session_id: body.session_id,
         question_number: body.question_number,
-        answer_letter: body.answer_letter,
+        question_id: body.question_id || `q${body.question_number}`,
+        answer_letter: body.answer_letter || null,
+        answer_value: body.answer_value || body.answer_letter || "",
         time_spent_seconds: body.time_spent_seconds || null,
       })
       .select()

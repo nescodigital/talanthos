@@ -8,8 +8,8 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const supabase = getServiceRoleClient();
 
-    const answers: { type: BiblicalType }[] = (body.answers || []).map((a: { type?: string }) => ({
-      type: a.type as BiblicalType,
+    const answers: { type?: BiblicalType }[] = (body.answers || []).map((a: { type?: string }) => ({
+      type: a.type ? (a.type as BiblicalType) : undefined,
     }));
     const result = calculateScores(answers);
 
@@ -22,6 +22,7 @@ export async function POST(req: NextRequest) {
         guardian_score: result.scores.guardian,
         giver_score: result.scores.giver,
         visionary_score: result.scores.visionary,
+        demographic_data: body.answers || [],
         completed_at: new Date().toISOString(),
         status: "completed",
       })

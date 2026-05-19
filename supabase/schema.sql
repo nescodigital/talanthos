@@ -21,6 +21,7 @@ CREATE TABLE quiz_sessions (
   guardian_score INT,
   giver_score INT,
   visionary_score INT,
+  demographic_data JSONB,
   status TEXT DEFAULT 'started'
 );
 
@@ -32,7 +33,9 @@ CREATE TABLE quiz_answers (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   session_id UUID REFERENCES quiz_sessions(id) ON DELETE CASCADE,
   question_number INT NOT NULL,
-  answer_letter TEXT NOT NULL,
+  question_id TEXT NOT NULL,
+  answer_letter TEXT,
+  answer_value TEXT NOT NULL,
   answered_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   time_spent_seconds INT
 );
