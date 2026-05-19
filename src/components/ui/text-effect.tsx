@@ -28,9 +28,9 @@ type TextEffectProps = {
 };
 
 const defaultStaggerTimes: Record<'char' | 'word' | 'line', number> = {
-  char: 0.03,
-  word: 0.05,
-  line: 0.1,
+  char: 0.05,
+  word: 0.08,
+  line: 0.16,
 };
 
 const defaultContainerVariants: Variants = {
@@ -38,11 +38,11 @@ const defaultContainerVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.05,
+      staggerChildren: 0.08,
     },
   },
   exit: {
-    transition: { staggerChildren: 0.05, staggerDirection: -1 },
+    transition: { staggerChildren: 0.08, staggerDirection: -1 },
   },
 };
 
@@ -50,8 +50,9 @@ const defaultItemVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
+    transition: { duration: 0.5 },
   },
-  exit: { opacity: 0 },
+  exit: { opacity: 0, transition: { duration: 0.3 } },
 };
 
 const presetVariants: Record<
@@ -62,8 +63,8 @@ const presetVariants: Record<
     container: defaultContainerVariants,
     item: {
       hidden: { opacity: 0, filter: 'blur(12px)' },
-      visible: { opacity: 1, filter: 'blur(0px)' },
-      exit: { opacity: 0, filter: 'blur(12px)' },
+      visible: { opacity: 1, filter: 'blur(0px)', transition: { duration: 0.5 } },
+      exit: { opacity: 0, filter: 'blur(12px)', transition: { duration: 0.3 } },
     },
   },
   shake: {
@@ -78,24 +79,24 @@ const presetVariants: Record<
     container: defaultContainerVariants,
     item: {
       hidden: { opacity: 0, scale: 0 },
-      visible: { opacity: 1, scale: 1 },
-      exit: { opacity: 0, scale: 0 },
+      visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+      exit: { opacity: 0, scale: 0, transition: { duration: 0.3 } },
     },
   },
   fade: {
     container: defaultContainerVariants,
     item: {
       hidden: { opacity: 0 },
-      visible: { opacity: 1 },
-      exit: { opacity: 0 },
+      visible: { opacity: 1, transition: { duration: 0.5 } },
+      exit: { opacity: 0, transition: { duration: 0.3 } },
     },
   },
   slide: {
     container: defaultContainerVariants,
     item: {
       hidden: { opacity: 0, y: 20 },
-      visible: { opacity: 1, y: 0 },
-      exit: { opacity: 0, y: 20 },
+      visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+      exit: { opacity: 0, y: 20, transition: { duration: 0.3 } },
     },
   },
 };
