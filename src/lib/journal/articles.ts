@@ -1,14 +1,10 @@
-export interface Article {
-  slug: string;
-  title: string;
-  excerpt: string;
-  date: string;
-  category: string;
-  readTime: string;
-  content: string;
-}
+import { Article } from "./types";
+import { BATCH_1 } from "./batches/batch-1";
+import { BATCH_2 } from "./batches/batch-2";
+import { BATCH_3 } from "./batches/batch-3";
+import { BATCH_4 } from "./batches/batch-4";
 
-export const ARTICLES: Article[] = [
+const ORIGINAL_ARTICLES: Article[] = [
   {
     slug: "what-is-a-biblical-money-type",
     title: "What Is a Biblical Money Type? A Framework for Faithful Stewardship",
@@ -140,7 +136,7 @@ export const ARTICLES: Article[] = [
 
       <h3>The Floor and Ceiling Framework</h3>
 
-      <p><strong>Floor:</strong> The minimum provision for those entrusted to you. Housing, food, health, transportation, emergency fund. Below this line, giving is not generosity. It is self-harm.</p>
+      <p><strong>Floor:</strong> The minimum provision for those entrusted to you. Housing, food, health, transportation. Below this line, giving is not generosity. It is self-harm.</p>
 
       <p><strong>Ceiling:</strong> The maximum you give without consulting your household, your budget, or your advisor. Above this line, giving is not obedience. It is evasion — a way to manage guilt, avoid hard decisions, or feel spiritual without doing the work of discernment.</p>
 
@@ -345,6 +341,14 @@ export const ARTICLES: Article[] = [
       <p><strong>Day 30:</strong> Rest. No financial task today. Just the knowledge that God owns it all — and He is faithful.</p>
     `,
   },
+];
+
+export const ARTICLES: Article[] = [
+  ...ORIGINAL_ARTICLES,
+  ...BATCH_1,
+  ...BATCH_2,
+  ...BATCH_3,
+  ...BATCH_4,
 ];
 
 export function getArticleBySlug(slug: string): Article | undefined {
