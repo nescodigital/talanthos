@@ -264,7 +264,7 @@ function PaywallContent() {
                 </div>
                 <div className="flex items-center gap-2 text-[var(--ink-2)]">
                   <FileText className="h-4 w-4 text-[var(--accent)]" strokeWidth={1.5} />
-                  <span className="text-xs font-medium">47 pages personalized</span>
+                  <span className="text-xs font-medium">20 pages personalized</span>
                 </div>
               </div>
             </BlurFade>
@@ -326,7 +326,7 @@ function PaywallContent() {
                       href={`/checkout?amount=${Math.max(1000, parseInt(customAmount || "15", 10) * 100)}&type=${encodeURIComponent(type || "")}`}
                       className="rounded-full bg-[var(--accent)] px-5 py-2.5 text-sm font-medium text-white transition-all hover:-translate-y-px hover:shadow-[0_12px_24px_-16px_rgba(40,30,10,0.6)] inline-flex items-center gap-1.5"
                     >
-                      Continue <ArrowRight className="h-3.5 w-3.5" />
+                      Continue
                     </Link>
                   </div>
                   <p className="mt-2 text-[10px] text-[var(--muted)]" style={{ fontFamily: "var(--mono)" }}>Minimum $10</p>
@@ -408,7 +408,7 @@ function PaywallContent() {
                     onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
                     className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-8 py-3.5 text-base font-medium text-white transition-all hover:-translate-y-px hover:shadow-[0_16px_32px_-16px_rgba(40,30,10,0.5)]"
                   >
-                    Get My Full Report <ArrowRight className="h-4 w-4" />
+                    Get My Full Report
                   </button>
                   <p className="mt-3 text-xs text-[var(--muted)]">Choose what it is worth to you. 30-day refund guarantee.</p>
                 </div>

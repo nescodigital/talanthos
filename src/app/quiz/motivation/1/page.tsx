@@ -141,7 +141,7 @@ export default function Motivation1Page() {
                   </label>
 
                   <TxButton type="submit" size="lg" disabled={isSubmitting}>
-                    {isSubmitting ? "Saving..." : "Continue to my type →"}
+                    {isSubmitting ? "Saving..." : "Continue to my type"}
                   </TxButton>
                 </form>
 
@@ -150,7 +150,7 @@ export default function Motivation1Page() {
                   className="text-xs text-[var(--muted)] hover:text-[var(--ink)] transition-colors"
                   style={{ background: "none", border: "none", cursor: "pointer", fontFamily: "var(--sans)" }}
                 >
-                  Continue without email →
+                  Continue without email
                 </button>
 
                 <div className="flex flex-wrap items-center justify-center gap-4 text-[10px] text-[var(--muted)]" style={{ fontFamily: "var(--mono)", letterSpacing: "0.06em", textTransform: "uppercase" }}>

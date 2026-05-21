@@ -98,7 +98,7 @@ export default function JournalPage() {
                           fontWeight: 500,
                         }}
                       >
-                        Read article →
+                        Read article
                       </span>
                     </div>
                   </Link>

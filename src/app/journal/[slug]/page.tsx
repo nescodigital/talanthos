@@ -192,7 +192,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                   Discover your Biblical Money Type and get a personalized 30-day action plan.
                 </p>
                 <Link href="/quiz">
-                  <TxButton size="lg">Take the free assessment</TxButton>
+                  <TxButton size="lg" icon="arrow">Take the free assessment</TxButton>
                 </Link>
               </div>
             </BlurFade>
@@ -211,7 +211,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               {prevArticle ? (
                 <Link href={`/journal/${prevArticle.slug}`} style={{ textDecoration: "none", maxWidth: "45%" }}>
                   <span style={{ fontFamily: "var(--mono)", fontSize: 10, color: "var(--muted)", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-                    ← Previous
+                    Previous
                   </span>
                   <p style={{ fontSize: 15, color: "var(--ink)", margin: "4px 0 0", lineHeight: 1.35 }}>
                     {prevArticle.title}
@@ -223,7 +223,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               {nextArticle ? (
                 <Link href={`/journal/${nextArticle.slug}`} style={{ textDecoration: "none", maxWidth: "45%", textAlign: "right" }}>
                   <span style={{ fontFamily: "var(--mono)", fontSize: 10, color: "var(--muted)", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-                    Next →
+                    Next
                   </span>
                   <p style={{ fontSize: 15, color: "var(--ink)", margin: "4px 0 0", lineHeight: 1.35 }}>
                     {nextArticle.title}

@@ -41,7 +41,7 @@ export default function IntroResultPage() {
               inward, and to steward it with the people He has put in front of you.
             </p>
             {showCta && (
-              <TxButton onClick={() => router.push("/quiz/result")} size="lg">
+              <TxButton onClick={() => router.push("/quiz/result")} size="lg" icon="arrow">
                 Show me my type
               </TxButton>
             )}

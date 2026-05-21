@@ -55,7 +55,7 @@ export default function Home() {
               </p>
               <div className="tx-cta-row">
                 <Link href="/quiz">
-                  <TxButton size="lg">Begin the assessment</TxButton>
+                  <TxButton size="lg" icon="arrow">Begin the assessment</TxButton>
                 </Link>
                 <span className="tx-cta-meta">15 questions &middot; ~3-4 minutes &middot; free</span>
               </div>

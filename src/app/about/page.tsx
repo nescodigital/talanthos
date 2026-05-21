@@ -119,7 +119,7 @@ export default function AboutPage() {
                 </p>
                 <div className="tx-cta-row" style={{ marginTop: 24 }}>
                   <Link href="/quiz">
-                    <TxButton size="lg">Begin the assessment</TxButton>
+                    <TxButton size="lg" icon="arrow">Begin the assessment</TxButton>
                   </Link>
                   <span className="tx-cta-meta">Free &middot; No signup required</span>
                 </div>

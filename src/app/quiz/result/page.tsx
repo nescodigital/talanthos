@@ -214,15 +214,15 @@ export default function ResultPage() {
               {/* Primary CTA — under pillars */}
               <BlurFade delay={0.6}>
                 <div style={{ marginTop: 28, display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
-                  <TxButton size="lg" onClick={() => {
+                  <TxButton size="lg" icon="arrow" onClick={() => {
                     const savedEmail = localStorage.getItem("talanthos_email");
                     const base = `/quiz/paywall?type=${encodeURIComponent(typeId)}&session=${encodeURIComponent(localStorage.getItem("talanthos_session_id") || "")}`;
                     router.push(savedEmail ? `${base}&email=${encodeURIComponent(savedEmail)}` : base);
                   }}>
-                    Get my full report →
+                    Get my full report
                   </TxButton>
                   <span style={{ fontFamily: "var(--mono)", fontSize: 11, color: "var(--muted)", letterSpacing: "0.06em" }}>
-                    47 pages · Personalized · Delivered in ~30 min
+                    20 pages · Personalized · Delivered in ~30 min
                   </span>
                 </div>
               </BlurFade>
@@ -251,14 +251,14 @@ export default function ResultPage() {
                     <ul className="tx-list">
                       {t.strengths.slice(0, 3).map((s, i) => <li key={i}>{s}</li>)}
                     </ul>
-                    <button className="tx-link tx-link-sm" onClick={() => setTab("strengths")}>See all five →</button>
+                    <button className="tx-link tx-link-sm" onClick={() => setTab("strengths")}>See all five</button>
                   </TxCard>
                   <TxCard eyebrow="Blind spots" icon="warn" tone="cool">
                     <ul className="tx-list tx-list-veil">
                       {t.blindSpots.slice(0, 2).map((s, i) => <li key={i}>{s}</li>)}
                       <li className="tx-veil">{t.blindSpots[2]}</li>
                     </ul>
-                    <button className="tx-link tx-link-sm" onClick={() => setTab("blind")}>Reveal the rest →</button>
+                    <button className="tx-link tx-link-sm" onClick={() => setTab("blind")}>Reveal the rest</button>
                   </TxCard>
                 </div>
               )}
@@ -319,7 +319,7 @@ export default function ResultPage() {
                 ))}
                 <div className="tx-locked-seal">
                   <TxIcon name="lock" size={22} />
-                  <span>47 pages</span>
+                  <span>20 pages</span>
                 </div>
               </div>
 
@@ -338,12 +338,12 @@ export default function ResultPage() {
                 </ul>
 
                 <div style={{ display: "flex", flexDirection: "column", gap: 12, alignItems: "flex-start" }}>
-                  <TxButton size="lg" onClick={() => {
+                  <TxButton size="lg" icon="arrow" onClick={() => {
                     const savedEmail = localStorage.getItem("talanthos_email");
                     const base = `/quiz/paywall?type=${encodeURIComponent(typeId)}&session=${encodeURIComponent(localStorage.getItem("talanthos_session_id") || "")}`;
                     router.push(savedEmail ? `${base}&email=${encodeURIComponent(savedEmail)}` : base);
                   }}>
-                    Get my full report →
+                    Get my full report
                   </TxButton>
                   <p className="tx-locked-fine">No subscription. One document, one follow-up. Unsubscribe any time.</p>
                 </div>
@@ -356,7 +356,7 @@ export default function ResultPage() {
                 localStorage.removeItem("talanthos_session_id");
                 localStorage.removeItem("talanthos_answers");
                 router.push("/quiz");
-              }}>← Retake the assessment</button>
+              }}>Retake the assessment</button>
               <span className="tx-result-share">Share &nbsp;&middot;&nbsp; Print &nbsp;&middot;&nbsp; Save</span>
             </div>
           </div>

@@ -18,7 +18,7 @@ export default function TxButton({
   onClick,
   variant = "primary",
   size = "md",
-  icon = "arrow",
+  icon = null,
   disabled = false,
   type = "button",
   className = "",

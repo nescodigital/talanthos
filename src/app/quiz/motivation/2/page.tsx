@@ -118,8 +118,8 @@ export default function Motivation2Page() {
                 </p>
 
                 <div style={{ marginTop: 8 }}>
-                  <TxButton size="lg" onClick={() => router.push("/quiz/9")}>
-                    Sharpen the picture →
+                  <TxButton size="lg" onClick={() => router.push("/quiz/9")} icon="arrow">
+                    Sharpen the picture
                   </TxButton>
                 </div>
               </div>
