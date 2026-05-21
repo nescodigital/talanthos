@@ -46,8 +46,8 @@ export default function TermsPage() {
             <p className="mt-2">
               All sales are processed in USD via Stripe and are final. For any issues with your
               delivery, email{" "}
-              <a href="mailto:support@talanthos.com" className="text-[var(--accent)] hover:underline">
-                support@talanthos.com
+              <a href="/contact" className="text-[var(--accent)] hover:underline">
+                Contact us
               </a>{" "}
               with your order number.
             </p>
@@ -117,11 +117,11 @@ export default function TermsPage() {
           <section>
             <h2 className="text-lg font-semibold text-[var(--ink)]">12. Contact</h2>
             <p className="mt-2">
-              <a href="mailto:support@talanthos.com" className="text-[var(--accent)] hover:underline">
-                support@talanthos.com
+              <a href="/contact" className="text-[var(--accent)] hover:underline">
+                Contact us
               </a>
             </p>
-            <p className="mt-1">DEXARA SRL, Bucharest, Romania</p>
+            <p className="mt-1 text-[var(--muted)]">We are building this in faith, for the global Church.</p>
           </section>
         </div>
       </main>

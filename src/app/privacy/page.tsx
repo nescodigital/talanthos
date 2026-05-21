@@ -77,8 +77,8 @@ export default function PrivacyPage() {
             </ul>
             <p className="mt-2">
               Contact us at{" "}
-              <a href="mailto:privacy@talanthos.com" className="text-[var(--accent)] hover:underline">
-                privacy@talanthos.com
+              <a href="/contact" className="text-[var(--accent)] hover:underline">
+                Contact us
               </a>{" "}
               to exercise these rights.
             </p>
@@ -120,11 +120,11 @@ export default function PrivacyPage() {
             <h2 className="text-lg font-semibold text-[var(--ink)]">11. Contact</h2>
             <p className="mt-2">
               Privacy questions:{" "}
-              <a href="mailto:privacy@talanthos.com" className="text-[var(--accent)] hover:underline">
-                privacy@talanthos.com
+              <a href="/contact" className="text-[var(--accent)] hover:underline">
+                Contact us
               </a>
             </p>
-            <p className="mt-1">Mail: DEXARA SRL, Bucharest, Romania</p>
+            <p className="mt-1 text-[var(--muted)]">We are building this in faith, for the global Church.</p>
           </section>
         </div>
       </main>

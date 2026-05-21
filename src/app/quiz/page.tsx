@@ -6,18 +6,20 @@ import TxNav from "@/components/tx/TxNav";
 import TxFooter from "@/components/tx/TxFooter";
 import TxButton from "@/components/tx/TxButton";
 import { TextEffect } from "@/components/ui/text-effect";
-import { User } from "lucide-react";
+import { User, AlertCircle } from "lucide-react";
 
 function QuizIntroContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [isStarting, setIsStarting] = useState(false);
   const [firstName, setFirstName] = useState("");
+  const [error, setError] = useState("");
 
   const handleBegin = async () => {
     if (isStarting) return;
     if (!firstName.trim()) return;
     setIsStarting(true);
+    setError("");
 
     const utmParams: Record<string, string> = {};
     ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "fbclid", "gclid", "referrer"].forEach(
@@ -34,13 +36,17 @@ function QuizIntroContent() {
         body: JSON.stringify({ first_name: firstName.trim(), ...utmParams }),
       });
       const data = await res.json();
-      if (data.session_id) {
-        localStorage.setItem("talanthos_session_id", data.session_id);
-        localStorage.setItem("talanthos_name", firstName.trim());
-        localStorage.removeItem("talanthos_answers");
-        router.push("/quiz/1");
+      if (!res.ok || !data.session_id) {
+        setError(data.error || "Something went wrong. Please try again.");
+        setIsStarting(false);
+        return;
       }
+      localStorage.setItem("talanthos_session_id", data.session_id);
+      localStorage.setItem("talanthos_name", firstName.trim());
+      localStorage.removeItem("talanthos_answers");
+      router.push("/quiz/1");
     } catch {
+      setError("Network error. Please check your connection and try again.");
       setIsStarting(false);
     }
   };
@@ -75,7 +81,7 @@ function QuizIntroContent() {
                     type="text"
                     placeholder="Your first name"
                     value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
+                    onChange={(e) => { setFirstName(e.target.value); setError(""); }}
                     onKeyDown={(e) => { if (e.key === "Enter") handleBegin(); }}
                     required
                     className="w-full rounded-full border border-[var(--rule-strong)] bg-[var(--bg)] py-3.5 pl-11 pr-5 text-[var(--ink)] placeholder-[var(--muted)]/50 outline-none transition-colors duration-200 focus:border-[var(--accent)] text-sm"
@@ -83,6 +89,13 @@ function QuizIntroContent() {
                   />
                 </div>
               </div>
+
+              {error && (
+                <div className="flex items-center gap-2 text-[#b85a3d] text-sm" style={{ maxWidth: 320 }}>
+                  <AlertCircle className="h-4 w-4 shrink-0" />
+                  <span>{error}</span>
+                </div>
+              )}
 
               <div className="tx-cta-row">
                 <TxButton onClick={handleBegin} size="lg" disabled={isStarting || !firstName.trim()}>
