@@ -37,7 +37,7 @@ async function main() {
 
   console.log("🤖 Test PDF — FULL PIPELINE (Claude API calls)");
   console.log(`   Mode: ${target === "all" ? "all 4 types" : types[0]}`);
-  console.log(`   Model: claude-3-5-sonnet-20241022`);
+  console.log(`   Model: claude-3-5-sonnet-latest`);
 
   for (const type of types) {
     await generateType(type);

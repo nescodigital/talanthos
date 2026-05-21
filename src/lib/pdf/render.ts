@@ -2,7 +2,7 @@ import puppeteer from "puppeteer-core";
 import fs from "fs";
 import path from "path";
 
-function getChromePath(): string {
+function getChromePath(): string | undefined {
   if (process.env.CHROMIUM_EXECUTABLE_PATH) {
     return process.env.CHROMIUM_EXECUTABLE_PATH;
   }
@@ -15,7 +15,7 @@ function getChromePath(): string {
   if (process.platform === "win32") {
     return "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
   }
-  return "/usr/bin/google-chrome";
+  return undefined;
 }
 
 export interface RenderOptions {
@@ -29,24 +29,32 @@ export async function renderPdf(options: RenderOptions): Promise<Buffer> {
 
   const isDev = process.env.NODE_ENV === "development";
 
-  let executablePath: string;
+  let executablePath: string | undefined;
   let args: string[] = ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"];
 
   if (isDev) {
     executablePath = getChromePath();
-    args = [];
   } else {
     const chromium = await import("@sparticuz/chromium");
+    // Disable graphics to reduce memory & extraction time
+    chromium.default.setGraphicsMode = false;
     executablePath = await chromium.default.executablePath();
     args = chromium.default.args;
   }
+
+  if (!executablePath) {
+    throw new Error("Chromium executable path not found. Set CHROMIUM_EXECUTABLE_PATH or install Chrome.");
+  }
+
+  console.log("[PDF] Launching Chromium at:", executablePath);
+  console.log("[PDF] Args:", args.join(" "));
 
   let browser;
   try {
     browser = await puppeteer.launch({
       args,
       executablePath,
-      headless: true,
+      headless: "shell" as any,
     });
 
     const page = await browser.newPage();
@@ -65,6 +73,7 @@ export async function renderPdf(options: RenderOptions): Promise<Buffer> {
     });
 
     const buffer = Buffer.from(pdf);
+    console.log("[PDF] Generated, size:", buffer.length);
 
     if (outputPath) {
       const dir = path.dirname(outputPath);
@@ -80,6 +89,9 @@ export async function renderPdf(options: RenderOptions): Promise<Buffer> {
     }
 
     return buffer;
+  } catch (err: any) {
+    console.error("[PDF] Render error:", err?.message || err);
+    throw err;
   } finally {
     if (browser) await browser.close();
   }

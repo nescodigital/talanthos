@@ -50,14 +50,18 @@ export async function POST(req: NextRequest) {
     const supabase = getServiceRoleClient();
 
     // Find order
-    const { data: order } = await supabase
+    const { data: order, error: orderError } = await supabase
       .from("orders")
       .select("*")
       .eq("stripe_session_id", session.id)
       .single();
 
+    if (orderError) {
+      console.error("[STRIPE WEBHOOK] Order lookup error:", orderError.message, "| session:", session.id, "| metadata session_id:", sessionId);
+    }
+
     if (!order) {
-      console.error("[STRIPE WEBHOOK] Order not found for session:", session.id);
+      console.error("[STRIPE WEBHOOK] Order not found for session:", session.id, "| metadata session_id:", sessionId);
       return NextResponse.json({ error: "Order not found" }, { status: 404 });
     }
 
@@ -84,17 +88,24 @@ export async function POST(req: NextRequest) {
 
         const quizUser = await buildQuizUserData(sessionId);
         if (!quizUser) {
-          throw new Error("Quiz user data not found");
+          throw new Error("Quiz user data not found for session: " + sessionId);
         }
+        console.log("[WEBHOOK] Quiz user data built:", quizUser.firstName, quizUser.primaryType);
 
         // Generate content via Claude API
+        console.log("[WEBHOOK] Calling Claude API...");
         const content = await generateReportContent(quizUser);
+        console.log("[WEBHOOK] Claude content generated, sections:", Object.keys(content).join(", "));
 
         // Build HTML
+        console.log("[WEBHOOK] Building HTML...");
         const html = buildReportHtml(quizUser, content);
+        console.log("[WEBHOOK] HTML built, length:", html.length);
 
         // Render PDF
+        console.log("[WEBHOOK] Rendering PDF with Puppeteer...");
         const pdfBuffer = await renderPdf({ html });
+        console.log("[WEBHOOK] PDF rendered, size:", pdfBuffer.length);
 
         // Upload to Supabase Storage
         const fileName = `${sessionId}.pdf`;
@@ -167,10 +178,12 @@ export async function POST(req: NextRequest) {
 
           console.log("[WEBHOOK] PDF generated and email sent for:", email);
         }
-      } catch (err) {
-        console.error("[STRIPE WEBHOOK] PDF generation failed:", err);
+      } catch (err: any) {
+        console.error("[STRIPE WEBHOOK] PDF generation failed:");
+        console.error("Message:", err?.message || String(err));
+        console.error("Stack:", err?.stack || "No stack");
         // Return 500 so Stripe retries
-        return NextResponse.json({ error: "PDF generation failed" }, { status: 500 });
+        return NextResponse.json({ error: "PDF generation failed: " + (err?.message || String(err)) }, { status: 500 });
       }
     }
   }

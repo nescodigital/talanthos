@@ -90,7 +90,7 @@ export async function POST(req: NextRequest) {
     const stripeSession = await stripe.checkout.sessions.create(sessionConfig);
 
     // Create order record
-    await supabase.from("orders").insert({
+    const { error: insertError } = await supabase.from("orders").insert({
       session_id: sessionId || null,
       stripe_session_id: stripeSession.id,
       email: email || "pending",
@@ -98,6 +98,14 @@ export async function POST(req: NextRequest) {
       currency: "usd",
       primary_type: type,
     });
+
+    if (insertError) {
+      console.error("[CHECKOUT] Supabase insert error:", insertError);
+      return NextResponse.json(
+        { error: "Failed to create order: " + insertError.message },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json({ url: stripeSession.url, id: stripeSession.id });
   } catch (err: any) {
