@@ -97,10 +97,10 @@ export default function ContactPage() {
                       <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--accent-soft)]">
                         <MapPin className="h-4 w-4 text-[var(--accent)]" strokeWidth={1.5} />
                       </div>
-                      <span className="text-sm font-medium text-[var(--ink)]">Based in</span>
+                      <span className="text-sm font-medium text-[var(--ink)]">Who we are</span>
                     </div>
                     <p className="text-sm text-[var(--ink-2)]">
-                      Building for the global Church, from everywhere believers are.
+                      A small team of believers who believe stewardship starts with knowing how God wired you.
                     </p>
                   </div>
                 </BlurFade>
