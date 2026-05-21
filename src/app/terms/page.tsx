@@ -2,7 +2,7 @@ import TxNav from "@/components/tx/TxNav";
 import TxFooter from "@/components/tx/TxFooter";
 
 export const metadata = {
-  title: "Terms of Service. Talanthos",
+  title: "Terms of Service — Talanthos",
 };
 
 export default function TermsPage() {
@@ -44,11 +44,8 @@ export default function TermsPage() {
           <section>
             <h2 className="text-lg font-semibold text-[var(--ink)]">4. Purchases and Refunds</h2>
             <p className="mt-2">
-              All sales are processed in USD via Stripe and are final. For any issues with your
-              delivery, email{" "}
-              <a href="/contact" className="text-[var(--accent)] hover:underline">
-                Contact us
-              </a>{" "}
+              All sales are processed in USD via Stripe. For any issues with your delivery,{" "}
+              <a href="/contact" className="text-[var(--accent)] hover:underline">contact us</a>{" "}
               with your order number.
             </p>
           </section>
@@ -99,15 +96,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-[var(--ink)]">10. Governing Law</h2>
-            <p className="mt-2">
-              These terms are governed by the laws of Romania. Any disputes will be resolved in the
-              courts of Bucharest.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-semibold text-[var(--ink)]">11. Changes to Terms</h2>
+            <h2 className="text-lg font-semibold text-[var(--ink)]">10. Changes to Terms</h2>
             <p className="mt-2">
               We may update these terms at any time. Continued use after changes constitutes
               acceptance.
@@ -115,13 +104,11 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-[var(--ink)]">12. Contact</h2>
+            <h2 className="text-lg font-semibold text-[var(--ink)]">11. Contact</h2>
             <p className="mt-2">
-              <a href="/contact" className="text-[var(--accent)] hover:underline">
-                Contact us
-              </a>
+              Questions about these terms?{" "}
+              <a href="/contact" className="text-[var(--accent)] hover:underline">Contact us</a>.
             </p>
-            <p className="mt-1 text-[var(--muted)]">We are building this in faith, for the global Church.</p>
           </section>
         </div>
       </main>

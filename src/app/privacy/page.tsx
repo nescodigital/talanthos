@@ -2,7 +2,7 @@ import TxNav from "@/components/tx/TxNav";
 import TxFooter from "@/components/tx/TxFooter";
 
 export const metadata = {
-  title: "Privacy Policy. Talanthos",
+  title: "Privacy Policy — Talanthos",
 };
 
 export default function PrivacyPage() {
@@ -19,8 +19,8 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-lg font-semibold text-[var(--ink)]">1. Introduction</h2>
             <p className="mt-2">
-              Talanthos (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) respects your privacy. This Privacy Policy explains how we
-              collect, use, and protect your information when you use our website and services.
+              Talanthos respects your privacy. This Privacy Policy explains how we collect, use, and
+              protect your information when you use our website and services.
             </p>
           </section>
 
@@ -76,10 +76,7 @@ export default function PrivacyPage() {
               <li>Export your data</li>
             </ul>
             <p className="mt-2">
-              Contact us at{" "}
-              <a href="/contact" className="text-[var(--accent)] hover:underline">
-                Contact us
-              </a>{" "}
+              <a href="/contact" className="text-[var(--accent)] hover:underline">Contact us</a>{" "}
               to exercise these rights.
             </p>
           </section>
@@ -119,12 +116,9 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-lg font-semibold text-[var(--ink)]">11. Contact</h2>
             <p className="mt-2">
-              Privacy questions:{" "}
-              <a href="/contact" className="text-[var(--accent)] hover:underline">
-                Contact us
-              </a>
+              Privacy questions?{" "}
+              <a href="/contact" className="text-[var(--accent)] hover:underline">Contact us</a>.
             </p>
-            <p className="mt-1 text-[var(--muted)]">We are building this in faith, for the global Church.</p>
           </section>
         </div>
       </main>
