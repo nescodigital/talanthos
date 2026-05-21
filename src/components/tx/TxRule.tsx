@@ -2,9 +2,10 @@
 
 interface TxRuleProps {
   width?: number;
+  className?: string;
 }
 
-export default function TxRule({ width = 60 }: TxRuleProps) {
+export default function TxRule({ width = 60, className = "" }: TxRuleProps) {
   return (
     <svg
       width={width}
@@ -12,7 +13,8 @@ export default function TxRule({ width = 60 }: TxRuleProps) {
       viewBox="0 0 60 10"
       fill="none"
       aria-hidden="true"
-      style={{ color: "var(--accent)" }}
+      style={{ color: "var(--accent)", display: "block", margin: "0 auto" }}
+      className={className}
     >
       <line x1="0" y1="5" x2="22" y2="5" stroke="currentColor" strokeWidth="1" />
       <circle cx="30" cy="5" r="1.4" fill="currentColor" />

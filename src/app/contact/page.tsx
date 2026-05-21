@@ -7,10 +7,19 @@ import TxButton from "@/components/tx/TxButton";
 import TxEyebrow from "@/components/tx/TxEyebrow";
 import TxRule from "@/components/tx/TxRule";
 import { BlurFade } from "@/components/ui/blur-fade";
-import { Mail, Users, Clock, Send, CheckCircle2 } from "lucide-react";
+import { Mail, Users, Clock, Send, CheckCircle2, HelpCircle, MessageSquare, Briefcase, Newspaper, Bug } from "lucide-react";
+
+const CATEGORIES = [
+  { value: "", label: "Select a topic", icon: HelpCircle },
+  { value: "report", label: "Question about my report", icon: MessageSquare },
+  { value: "partnership", label: "Partnership or collaboration", icon: Briefcase },
+  { value: "media", label: "Media inquiry", icon: Newspaper },
+  { value: "technical", label: "Technical issue", icon: Bug },
+  { value: "other", label: "Something else", icon: MessageSquare },
+];
 
 export default function ContactPage() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", category: "", message: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -33,7 +42,7 @@ export default function ContactPage() {
         return;
       }
       setStatus("sent");
-      setForm({ name: "", email: "", message: "" });
+      setForm({ name: "", email: "", category: "", message: "" });
     } catch {
       setStatus("error");
       setErrorMsg("Network error. Please try again.");
@@ -53,8 +62,10 @@ export default function ContactPage() {
                 <h1 className="tx-display" style={{ fontSize: "clamp(32px, 5vw, 52px)", marginTop: 12 }}>
                   We read every message
                 </h1>
-                <TxRule width={60} />
-                <p className="tx-lede" style={{ maxWidth: 520, margin: "16px auto 0" }}>
+                <div style={{ marginTop: 16, marginBottom: 16 }}>
+                  <TxRule width={60} />
+                </div>
+                <p className="tx-lede" style={{ maxWidth: 520, margin: "0 auto" }}>
                   Have a question about your report, a partnership idea, or just want to say hello? We are here.
                 </p>
               </div>
@@ -166,6 +177,36 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <label
+                          htmlFor="category"
+                          className="block text-xs font-medium uppercase tracking-widest text-[var(--muted)] mb-2"
+                          style={{ fontFamily: "var(--mono)" }}
+                        >
+                          Topic
+                        </label>
+                        <div className="relative">
+                          <select
+                            id="category"
+                            required
+                            value={form.category}
+                            onChange={(e) => setForm((f) => ({ ...f, category: e.target.value }))}
+                            className="w-full rounded-xl border border-[var(--rule-strong)] bg-[var(--bg)] px-4 py-3 text-[var(--ink)] outline-none transition-colors focus:border-[var(--accent)] appearance-none"
+                            style={{ fontSize: 15 }}
+                          >
+                            {CATEGORIES.map((c) => (
+                              <option key={c.value} value={c.value} disabled={c.value === ""}>
+                                {c.label}
+                              </option>
+                            ))}
+                          </select>
+                          <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[var(--muted)]">
+                            <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                              <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <label
                           htmlFor="message"
                           className="block text-xs font-medium uppercase tracking-widest text-[var(--muted)] mb-2"
                           style={{ fontFamily: "var(--mono)" }}
@@ -186,14 +227,12 @@ export default function ContactPage() {
                       {status === "error" && (
                         <p className="text-sm" style={{ color: "#b85a3d" }}>{errorMsg}</p>
                       )}
-                      <div className="w-full">
-                        <TxButton type="submit" size="lg" disabled={status === "sending"} icon={null}>
-                          <span className="inline-flex items-center gap-2">
-                            {status === "sending" ? "Sending..." : "Send message"}
-                            <Send className="h-4 w-4" />
-                          </span>
-                        </TxButton>
-                      </div>
+                      <TxButton type="submit" size="lg" disabled={status === "sending"} icon={null} className="w-full justify-center">
+                        <span className="inline-flex items-center gap-2">
+                          {status === "sending" ? "Sending..." : "Send message"}
+                          <Send className="h-4 w-4" />
+                        </span>
+                      </TxButton>
                     </form>
                   )}
                 </BlurFade>

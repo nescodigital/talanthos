@@ -10,6 +10,7 @@ interface TxButtonProps {
   icon?: string | null;
   disabled?: boolean;
   type?: "button" | "submit";
+  className?: string;
 }
 
 export default function TxButton({
@@ -20,6 +21,7 @@ export default function TxButton({
   icon = "arrow",
   disabled = false,
   type = "button",
+  className = "",
 }: TxButtonProps) {
   const sizeClasses = {
     sm: "px-[18px] py-[10px] text-[13px]",
@@ -39,6 +41,7 @@ export default function TxButton({
         disabled:opacity-40 disabled:cursor-not-allowed
         ${sizeClasses[size]}
         ${variant === "primary" ? "bg-[var(--accent)] text-white shadow-[0_1px_0_rgba(255,255,255,0.2)_inset,0_12px_24px_-16px_rgba(40,30,10,0.6)] hover:shadow-[0_1px_0_rgba(255,255,255,0.2)_inset,0_18px_30px_-16px_rgba(40,30,10,0.7)]" : ""}
+        ${className}
       `}
     >
       <span>{children}</span>
