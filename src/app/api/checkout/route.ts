@@ -54,7 +54,7 @@ export async function POST(req: NextRequest) {
 
     const sessionConfig: Stripe.Checkout.SessionCreateParams = {
       mode: "payment",
-      success_url: `${req.headers.get("origin") || "https://talanthos.com"}/quiz/result?payment=success&type=${encodeURIComponent(type)}`,
+      success_url: `${req.headers.get("origin") || "https://talanthos.com"}/quiz/thank-you?type=${encodeURIComponent(type)}`,
       cancel_url: `${req.headers.get("origin") || "https://talanthos.com"}/quiz/paywall?type=${encodeURIComponent(type)}&session=${encodeURIComponent(sessionId)}`,
       line_items: [
         {
