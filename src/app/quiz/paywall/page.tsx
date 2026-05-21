@@ -287,7 +287,7 @@ function PaywallContent() {
                   {TIERS.map((tier) => (
                     <Link
                       key={tier.amount}
-                      href={`/checkout?amount=${tier.amount}&type=${encodeURIComponent(type || "")}`}
+                      href={`/checkout?amount=${tier.amount}&type=${encodeURIComponent(type || "")}&session=${encodeURIComponent(session || "")}`}
                       className={`relative flex flex-col items-center rounded-xl border p-4 sm:p-5 text-center transition-all hover:-translate-y-px hover:shadow-[0_12px_30px_-16px_rgba(40,30,10,0.25)] ${
                         tier.popular
                           ? "border-[var(--accent)] bg-[var(--accent-soft)]/40 shadow-[0_8px_24px_-12px_rgba(40,30,10,0.3)]"
@@ -323,7 +323,7 @@ function PaywallContent() {
                       style={{ fontFamily: "var(--serif)", fontSize: 18 }}
                     />
                     <Link
-                      href={`/checkout?amount=${Math.max(1000, parseInt(customAmount || "15", 10) * 100)}&type=${encodeURIComponent(type || "")}`}
+                      href={`/checkout?amount=${Math.max(1000, parseInt(customAmount || "15", 10) * 100)}&type=${encodeURIComponent(type || "")}&session=${encodeURIComponent(session || "")}`}
                       className="rounded-full bg-[var(--accent)] px-5 py-2.5 text-sm font-medium text-white transition-all hover:-translate-y-px hover:shadow-[0_12px_24px_-16px_rgba(40,30,10,0.6)] inline-flex items-center gap-1.5"
                     >
                       Continue
