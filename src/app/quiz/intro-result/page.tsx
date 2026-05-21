@@ -19,7 +19,7 @@ export default function IntroResultPage() {
 
   return (
     <div className="tx-page">
-      <TxNav minimal />
+      <TxNav />
       <div className="tx-route">
         <main className="tx-screen tx-intro-result">
           <div className="tx-intro-frame">

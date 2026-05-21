@@ -145,7 +145,7 @@ function PaywallContent() {
       </div>
 
       <div style={{ position: "relative", zIndex: 1 }}>
-        <TxNav minimal />
+        <TxNav />
         <main className="flex-1 flex flex-col">
           {/* Section 1: Problem + Hook */}
           <section className="px-5 sm:px-6 lg:px-14 pt-12 sm:pt-16 pb-8 text-center">

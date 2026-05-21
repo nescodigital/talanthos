@@ -50,7 +50,7 @@ function CheckoutContent() {
 
   return (
     <div className="flex min-h-full flex-col relative z-[1]">
-      <TxNav minimal />
+      <TxNav />
       <main className="flex-1 flex flex-col items-center justify-center px-5 sm:px-6 lg:px-14 py-24 text-center">
         {status === "loading" && (
           <>

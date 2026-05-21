@@ -97,7 +97,7 @@ export default function ResultPage() {
 
   return (
     <div className="tx-page">
-      <TxNav minimal />
+      <TxNav />
       <div className="tx-route">
         <main className="tx-screen tx-result">
           <div className="tx-result-frame">

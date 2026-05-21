@@ -29,7 +29,7 @@ export default function CalculatingPage() {
 
   return (
     <div className="tx-page">
-      <TxNav minimal />
+      <TxNav />
       <div className="tx-route">
         <main className="tx-screen tx-calc">
           <div className="tx-calc-frame">

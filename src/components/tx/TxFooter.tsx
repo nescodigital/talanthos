@@ -11,13 +11,13 @@ export default function TxFooter() {
           <TxLockup size="sm" />
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-2">
-          <Link href="/coming-soon" className="text-[var(--ink-2)] no-underline text-[13px] border-b border-transparent pb-0.5 transition-colors duration-200 hover:text-[var(--accent)] hover:border-[var(--accent)]">
+          <Link href="/about" className="text-[var(--ink-2)] no-underline text-[13px] border-b border-transparent pb-0.5 transition-colors duration-200 hover:text-[var(--accent)] hover:border-[var(--accent)]">
             About
           </Link>
-          <Link href="/coming-soon" className="text-[var(--ink-2)] no-underline text-[13px] border-b border-transparent pb-0.5 transition-colors duration-200 hover:text-[var(--accent)] hover:border-[var(--accent)]">
+          <Link href="/the-four-types" className="text-[var(--ink-2)] no-underline text-[13px] border-b border-transparent pb-0.5 transition-colors duration-200 hover:text-[var(--accent)] hover:border-[var(--accent)]">
             The Four Types
           </Link>
-          <Link href="/coming-soon" className="text-[var(--ink-2)] no-underline text-[13px] border-b border-transparent pb-0.5 transition-colors duration-200 hover:text-[var(--accent)] hover:border-[var(--accent)]">
+          <Link href="/journal" className="text-[var(--ink-2)] no-underline text-[13px] border-b border-transparent pb-0.5 transition-colors duration-200 hover:text-[var(--accent)] hover:border-[var(--accent)]">
             Journal
           </Link>
           <Link href="/privacy" className="text-[var(--ink-2)] no-underline text-[13px] border-b border-transparent pb-0.5 transition-colors duration-200 hover:text-[var(--accent)] hover:border-[var(--accent)]">

@@ -141,7 +141,7 @@ export default function QuizCard({ step }: QuizCardProps) {
 
   return (
     <div className="tx-page">
-      <TxNav minimal />
+      <TxNav />
       <div className="tx-route">
         <main className="tx-screen tx-quiz">
           <div className="tx-quiz-frame">

@@ -61,7 +61,7 @@ export default function Motivation1Page() {
 
   return (
     <div className="tx-page">
-      <TxNav minimal />
+      <TxNav />
       <div className="tx-route">
         <main className="tx-screen tx-quiz">
           <div className="tx-quiz-frame">
