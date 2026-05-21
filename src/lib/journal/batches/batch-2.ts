@@ -14,11 +14,11 @@ export const BATCH_2: Article[] = [
 
       <p>The Bible does not address specific asset classes. It addresses the heart behind them. Proverbs praises the man who considers a field before buying it. Jesus warns against building bigger barns without knowing the future. And Paul tells Timothy to flee the love of money. These principles apply whether the asset is land, livestock, or blockchain.</p>
 
-      <h3>What Cryptocurrency Is</h3>
+      <h2>What Cryptocurrency Is</h2>
 
       <p>At its core, cryptocurrency is a speculative digital asset. It has no cash flows, no earnings, and no intrinsic productive capacity. Its value is determined entirely by what the next buyer is willing to pay. This makes it closer to gold or art than to stocks or bonds.</p>
 
-      <h3>Three Stewardship Questions for Crypto</h3>
+      <h2>Three Stewardship Questions for Crypto</h2>
 
       <p><strong>Do you understand it?</strong> Proverbs says, "The simple believe anything, but the prudent give thought to their steps." If you cannot explain blockchain to a friend, you should not invest in it.</p>
 
@@ -42,13 +42,13 @@ export const BATCH_2: Article[] = [
 
       <p>Paul echoes this in Romans 13: "This is also why you pay taxes, for the authorities are God's servants, who give their full time to governing." Tax resistance is not a biblical norm. It is an exception reserved for times when the state directly commands what God forbids.</p>
 
-      <h3>Paying vs. Planning</h3>
+      <h2>Paying vs. Planning</h2>
 
       <p>Paying taxes is obedience. Planning taxes is wisdom. There is no virtue in overpaying. The biblical steward uses every legitimate deduction, credit, and strategy to reduce tax liability — not to hoard, but to redirect. Money saved on taxes can be given, invested, or used for kingdom purposes.</p>
 
       <p>But the line between planning and evasion is real. Hiding income, falsifying deductions, or using illegal shelters is not stewardship. It is theft. And theft by another name is still sin.</p>
 
-      <h3>Three Tax Practices for Christians</h3>
+      <h2>Three Tax Practices for Christians</h2>
 
       <p><strong>Give first:</strong> Charitable deductions reduce taxable income while advancing God's purposes. This is not a loophole. It is a design feature.</p>
 
@@ -72,11 +72,11 @@ export const BATCH_2: Article[] = [
 
       <p>Some Christians resist insurance as a lack of faith. "God will provide," they say, and He will. But God often provides through means — including the means of financial preparation. Joseph's grain stores were not a lack of trust in God. They were the very mechanism God used to provide.</p>
 
-      <h3>What Insurance Actually Does</h3>
+      <h2>What Insurance Actually Does</h2>
 
       <p>Insurance is the transfer of catastrophic risk to a pool. You pay a small, predictable amount so that a large, unpredictable loss does not destroy you. It is not gambling. It is not speculation. It is the collective version of Joseph's storehouse.</p>
 
-      <h3>Types of Insurance Every Steward Should Consider</h3>
+      <h2>Types of Insurance Every Steward Should Consider</h2>
 
       <p><strong>Term life insurance:</strong> If dependents rely on your income, term life is non-negotiable. It is inexpensive and replaces income if you die prematurely.</p>
 
@@ -102,11 +102,11 @@ export const BATCH_2: Article[] = [
 
       <p>Workplace stewardship has three dimensions: excellence, integrity, and generosity. Excellence means doing your job well, even when no one is watching. Integrity means refusing shortcuts that compromise character. Generosity means using your position to serve colleagues, customers, and community.</p>
 
-      <h3>Excellence as Witness</h3>
+      <h2>Excellence as Witness</h2>
 
       <p>Daniel was distinguished among administrators because of his exceptional qualities. His excellence opened doors for influence. In a culture that often excuses mediocrity, competence is a form of evangelism. People notice when Christians work harder, think deeper, and deliver more.</p>
 
-      <h3>Three Practices for Workplace Stewardship</h3>
+      <h2>Three Practices for Workplace Stewardship</h2>
 
       <p><strong>Show up prepared:</strong> Bring your full attention and energy. Your employer is paying for your time, but God is watching your heart.</p>
 
@@ -130,7 +130,7 @@ export const BATCH_2: Article[] = [
 
       <p>A spending fast means choosing a period — a week, a month, a season — during which you buy nothing except true necessities. No restaurants. No entertainment purchases. No online shopping. No new clothes. Just food, housing, transportation, and essential bills.</p>
 
-      <h3>What a Spending Fast Reveals</h3>
+      <h2>What a Spending Fast Reveals</h2>
 
       <p>First, it reveals your triggers. You will notice what emotions drive your purchases. Boredom? Stress? Social comparison? Loneliness? The fast turns the spotlight on patterns you normally ignore.</p>
 
@@ -138,7 +138,7 @@ export const BATCH_2: Article[] = [
 
       <p>Third, it reveals your capacity. You can live with less. Much less. And the freedom that follows is sweeter than the purchases you skipped.</p>
 
-      <h3>How to Do a Spending Fast</h3>
+      <h2>How to Do a Spending Fast</h2>
 
       <p><strong>Define necessities in advance:</strong> Write them down. Do not decide in the moment.</p>
 
@@ -162,7 +162,7 @@ export const BATCH_2: Article[] = [
 
       <p>Most Christians never review their finances systematically. They check account balances, pay bills, and hope for the best. But hope is not a strategy. An annual review asks hard questions, celebrates real progress, and adjusts the course for the year ahead.</p>
 
-      <h3>The Annual Review Checklist</h3>
+      <h2>The Annual Review Checklist</h2>
 
       <p><strong>Net worth:</strong> What is your total assets minus liabilities? Is it higher than last year? By how much? What drove the change?</p>
 
@@ -192,11 +192,11 @@ export const BATCH_2: Article[] = [
 
       <p>Christians should care about their credit score not because a high score makes them valuable, but because a low score often reflects broken promises. If you have borrowed money, you have made a promise. Keeping promises is a fruit of the Spirit.</p>
 
-      <h3>How Credit Scores Work</h3>
+      <h2>How Credit Scores Work</h2>
 
       <p>Payment history (35%), credit utilization (30%), length of history (15%), credit mix (10%), and new inquiries (10%). The two biggest factors are simple: pay on time, and do not max out your cards.</p>
 
-      <h3>What Matters Biblically</h3>
+      <h2>What Matters Biblically</h2>
 
       <p><strong>Payment history:</strong> This is promise-keeping. Paying late is not just financially costly. It is ethically significant.</p>
 
@@ -220,13 +220,13 @@ export const BATCH_2: Article[] = [
 
       <p>In a digital world, this feels archaic. But it works for a reason: cash creates friction. Swiping a card is effortless. Handing over a twenty-dollar bill is physical. You feel the loss. And that feeling is the point.</p>
 
-      <h3>Digital Envelope Alternatives</h3>
+      <h2>Digital Envelope Alternatives</h2>
 
       <p>If carrying cash feels impractical, several apps replicate the envelope system digitally. They connect to your bank account and move money into virtual envelopes. The principle is the same: pre-allocated limits, visible depletion, forced restraint.</p>
 
       <p>The key is not the medium. It is the boundary. A budget without boundaries is a wish list. The envelope system makes boundaries tangible.</p>
 
-      <h3>Who Should Use Envelopes</h3>
+      <h2>Who Should Use Envelopes</h2>
 
       <p>The envelope system works best for categories where you tend to overspend: dining out, groceries, entertainment, personal spending. It is less useful for fixed bills, which are already predictable.</p>
 
@@ -248,13 +248,13 @@ export const BATCH_2: Article[] = [
 
       <p>The answer depends on motive. A prenup designed to protect one spouse's wealth from the other is not consistent with the one-flesh union. But a prenup designed to protect children from previous marriages, family businesses, or charitable commitments may be a different matter.</p>
 
-      <h3>The Case Against Prenups</h3>
+      <h2>The Case Against Prenups</h2>
 
       <p>Marriage is a covenant, not a contract. Covenants are unconditional. Contracts are conditional. A prenup, by definition, defines the terms of separation. For many Christians, this undermines the very nature of the vow they are about to make.</p>
 
       <p>Furthermore, prenups can create power imbalances. The wealthier spouse is protected. The less wealthy spouse is vulnerable. This does not reflect the mutual submission Paul commands in Ephesians 5.</p>
 
-      <h3>The Case For Limited Planning</h3>
+      <h2>The Case For Limited Planning</h2>
 
       <p>Some situations are genuinely complex. A family farm passed down for generations. A business with multiple stakeholders. Children from a prior marriage who would lose inheritance rights. In these cases, legal clarity may serve peace, not division.</p>
 
@@ -276,11 +276,11 @@ export const BATCH_2: Article[] = [
 
       <p>The damage is not just financial. It is relational. Money secrets violate the one-flesh union. They create a parallel life. And when discovered, they trigger the same trauma as other forms of betrayal: shock, anger, grief, and deep mistrust.</p>
 
-      <h3>Why It Happens</h3>
+      <h2>Why It Happens</h2>
 
       <p>Financial infidelity rarely starts with malice. It starts with shame. A spouse who grew up in poverty hides debt to avoid judgment. A spouse who feels controlled spends secretly to reclaim autonomy. A spouse with a spending addiction conceals the evidence to protect the marriage — and ends up destroying it.</p>
 
-      <h3>The Path to Restoration</h3>
+      <h2>The Path to Restoration</h2>
 
       <p><strong>Full confession:</strong> Partial truth is still deception. Every account, every debt, every secret must come into the light.</p>
 
@@ -306,15 +306,15 @@ export const BATCH_2: Article[] = [
 
       <p>The tension between emotional and strategic giving is not a conflict to resolve. It is a balance to maintain. Emotional giving keeps your heart soft. Strategic giving keeps your impact large. Together, they form a complete generosity practice.</p>
 
-      <h3>Emotional Giving: The Heart</h3>
+      <h2>Emotional Giving: The Heart</h2>
 
       <p>Emotional giving responds to immediate need. A friend in crisis. A homeless person on the corner. A missionary with an urgent appeal. This giving trains compassion. It keeps you connected to real people in real time. Without it, generosity becomes abstract and cold.</p>
 
-      <h3>Strategic Giving: The Mind</h3>
+      <h2>Strategic Giving: The Mind</h2>
 
       <p>Strategic giving responds to research, values, and long-term goals. You identify causes you care about, evaluate their effectiveness, and commit regular support. This giving maximizes impact. It builds institutions, funds research, and sustains missions over decades.</p>
 
-      <h3>The Balanced Approach</h3>
+      <h2>The Balanced Approach</h2>
 
       <p>Allocate 80% of your giving to strategic, planned causes. Allocate 20% to spontaneous, emotional response. This gives you both consistency and compassion.</p>
 
@@ -334,7 +334,7 @@ export const BATCH_2: Article[] = [
 
       <p>The modern missions supporter often writes a check and forgets the missionary exists. This is not partnership. It is transaction. True partnership involves prayer, communication, advocacy, and sometimes personal presence.</p>
 
-      <h3>Four Dimensions of Missions Support</h3>
+      <h2>Four Dimensions of Missions Support</h2>
 
       <p><strong>Financial:</strong> Regular, reliable giving that allows the missionary to plan. Unpredictable support creates stress. Consistent support creates stability.</p>
 
@@ -360,11 +360,11 @@ export const BATCH_2: Article[] = [
 
       <p>But is it? Malachi 3:10 says to bring the whole tithe into the storehouse. It does not say to bring the tithe you agree with. Once given, the tithe belongs to God and His appointed leaders. Micromanaging church spending from the pew is not stewardship. It is control.</p>
 
-      <h3>When Disagreement Is Valid</h3>
+      <h2>When Disagreement Is Valid</h2>
 
       <p>Not all spending is wise. Not all leaders are faithful. If your church is engaged in illegal activity, unbiblical teaching, or gross financial mismanagement, you have grounds for serious concern — and possibly for leaving. But disagreement over priorities, aesthetics, or strategy is not the same as malfeasance.</p>
 
-      <h3>How to Respond Biblically</h3>
+      <h2>How to Respond Biblically</h2>
 
       <p><strong>Ask questions first:</strong> Before assuming the worst, seek to understand the decision. There may be context you do not have.</p>
 
@@ -388,15 +388,15 @@ export const BATCH_2: Article[] = [
 
       <p>The Bible does not specify a debt payoff order. But it does value both wisdom and perseverance. The avalanche is mathematically wiser. The snowball is psychologically more sustainable. And for most people, the method they will actually finish is the best method.</p>
 
-      <h3>The Snowball: Momentum Through Victory</h3>
+      <h2>The Snowball: Momentum Through Victory</h2>
 
       <p>Pay minimums on everything. Throw every extra dollar at the smallest balance. When it is gone, roll that payment into the next smallest. The wins come fast. The psychological boost is real. For people who have failed at debt payoff before, the snowball works because it builds confidence.</p>
 
-      <h3>The Avalanche: Efficiency Through Discipline</h3>
+      <h2>The Avalanche: Efficiency Through Discipline</h2>
 
       <p>Pay minimums on everything. Throw every extra dollar at the highest interest rate. When it is gone, move to the next highest. The wins come slower, but the total interest paid is lower. For highly disciplined people, the avalanche is optimal.</p>
 
-      <h3>The Biblical Verdict</h3>
+      <h2>The Biblical Verdict</h2>
 
       <p>Proverbs says, "The plans of the diligent lead to profit." Both methods require diligence. The key is not which method you choose. It is whether you commit to it. Pick one. Start today. Do not let analysis become paralysis.</p>
 
@@ -416,11 +416,11 @@ export const BATCH_2: Article[] = [
 
       <p>Living below your means is the practice of spending less than you earn, consistently and intentionally. It creates margin. Margin creates freedom. And freedom creates capacity for generosity, opportunity, and peace.</p>
 
-      <h3>Why Below, Not Just Within</h3>
+      <h2>Why Below, Not Just Within</h2>
 
       <p>Living within your means is basic stewardship. Living below your means is advanced. It means your lifestyle does not expand to fill your income. It means you could afford more, but you choose less. This choice trains your heart in contentment and prepares you for seasons of want.</p>
 
-      <h3>Practical Steps</h3>
+      <h2>Practical Steps</h2>
 
       <p><strong>Cap lifestyle at a percentage of income:</strong> Even as income rises, keep lifestyle at 70-80%. Save and give the rest.</p>
 
@@ -444,7 +444,7 @@ export const BATCH_2: Article[] = [
 
       <p>Side hustles are not inherently wrong. Proverbs praises the ant for storing in summer. Many biblical figures had multiple streams — shepherds who traded, fishermen who sold, tentmakers who preached. But the side hustle becomes idolatry when it consumes what God reserved for Himself.</p>
 
-      <h3>Warning Signs Your Side Hustle Has Become an Idol</h3>
+      <h2>Warning Signs Your Side Hustle Has Become an Idol</h2>
 
       <p><strong>You work on Sabbath.</strong> Not just occasionally in crisis. Regularly, habitually, with excuses.</p>
 
@@ -452,7 +452,7 @@ export const BATCH_2: Article[] = [
 
       <p><strong>You cannot stop thinking about it.</strong> The side hustle occupies your mind during worship, during meals, during rest. Your heart is divided.</p>
 
-      <h3>A Healthy Framework</h3>
+      <h2>A Healthy Framework</h2>
 
       <p>Limit side hustle hours to no more than ten per week. Protect one full day of rest. Involve your family in the decision. And regularly ask: is this hustle serving my calling, or has it become my calling?</p>
 
@@ -472,13 +472,13 @@ export const BATCH_2: Article[] = [
 
       <p>The Bible presents inheritance as a covenant tool. Land was passed down by tribe and family. The Jubilee ensured that permanent dispossession did not happen. Inheritance connected generations to each other and to God's promises. It was never just money. It was identity, responsibility, and memory.</p>
 
-      <h3>Financial Inheritance: The Risks</h3>
+      <h2>Financial Inheritance: The Risks</h2>
 
       <p>Studies show that most inherited wealth is lost within three generations. The first generation earns it. The second generation maintains it. The third generation spends it. This pattern is so common that it has a name: "shirtsleeves to shirtsleeves in three generations."</p>
 
       <p>Large financial inheritances can also erode work ethic, create entitlement, and destroy family relationships. The parable of the prodigal son is not just about rebellion. It is about premature access to wealth.</p>
 
-      <h3>Wise Inheritance Practices</h3>
+      <h2>Wise Inheritance Practices</h2>
 
       <p><strong>Give gradually:</strong> Trusts that distribute at ages 25, 30, and 35 give children time to mature before receiving large sums.</p>
 
@@ -502,11 +502,11 @@ export const BATCH_2: Article[] = [
 
       <p>Sabbath is the deliberate interruption of production and consumption. It is a day when you are not earning, not buying, and not producing. You are simply being. And in that being, you discover that you are enough — not because of what you have, but because of whose you are.</p>
 
-      <h3>The Sabbath-Spending Connection</h3>
+      <h2>The Sabbath-Spending Connection</h2>
 
       <p>Notice your spending patterns on Sundays. Do you shop online during church? Do you browse sales during rest time? Do you plan purchases to fill the boredom of a slow afternoon? These are symptoms. Sabbath rest is the treatment.</p>
 
-      <h3>Practical Sabbath Spending Boundaries</h3>
+      <h2>Practical Sabbath Spending Boundaries</h2>
 
       <p><strong>No shopping on Sabbath:</strong> Online or in-person. Make it a hard rule. The pause reveals how much shopping is impulse.</p>
 
@@ -530,7 +530,7 @@ export const BATCH_2: Article[] = [
 
       <p>The biblical model of hospitality is simple. Abraham offered bread, curds, milk, and a calf. Jesus ate fish and bread with His disciples. The early church broke bread in homes. There were no Pinterest boards, no curated tablescapes, no seven-course meals.</p>
 
-      <h3>Hospitality Without Pressure</h3>
+      <h2>Hospitality Without Pressure</h2>
 
       <p><strong>Serve simple food:</strong> Soup and bread. Tacos. Breakfast for dinner. The food is an excuse for connection, not the main event.</p>
 
@@ -538,7 +538,7 @@ export const BATCH_2: Article[] = [
 
       <p><strong>Share the load:</strong> Potlucks are biblical. Everyone brings something. No one is burdened. The early church did it constantly.</p>
 
-      <h3>Hospitality as Stewardship</h3>
+      <h2>Hospitality as Stewardship</h2>
 
       <p>Hospitality is not an extra. It is a spiritual discipline. It forces you to open your space, your schedule, and your resources to others. It breaks isolation. It builds community. And it does not require wealth. It requires willingness.</p>
 
@@ -558,11 +558,11 @@ export const BATCH_2: Article[] = [
 
       <p>Modern psychology confirms what Scripture has always taught. Gratitude practices measurably reduce materialism, increase satisfaction, and improve financial decision-making. People who regularly give thanks spend less, save more, and give more generously. The Spirit and the science agree.</p>
 
-      <h3>How Gratitude Changes Spending</h3>
+      <h2>How Gratitude Changes Spending</h2>
 
       <p>When you are grateful for what you have, the next purchase loses its urgency. The new phone, the upgraded car, the trendy jacket — these are solutions to a problem gratitude has already solved. Gratitude fills the tank. Consumerism drains it and charges for the refill.</p>
 
-      <h3>Three Gratitude Practices for Financial Peace</h3>
+      <h2>Three Gratitude Practices for Financial Peace</h2>
 
       <p><strong>Daily three:</strong> Each evening, write three things you are grateful for. At least one must be non-material.</p>
 
@@ -586,11 +586,11 @@ export const BATCH_2: Article[] = [
 
       <p>Many Christians — especially women and people from modest backgrounds — struggle to negotiate salary. They equate asking with greed, and silence with humility. But accepting below-market pay is not virtue. It is poor stewardship of your skills, your family, and your future generosity.</p>
 
-      <h3>Negotiation Is Not Greed</h3>
+      <h2>Negotiation Is Not Greed</h2>
 
       <p>Greed is wanting more than you need at others' expense. Negotiation is wanting fair value for fair work. Jesus told a parable about workers who agreed to a wage before starting. The agreement was mutual, transparent, and binding. There is no shame in discussing terms.</p>
 
-      <h3>How to Negotiate Faithfully</h3>
+      <h2>How to Negotiate Faithfully</h2>
 
       <p><strong>Research first:</strong> Know the market rate for your role, experience, and location. Ask from data, not desire.</p>
 
@@ -616,7 +616,7 @@ export const BATCH_2: Article[] = [
 
       <p>Widowhood is one of life's most devastating transitions. It combines profound grief with urgent financial complexity. Accounts must be located. Benefits must be claimed. Debts must be understood. And all of this happens while grief is still raw.</p>
 
-      <h3>Immediate Priorities</h3>
+      <h2>Immediate Priorities</h2>
 
       <p><strong>Do not make major decisions for six months:</strong> Selling the house, changing investments, or making large gifts should wait. Grief impairs judgment. Give yourself time.</p>
 
@@ -624,7 +624,7 @@ export const BATCH_2: Article[] = [
 
       <p><strong>Build a team:</strong> A trusted financial advisor, an attorney, and a CPA. Preferably people who have walked with others through this transition.</p>
 
-      <h3>Long-Term Transition</h3>
+      <h2>Long-Term Transition</h2>
 
       <p>Many widows face income reduction, unfamiliar financial tasks, and vulnerability to poor advice. The church can help by providing education, community, and practical support. Do not isolate. Invite others into your financial life.</p>
 
@@ -644,11 +644,11 @@ export const BATCH_2: Article[] = [
 
       <p>When a husband spends without consulting his wife, she may experience it as disregard. When a wife questions a purchase, he may experience it as control. Neither is primarily about the transaction. Both are about the relationship.</p>
 
-      <h3>Why Money Fights Repeat</h3>
+      <h2>Why Money Fights Repeat</h2>
 
       <p>Recurrent fights happen because the underlying need is never addressed. You argue about the restaurant bill, but the real issue is that one of you feels like the other's parent. You argue about the vacation cost, but the real issue is that one of you feels deprived while the other feels entitled.</p>
 
-      <h3>How to Break the Cycle</h3>
+      <h2>How to Break the Cycle</h2>
 
       <p><strong>Name the pattern:</strong> "We fight about dining out every month." Naming it removes some of its power.</p>
 
@@ -674,7 +674,7 @@ export const BATCH_2: Article[] = [
 
       <p>The key is to combine finance with relationship. Do not just review the spreadsheet. Review your dreams, your fears, and your gratitude. Make the meeting something you both look forward to, not something you endure.</p>
 
-      <h3>Financial Date Night Ideas</h3>
+      <h2>Financial Date Night Ideas</h2>
 
       <p><strong>The dream board night:</strong> Bring magazines, poster board, and glue. Each of you creates a vision board for the next year. Then align your budget to the shared vision.</p>
 
@@ -702,7 +702,7 @@ export const BATCH_2: Article[] = [
 
       <p>A legacy letter is a written document to your children — and future grandchildren — explaining your values, your story, your hopes, and your prayers for them. It is not a will. It is not legally binding. It is a love letter across time.</p>
 
-      <h3>What to Include</h3>
+      <h2>What to Include</h2>
 
       <p><strong>Your story:</strong> Where did you come from? What did you learn about money from your parents? What mistakes shaped you? What victories encouraged you?</p>
 
@@ -730,7 +730,7 @@ export const BATCH_2: Article[] = [
 
       <p>Many retirees reduce giving because earned income stops. But retirement assets — IRAs, appreciated stock, property — can be given more tax-efficiently than ever. A donor-advised fund, a qualified charitable distribution, or a charitable remainder trust may allow you to give more in retirement than you did while working.</p>
 
-      <h3>Retirement Giving Strategies</h3>
+      <h2>Retirement Giving Strategies</h2>
 
       <p><strong>Qualified charitable distributions:</strong> If you are over 70½, you can give directly from your IRA to charity. This counts toward your required minimum distribution and is not taxed as income.</p>
 

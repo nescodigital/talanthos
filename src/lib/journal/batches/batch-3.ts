@@ -14,7 +14,7 @@ export const BATCH_3: Article[] = [
 
       <p>Financial infidelity often begins small. A purchase hidden to avoid conflict. A credit card opened "just for emergencies." A bonus spent without mentioning it. These secrets multiply quietly until the day they surface — and when they do, the damage is rarely about the amount. It is about the lie. The betrayed spouse wonders what else has been hidden. The fabric of safety frays, and rebuilding requires more than apologies. It requires a new pattern of truth.</p>
 
-      <h3>Rebuilding After Betrayal</h3>
+      <h2>Rebuilding After Betrayal</h2>
 
       <p>Restoration is possible, but it requires the same ingredients as any reconciliation: confession, forgiveness, and new boundaries. The offending spouse must disclose everything — not just what was discovered. The wounded spouse must decide whether to rebuild, which is a gift, not an obligation.</p>
 
@@ -38,7 +38,7 @@ export const BATCH_3: Article[] = [
 
       <p>In Christ, your value is not indexed to your W-2. It is sealed by blood, not salary. The spouse who earns less is not less wise, less spiritual, or less entitled to speak. The spouse who earns more has not purchased extra votes. True unity requires vigilance against the subtle belief that money equals voice. Couples who recognize this temptation early can build guardrails before resentment takes root.</p>
 
-      <h3>Practical Unity</h3>
+      <h2>Practical Unity</h2>
 
       <p>First, use "we" language. "Our income," not "my paycheck." Language shapes perception. Second, make major decisions together regardless of who earns more. Third, honor non-financial contributions. A stay-at-home parent is stewarding children, not "not working." Their labor has economic value even if it lacks a paycheck. Recognizing this keeps both spouses valued and protects against comparison.</p>
 
@@ -60,7 +60,7 @@ export const BATCH_3: Article[] = [
 
       <p>The answer depends on the heart behind the document. A prenup designed to protect wealth from a future spouse may reflect distrust more than wisdom. But a prenup designed to protect children from a prior marriage, to preserve a family inheritance, or to clarify expectations may be a form of love — if both parties enter freely and transparently.</p>
 
-      <h3>Three Questions to Ask</h3>
+      <h2>Three Questions to Ask</h2>
 
       <p><strong>Is this motivated by fear or love?</strong> Fear protects self. Love protects others. The motive matters more than the document.</p>
 
@@ -86,7 +86,7 @@ export const BATCH_3: Article[] = [
 
       <p>Child support, alimony, college savings for children from prior marriages, and the desire to treat all children fairly — these pressures can strain even the strongest second marriage. The temptation is to keep finances separate, to protect "my kids" and "your kids," and to let resentment grow in silence. But separation is not unity. And unity is what marriage demands.</p>
 
-      <h3>Toward Integration</h3>
+      <h2>Toward Integration</h2>
 
       <p>Start with radical transparency. Both spouses must know all obligations, all support payments, and all commitments. Secrets between blended family spouses are especially destructive because the trust foundation is already complicated by history.</p>
 
@@ -110,7 +110,7 @@ export const BATCH_3: Article[] = [
 
       <p>Money fights escalate quickly because money is never just money. It is security, freedom, status, and control. When a spouse overspends, the other feels unsafe. When a spouse is frugal, the other feels controlled. The numbers on the page trigger deeper fears that have been waiting for an excuse to speak. Recognizing this dynamic is the first step toward disarming it before it explodes.</p>
 
-      <h3>The Soft Answer Practice</h3>
+      <h2>The Soft Answer Practice</h2>
 
       <p>Before any money conversation, name the emotion underneath. "I feel anxious when I see this balance" is softer than "You spent too much." Ask questions before making accusations. Listen to the answer without preparing your rebuttal. And if the conversation heats up, pause. Twenty minutes of silence is better than twenty minutes of words you cannot retrieve.</p>
 
@@ -132,7 +132,7 @@ export const BATCH_3: Article[] = [
 
       <p>Financial intimacy goes deeper. It asks: What did money mean in your family growing up? What are you afraid of losing? What would you do if we had more than enough? These questions expose the soul beneath the spreadsheet. They reveal why you save obsessively or spend impulsively. They uncover the fears and hopes that drive every financial decision you make together.</p>
 
-      <h3>Building Financial Intimacy</h3>
+      <h2>Building Financial Intimacy</h2>
 
       <p>Share your money story. The first time you felt rich. The first time you felt poor. The first time you felt shame. These memories shape your instincts more than any financial plan. When your spouse knows your story, they stop seeing your behavior as strange and start seeing it as shaped by experience.</p>
 
@@ -154,7 +154,7 @@ export const BATCH_3: Article[] = [
 
       <p>Many widows face money decisions for the first time — investments they did not choose, accounts they never managed, and the disorienting reality of a single income. It is okay to move slowly. Wisdom is not speed. The pressure to make quick decisions often comes from others, not from God. You do not need to have everything figured out in thirty days. Grief and learning can coexist.</p>
 
-      <h3>First Steps</h3>
+      <h2>First Steps</h2>
 
       <p>Gather a trusted team: a financial advisor, an attorney, and a pastor or mature believer. Do not make irreversible decisions in the first year if you can avoid them. Take inventory of all assets, debts, and benefits. And accept help. The widow of Zarephath did not survive alone. Elijah came. Your church can too.</p>
 
@@ -176,7 +176,7 @@ export const BATCH_3: Article[] = [
 
       <p>Couples who pray over their finances experience something couples who only budget do not: peace. Prayer reframes money from a problem to solve into a provision to receive. It reminds both spouses that they are not each other's provider. God is. And He has never failed to feed His children. When you begin from that place, the numbers lose their terror.</p>
 
-      <h3>A Simple Practice</h3>
+      <h2>A Simple Practice</h2>
 
       <p>Once a week, sit together with your budget and pray. Thank God for income. Confess anxiety. Ask for wisdom for upcoming decisions. Name specific needs. And surrender the outcome. This practice takes five minutes. Its effect compounds over years as trust deepens.</p>
 
@@ -198,7 +198,7 @@ export const BATCH_3: Article[] = [
 
       <p>Financial dependence on parents after marriage is not sin. But it complicates unity. The couple who still asks a parent for money will eventually ask that parent for input on decisions that belong to the marriage alone. Boundaries blur. Authority fragments. And the one-flesh union develops a third appendage that neither spouse invited.</p>
 
-      <h3>The Path to Independence</h3>
+      <h2>The Path to Independence</h2>
 
       <p>Start with an honest inventory. What are parents currently paying? Make a timeline — six months, twelve months, eighteen months — for taking over each expense. Communicate the timeline to parents with gratitude, not defensiveness. And accept that the transition may involve lifestyle changes. Smaller apartment. Older car. Less convenience.</p>
 
@@ -222,7 +222,7 @@ export const BATCH_3: Article[] = [
 
       <p>But the New Covenant does not legislate percentages. It transforms hearts. And transformed hearts give differently — sometimes more, sometimes sacrificially, always cheerfully. The question is not "Must I tithe?" The question is "Has grace so captured me that ten percent feels like a beginning, not a ceiling?"</p>
 
-      <h3>A Grace-Full Approach</h3>
+      <h2>A Grace-Full Approach</h2>
 
       <p>Start with a percentage. Ten percent is a biblical baseline and a helpful discipline. But hold it loosely enough that the Spirit can prompt more — and so that legalism cannot condemn less in seasons of genuine hardship. The goal is cheerful generosity, not compliance. Give from freedom, not fear.</p>
 
@@ -242,7 +242,7 @@ export const BATCH_3: Article[] = [
 
       <p>Public giving risks replacing love of God with love of reputation. The donor who needs his name on the building, her picture in the newsletter, or his story told from the stage is not giving. He is purchasing recognition. And recognition is a cheap substitute for joy that only God can provide. It feeds the ego while starving the soul.</p>
 
-      <h3>The Practice of Secret Giving</h3>
+      <h2>The Practice of Secret Giving</h2>
 
       <p>Give without a tax receipt. Slip cash into a hand without explanation. Pay a bill anonymously. Support a missionary who will never know your name. These acts have no social return. And that is exactly the point. They train your heart to love the reward of the Father more than the applause of people.</p>
 
@@ -264,7 +264,7 @@ export const BATCH_3: Article[] = [
 
       <p>Most of us reverse the equation. We think generosity follows surplus. The Macedonians proved it follows grace. When the gospel captures a heart, giving becomes reflexive — even when the bank account disagrees. This is not irresponsibility. It is trust made visible in the form of a check or a transferred bill.</p>
 
-      <h3>Scarcity Does Not Cancel Generosity</h3>
+      <h2>Scarcity Does Not Cancel Generosity</h2>
 
       <p>This does not mean ignoring wisdom. The Macedonians gave as they were able, not beyond their means. But it does mean that hard seasons are not excuses to stop giving. They are invitations to trust more deeply. The same God who provided yesterday provides today, though perhaps through different means.</p>
 
@@ -286,7 +286,7 @@ export const BATCH_3: Article[] = [
 
       <p>A building project that feels excessive. Staff salaries that seem disproportionate. Mission allocations that prioritize comfort over need. When conscience conflicts with commitment, what does faithfulness look like? The answer requires discernment, not withdrawal. Running away is easy. Staying and seeking wisdom is harder and more mature.</p>
 
-      <h3>A Framework for Hard Seasons</h3>
+      <h2>A Framework for Hard Seasons</h2>
 
       <p>First, distinguish preference from principle. Not every disagreement is a moral crisis. Second, ask questions directly. Leaders should be able to explain financial decisions to members. Silence is not spiritual. Third, consider redirecting without withdrawing. Give to the missions fund instead of the general fund. Support a specific ministry rather than the whole budget.</p>
 
@@ -308,7 +308,7 @@ export const BATCH_3: Article[] = [
 
       <p>The Bible commands both almsgiving — direct aid to the poor — and justice — changing the structures that produce poverty. Both are necessary. Charity without justice becomes perpetual dependency. Justice without charity becomes cold policy. The faithful steward holds both in tension, refusing to settle for either alone.</p>
 
-      <h3>Giving That Builds Bridges</h3>
+      <h2>Giving That Builds Bridges</h2>
 
       <p>Ask of every gift: Does this help someone survive today? And does it also help them thrive tomorrow? Education, job training, microfinance, and legal advocacy address root causes. Emergency relief addresses symptoms. A balanced giving portfolio includes both.</p>
 
@@ -330,7 +330,7 @@ export const BATCH_3: Article[] = [
 
       <p>Legacy gifts take many forms: bequests in a will, charitable trusts, donor-advised funds, life insurance designations, and endowed scholarships. Each vehicle has different tax implications, control levels, and flexibility. The right structure depends on your assets, your family, and your goals. One size does not fit all.</p>
 
-      <h3>Three Legacy Questions</h3>
+      <h2>Three Legacy Questions</h2>
 
       <p><strong>What do I want to fund?</strong> Your church? Missions? Education? Relief? Name the causes, not just the amounts. Specificity multiplies impact.</p>
 
@@ -356,7 +356,7 @@ export const BATCH_3: Article[] = [
 
       <p>Hospitality costs time, energy, and vulnerability. Your house will not be perfectly clean. Your cooking will not be restaurant-quality. And that is precisely the point. Hospitality is not performance. It is presence. The early church broke bread in homes, not conference centers. Relationships formed over simple meals, not catered events. The kingdom advanced through living rooms.</p>
 
-      <h3>Hospitality Without Perfection</h3>
+      <h2>Hospitality Without Perfection</h2>
 
       <p>Start with one meal per month. Invite someone new to your church. A single parent. A college student. A widow. Do not wait until your house is ready. It will never be ready. Abraham welcomed angels into a tent. Martha worried about presentation while Mary chose presence. Jesus noticed the heart, not the table setting.</p>
 
@@ -378,7 +378,7 @@ export const BATCH_3: Article[] = [
 
       <p>But many Christians give only to their local church, assuming the church will handle missions. That is a valid strategy. But it is not the only one. Direct missionary support, mission agencies, Bible translation, and humanitarian relief are all channels for faithful sending. The question is not whether you participate, but how intentionally you choose your role.</p>
 
-      <h3>Practical Sending</h3>
+      <h2>Practical Sending</h2>
 
       <p>Know who you support. Names, locations, stories. Pray for them specifically. Communicate with them regularly. And consider visiting if possible. The relationship between sender and sent is not transactional. It is partnership in the gospel.</p>
 
@@ -400,7 +400,7 @@ export const BATCH_3: Article[] = [
 
       <p>Many Christians give reactively: a crisis appeal, a friend's fundraiser, an end-of-year tax deduction. These are good. But they should supplement, not replace, regular giving. The church, the missionary, and the poor need predictable support, not just occasional generosity. Reliability is itself a gift.</p>
 
-      <h3>The Weekly Rhythm</h3>
+      <h2>The Weekly Rhythm</h2>
 
       <p>Set an automatic recurring gift. Choose one day each week to review needs and give intentionally. Keep a small cash reserve for spontaneous encounters. And review your giving quarterly, just as you review your budget.</p>
 
@@ -422,7 +422,7 @@ export const BATCH_3: Article[] = [
 
       <p>Popularized by Dave Ramsey, the envelope system assigns cash to spending categories. When the envelope is empty, the spending stops. There is no overdraft, no credit, no ambiguity. It is extreme. And for many people, it is exactly what they need to regain control over money that has been slipping away unnoticed.</p>
 
-      <h3>Modern Adaptations</h3>
+      <h2>Modern Adaptations</h2>
 
       <p>If cash feels impractical, use prepaid debit cards or dedicated checking accounts for discretionary categories. The principle remains the same: create hard boundaries for flexible spending. Groceries, dining, entertainment, and personal spending are the best candidates. Fixed bills should remain automatic.</p>
 
@@ -444,7 +444,7 @@ export const BATCH_3: Article[] = [
 
       <p>The question is not whether to have insurance, but how much and what kinds. Health, life, disability, property, and liability coverage each serve a different purpose. Underinsurance leaves your family vulnerable. Overinsurance wastes resources that could be given or invested. The steward finds the balance between trust and preparation.</p>
 
-      <h3>An Annual Review</h3>
+      <h2>An Annual Review</h2>
 
       <p>Once a year, review every policy. Have your assets grown? Have your dependents changed? Have premiums become uncompetitive? Update beneficiaries after major life events. And work with an independent agent who can compare options without pushing a single carrier.</p>
 
@@ -466,7 +466,7 @@ export const BATCH_3: Article[] = [
 
       <p>If you have children, a will names guardians. If you have any assets, a will names beneficiaries. If you have preferences about medical care, advance directives express them. These documents are not morbid. They are loving. They are the final act of stewardship, the last gift you give to those you leave behind.</p>
 
-      <h3>Start Simple</h3>
+      <h2>Start Simple</h2>
 
       <p>Online services and local attorneys can draft basic wills affordably. Update them every five years or after major life changes. Tell your executor where documents are stored. And discuss your wishes with family. Silence creates conflict. Clarity creates peace.</p>
 
@@ -488,7 +488,7 @@ export const BATCH_3: Article[] = [
 
       <p>The question is not whether side income is permissible. It is whether it is purposeful. Does the extra income fund generosity, accelerate debt freedom, or provide margin for family? Or does it fund lifestyle inflation, erode rest, and compete with primary responsibilities? The same opportunity can be wise or foolish depending on the motive.</p>
 
-      <h3>Three Side-Income Filters</h3>
+      <h2>Three Side-Income Filters</h2>
 
       <p><strong>Calling filter:</strong> Does this work align with your gifts and season? Or are you chasing money outside your design?</p>
 
@@ -514,7 +514,7 @@ export const BATCH_3: Article[] = [
 
       <p>If you have received or expect an inheritance, the first step is to pause. Do not make major decisions for at least six months. Grief clouds judgment. And large financial moves made in emotional seasons often produce regret that lasts decades. The money will wait. Your clarity may not.</p>
 
-      <h3>A Wise Path Forward</h3>
+      <h2>A Wise Path Forward</h2>
 
       <p>Assemble a team: a fee-only financial advisor, a tax professional, and a trusted pastor or counselor. Pay off high-interest debt. Establish or reinforce your emergency fund. Give a portion immediately — honoring the giver and loosening your grip on the rest. Invest the remainder in alignment with your long-term calling.</p>
 
@@ -536,7 +536,7 @@ export const BATCH_3: Article[] = [
 
       <p>The modern application is not that wives must do everything. It is that marriage is economic partnership. Both spouses bring strength, wisdom, and labor to the household. Both profit. Both are honored. Neither is diminished by the other's success. The household thrives when both contribute according to their gifts.</p>
 
-      <h3>Beyond Gender Roles</h3>
+      <h2>Beyond Gender Roles</h2>
 
       <p>The Proverbs 31 wife is not a template for all women. She is a celebration of what happens when a household is stewarded with skill and faith. Husbands can learn from her initiative. Wives can learn from her confidence. And both can learn from her fear of the LORD, which is the beginning of all wisdom.</p>
 
@@ -558,7 +558,7 @@ export const BATCH_3: Article[] = [
 
       <p>The widow's offering is not a command for everyone to give everything. It is a mirror. It asks: What percentage of your resources feels like sacrifice? What would it cost you to give at a level that requires trust? These are uncomfortable questions. But they are the questions that separate cosmetic generosity from costly love.</p>
 
-      <h3>Proportion Over Amount</h3>
+      <h2>Proportion Over Amount</h2>
 
       <p>The wealthy gave large sums that cost them nothing. The widow gave two small coins that cost her everything. Jesus measures generosity not by the size of the gift, but by the size of the sacrifice. A millionaire who gives ten percent may be less generous than a laborer who gives five — if the five percent requires greater faith.</p>
 

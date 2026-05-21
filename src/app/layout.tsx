@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Instrument_Serif, Cormorant_Garamond } from "next/font/google";
 import Script from "next/script";
+import { OrganizationSchema, WebSiteSchema } from "@/lib/seo/json-ld";
 import "./globals.css";
 
 const geist = Geist({
@@ -35,12 +36,33 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   title: "Talanthos. Discover Your Biblical Money Type",
   description:
-    "A two-minute assessment, grounded in Scripture, that names the way God has uniquely wired you to relate to money.",
+    "A Scripture-grounded assessment that names the way God has uniquely wired you to relate to money, risk, rest, and responsibility.",
+  metadataBase: new URL("https://talanthos.com"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Talanthos. Discover Your Biblical Money Type",
     description:
-      "A two-minute assessment, grounded in Scripture, that names the way God has uniquely wired you to relate to money.",
+      "A Scripture-grounded assessment that names the way God has uniquely wired you to relate to money, risk, rest, and responsibility.",
     type: "website",
+    locale: "en_US",
+    siteName: "Talanthos",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Talanthos — Discover Your Biblical Money Type",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Talanthos. Discover Your Biblical Money Type",
+    description:
+      "A Scripture-grounded assessment that names the way God has uniquely wired you to relate to money, risk, rest, and responsibility.",
+    images: ["/og-image.jpg"],
   },
 };
 
@@ -77,7 +99,11 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className="min-h-full antialiased">{children}</body>
+      <body className="min-h-full antialiased">
+        <OrganizationSchema />
+        <WebSiteSchema />
+        {children}
+      </body>
     </html>
   );
 }

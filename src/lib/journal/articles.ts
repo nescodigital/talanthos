@@ -27,7 +27,7 @@ export const ARTICLES: Article[] = [
 
       <p>The Biblical Money Type framework exists to close that gap. It is not a personality test. It is not a spiritual gift assessment. It is a stewardship lens — a way of seeing how God has wired you to relate to resources, risk, rest, and responsibility.</p>
 
-      <h3>Four Types, One Calling</h3>
+      <h2>Four Types, One Calling</h2>
 
       <p>Scripture presents at least four distinct financial archetypes: <strong>Solomon the Visionary</strong>, who multiplied wealth through wisdom and long-horizon thinking. <strong>Joseph the Guardian</strong>, who stored against famine with discipline and foresight. <strong>The Macedonians the Givers</strong>, who gave out of extreme poverty with overflowing joy. <strong>Nehemiah the Builder</strong>, who finished what others abandoned through systems and perseverance.</p>
 
@@ -35,13 +35,13 @@ export const ARTICLES: Article[] = [
 
       <p>The Visionary sees opportunity where others see risk. The Guardian sees danger where others see abundance. The Giver sees need before it is spoken. The Builder sees systems where others see chaos. Your type is not your destiny — it is your starting point. It names what is already true so you can steward it more faithfully.</p>
 
-      <h3>Why This Matters</h3>
+      <h2>Why This Matters</h2>
 
       <p>When you do not know your type, you default to whatever culture tells you. For some, that means chasing wealth without wisdom. For others, it means hoarding out of fear. For still others, it means giving past your means or building systems no one asked for.</p>
 
       <p>Knowing your type gives you three things: <strong>clarity</strong> about why you make the money decisions you make. <strong>language</strong> for conversations with your spouse, advisor, or pastor. And <strong>a path</strong> — specific, actionable, rooted in Scripture — toward the faithful steward God has called you to be.</p>
 
-      <h3>How to Discover Yours</h3>
+      <h2>How to Discover Yours</h2>
 
       <p>The <a href="/quiz">Talanthos Biblical Money Type assessment</a> takes three to four minutes. It asks fifteen questions about your instincts, your regrets, your emotions, and your hopes. At the end, you receive a personalized profile: your primary type, your four-dimensional score, and a thirty-day action plan designed specifically for how God wired you.</p>
 
@@ -61,13 +61,13 @@ export const ARTICLES: Article[] = [
 
       <p>But Solomon also had seven hundred wives and three hundred concubines. He built high places for foreign gods. And by the end of his life, the wisdom that had built his wealth was no longer governing it. Vision outran counsel. Multiplication became excess. And the kingdom fractured.</p>
 
-      <h3>The Modern Visionary</h3>
+      <h2>The Modern Visionary</h2>
 
       <p>If you are a Visionary, you recognize Solomon's pattern in your own life. You see opportunities before others do. You think in decades, not quarters. You are drawn to ventures, investments, and initiatives that multiply what has been entrusted to you. And you are often right.</p>
 
       <p>But your greatest strength is also your greatest risk. When vision moves faster than wisdom, you outrun the people God has placed around you. You defer rest because the next thing is more exciting. You confuse God's blessing with your own brilliance. And slowly, imperceptibly, the vision that was meant to serve becomes the ambition that consumes.</p>
 
-      <h3>Three Guardrails for the Visionary</h3>
+      <h2>Three Guardrails for the Visionary</h2>
 
       <p><strong>First, establish a wisdom council.</strong> Solomon wrote Proverbs with input from others. He did not make decisions alone. Find two or three people who can slow you down without shutting you down. Bring them your biggest opportunity before you bring it to the market.</p>
 
@@ -75,7 +75,7 @@ export const ARTICLES: Article[] = [
 
       <p><strong>Third, distinguish multiplication from accumulation.</strong> Solomon multiplied temples, wives, and wealth. But he did not multiply faithfulness. Ask yourself: is this next venture about stewarding what God has given, or about proving what I can build?</p>
 
-      <h3>Discover Your Type</h3>
+      <h2>Discover Your Type</h2>
 
       <p>Not sure if you are a Visionary? <a href="/quiz">Take the Talanthos assessment</a> and find out. In under four minutes, you will know your primary type, your four-dimensional score, and the specific blind spots that are most likely to derail your financial faithfulness.</p>
     `,
@@ -93,19 +93,19 @@ export const ARTICLES: Article[] = [
 
       <p>But here is what we often forget: Joseph stored for seven years, and then he <em>opened the storehouses</em>. The famine was the very reason he gathered. The storage had a purpose beyond storage. And that is where many modern Guardians get stuck.</p>
 
-      <h3>The Guardian's Gift</h3>
+      <h2>The Guardian's Gift</h2>
 
       <p>If you are a Guardian, you have a rare and needed gift. You see risk before it arrives. You build margin when others spend it. You protect dependents, team members, and communities with a discipline that looks like foresight. In volatile seasons, you are the calm voice. In abundant seasons, you are the wise restraint.</p>
 
       <p>Your love language is runway. You sleep better with six months of expenses in the bank. You have modeled the worst-case scenario so many times that it no longer frightens you. And people trust you with their resources because you treat them as trusts, not as toys.</p>
 
-      <h3>The Guardian's Trap</h3>
+      <h2>The Guardian's Trap</h2>
 
       <p>But stewardship can quietly harden into hoarding. Fear of loss can eclipse the calling to give. And the same instinct that protected you in the lean years can paralyze you in the plenty.</p>
 
       <p>The question for the Guardian is not "Do I have enough?" It is "Am I deploying what I have stored for the purpose God intended?" Joseph did not gather grain to admire it. He gathered it to feed people. And at some point, the storehouse door had to open.</p>
 
-      <h3>Three Practices for the Guardian</h3>
+      <h2>Three Practices for the Guardian</h2>
 
       <p><strong>First, name your storehouses.</strong> What are you storing — money, time, energy, relationships — and for whom? Write it down. If the answer is "just in case," dig deeper. In case of what? And for whom?</p>
 
@@ -131,19 +131,19 @@ export const ARTICLES: Article[] = [
 
       <p>Even in Scripture, generosity needs boundaries.</p>
 
-      <h3>The Giver's Gift</h3>
+      <h2>The Giver's Gift</h2>
 
       <p>If you are a Giver, you know this instinct in your bones. You give early. You give first. You give past comfort. You read need in a room before it is spoken. And you find a peculiar joy in sending resources out that others would hold onto.</p>
 
       <p>Your giving is not transactional. It is identity-level. You do not give to get a tax break or a name on a plaque. You give because money feels most alive when it is moving toward someone else's need. You have, perhaps without knowing it, discovered one of the deepest truths in Scripture: it is more blessed to give than to receive.</p>
 
-      <h3>The Giver's Deception</h3>
+      <h2>The Giver's Deception</h2>
 
       <p>But the Giver's greatest deception is believing that generosity excuses structure. That grace replaces budgeting. That saying yes to every need is somehow more spiritual than saying yes to the right needs.</p>
 
       <p>The Macedonians gave out of poverty — but they gave <em>as they were able</em>. Paul did not praise them for bankrupting themselves. He praised them for giving out of their means, not beyond them. And that is the distinction that saves the Giver from burnout.</p>
 
-      <h3>The Floor and Ceiling Framework</h3>
+      <h2>The Floor and Ceiling Framework</h2>
 
       <p><strong>Floor:</strong> The minimum provision for those entrusted to you. Housing, food, health, transportation, emergency fund. Below this line, giving is not generosity. It is self-harm.</p>
 
@@ -167,19 +167,19 @@ export const ARTICLES: Article[] = [
 
       <p>But Nehemiah did not build alone. He organized families by district. He assigned sections of the wall to specific groups. He armed the builders while they worked. And when the wall was finished, he gathered the people and read the law aloud — because he knew that walls without worship become prisons.</p>
 
-      <h3>The Modern Builder</h3>
+      <h2>The Modern Builder</h2>
 
       <p>If you are a Builder, you finish what you start. You translate vision into spreadsheets, budgets, and timelines. You are patient, methodical, and resilient against opposition. While others chase the new, you restore the broken. While others abandon projects at 80%, you cross the finish line.</p>
 
       <p>Your money obeys the blueprint, not the mood. You have an investment policy, a budget, a giving schedule, and a quarterly review. You do not need motivation. You need a plan. And once you have one, you execute with a consistency that compounds over decades.</p>
 
-      <h3>The Builder's Wall</h3>
+      <h2>The Builder's Wall</h2>
 
       <p>But systems can crowd out spontaneity. Plans can become identity. And the walls you build to protect what matters can become barriers that keep people out.</p>
 
       <p>The Builder's blind spot is loving the blueprint more than the people in the house. You may finish the budget, the estate plan, the investment strategy — and wonder why no one is left inside to celebrate. Your systems are meant to serve people. When people start serving the systems, something has inverted.</p>
 
-      <h3>Three Practices for the Builder</h3>
+      <h2>Three Practices for the Builder</h2>
 
       <p><strong>First, schedule the pause before the next phase.</strong> Nehemiah stopped to read the law. He did not rush from wall-building to city-governance without a moment of recalibration. Build a "pause ritual" into every project: a meal, a prayer, a day of rest before the next blueprint.</p>
 
@@ -203,19 +203,19 @@ export const ARTICLES: Article[] = [
 
       <p>This tension confuses many Christians. Is debt a sin? Is a mortgage okay? What about student loans? Business leverage? The answer depends on your type, your season, and your stewardship posture. But there are principles that apply to every believer.</p>
 
-      <h3>Debt as Bondage</h3>
+      <h2>Debt as Bondage</h2>
 
       <p>Proverbs 22:7 is the clearest verse on debt: "The rich rule over the poor, and the borrower is slave to the lender." Debt is not just a financial arrangement. It is a power relationship. When you borrow, you give someone else a claim on your future income, your future decisions, and your future peace.</p>
 
       <p>This does not mean all debt is sin. But it means all debt is serious. The question is not "Is this debt allowed?" The question is "Does this debt serve my calling, or does it enslave my future?"</p>
 
-      <h3>Debt as Tool</h3>
+      <h2>Debt as Tool</h2>
 
       <p>Scripture also presents debt as a tool in specific contexts. In the Old Testament, lending was a form of generosity — but with strict limits. No interest to fellow Israelites. No perpetual debt. Jubilee every fifty years, when all debts were forgiven and all land returned.</p>
 
       <p>The principle is this: debt should be temporary, purposeful, and bounded. A mortgage to house your family is different from credit card debt for a vacation. A business loan to create jobs is different from a car loan for status. The same dollar figure can be wise or foolish depending on the purpose.</p>
 
-      <h3>A Gospel-Centered Approach</h3>
+      <h2>A Gospel-Centered Approach</h2>
 
       <p>The gospel does not just give us rules about debt. It gives us identity. You are not defined by your net worth, your credit score, or your debt-to-income ratio. You are defined by Christ's finished work. And from that identity, you make financial decisions with freedom rather than fear.</p>
 
@@ -249,13 +249,13 @@ export const ARTICLES: Article[] = [
 
       <p>And yet, most Christians spend their entire financial lives comparing their five talents to someone else's two. Or worse, they spend their lives trying to become a two-talent servant when God made them a five. They adopt budgets that do not fit their instincts. They follow investment advice that contradicts their wiring. They feel guilty for giving too little or too much, saving too little or too much, risking too little or too much — because they have never been given a mirror.</p>
 
-      <h3>The Mirror of Self-Knowledge</h3>
+      <h2>The Mirror of Self-Knowledge</h2>
 
       <p>Knowing your Biblical Money Type is not about labeling yourself. It is about seeing yourself. It is the difference between walking through a dark room and turning on a light. The furniture has not moved. But now you can navigate it.</p>
 
       <p>When you know your type, you understand why you make the money decisions you make. You stop feeling guilty for instincts that are actually gifts. You name blind spots that have been sabotaging you for years. And you gain a shared language for conversations with your spouse, your financial advisor, your pastor, and your children.</p>
 
-      <h3>Four Reasons to Take the Assessment</h3>
+      <h2>Four Reasons to Take the Assessment</h2>
 
       <p><strong>1. Clarity.</strong> Most financial advice is generic. "Save 15%. Give 10%. Avoid debt." But what if you are a Giver who needs to learn to save? What if you are a Guardian who needs to learn to deploy? Generic advice applied to the wrong type creates guilt, not growth.</p>
 
@@ -281,7 +281,7 @@ export const ARTICLES: Article[] = [
 
       <p>The 30-Day Stewardship Challenge is designed to solve that. One action per day. None takes more than ten minutes. The goal is not to transform your finances in a month. It is to transform your posture — from reactive to intentional, from anxious to faithful.</p>
 
-      <h3>Week 1: Seeing</h3>
+      <h2>Week 1: Seeing</h2>
 
       <p><strong>Day 1:</strong> Write down your current net worth. Assets minus liabilities. No judgment. Just a number.</p>
 
@@ -297,7 +297,7 @@ export const ARTICLES: Article[] = [
 
       <p><strong>Day 7:</strong> Rest. No financial task today. Just gratitude.</p>
 
-      <h3>Week 2: Naming</h3>
+      <h2>Week 2: Naming</h2>
 
       <p><strong>Day 8:</strong> Write down your biggest financial regret. Then write one thing you learned from it.</p>
 
@@ -313,7 +313,7 @@ export const ARTICLES: Article[] = [
 
       <p><strong>Day 14:</strong> Rest. No financial task today. Just presence.</p>
 
-      <h3>Week 3: Moving</h3>
+      <h2>Week 3: Moving</h2>
 
       <p><strong>Day 15:</strong> Set one automatic transfer: to savings, to giving, or to debt repayment. Let the system outrun your mood.</p>
 
@@ -329,7 +329,7 @@ export const ARTICLES: Article[] = [
 
       <p><strong>Day 21:</strong> Rest. No financial task today. Just worship.</p>
 
-      <h3>Week 4: Sending</h3>
+      <h2>Week 4: Sending</h2>
 
       <p><strong>Day 22:</strong> Review your investment allocation. Does it match your time horizon and values?</p>
 

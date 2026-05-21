@@ -14,13 +14,13 @@ export const BATCH_1: Article[] = [
 
       <p>If you are a Visionary, you are drawn to opportunities others miss. Real estate in emerging markets. Startups with asymmetric upside. Investments that require patience measured in decades, not quarters. Your instinct is to multiply, and that instinct is a gift.</p>
 
-      <h3>When Vision Becomes Speculation</h3>
+      <h2>When Vision Becomes Speculation</h2>
 
       <p>But Proverbs warns: "A faithful man will abound with blessings, but whoever hastens to be rich will not go unpunished." The Visionary's temptation is to confuse speed with wisdom. To see the opportunity so clearly that you skip the due diligence. To trust your pattern recognition more than God's provision.</p>
 
       <p>The difference between investing and speculating is not the asset. It is the preparation. Solomon spent years building relationships, infrastructure, and knowledge before his fleets sailed. He did not wake up one morning and bet the treasury on timber.</p>
 
-      <h3>Three Filters for Visionary Investing</h3>
+      <h2>Three Filters for Visionary Investing</h2>
 
       <p><strong>Counsel filter:</strong> Before any major investment, run it past two people who are not impressed by your track record. Their skepticism is not opposition. It is protection.</p>
 
@@ -44,13 +44,13 @@ export const BATCH_1: Article[] = [
 
       <p>Financial planners typically recommend three to six months of expenses. But for the Guardian, that number often feels thin. You may keep twelve months, eighteen months, or more — and still feel the tug of "what if." That tug is not sin. It is wiring. The question is whether you are obeying it or serving it.</p>
 
-      <h3>Enough Is a Moving Target</h3>
+      <h2>Enough Is a Moving Target</h2>
 
       <p>Jesus tells a parable about a man who builds bigger barns only to die the same night. The problem was not the barns. It was the assumption that more storage equals more security. "A man's life does not consist in the abundance of his possessions."</p>
 
       <p>For the Guardian, the challenge is distinguishing preparation from idolatry. An emergency fund is stewardship. An infinite emergency fund is fear wearing a spreadsheet.</p>
 
-      <h3>A Biblical Framework for the Storehouse</h3>
+      <h2>A Biblical Framework for the Storehouse</h2>
 
       <p><strong>Phase one:</strong> One month of bare expenses. Enough to survive a payroll delay without panic. This is non-negotiable for every believer.</p>
 
@@ -74,13 +74,13 @@ export const BATCH_1: Article[] = [
 
       <p>If you are a Giver, saying no feels like failing. You see a need and your first instinct is to meet it. Your second instinct is to question whether you should have given more. And your third instinct — the one you rarely voice — is exhaustion.</p>
 
-      <h3>Why Boundaries Protect Generosity</h3>
+      <h2>Why Boundaries Protect Generosity</h2>
 
       <p>Boundaries are not stinginess. They are the guardrails that keep generosity sustainable. Proverbs says, "Do not wear yourself out to get rich; have the wisdom to show restraint." The same applies to giving. A Giver who bankrupts themselves helps one person today and cannot help anyone tomorrow.</p>
 
       <p>Jesus withdrew to lonely places to pray. He did not heal every sick person in Palestine. He said no to good things in order to be faithful to the best things. The Giver who never withdraws will eventually have nothing left to give.</p>
 
-      <h3>Three Boundaries Every Giver Needs</h3>
+      <h2>Three Boundaries Every Giver Needs</h2>
 
       <p><strong>A giving budget:</strong> Decide in advance what you will give, to whom, and under what circumstances. Spontaneous giving is beautiful. Budgeted giving is sustainable.</p>
 
@@ -104,13 +104,13 @@ export const BATCH_1: Article[] = [
 
       <p>The modern Builder approaches legacy the same way. You are not merely accumulating wealth. You are designing structures — budgets, trusts, investment policies, giving plans — that will outlast your ability to manage them. This is holy work. But it carries temptations.</p>
 
-      <h3>The Builder's Legacy Temptations</h3>
+      <h2>The Builder's Legacy Temptations</h2>
 
       <p>First, the temptation to control from the grave. Some Builders write estate plans so restrictive that their heirs feel managed, not provided for. Proverbs warns against moving ancient boundary stones — but it also honors the transfer of land from father to son. Legacy is provision, not puppetry.</p>
 
       <p>Second, the temptation to delay joy until the blueprint is perfect. Nehemiah celebrated at the wall's completion. He did not immediately start planning the next expansion. Builders need to learn that rest is part of the legacy too.</p>
 
-      <h3>Practical Legacy Steps</h3>
+      <h2>Practical Legacy Steps</h2>
 
       <p><strong>Write a will.</strong> Even a simple one is better than none. Name guardians for children, executors for assets, and causes for charitable remainder.</p>
 
@@ -134,13 +134,13 @@ export const BATCH_1: Article[] = [
 
       <p>That does not mean Christians should never stop their primary career. It means we should stop for the right reasons. Not because society says sixty-five is the finish line. But because God has prepared a new assignment that requires the freedom from a full-time role.</p>
 
-      <h3>Redirection, Not Retreat</h3>
+      <h2>Redirection, Not Retreat</h2>
 
       <p>The Greek word for retire, <em>anachoreo</em>, means to withdraw or retreat. Jesus withdrew to pray. But He never withdrew from mission. The challenge for older believers is to move from income-producing work to kingdom-producing work — mentoring, giving, praying, teaching — without losing purpose.</p>
 
       <p>Financially, this means planning for flexibility, not just leisure. A retirement fund is not a vacation fund. It is a freedom fund. It buys you the ability to say yes to assignments that do not pay well but matter deeply.</p>
 
-      <h3>Three Questions for Your Later Years</h3>
+      <h2>Three Questions for Your Later Years</h2>
 
       <p><strong>What work only I can do?</strong> Your experience, relationships, and spiritual maturity are irreplaceable. Who needs what you have accumulated?</p>
 
@@ -164,13 +164,13 @@ export const BATCH_1: Article[] = [
 
       <p>The difference is not the number of zeros. It is the posture of the heart. Biblical wealth serves people. Worldly riches serve themselves. And the same bank account can be either, depending on who owns it.</p>
 
-      <h3>Wealth Has a Mission</h3>
+      <h2>Wealth Has a Mission</h2>
 
       <p>Biblical wealth always has a purpose beyond accumulation. Joseph's stores fed Egypt. Solomon's trade built the temple. Lydia's purple cloth funded the Philippian church. Wealth in Scripture is a tool for mission, not a trophy for success.</p>
 
       <p>Worldly riches, by contrast, are self-referential. They accumulate for status, security, or pleasure. The rich fool in Luke 12 talks to his soul: "You have plenty of grain laid up for many years. Take life easy; eat, drink and be merry." He never asks who else needs the grain.</p>
 
-      <h3>Three Tests for Your Wealth</h3>
+      <h2>Three Tests for Your Wealth</h2>
 
       <p><strong>The generosity test:</strong> Does your wealth flow outward? Not just in occasional large gifts, but in regular, sacrificial, joyful giving?</p>
 
@@ -194,13 +194,13 @@ export const BATCH_1: Article[] = [
 
       <p>This parable is not about investment strategy. It is about stewardship posture. The five-talent servant did not receive more praise than the two-talent servant. The issue was never the return. It was the faithfulness. And the one-talent servant was condemned not for losing money, but for doing nothing.</p>
 
-      <h3>Your Talents Are Not Comparable</h3>
+      <h2>Your Talents Are Not Comparable</h2>
 
       <p>Most Christians read this parable and immediately compare. Five talents sounds better than two. Two sounds better than one. But the master distributed according to ability. He did not expect the two-talent servant to produce five-talent results. He expected faithfulness with two.</p>
 
       <p>This liberates us from comparison. Your salary, your net worth, your opportunities — these are your distributed talents. The question is not whether they measure up to someone else's. The question is whether you are investing them or burying them.</p>
 
-      <h3>Three Signs You Are Burying Your Talents</h3>
+      <h2>Three Signs You Are Burying Your Talents</h2>
 
       <p><strong>Financial avoidance:</strong> You do not know your net worth, your giving percentage, or your debt balance. Burying begins with blindness.</p>
 
@@ -224,7 +224,7 @@ export const BATCH_1: Article[] = [
 
       <p>But many Christian parents feel unequipped. They either say nothing, hoping their children will figure it out, or they say too much, creating anxiety and guilt. The biblical middle path is intentional, age-appropriate, and rooted in identity.</p>
 
-      <h3>Age-Appropriate Stewardship</h3>
+      <h2>Age-Appropriate Stewardship</h2>
 
       <p><strong>Ages 3–7:</strong> God owns everything. Use tangible examples. "This toy belongs to God. He let you borrow it. How will you take care of it?" Introduce three jars: give, save, spend.</p>
 
@@ -232,7 +232,7 @@ export const BATCH_1: Article[] = [
 
       <p><strong>Ages 13–18:</strong> Money reveals heart. Discuss your family's actual finances at an appropriate level. Let them make real mistakes with real consequences. Encourage them to fund part of their own goals.</p>
 
-      <h3>Three Principles for Parents</h3>
+      <h2>Three Principles for Parents</h2>
 
       <p><strong>Model before you teach:</strong> Children learn from observation more than instruction. If you want generous children, let them see you give. If you want content children, let them see you say no.</p>
 
@@ -256,13 +256,13 @@ export const BATCH_1: Article[] = [
 
       <p>The modern economy runs on discontent. Advertising creates needs you did not know you had. Social media shows you lifestyles you did not know you were missing. The average American sees thousands of commercial messages daily, and almost every one says the same thing: you are not enough, but this product will fix it.</p>
 
-      <h3>Contentment Is Learned</h3>
+      <h2>Contentment Is Learned</h2>
 
       <p>Paul writes, "I have learned to be content whatever the circumstances." Contentment is not a personality trait. It is a discipline. It is the repeated choice to find satisfaction in Christ rather than in circumstances. And like any discipline, it strengthens with practice.</p>
 
       <p>Contentment does not mean you never buy anything. It means you buy from fullness, not emptiness. It means you upgrade your phone because the old one no longer serves you — not because the new one defines you.</p>
 
-      <h3>Three Practices for Contentment</h3>
+      <h2>Three Practices for Contentment</h2>
 
       <p><strong>Gratitude journaling:</strong> Each evening, write three things you are grateful for that money did not buy. This rewires your brain to notice non-commercial blessings.</p>
 
@@ -286,13 +286,13 @@ export const BATCH_1: Article[] = [
 
       <p>This changes everything. When you own something, you decide its purpose. When you steward something, you discover its purpose. Your money has an assigned mission — and your job is to discern it, not invent it.</p>
 
-      <h3>From Owner to Steward</h3>
+      <h2>From Owner to Steward</h2>
 
       <p>Owners ask: "What do I want to do with my money?" Stewards ask: "What does God want done with His money?" The first question produces consumption. The second produces calling. And the shift is not primarily financial. It is theological.</p>
 
       <p>Jesus tells a parable about a manager who is accused of wasting his master's possessions. The master commends him not for honesty, but for shrewdness. "The people of this world are more shrewd in dealing with their own kind than are the people of the light." God expects His stewards to be at least as thoughtful as secular managers.</p>
 
-      <h3>Three Stewardship Questions</h3>
+      <h2>Three Stewardship Questions</h2>
 
       <p><strong>Where did this come from?</strong> Every dollar traces back to God's provision — your health, your education, your opportunities, your nation. Acknowledging the source keeps pride in check.</p>
 
@@ -316,7 +316,7 @@ export const BATCH_1: Article[] = [
 
       <p>The biblical budget does not start with categories. It starts with calling. What has God entrusted to you? What is your season of life? What are your obligations, your opportunities, your limits? Only after naming these do the numbers make sense.</p>
 
-      <h3>The One-Hour Biblical Budget</h3>
+      <h2>The One-Hour Biblical Budget</h2>
 
       <p><strong>Step 1: Name your income.</strong> List all sources for the coming month. This is not what you hope to earn. It is what you reasonably expect. Everything after this is stewardship, not magic.</p>
 
@@ -344,11 +344,11 @@ export const BATCH_1: Article[] = [
 
       <p>The alternative is what most people do: spend first, categorize later, wonder where it went. This is not stewardship. It is reaction. And reaction rarely produces faithfulness.</p>
 
-      <h3>Why Zero-Based Budgeting Works</h3>
+      <h2>Why Zero-Based Budgeting Works</h2>
 
       <p>First, it creates intentionality. Every dollar is a choice made in advance, not a reflex in the moment. Second, it surfaces trade-offs. If you want to increase giving, you must decrease something else. That is honest. Third, it reduces anxiety. When every dollar has a job, there is no money floating around to worry about.</p>
 
-      <h3>How to Start</h3>
+      <h2>How to Start</h2>
 
       <p><strong>At the start of each month:</strong> List your expected income. Then list every expected expense — giving, bills, groceries, savings, debt, fun. Assign every dollar until the remainder is zero.</p>
 
@@ -372,7 +372,7 @@ export const BATCH_1: Article[] = [
 
       <p>The Biblical Money Type framework gives couples language for what previously felt like personal attack. "You never want to take risks" becomes "Your Guardian instinct is protecting us." "You are so controlling" becomes "Your Builder instinct wants a plan." The framework does not eliminate disagreement. It transforms it.</p>
 
-      <h3>Common Couple Combinations</h3>
+      <h2>Common Couple Combinations</h2>
 
       <p><strong>Visionary + Guardian:</strong> The most common pairing. Visionary pushes forward; Guardian applies brakes. The key is to leverage both: let the Visionary scout opportunities, but give the Guardian veto power over timing and size.</p>
 
@@ -380,7 +380,7 @@ export const BATCH_1: Article[] = [
 
       <p><strong>Two of the same type:</strong> Two Visionaries multiply risk. Two Guardians multiply caution. Two Givers may give beyond means. Two Builders may over-systematize. Same-type couples need external accountability.</p>
 
-      <h3>Three Practices for Financial Unity</h3>
+      <h2>Three Practices for Financial Unity</h2>
 
       <p><strong>Take the assessment together:</strong> Understanding each other's type is the foundation. Do not assume you know.</p>
 
@@ -404,13 +404,13 @@ export const BATCH_1: Article[] = [
 
       <p>This does not mean there is only one right way to organize accounts. Some couples use joint accounts for everything. Others maintain small personal accounts for gifts and surprises. The principle is unity, not uniformity. But the default should be "ours," not "yours and mine."</p>
 
-      <h3>The Practical Case for Combined Finances</h3>
+      <h2>The Practical Case for Combined Finances</h2>
 
       <p>Combined finances force transparency. You see every transaction. You discuss every major purchase. You plan together. This is not control. It is intimacy.</p>
 
       <p>Combined finances also simplify. One budget, one set of goals, one emergency fund. Complexity breeds conflict. Simplicity breeds clarity.</p>
 
-      <h3>Navigating the Transition</h3>
+      <h2>Navigating the Transition</h2>
 
       <p><strong>Disclose everything:</strong> Debts, assets, credit scores, income. Secrets destroy trust. Full disclosure builds it.</p>
 
@@ -434,13 +434,13 @@ export const BATCH_1: Article[] = [
 
       <p>Cheerful does not mean giddy. The Greek word <em>hilaros</em> means prompt, ready, willing — not laughing. God loves a giver who has already decided, who does not need to be convinced, whose generosity flows from settled conviction rather than emotional impulse.</p>
 
-      <h3>From Duty to Delight</h3>
+      <h2>From Duty to Delight</h2>
 
       <p>Many Christians give out of obligation. They tithe because they were taught to tithe. They support the church because it is expected. This is not sin — it is immaturity. The goal is not dutiful giving. The goal is joyful giving. And joy grows with practice.</p>
 
       <p>Paul writes earlier in the same letter: "God is able to bless you abundantly, so that in all things at all times, having all that you need, you will abound in every good work." Cheerful giving is rooted in trust. You give because you believe God will provide. The more you experience His provision, the easier trust becomes.</p>
 
-      <h3>Three Steps Toward Cheerful Giving</h3>
+      <h2>Three Steps Toward Cheerful Giving</h2>
 
       <p><strong>Decide in advance:</strong> Set your giving percentage at the start of the year. Remove the monthly decision fatigue.</p>
 
@@ -464,11 +464,11 @@ export const BATCH_1: Article[] = [
 
       <p>The Visionary sees opportunity everywhere. Rest feels like waste. Why stop when the next deal, the next project, the next idea is waiting? Because God designed rest as a rhythm of trust. The world does not fall apart when you stop. It keeps turning because God sustains it — not because you do.</p>
 
-      <h3>Solomon's Warning</h3>
+      <h2>Solomon's Warning</h2>
 
       <p>Solomon's later life is a cautionary tale for every Visionary. He built more, married more, accumulated more — and drifted from the God who gave him the vision in the first place. Rest is not just physical recovery. It is spiritual recalibration. It is the weekly reminder that you are not God.</p>
 
-      <h3>Practical Sabbath for Visionaries</h3>
+      <h2>Practical Sabbath for Visionaries</h2>
 
       <p><strong>Define your Sabbath:</strong> It does not have to be Sunday. It must be regular. Choose a twenty-four-hour period and protect it.</p>
 
@@ -492,13 +492,13 @@ export const BATCH_1: Article[] = [
 
       <p>The Guardian's instinct to prepare, to save, to foresee risk — these are stewardship strengths. But when preparation becomes preoccupation, and saving becomes suffocating, the gift has become a burden. The line between wisdom and worry is thinner than most Guardians realize.</p>
 
-      <h3>Fear Dressed as Prudence</h3>
+      <h2>Fear Dressed as Prudence</h2>
 
       <p>Financial anxiety often disguises itself as responsibility. "I need to check the accounts again." "I should run one more scenario." "What if the market crashes next year?" These thoughts feel like stewardship. But if they keep you awake, they have crossed into fear.</p>
 
       <p>Jesus asks, "Who of you by worrying can add a single hour to your life?" The answer is no one. Worry does not improve outcomes. It only consumes the present.</p>
 
-      <h3>Three Practices for Trust</h3>
+      <h2>Three Practices for Trust</h2>
 
       <p><strong>Name the fear:</strong> Write down exactly what you are anxious about. Specific fears are manageable. Vague dread is paralyzing.</p>
 
@@ -522,13 +522,13 @@ export const BATCH_1: Article[] = [
 
       <p>The modern Builder is drawn to systems. Budgets, investment policies, estate plans, automated transfers — these are the tools of faithful stewardship. But the Builder's blind spot is loving the blueprint more than the people living inside the house. When efficiency becomes the highest value, relationships suffer.</p>
 
-      <h3>The Efficiency Trap</h3>
+      <h2>The Efficiency Trap</h2>
 
       <p>Efficiency is not bad. But it is not ultimate. A perfectly optimized budget that ignores your spouse's concerns is not stewardship. It is control. An estate plan that minimizes taxes but creates family conflict is not wisdom. It is shortsightedness.</p>
 
       <p>Jesus was efficient in His mission — but He stopped for individuals. He paused for the woman at the well. He touched lepers. He wept at graves. The Builder who never pauses for people will build impressive walls and empty cities.</p>
 
-      <h3>Three Practices for Soulful Systems</h3>
+      <h2>Three Practices for Soulful Systems</h2>
 
       <p><strong>Build in human checkpoints:</strong> Before finalizing any major financial decision, ask: who is affected, and have they been heard?</p>
 
@@ -552,7 +552,7 @@ export const BATCH_1: Article[] = [
 
       <p>Scripture does not provide a marital budget template. But it provides principles: unity, transparency, provision, generosity, and mutual submission. These principles apply differently in different seasons, but they never change.</p>
 
-      <h3>Season-Specific Guidance</h3>
+      <h2>Season-Specific Guidance</h2>
 
       <p><strong>Engagement:</strong> Disclose everything before vows. Debt, assets, income, giving history, financial fears. Secrets become landmines after marriage.</p>
 
@@ -562,7 +562,7 @@ export const BATCH_1: Article[] = [
 
       <p><strong>Empty nest:</strong> Redirect resources from children to legacy. Revisit giving, retirement, and estate plans. Rediscover financial intimacy without dependents.</p>
 
-      <h3>One Unchanging Principle</h3>
+      <h2>One Unchanging Principle</h2>
 
       <p>Submit to one another out of reverence for Christ. Ephesians 5:21 applies to money too. Neither spouse has a monopoly on wisdom. The higher earner does not have the final say. The more detailed budgeter does not have veto power. Mutual submission means both voices matter, both are heard, and both agree before major moves.</p>
 
@@ -582,11 +582,11 @@ export const BATCH_1: Article[] = [
 
       <p>This is a theological error. Time is the raw material of stewardship. Without time, money cannot be earned, managed, or given. A billionaire who has no time for family, church, or prayer is not a faithful steward. He is a wealthy failure.</p>
 
-      <h3>The Exchange Rate</h3>
+      <h2>The Exchange Rate</h2>
 
       <p>Time and money convert into each other constantly. You trade time for money at work. You trade money for time when you hire help. The question is whether the exchange honors God. Are you working so many hours that you cannot love your neighbor? Are you spending so little that you are overwhelmed by tasks you should delegate?</p>
 
-      <h3>Three Time-Stewardship Practices</h3>
+      <h2>Three Time-Stewardship Practices</h2>
 
       <p><strong>Audit your week:</strong> Track how you spend your hours for one week. Compare it to your stated values. The gap is where repentance begins.</p>
 
@@ -610,7 +610,7 @@ export const BATCH_1: Article[] = [
 
       <p>But the verse is not a prosperity formula. It is a character principle. God is not waiting for you to prove yourself so He can finally bless you. He is forming you in the small things so you are ready for the large ones. The issue is not the amount. It is the faithfulness.</p>
 
-      <h3>What Faithfulness Looks Like With Little</h3>
+      <h2>What Faithfulness Looks Like With Little</h2>
 
       <p><strong>Honesty:</strong> Reporting all income, even cash. Paying taxes. Not cheating on returns. Integrity does not depend on the amount.</p>
 
@@ -618,7 +618,7 @@ export const BATCH_1: Article[] = [
 
       <p><strong>Planning:</strong> Budgeting even when there is barely enough. Writing it down. Naming priorities. Stewardship is a discipline, not a luxury.</p>
 
-      <h3>The Real Test</h3>
+      <h2>The Real Test</h2>
 
       <p>The real test of faithfulness is not whether you handle little well. It is whether you handle little <em>without resentment</em>. Can you thank God for provision when the provision feels small? Can you give joyfully when giving hurts? Can you plan carefully when planning seems futile?</p>
 
@@ -640,13 +640,13 @@ export const BATCH_1: Article[] = [
 
       <p>Car repairs. Annual insurance premiums. Holiday gifts. Property taxes. These are not emergencies. They are inevitabilities. And when they arrive without a fund, they become debt. Or they drain the emergency fund, leaving you vulnerable for real emergencies.</p>
 
-      <h3>How Sinking Funds Work</h3>
+      <h2>How Sinking Funds Work</h2>
 
       <p>Identify every irregular but predictable expense. Estimate the annual cost. Divide by twelve. Set up automatic monthly transfers to separate savings buckets. When the expense arrives, the money is already there.</p>
 
       <p>For example: car maintenance averages $1,200 per year. That is $100 per month. Gift-giving averages $600. That is $50 per month. Property taxes average $3,600. That is $300 per month. These three funds alone require $450 monthly — but they eliminate three major stress points.</p>
 
-      <h3>The Peace of Preparation</h3>
+      <h2>The Peace of Preparation</h2>
 
       <p>Proverbs says, "The prudent see danger and take refuge, but the simple keep going and pay the penalty." Sinking funds are refuge. They turn predictable surprises into planned payments. And they free your emergency fund for true emergencies.</p>
 
@@ -666,7 +666,7 @@ export const BATCH_1: Article[] = [
 
       <p>Automation is not about avoiding responsibility. It is about removing willpower from the equation. When giving, saving, and debt payments happen automatically, your financial faithfulness no longer depends on your mood, your memory, or your monthly motivation.</p>
 
-      <h3>What to Automate</h3>
+      <h2>What to Automate</h2>
 
       <p><strong>Giving:</strong> Set up automatic recurring gifts to your church and chosen causes. Give first, automatically, before discretionary spending tempts you.</p>
 
@@ -676,7 +676,7 @@ export const BATCH_1: Article[] = [
 
       <p><strong>Bills:</strong> Utilities, insurance, subscriptions. Automate everything with a predictable amount.</p>
 
-      <h3>What to Leave Manual</h3>
+      <h2>What to Leave Manual</h2>
 
       <p>Discretionary spending should remain manual. If you automate restaurant spending, you will spend more. Keep the friction where it helps. Remove the friction where it hurts.</p>
 
@@ -696,13 +696,13 @@ export const BATCH_1: Article[] = [
 
       <p>Accountability is not confession. It is prevention. A good financial accountability partner sees your blind spots before they become disasters. They ask questions you are avoiding. They celebrate wins you are minimizing. And they speak truth when you are rationalizing.</p>
 
-      <h3>Who Should Be Your Partner</h3>
+      <h2>Who Should Be Your Partner</h2>
 
       <p>Not your spouse — though spouses should be transparent with each other. An accountability partner is someone outside your household who can see clearly. Ideally, someone older, financially stable, and willing to be direct.</p>
 
       <p>It does not have to be a financial professional. It needs to be someone who loves you enough to risk awkwardness. Someone who will ask, "Did you really need that?" and "Have you given this month?" and "Are you sleeping well?"</p>
 
-      <h3>What Accountability Looks Like</h3>
+      <h2>What Accountability Looks Like</h2>
 
       <p><strong>Monthly check-ins:</strong> Fifteen minutes. Review the budget, name one challenge, and pray together.</p>
 
@@ -726,11 +726,11 @@ export const BATCH_1: Article[] = [
 
       <p>Givers are drawn to emptying themselves. They give money, time, energy, and emotional labor — often past the point of sustainability. Their identity is wrapped up in meeting needs, and saying no feels like a personal failure. But a cup that never refills eventually runs dry, and a dry Giver helps no one.</p>
 
-      <h3>The Oxygen Mask Principle</h3>
+      <h2>The Oxygen Mask Principle</h2>
 
       <p>Airline safety instructions tell you to put your own oxygen mask on before helping others. This is not selfishness. It is physics. You cannot help someone breathe if you are unconscious. The Giver who never self-cares will eventually collapse — and the people who depended on them will be worse off.</p>
 
-      <h3>Three Self-Care Practices for Givers</h3>
+      <h2>Three Self-Care Practices for Givers</h2>
 
       <p><strong>Schedule rest before requests:</strong> Block rest time on your calendar before you commit to anything else. Treat it as non-negotiable.</p>
 
@@ -754,13 +754,13 @@ export const BATCH_1: Article[] = [
 
       <p>So investing is not the question. The question is what kind of investing honors God. Is the stock market inherently gambling? Or can it be a legitimate tool for stewardship?</p>
 
-      <h3>Investing vs. Gambling</h3>
+      <h2>Investing vs. Gambling</h2>
 
       <p>The key distinction is ownership. When you buy a stock, you own a share of a real business. You participate in its profits, its growth, and its risks. Gambling produces nothing. Investing produces capital formation, jobs, and economic growth. The stock market is not a casino. It is a marketplace for fractional business ownership.</p>
 
       <p>That said, not all stock market activity is investing. Day trading, options speculation, and meme stock frenzies look more like gambling than stewardship. The biblical investor thinks in years, not minutes.</p>
 
-      <h3>Three Principles for Christian Investors</h3>
+      <h2>Three Principles for Christian Investors</h2>
 
       <p><strong>Long time horizon:</strong> Proverbs says, "Dishonest money dwindles away, but whoever gathers money little by little makes it grow." Compound growth requires patience.</p>
 

@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /quiz/result
+Disallow: /quiz/paywall
+Disallow: /quiz/calculating
+Disallow: /quiz/email
+Disallow: /quiz/motivation/
+Disallow: /quiz/intro-result
+Disallow: /checkout
+Disallow: /api/
+
+Sitemap: https://talanthos.com/sitemap.xml

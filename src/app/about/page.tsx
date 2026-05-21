@@ -5,11 +5,15 @@ import TxRule from "@/components/tx/TxRule";
 import TxButton from "@/components/tx/TxButton";
 import TxIcon from "@/components/tx/TxIcon";
 import { BlurFade } from "@/components/ui/blur-fade";
+import { WebPageSchema } from "@/lib/seo/json-ld";
 import Link from "next/link";
 
 export const metadata = {
-  title: "About. Talanthos",
+  title: "About — Talanthos",
   description: "Talanthos helps believers discover their Biblical Money Type and steward money faithfully.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 const values = [
@@ -38,6 +42,11 @@ const values = [
 export default function AboutPage() {
   return (
     <div className="tx-page">
+      <WebPageSchema
+        title="About — Talanthos"
+        description="Talanthos helps believers discover their Biblical Money Type and steward money faithfully."
+        path="/about"
+      />
       <TxNav />
       <div className="tx-route">
         <main className="tx-screen">

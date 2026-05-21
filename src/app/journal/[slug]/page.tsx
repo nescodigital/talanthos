@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import TxNav from "@/components/tx/TxNav";
 import TxFooter from "@/components/tx/TxFooter";
 import TxEyebrow from "@/components/tx/TxEyebrow";
@@ -5,10 +6,51 @@ import TxRule from "@/components/tx/TxRule";
 import TxButton from "@/components/tx/TxButton";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { getArticleBySlug, getAllArticles } from "@/lib/journal/articles";
+import { ArticleSchema } from "@/lib/seo/json-ld";
 import Link from "next/link";
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const article = getArticleBySlug(slug);
+  if (!article) {
+    return {
+      title: "Article Not Found — Talanthos",
+    };
+  }
+  return {
+    title: `${article.title} — Talanthos`,
+    description: article.excerpt,
+    alternates: {
+      canonical: `/journal/${slug}`,
+    },
+    openGraph: {
+      title: article.title,
+      description: article.excerpt,
+      url: `https://talanthos.com/journal/${slug}`,
+      type: "article",
+      publishedTime: new Date(article.date).toISOString(),
+      authors: ["Talanthos"],
+      section: article.category,
+      images: [
+        {
+          url: "/og-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: article.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description: article.excerpt,
+      images: ["/og-image.jpg"],
+    },
+  };
 }
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
@@ -42,6 +84,14 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   return (
     <div className="tx-page">
+      <ArticleSchema
+        title={article.title}
+        description={article.excerpt}
+        slug={slug}
+        date={article.date}
+        category={article.category}
+        readTime={article.readTime}
+      />
       <TxNav />
       <div className="tx-route">
         <main className="tx-screen">

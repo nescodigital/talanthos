@@ -14,7 +14,7 @@ export const BATCH_4: Article[] = [
 
       <p>The first step is legal and practical. The second step — and the harder one — is emotional and spiritual. Many divorced individuals carry shame about their finances, fear about their future, and anger about what was lost. Healing requires both practical planning and gospel grace.</p>
 
-      <h3>Immediate Financial Steps After Divorce</h3>
+      <h2>Immediate Financial Steps After Divorce</h2>
 
       <p><strong>Separate all accounts:</strong> Joint accounts, credit cards, and loans must be divided or closed. Do not delay this. Shared liability creates shared vulnerability.</p>
 
@@ -24,7 +24,7 @@ export const BATCH_4: Article[] = [
 
       <p><strong>Rebuild credit:</strong> If your credit history was tied to your spouse, establish your own accounts and pay on time.</p>
 
-      <h3>Spiritual Healing</h3>
+      <h2>Spiritual Healing</h2>
 
       <p>Your identity is not your marital status or your net worth. It is Christ's finished work. The same gospel that saves you also sustains you through financial loss. Do not let shame isolate you. Invite trusted believers into your rebuilding process.</p>
 
@@ -44,7 +44,7 @@ export const BATCH_4: Article[] = [
 
       <p>The biblical call is unity. But unity does not mean pretending complexity does not exist. It means addressing it honestly, with grace for past wounds and clarity for future decisions.</p>
 
-      <h3>Common Blended Family Financial Tensions</h3>
+      <h2>Common Blended Family Financial Tensions</h2>
 
       <p><strong>Child support obligations:</strong> These are legal and moral commitments. The new spouse must respect them, even if they reduce discretionary income.</p>
 
@@ -52,7 +52,7 @@ export const BATCH_4: Article[] = [
 
       <p><strong>Different money histories:</strong> One spouse may have been wealthy. The other may have struggled. These backgrounds shape expectations that must be named, not assumed.</p>
 
-      <h3>Practices for Financial Unity</h3>
+      <h2>Practices for Financial Unity</h2>
 
       <p><strong>Full disclosure before marriage:</strong> All debts, obligations, and support payments must be visible. No surprises after vows.</p>
 
@@ -76,7 +76,7 @@ export const BATCH_4: Article[] = [
 
       <p>Christian parents have a stewardship obligation to prepare their children. Not by sheltering them from credit, but by teaching them to master it — or to avoid it entirely if that is wiser for their temperament.</p>
 
-      <h3>Credit Education for Teens</h3>
+      <h2>Credit Education for Teens</h2>
 
       <p><strong>Explain how credit scores work:</strong> Payment history, utilization, length of history. Show them their own report if they have one.</p>
 
@@ -86,7 +86,7 @@ export const BATCH_4: Article[] = [
 
       <p><strong>Teach the real cost:</strong> Show them how a $1,000 balance at 20% APR grows if only minimum payments are made. Numbers teach what warnings cannot.</p>
 
-      <h3>The Goal</h3>
+      <h2>The Goal</h2>
 
       <p>The goal is not a perfect credit score. It is a young adult who understands that debt is a tool with a blade on both ends — and who uses it with caution, or not at all.</p>
 
@@ -106,13 +106,13 @@ export const BATCH_4: Article[] = [
 
       <p>A 529 plan is a tax-advantaged savings account for education expenses. Contributions grow tax-free, and withdrawals for qualified expenses are not taxed. It is one of the most efficient ways to save for college. But it is not the only way, and it is not mandatory.</p>
 
-      <h3>529 Plan Pros and Cons</h3>
+      <h2>529 Plan Pros and Cons</h2>
 
       <p><strong>Pros:</strong> Tax-free growth, state tax deductions in some states, high contribution limits, and flexibility to change beneficiaries.</p>
 
       <p><strong>Cons:</strong> Penalties for non-qualified withdrawals, limited investment options, and the risk of over-saving if your child does not attend college.</p>
 
-      <h3>A Balanced Approach</h3>
+      <h2>A Balanced Approach</h2>
 
       <p>Save enough to cover in-state tuition at a public university. Let your child earn scholarships, work part-time, and contribute their own savings. If they choose a more expensive school, they can cover the difference. This teaches responsibility while providing a foundation.</p>
 
@@ -134,7 +134,7 @@ export const BATCH_4: Article[] = [
 
       <p>The question is not whether advisors are valuable. It is whether you need one now. Some people thrive with DIY planning. Others need professional help to avoid costly mistakes. Knowing which you are is itself wisdom.</p>
 
-      <h3>When You Probably Need an Advisor</h3>
+      <h2>When You Probably Need an Advisor</h2>
 
       <p><strong>Complex tax situations:</strong> Business owners, high earners, or those with multiple income streams need more than TurboTax.</p>
 
@@ -144,7 +144,7 @@ export const BATCH_4: Article[] = [
 
       <p><strong>Estate complexity:</strong> Blended families, special needs children, or significant wealth require legal and financial coordination.</p>
 
-      <h3>What to Look For</h3>
+      <h2>What to Look For</h2>
 
       <p>Look for a fee-only fiduciary — someone legally obligated to act in your best interest, compensated by you rather than by product commissions. Ask about their faith perspective. A Christian advisor understands that your money has a mission beyond returns.</p>
 
@@ -164,15 +164,15 @@ export const BATCH_4: Article[] = [
 
       <p>The biblical standard for counsel is high. Moses chose capable, trustworthy, and God-fearing men to help judge Israel. The same three criteria — capability, trustworthiness, and character — should guide your choice of financial advisor.</p>
 
-      <h3>Credentials Matter</h3>
+      <h2>Credentials Matter</h2>
 
       <p>Look for CFP (Certified Financial Planner), CFA (Chartered Financial Analyst), or CPA (Certified Public Accountant) designations. These require rigorous education, examination, and ethics training. A nice website and a friendly church connection are not credentials.</p>
 
-      <h3>Compensation Structure Matters More</h3>
+      <h2>Compensation Structure Matters More</h2>
 
       <p>Fee-only planners are paid by you. Commission-based planners are paid by product companies. Fee-based planners do both. Fee-only fiduciaries have the fewest conflicts of interest. If an advisor cannot clearly explain how they are paid, walk away.</p>
 
-      <h3>Values Alignment</h3>
+      <h2>Values Alignment</h2>
 
       <p>Ask direct questions. Do they tithe? Do they avoid recommending products that conflict with biblical values? Do they understand that your money has a mission? A planner who sees your portfolio as merely a collection of assets will not serve you as well as one who sees it as a stewardship trust.</p>
 
@@ -192,7 +192,7 @@ export const BATCH_4: Article[] = [
 
       <p>Young families often delay estate planning because it feels morbid, expensive, and premature. But the cost of not planning is far higher. Without a will, a court decides who raises your children. Without beneficiaries, your assets enter probate. Without powers of attorney, your spouse cannot make medical or financial decisions if you are incapacitated.</p>
 
-      <h3>Essential Documents for Young Families</h3>
+      <h2>Essential Documents for Young Families</h2>
 
       <p><strong>Will:</strong> Names guardians for minor children and distributes assets. Even a simple will is better than none.</p>
 
@@ -222,13 +222,13 @@ export const BATCH_4: Article[] = [
 
       <p>Consider: $100 per month for twenty years is $24,000. But to a nonprofit, it is far more than that. It is predictable revenue. It is the ability to hire staff, plan programs, and make long-term commitments. The donor who gives $100 monthly is often more valuable than the donor who gives $5,000 once.</p>
 
-      <h3>Why Consistency Matters</h3>
+      <h2>Why Consistency Matters</h2>
 
       <p>Nonprofits live and die by cash flow. A large, unpredictable gift is welcome but difficult to build around. A consistent, predictable gift is foundation. It allows leaders to dream, hire, and expand with confidence.</p>
 
       <p>And for the giver, consistency forms habit. Giving becomes automatic, joyful, and identity-level. You are no longer deciding whether to give each month. You are simply being who you are.</p>
 
-      <h3>How to Start Compound Giving</h3>
+      <h2>How to Start Compound Giving</h2>
 
       <p><strong>Pick one cause:</strong> Start with your church or a mission you deeply trust. One focused stream is better than scattered droplets.</p>
 
@@ -252,13 +252,13 @@ export const BATCH_4: Article[] = [
 
       <p>The widow's gift was micro-giving. It was tiny in amount. It was massive in proportion. And Jesus noticed. In a kingdom economy, the size of the gift is measured against the size of the sacrifice, not the size of the balance.</p>
 
-      <h3>Why Micro-Giving Matters</h3>
+      <h2>Why Micro-Giving Matters</h2>
 
       <p>Micro-giving democratizes generosity. You do not need wealth to participate. A $5 monthly gift to a clean water project. A $10 recurring donation to a pregnancy center. A $25 gift to a missionary. These are not insignificant. They are participation in God's work.</p>
 
       <p>And when many people give small amounts, the total is substantial. Crowdfunding has proven this. The early church proved it. Micro-giving is not a lesser form of generosity. It is the form most people can practice.</p>
 
-      <h3>How to Micro-Give Well</h3>
+      <h2>How to Micro-Give Well</h2>
 
       <p><strong>Choose carefully:</strong> Small gifts should still go to organizations you trust. Research overhead, impact, and accountability.</p>
 
@@ -282,7 +282,7 @@ export const BATCH_4: Article[] = [
 
       <p>The answer requires nuance. The tithe in the Old Testament was a tax-like obligation that funded the priesthood and supported the poor. It was not optional. But it also came with provisions. Gleaning laws allowed the poor to harvest leftovers. Jubilee canceled debts. The system had both obligation and mercy.</p>
 
-      <h3>Principles for Hardship Giving</h3>
+      <h2>Principles for Hardship Giving</h2>
 
       <p><strong>Do not give past your means:</strong> Paul praised the Macedonians for giving out of their means, not beyond them. If giving means your children go hungry, the gift is not sacrificial. It is reckless.</p>
 
@@ -308,7 +308,7 @@ export const BATCH_4: Article[] = [
 
       <p>This is a hard word for Givers. The Giver's instinct is to meet need wherever it appears. A friend's crisis, a missionary's appeal, a church's building fund — all feel urgent. But your child's dental work, your spouse's need for rest, and your household's emergency fund are also needs. And they are your primary responsibility.</p>
 
-      <h3>The Floor and Ceiling Framework</h3>
+      <h2>The Floor and Ceiling Framework</h2>
 
       <p>Every family has a financial floor — the minimum required to meet basic obligations. Below this floor, giving is not generosity. It is neglect. Every family also has a giving ceiling — the maximum they can give without jeopardizing the floor. Between floor and ceiling lies true, sustainable generosity.</p>
 
@@ -332,11 +332,11 @@ export const BATCH_4: Article[] = [
 
       <p>It may not be money for you. It may be status, security, a relationship, a dream, or an identity. But Jesus always names the one thing. And the one thing is always the thing we are most afraid to lose.</p>
 
-      <h3>What Jesus Asks</h3>
+      <h2>What Jesus Asks</h2>
 
       <p>Jesus does not ask everyone to sell everything. He asked Zacchaeus to give half. He accepted support from wealthy women. But He always asks for first place. And if anything — including wealth — rivals Him for that place, He names it.</p>
 
-      <h3>The Question for You</h3>
+      <h2>The Question for You</h2>
 
       <p>What would make you walk away sorrowful? What possession, position, or plan is so central to your identity that losing it feels like death? That is your rich young ruler moment. And Jesus is still asking: will you let it go, and follow?</p>
 
@@ -356,7 +356,7 @@ export const BATCH_4: Article[] = [
 
       <p>Modern mammon is not just personal greed. It is a system. Consumerism. Status competition. The endless pursuit of more. It promises security, identity, and happiness. It delivers anxiety, comparison, and emptiness. And it is so woven into our culture that we often serve it without knowing.</p>
 
-      <h3>Signs You Are Serving Mammon</h3>
+      <h2>Signs You Are Serving Mammon</h2>
 
       <p><strong>Your mood follows the market:</strong> A good stock day lifts your spirit. A bad one ruins it. Your peace is pegged to a number.</p>
 
@@ -364,7 +364,7 @@ export const BATCH_4: Article[] = [
 
       <p><strong>You measure others by wealth:</strong> You unconsciously rank people by their car, house, or job title. Mammon has trained your eyes.</p>
 
-      <h3>How to Dethrone Mammon</h3>
+      <h2>How to Dethrone Mammon</h2>
 
       <p><strong>Give first:</strong> Every time you give, you declare that mammon is not your master.</p>
 
@@ -388,15 +388,15 @@ export const BATCH_4: Article[] = [
 
       <p>The gospel offers something deeper: financial faithfulness. Peace and freedom are byproducts, not destinations. A faithful steward may have peace without freedom — content in limited means. Or freedom without peace — wealthy but anxious. Faithfulness is the thread that ties both together.</p>
 
-      <h3>Peace Without Freedom</h3>
+      <h2>Peace Without Freedom</h2>
 
       <p>Paul wrote from prison: "I have learned to be content whatever the circumstances." He had neither peace from Rome nor freedom from chains. But he had peace in Christ. And that peace did not depend on his net worth.</p>
 
-      <h3>Freedom Without Peace</h3>
+      <h2>Freedom Without Peace</h2>
 
       <p>Solomon had unlimited freedom. He could build, buy, and experience anything he desired. And he called it all meaningless. Freedom without purpose is not liberation. It is boredom with options.</p>
 
-      <h3>The Gospel's Offer</h3>
+      <h2>The Gospel's Offer</h2>
 
       <p>Christ offers peace that passes understanding — not because your finances are perfect, but because your Father knows what you need. He offers freedom from the bondage of wanting — not by giving you everything, but by becoming your everything.</p>
 
@@ -418,15 +418,15 @@ export const BATCH_4: Article[] = [
 
       <p>Most of us steward only one season well. In plenty, we become careless, proud, or anxious about losing what we have. In want, we become fearful, resentful, or desperate. Paul's secret was not the absence of seasons. It was the presence of Christ in every season.</p>
 
-      <h3>Stewarding Plenty</h3>
+      <h2>Stewarding Plenty</h2>
 
       <p>Plenty is harder than it looks. It creates expectations, expands lifestyles, and tempts complacency. The steward in plenty must be more disciplined, not less. Give more. Save more. Resist lifestyle inflation. And remember that seasons change.</p>
 
-      <h3>Stewarding Want</h3>
+      <h2>Stewarding Want</h2>
 
       <p>Want is humbling. It forces dependence, creativity, and community. The steward in want must be honest about needs, willing to receive help, and vigilant against despair. Want is not punishment. It is a different classroom.</p>
 
-      <h3>The Secret</h3>
+      <h2>The Secret</h2>
 
       <p>I can do all this through him who gives me strength. The secret is not a technique. It is a person. Christ is enough in plenty. Christ is enough in want. And the steward who knows this is free in every season.</p>
 
@@ -446,11 +446,11 @@ export const BATCH_4: Article[] = [
 
       <p>Jubilee was never fully practiced in Israel. But it remained in the law as a statement of God's economic values. Wealth is temporary. Land belongs to God. And no family should be permanently dispossessed.</p>
 
-      <h3>Jubilee Principles for Today</h3>
+      <h2>Jubilee Principles for Today</h2>
 
       <p>We do not live under the Mosaic law. But Jubilee teaches enduring truths. Debt should not be perpetual. Economic systems should protect the vulnerable. And wealth should serve community, not just individuals.</p>
 
-      <h3>Modern Applications</h3>
+      <h2>Modern Applications</h2>
 
       <p><strong>Debt forgiveness:</strong> Christians should advocate for and practice debt relief — personally and corporately.</p>
 
@@ -474,13 +474,13 @@ export const BATCH_4: Article[] = [
 
       <p>Jesus said, "Give to the one who asks you, and do not turn away from the one who wants to borrow from you." But He also told parables about shrewd stewardship. The key is distinguishing between a gift and a loan — and being honest about which you are offering.</p>
 
-      <h3>When to Give Instead of Lend</h3>
+      <h2>When to Give Instead of Lend</h2>
 
       <p>If you cannot afford to lose the money, do not lend it. Give it as a gift, or decline. Lending to family with the expectation of repayment destroys more relationships than it saves.</p>
 
       <p>If the need is caused by a pattern of irresponsibility, lending enables the pattern. Giving with conditions — financial counseling, budgeting help, accountability — may be more loving.</p>
 
-      <h3>When Lending Is Appropriate</h3>
+      <h2>When Lending Is Appropriate</h2>
 
       <p>If the borrower is historically responsible, the need is temporary, and the amount is significant enough to require formal terms, a loan may make sense. Put it in writing. Set a repayment schedule. Charge modest interest if the amount is large. Treat it like a business transaction, because it is.</p>
 
@@ -500,7 +500,7 @@ export const BATCH_4: Article[] = [
 
       <p>Bankruptcy in modern law is the legal equivalent of Jubilee. It allows individuals and businesses to discharge or restructure debts they cannot repay. It is not a sin. But it is also not a solution to be taken lightly.</p>
 
-      <h3>When Bankruptcy May Be Appropriate</h3>
+      <h2>When Bankruptcy May Be Appropriate</h2>
 
       <p><strong>Medical catastrophe:</strong> Debts from unavoidable health crises may be beyond any reasonable repayment capacity.</p>
 
@@ -508,7 +508,7 @@ export const BATCH_4: Article[] = [
 
       <p><strong>Predatory lending:</strong> Victims of scams or exploitative loans may need legal protection.</p>
 
-      <h3>When Bankruptcy Is Not the Answer</h3>
+      <h2>When Bankruptcy Is Not the Answer</h2>
 
       <p>If the debt results from irresponsible spending, gambling, or refusal to work, bankruptcy may be a bandage on a deeper wound. The behavior must change, or the bankruptcy will be repeated.</p>
 
@@ -530,11 +530,11 @@ export const BATCH_4: Article[] = [
 
       <p>We confess our struggles with pornography before we would confess $20,000 in credit card debt. We share our prayer requests about health before we share our fear of bankruptcy. This silence is not holiness. It is shame. And shame grows in darkness.</p>
 
-      <h3>Why Financial Silence Hurts</h3>
+      <h2>Why Financial Silence Hurts</h2>
 
       <p>When no one talks about money, everyone assumes they are the only one struggling. The family drowning in medical debt thinks every other family is fine. The young professional living paycheck to paycheck believes everyone else has it figured out. Isolation intensifies shame. And shame prevents healing.</p>
 
-      <h3>Creating Safe Spaces</h3>
+      <h2>Creating Safe Spaces</h2>
 
       <p><strong>Leaders go first:</strong> When a small group leader shares their own financial journey — including mistakes — permission is granted for others to speak.</p>
 
@@ -558,7 +558,7 @@ export const BATCH_4: Article[] = [
 
       <p>But how we give matters enormously. Handouts can humiliate. Conditions can control. And well-meaning generosity often strips dignity rather than restoring it. The biblical model is not charity from above. It is solidarity across difference.</p>
 
-      <h3>Principles of Dignified Giving</h3>
+      <h2>Principles of Dignified Giving</h2>
 
       <p><strong>Ask, do not assume:</strong> The poor know their own needs better than you do. Ask what would help most.</p>
 
@@ -584,7 +584,7 @@ export const BATCH_4: Article[] = [
 
       <p>The church has often treated financial stress as a purely spiritual problem. Pray more. Trust more. Tithe more. But the reality is more complex. Financial stress can trigger or exacerbate clinical anxiety and depression. And mental health struggles can lead to financial mismanagement — overspending, avoidance, or impulsive decisions.</p>
 
-      <h3>Recognizing the Connection</h3>
+      <h2>Recognizing the Connection</h2>
 
       <p><strong>Financial anxiety:</strong> Constant worry about money, even when objectively secure. Checking accounts obsessively. Avoiding bills. Panic at unexpected expenses.</p>
 
@@ -592,7 +592,7 @@ export const BATCH_4: Article[] = [
 
       <p><strong>Financial trauma:</strong> Past experiences of poverty, eviction, or bankruptcy that create lasting fear responses.</p>
 
-      <h3>Seeking Help</h3>
+      <h2>Seeking Help</h2>
 
       <p>Financial counseling addresses the numbers. Therapy addresses the emotions. Both may be needed. A pastor can provide spiritual care. A financial counselor can provide a plan. A therapist can provide tools for managing anxiety. There is no shame in needing all three.</p>
 
@@ -612,7 +612,7 @@ export const BATCH_4: Article[] = [
 
       <p>The biblical approach to change is not willpower. It is transformation. "Do not conform to the pattern of this world, but be transformed by the renewing of your mind." When your mind changes, your behavior follows. When your identity shifts, your habits realign.</p>
 
-      <h3>Resolutions That Stick</h3>
+      <h2>Resolutions That Stick</h2>
 
       <p><strong>Identity-based:</strong> Instead of "I will budget," try "I am a steward of God's resources." The budget becomes an expression of who you are.</p>
 
@@ -638,7 +638,7 @@ export const BATCH_4: Article[] = [
 
       <p>Deuteronomy 6 commands parents to impress God's commands on their children. Proverbs is a father's letter of wisdom to his son. Timothy's faith came first through his grandmother Lois and his mother Eunice. The biblical inheritance is faith, character, and wisdom — with money as a possible vehicle, not the main cargo.</p>
 
-      <h3>The Three-Legged Stool of Generational Wealth</h3>
+      <h2>The Three-Legged Stool of Generational Wealth</h2>
 
       <p><strong>Financial capital:</strong> Money, property, investments. Useful, but transferable. And often temporary.</p>
 
@@ -648,7 +648,7 @@ export const BATCH_4: Article[] = [
 
       <p>The wealthiest families invest in all three. The poorest families often have abundant human and social capital that no market crash can erase.</p>
 
-      <h3>Practical Steps</h3>
+      <h2>Practical Steps</h2>
 
       <p><strong>Write your story:</strong> A legacy letter explaining your values, failures, and hopes.</p>
 
