@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
+import { getServiceRoleClient } from "@/lib/supabase/client";
 
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 
@@ -19,10 +20,36 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const amountCents = Math.max(999, Math.min(99999, body.amount || 1499));
     const type = body.type || "unknown";
-    const email = body.email || "";
     const sessionId = body.session_id || "";
+    const promoCode = body.promoCode || "";
 
-    const unitAmount = amountCents;
+    const supabase = getServiceRoleClient();
+
+    // Find lead email from session
+    let email = "";
+    if (sessionId) {
+      const { data: lead } = await supabase
+        .from("leads")
+        .select("email")
+        .eq("session_id", sessionId)
+        .single();
+      if (lead?.email) email = lead.email;
+    }
+
+    // Apply promo code discount if valid
+    let finalAmountCents = amountCents;
+    if (promoCode) {
+      const { data: promo } = await supabase
+        .from("promo_codes")
+        .select("discount_percent, max_uses, used_count")
+        .eq("code", promoCode.toUpperCase())
+        .single();
+      if (promo && (promo.max_uses === null || promo.used_count < promo.max_uses)) {
+        finalAmountCents = Math.round(amountCents * (1 - promo.discount_percent / 100));
+      }
+    }
+
+    const unitAmount = finalAmountCents;
     const productName = `Biblical Money Type Report — ${type.charAt(0).toUpperCase() + type.slice(1)}`;
 
     const sessionConfig: Stripe.Checkout.SessionCreateParams = {
@@ -35,7 +62,7 @@ export async function POST(req: NextRequest) {
             currency: "usd",
             product_data: {
               name: productName,
-              description: `47-page personalized report tailored to your ${type} archetype.`,
+              description: `20-page personalized report tailored to your ${type} archetype.`,
             },
             unit_amount: unitAmount,
           },
@@ -46,6 +73,7 @@ export async function POST(req: NextRequest) {
         type,
         session_id: sessionId,
         amount_cents: String(unitAmount),
+        original_amount_cents: String(amountCents),
       },
       allow_promotion_codes: true,
       custom_text: {
@@ -59,9 +87,19 @@ export async function POST(req: NextRequest) {
       sessionConfig.customer_email = email;
     }
 
-    const session = await stripe.checkout.sessions.create(sessionConfig);
+    const stripeSession = await stripe.checkout.sessions.create(sessionConfig);
 
-    return NextResponse.json({ url: session.url, id: session.id });
+    // Create order record
+    await supabase.from("orders").insert({
+      session_id: sessionId || null,
+      stripe_session_id: stripeSession.id,
+      email: email || "pending",
+      amount_total_cents: unitAmount,
+      currency: "usd",
+      primary_type: type,
+    });
+
+    return NextResponse.json({ url: stripeSession.url, id: stripeSession.id });
   } catch (err: any) {
     console.error("[CHECKOUT ERROR]", err);
     return NextResponse.json(

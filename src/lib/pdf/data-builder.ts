@@ -1,5 +1,6 @@
 import { getServiceRoleClient } from "@/lib/supabase/client";
 import { BIBLICAL_TYPES, BiblicalType, BiblicalTypeData } from "@/lib/quiz/types";
+import { QuizUserData } from "./types";
 
 export interface DemographicData {
   gender?: string;
@@ -108,5 +109,54 @@ export async function buildReportData(sessionId: string): Promise<ReportData | n
       answerLetter: a.answer_letter,
       answerValue: a.answer_value,
     })),
+  };
+}
+
+/**
+ * Build QuizUserData for the new Claude-powered PDF pipeline.
+ */
+export async function buildQuizUserData(sessionId: string): Promise<QuizUserData | null> {
+  const supabase = getServiceRoleClient();
+
+  const { data: session, error: sessionError } = await supabase
+    .from("quiz_sessions")
+    .select("*")
+    .eq("id", sessionId)
+    .single();
+
+  if (sessionError || !session) {
+    console.error("[PDF] Session not found:", sessionError);
+    return null;
+  }
+
+  const { data: answersRaw } = await supabase
+    .from("quiz_answers")
+    .select("question_id, answer_value")
+    .eq("session_id", sessionId);
+
+  const demographics: Record<string, string> = {};
+  for (const a of answersRaw || []) {
+    demographics[a.question_id] = a.answer_value;
+  }
+
+  const primaryType = (session.primary_type as BiblicalType) || "guardian";
+  const secondaryType = (session.secondary_type as BiblicalType) || null;
+
+  return {
+    firstName: session.first_name || "",
+    primaryType,
+    secondaryType,
+    scores: {
+      vision: session.visionary_score || 0,
+      guard: session.guardian_score || 0,
+      give: session.giver_score || 0,
+      build: session.builder_score || 0,
+    },
+    ageRange: demographics["age"] || "",
+    maritalStatus: demographics["marital"] || "",
+    hasChildren: demographics["children"] === "yes",
+    financialSituation: demographics["financial-situation"] || "",
+    biggestRegret: demographics["biggest-regret"] || "",
+    moneyEmotion: demographics["emotional-relationship"] || "",
   };
 }

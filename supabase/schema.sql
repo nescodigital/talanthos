@@ -81,6 +81,8 @@ CREATE TABLE orders (
   pdf_generated BOOLEAN DEFAULT FALSE,
   pdf_url TEXT,
   pdf_sent_at TIMESTAMP WITH TIME ZONE,
+  purchased BOOLEAN DEFAULT FALSE,
+  purchased_at TIMESTAMP WITH TIME ZONE,
   refunded BOOLEAN DEFAULT FALSE,
   refunded_at TIMESTAMP WITH TIME ZONE,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
