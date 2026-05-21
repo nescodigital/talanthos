@@ -145,14 +145,6 @@ export default function Motivation1Page() {
                   </TxButton>
                 </form>
 
-                <button
-                  onClick={handleSkip}
-                  className="text-xs text-[var(--muted)] hover:text-[var(--ink)] transition-colors"
-                  style={{ background: "none", border: "none", cursor: "pointer", fontFamily: "var(--sans)" }}
-                >
-                  Continue without email
-                </button>
-
                 <div className="flex flex-wrap items-center justify-center gap-4 text-[10px] text-[var(--muted)]" style={{ fontFamily: "var(--mono)", letterSpacing: "0.06em", textTransform: "uppercase" }}>
                   <span className="flex items-center gap-1.5">
                     <Lock className="h-3 w-3" />

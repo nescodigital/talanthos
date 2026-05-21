@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useEffect, useState, Suspense } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { BIBLICAL_TYPES, BiblicalTypeData, BiblicalType } from "@/lib/quiz/types";
 import { calculateScores } from "@/lib/quiz/scoring";
 import TxNav from "@/components/tx/TxNav";
@@ -30,6 +30,21 @@ const tabLabels = [
   { id: "verse", label: "Your verse" },
   { id: "next", label: "Next step" },
 ];
+
+function PaymentBanner() {
+  const searchParams = useSearchParams();
+  const paymentSuccess = searchParams.get("payment") === "success";
+  if (!paymentSuccess) return null;
+  return (
+    <div className="mx-auto max-w-[640px] px-5 sm:px-6 pt-6">
+      <div className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-4 text-center">
+        <p className="text-sm font-medium text-emerald-800" style={{ fontFamily: "var(--serif)" }}>
+          Thank you for your purchase. Your personalized report is being prepared and will arrive in your inbox within a few minutes.
+        </p>
+      </div>
+    </div>
+  );
+}
 
 export default function ResultPage() {
   const router = useRouter();
@@ -99,6 +114,9 @@ export default function ResultPage() {
     <div className="tx-page">
       <TxNav />
       <div className="tx-route">
+        <Suspense fallback={null}>
+          <PaymentBanner />
+        </Suspense>
         <main className="tx-screen tx-result">
           <div className="tx-result-frame">
             {/* Hero */}
