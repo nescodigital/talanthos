@@ -1,576 +1,744 @@
-import { Article } from "../types";
+import { Article } from "../articles";
 
 export const BATCH_2: Article[] = [
   {
-    slug: "joseph-egypt-stewardship-crisis",
-    title: "Joseph in Egypt: Stewardship in a Time of Crisis",
+    slug: "the-bible-on-cryptocurrency-and-stewardship",
+    title: "The Bible on Cryptocurrency: A Stewardship Framework for Digital Assets",
     excerpt:
-      "When famine struck, Joseph had already stored grain for seven years. What can we learn about preparation, planning, and trusting God in economic uncertainty?",
-    date: "December 1, 2025",
-    category: "Biblical Finance",
-    readTime: "5 min read",
-    content: `
-      <p>Joseph interpreted Pharaoh's dream and foresaw seven years of abundance followed by seven years of severe famine. Genesis 41 tells us he gathered grain "in such abundance ... that he stopped measuring it." When the famine came, Egypt did not panic. It had a plan.</p>
-
-      <p>The modern believer faces economic uncertainty too. Inflation, job loss, market volatility — these are the famines of our time. And Joseph's response is still the model: prepare in the plenty so you can persevere in the pain.</p>
-
-      <h3>Three Lessons From Joseph's Storehouses</h3>
-
-      <p><strong>Preparation honors God.</strong> Joseph did not hoard out of anxiety. He stored out of wisdom. Proverbs praises the ant who gathers food in summer. Preparation is not a lack of faith. It is the fruit of it.</p>
-
-      <p><strong>Storage has a purpose.</strong> Joseph gathered grain to feed people, not to admire piles. Your emergency fund, your retirement account, your investment portfolio — these are storehouses meant to serve others, not just protect you.</p>
-
-      <p><strong>Wisdom requires humility.</strong> Joseph did not claim credit for the dream. He told Pharaoh, "God will give Pharaoh the answer he desires." The steward who trusts God plans better than the one who trusts himself.</p>
-
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover whether you have the Guardian's instinct to prepare — and how to keep that instinct from becoming fear.</p>
-    `,
-  },
-  {
-    slug: "render-caesar-taxes-jesus",
-    title: "Render to Caesar: What Jesus Actually Said About Taxes",
-    excerpt:
-      "Whose image is on the coin? Jesus' answer about taxes was deeper than politics. It was about ownership, identity, and ultimate allegiance.",
-    date: "December 5, 2025",
-    category: "Biblical Finance",
-    readTime: "5 min read",
-    content: `
-      <p>The Pharisees and Herodians tried to trap Jesus with a tax question. "Should we pay taxes to Caesar or not?" If He said yes, the crowds would turn. If He said no, Rome would arrest Him. Instead, Jesus asked for a denarius. "Whose image is this? And whose inscription?" "Caesar's," they replied. "So give back to Caesar what is Caesar's, and to God what is God's."</p>
-
-      <p>Matthew 22:21 is not primarily about tax policy. It is about ownership. The coin bears Caesar's image, so it belongs to Caesar. You bear God's image, so you belong to God. Every financial decision is an act of worship because every part of you is His.</p>
-
-      <h3>What This Means for Today</h3>
-
-      <p>Paying taxes is not optional for Christians. Romans 13 commands us to give everyone what we owe them: taxes to whom taxes are due, revenue to whom revenue is due. Tax evasion is not stewardship. It is theft.</p>
-
-      <p>But the deeper principle is this: do not let financial obligations to the state become financial allegiance. Your ultimate trust, your ultimate loyalty, your ultimate hope is in God. Taxes are a duty. Tithes are a joy. Caesar gets a percentage. God gets your heart.</p>
-
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to understand how God has wired you to think about authority, obligation, and giving.</p>
-    `,
-  },
-  {
-    slug: "ant-sluggard-work-ethic",
-    title: "The Ant and the Sluggard: A Biblical Work Ethic for Today",
-    excerpt:
-      "Go to the ant, you sluggard. Proverbs 6:6 is not just about hard work. It is about foresight, initiative, and the dignity of provision.",
-    date: "December 9, 2025",
-    category: "Stewardship",
-    readTime: "4 min read",
-    content: `
-      <p>Go to the ant, you sluggard; consider its ways and be wise! It has no commander, no overseer or ruler, yet it stores its provisions in summer and gathers its food at harvest. Proverbs 6:6-8 describes a creature that works without being told, plans without being pushed, and prepares without being praised.</p>
-
-      <p>The sluggard, by contrast, is always about to start. "A little sleep, a little slumber, a little folding of the hands to rest — and poverty will come on you like a thief." The sluggard does not lack opportunity. He lacks initiative.</p>
-
-      <h3>The Dignity of Work</h3>
-
-      <p>Work is not a curse. It predates the fall. Adam cultivated Eden before sin entered the world. Work becomes toil after Genesis 3, but work itself is holy. It is how we participate in creation, provide for others, and glorify God through competence.</p>
-
-      <p>The ant teaches us that diligence does not require a boss. Initiative does not require permission. The believer who works as for the Lord does not need external motivation — because the motivation is worship.</p>
-
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover how your type approaches work, provision, and planning — and where laziness might be hiding.</p>
-    `,
-  },
-  {
-    slug: "giving-while-in-debt",
-    title: "Can You Give While in Debt? A Biblical Answer",
-    excerpt:
-      "The borrower is slave to the lender — but the cheerful giver is loved by God. How do you balance generosity and debt repayment?",
-    date: "December 13, 2025",
-    category: "Practical",
-    readTime: "5 min read",
-    content: `
-      <p>Proverbs 22:7 warns that the borrower is slave to the lender. 2 Corinthians 9:7 says God loves a cheerful giver. Many Christians feel torn between these two truths. Should you give while in debt? Or should you pay off every dollar before writing your first check to the church?</p>
-
-      <p>The Bible does not give a universal formula. It gives principles. And the principles suggest that giving and debt repayment are not either/or. They are both/and — with wisdom.</p>
-
-      <h3>A Both/And Framework</h3>
-
-      <p><strong>Give something.</strong> Even a small percentage keeps your heart open. The widow gave two mites. Jesus praised her. Giving while in debt is not irresponsible if it is proportional and intentional.</p>
-
-      <p><strong>Have a debt plan.</strong> Blind generosity without a payoff strategy is not faith. It is avoidance. Write down every debt, choose avalanche or snowball, and set a target date.</p>
-
-      <p><strong>Adjust by season.</strong> Early in debt repayment, give a smaller percentage and increase it as balances fall. This creates a giving habit that grows with your freedom.</p>
-
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover whether you are a Giver who needs boundaries or a Guardian who needs courage — and receive a personalized plan for your season.</p>
-    `,
-  },
-  {
-    slug: "boaz-redeemer-generosity",
-    title: "Boaz the Redeemer: Generosity Woven Into Law",
-    excerpt:
-      "Boaz did more than the law required. His generosity was not obligation. It was character. What can we learn about going beyond minimum standards?",
-    date: "December 17, 2025",
-    category: "Biblical Finance",
-    readTime: "5 min read",
-    content: `
-      <p>The law of Moses required landowners to leave the edges of their fields unharvested so the poor could gather. Boaz did this. But he did more. He told his workers to pull handfuls of grain from the bundles and leave them for Ruth. He invited her to eat with his harvesters. He protected her from harm. And ultimately, he redeemed her family's land and married her — at significant personal cost.</p>
-
-      <p>Ruth 2-4 shows us a man who treated the minimum as a floor, not a ceiling. The law said leave the edges. Boaz said leave extra. The law said do not oppress. Boaz said protect. The law allowed redemption. Boaz pursued it.</p>
-
-      <h3>Minimums vs. Character</h3>
-
-      <p>It is possible to tithe exactly ten percent, give only to tax-deductible causes, and technically obey every financial command — while missing the spirit entirely. Boaz reminds us that biblical stewardship is not about checking boxes. It is about the kind of person you become.</p>
-
-      <p>The question is not "What do I have to do?" The question is "What does love require?" And love usually requires more.</p>
-
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover how your type relates to rules, generosity, and going beyond the minimum.</p>
-    `,
-  },
-  {
-    slug: "new-testament-tithing-grace",
-    title: "New Testament Tithing: Law or Grace?",
-    excerpt:
-      "Malachi commands ten percent. Jesus praises proportion. Paul encourages cheerfulness. How should New Testament believers think about tithing?",
-    date: "December 21, 2025",
-    category: "Stewardship",
-    readTime: "6 min read",
-    content: `
-      <p>Malachi 3:10 is clear: "Bring the whole tithe into the storehouse." But Malachi is Old Testament law. Jesus tells the Pharisees they ought to practice justice, mercy, and faithfulness without neglecting the tithe — but He also praises the widow who gave fractions of a penny. Paul never commands a percentage. He commends generosity according to means and willingness.</p>
-
-      <p>So is tithing a command for Christians? The short answer is no — not as law. The longer answer is that grace usually out-gives law.</p>
-
-      <h3>From Law to Love</h3>
-
-      <p>Under the old covenant, ten percent was the minimum. Under the new covenant, everything belongs to God. The question is not "How much must I give?" but "How much may I keep?" That reframing changes everything.</p>
-
-      <p>For many believers, ten percent is a healthy starting point. It is simple, proportionate, and historically tested. But it is not a ceiling. And for those with very little, giving ten percent may be heroic — while for those with abundance, ten percent may be comfortable.</p>
-
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover how your type approaches giving — and whether you need freedom from guilt or discipline from grace.</p>
-    `,
-  },
-  {
-    slug: "rich-young-ruler-what-holds-you-back",
-    title: "The Rich Young Ruler: What Holds You Back?",
-    excerpt:
-      "He went away sorrowful, for he had great possessions. Jesus identified the one thing the ruler could not surrender. What is your one thing?",
-    date: "December 25, 2025",
-    category: "Biblical Finance",
-    readTime: "5 min read",
-    content: `
-      <p>The rich young ruler kept all the commandments from his youth. He was moral, disciplined, and sincere. But when Jesus told him to sell everything, give to the poor, and follow, he went away sorrowful. Why? Because he had great possessions — and those possessions had him.</p>
-
-      <p>Mark 10:21 says Jesus looked at him and loved him before issuing the command. This was not punishment. It was an invitation to freedom. The ruler's wealth was not sinful. But it was an obstacle. And Jesus always removes what stands between us and Him.</p>
-
-      <h3>The One Thing</h3>
-
-      <p>For most of us, the obstacle is not literal wealth. It is what wealth represents: security, status, control, identity. The question Jesus asks each of us is not "How much do you have?" but "What would you refuse to surrender?"</p>
-
-      <p>The ruler's story has no recorded ending. Maybe he returned. Maybe he didn't. But the invitation stands for every reader: lay down what you are holding, and receive what you cannot earn.</p>
-
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover what your money type reveals about your deepest financial attachments — and how to loosen them.</p>
-    `,
-  },
-  {
-    slug: "widows-mite-great-value",
-    title: "The Widow's Mite: When Small Gifts Shake Heaven",
-    excerpt:
-      "She gave two small copper coins. Jesus said she gave more than all the others. Why does God measure gifts by proportion, not amount?",
-    date: "December 29, 2025",
-    category: "Biblical Finance",
-    readTime: "4 min read",
-    content: `
-      <p>Jesus sat near the temple treasury and watched people put in their offerings. Many rich people threw in large amounts. Then a poor widow came and put in two very small copper coins, worth only a fraction of a penny. Jesus called His disciples and said, "Truly I tell you, this poor widow has put more into the treasury than all the others."</p>
-
-      <p>Mark 12:41-44 is not about the size of the gift. It is about the size of the sacrifice. The rich gave out of their surplus. The widow gave out of her poverty — everything she had to live on. God does not need our money. He wants our trust.</p>
-
-      <h3>The Proportion Principle</h3>
-
-      <p>Human eyes count dollars. God counts cost. A millionaire who gives ten thousand dollars has given one percent. A minimum-wage worker who gives fifty dollars may have given five percent. The second gift is larger in heaven's economy.</p>
-
-      <p>This does not mean small gifts from the wealthy are worthless. It means the wealthy must be careful not to confuse large amounts with large sacrifice. And it means the poor must not believe their gifts are too small to matter.</p>
-
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover how your type measures generosity — and whether you are giving from surplus or from trust.</p>
-    `,
-  },
-  {
-    slug: "zacchaeus-restitution-repentance",
-    title: "Zacchaeus: Restitution as Proof of Repentance",
-    excerpt:
-      "Behold, Lord, half of my goods I give to the poor. Zacchaeus did not just feel sorry. He paid back what he had stolen. What does biblical restitution look like today?",
-    date: "January 2, 2026",
-    category: "Biblical Finance",
-    readTime: "5 min read",
-    content: `
-      <p>Zacchaeus was a chief tax collector — which meant he was wealthy, hated, and corrupt. When Jesus invited Himself to Zacchaeus's house, the crowd muttered. But Zacchaeus stood up and said, "Look, Lord! Here and now I give half of my possessions to the poor, and if I have cheated anybody out of anything, I will pay back four times the amount." Jesus responded, "Today salvation has come to this house."</p>
-
-      <p>Luke 19:8-9 is remarkable because Zacchaeus initiated restitution. Jesus did not demand it. The money was not a purchase of salvation. It was the fruit of it. True repentance always produces tangible change — and financial repentance is no exception.</p>
-
-      <h3>Restitution Today</h3>
-
-      <p>Most modern believers will not need to repay stolen money. But the principle applies broadly. Have you been dishonest on expense reports? Have you taken credit for work you did not do? Have you damaged someone's property without making it right? Repentance without restitution is incomplete.</p>
-
-      <p>And for those who have received grace, Zacchaeus sets a standard: generosity that goes beyond what justice requires. Four times restitution was more than the law demanded. Grace always overflows.</p>
-
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover how your type responds to conviction — and whether you need courage to make things right.</p>
-    `,
-  },
-  {
-    slug: "lydia-purple-merchant-church",
-    title: "Lydia of Thyatira: The Merchant Who Funded the Church",
-    excerpt:
-      "A dealer in purple cloth, Lydia was a businesswoman who opened her home and her wallet for the gospel. What does her example teach us about work and generosity?",
-    date: "January 6, 2026",
-    category: "Biblical Finance",
-    readTime: "5 min read",
-    content: `
-      <p>Lydia was a dealer in purple cloth from the city of Thyatira. Acts 16:14 tells us the Lord opened her heart to respond to Paul's message. She was baptized, along with her household. And then she made an extraordinary offer: "If you consider me a believer in the Lord, come and stay at my house." She persuaded them.</p>
-
-      <p>Purple cloth was expensive. Lydia was not a casual entrepreneur. She was a successful businesswoman in a male-dominated economy. And she used her success to fund the church's first foothold in Europe. Her home became the meeting place. Her table became the communion table. Her wealth became the infrastructure of mission.</p>
-
-      <h3>Work as Worship</h3>
-
-      <p>Lydia did not quit business to go into ministry. She brought her business into ministry. There is no record of her selling her trade, taking vows of poverty, or abandoning her profession. She simply opened her business to God's purpose.</p>
-
-      <p>This is a crucial model for modern believers. Your vocation is not a distraction from ministry. It is the platform for it. The question is not whether you have enough to give. It is whether you see your work as connected to God's kingdom.</p>
-
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover how your type can integrate work and generosity like Lydia did.</p>
-    `,
-  },
-  {
-    slug: "barnabas-son-encouragement-sacrifice",
-    title: "Barnabas: The Son of Encouragement Who Sold Everything",
-    excerpt:
-      "Joseph, called Barnabas, sold a field and laid the money at the apostles' feet. His nickname meant Son of Encouragement — and his generosity encouraged the whole church.",
-    date: "January 10, 2026",
-    category: "Biblical Finance",
-    readTime: "5 min read",
-    content: `
-      <p>Barnabas was not his birth name. It was a nickname given by the apostles because he embodied what it meant to encourage. Acts 4:36-37 tells us he sold a field he owned and brought the money to the apostles. He did not sell under pressure. He did not sell for recognition. He sold because the Holy Spirit had so filled his heart that keeping the field felt smaller than giving it.</p>
-
-      <p>This act had consequences beyond the money. Barnabas became the bridge between the Jewish church and the Gentile mission. He vouched for Paul when others were afraid. He mentored John Mark when others had given up. His generosity opened doors that his wealth never could.</p>
-
-      <h3>Generosity as Encouragement</h3>
-
-      <p>When you give generously, you do more than fund a ministry. You encourage everyone who sees it. Barnabas's gift showed the early church that sacrifice was possible, that the Spirit could transform attachment into freedom, and that one person's yes could embolden others.</p>
-
-      <p>You may never know who watches your giving and decides they too can trust God. But heaven keeps accounts of encouragement. And Barnabas is still teaching us, two thousand years later.</p>
-
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover if you have the Giver's instinct — and how to use it to encourage others.</p>
-    `,
-  },
-  {
-    slug: "daniel-wisdom-babylon",
-    title: "Daniel: Managing Wealth in a Pagan Empire",
-    excerpt:
-      "Daniel served pagan kings with integrity and excellence. How did he handle wealth, power, and temptation in a culture hostile to his faith?",
-    date: "January 14, 2026",
-    category: "Biblical Finance",
-    readTime: "5 min read",
-    content: `
-      <p>Daniel was exiled to Babylon as a teenager and rose to become one of the highest officials in the empire. He managed resources, advised kings, and navigated political intrigue for decades. Daniel 1:21 says he remained there until the first year of King Cyrus. That is roughly seventy years of public service in a pagan culture.</p>
-
-      <p>How did he do it without compromise? Daniel 6 tells us that his colleagues could find no corruption in him. He was trustworthy and neither corrupt nor negligent. In a system rife with bribery, favoritism, and idolatry, Daniel maintained integrity — and prospered.</p>
-
-      <h3>Three Principles From Daniel</h3>
-
-      <p><strong>Excellence before promotion.</strong> Daniel did not seek power. He served so well that power came to him. In a world of shortcuts, long-term faithfulness still stands out.</p>
-
-      <p><strong>Identity before income.</strong> When offered the king's food, Daniel refused. He knew that accepting Babylon's table would mean accepting Babylon's gods. Your financial boundaries reveal your true allegiances.</p>
-
-      <p><strong>Conviction before convenience.</strong> Daniel prayed even when it was illegal. He faced the lions' den rather than compromise his daily devotion. Wealth that costs your integrity is too expensive.</p>
-
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover how your type handles wealth in challenging environments — and where integrity might be tested.</p>
-    `,
-  },
-  {
-    slug: "job-loss-restoration",
-    title: "Job: Lost Everything, Gained Faith",
-    excerpt:
-      "The Lord gave, and the Lord has taken away. Job's response to catastrophic loss reveals what true stewardship looks like when the storehouse is empty.",
-    date: "January 18, 2026",
-    category: "Biblical Finance",
-    readTime: "6 min read",
-    content: `
-      <p>Job was the wealthiest man in the East. Scripture catalogs his possessions: seven thousand sheep, three thousand camels, five hundred yoke of oxen, five hundred donkeys, and a large number of servants. Then in a single day, messengers arrived with news of raiders, fire from heaven, and wind that collapsed his oldest son's house. All his children died. All his wealth vanished.</p>
-
-      <p>Job's response is staggering. He fell to the ground in worship and said, "Naked I came from my mother's womb, and naked I will depart. The Lord gave and the Lord has taken away; may the name of the Lord be praised." Job 1:21 is not denial. It is ownership. Job knew that everything he had was a gift — and gifts can be withdrawn.</p>
-
-      <h3>Stewardship of Loss</h3>
-
-      <p>Most stewardship teaching focuses on abundance. But the Bible gives equal attention to loss. How you handle diminishment reveals whether you ever believed it belonged to God in the first place.</p>
-
-      <p>Job eventually received double what he had lost. But the restoration was not the point. The worship was. And that worship was only possible because Job had never confused possession with ownership.</p>
-
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover how your type responds to financial loss — and whether your security rests in God or in your accounts.</p>
-    `,
-  },
-  {
-    slug: "abraham-melchizedek-tithe",
-    title: "Abraham and Melchizedek: The Tithe Before the Law",
-    excerpt:
-      "Abraham gave a tenth to Melchizedek four centuries before Moses received the law. What does this ancient act teach us about spontaneous worship?",
-    date: "January 22, 2026",
-    category: "Biblical Finance",
-    readTime: "5 min read",
-    content: `
-      <p>After rescuing Lot from captivity, Abraham encountered Melchizedek, king of Salem and priest of God Most High. Genesis 14:20 tells us Abraham gave him a tenth of everything. This happened roughly four hundred years before the Mosaic law codified tithing. Abraham's gift was not obligatory. It was responsive.</p>
-
-      <p>Hebrews 7 amplifies the significance. Melchizedek is presented as greater than Abraham, since the lesser is blessed by the greater. And Abraham, the father of faith, voluntarily tithed to a priest who foreshadowed Christ. The tithe was not law. It was worship.</p>
-
-      <h3>Responsive Giving</h3>
-
-      <p>Abraham gave because he had witnessed deliverance. He had just defeated four kings with a small force. He knew the victory was God's. And his first impulse was to acknowledge that by giving.</p>
-
-      <p>This is the pattern of biblical generosity. It begins with gratitude, not guilt. It flows from provision received, not obligation imposed. When you see every blessing as coming from God, giving back becomes natural — even joyful.</p>
-
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover whether your giving flows from joy or from pressure — and how to move toward responsive generosity.</p>
-    `,
-  },
-  {
-    slug: "jubilee-debt-forgiveness-today",
-    title: "The Year of Jubilee: What Debt Forgiveness Looks Like Today",
-    excerpt:
-      "Every fifty years, debts were canceled and land returned. The Year of Jubilee was radical then — and it still challenges how we think about wealth today.",
-    date: "January 26, 2026",
-    category: "Biblical Finance",
-    readTime: "6 min read",
-    content: `
-      <p>Leviticus 25 describes one of the most radical economic systems in history. Every fifty years, the Year of Jubilee, all debts were canceled. All land returned to its original family. All slaves were freed. The accumulated advantages and disadvantages of five decades were reset.</p>
-
-      <p>There is scholarly debate about whether Israel ever fully practiced Jubilee. But the principle is unmistakable: God cares about economic equilibrium. He does not want permanent poverty or permanent concentration of wealth. The ground belongs to Him, and we are merely tenants.</p>
-
-      <h3>Jubilee Principles for Today</h3>
-
-      <p><strong>Debt is temporary.</strong> The Bible never envisions perpetual debt. If you are in debt, have a plan to escape. If you are a lender, do not exploit.</p>
-
-      <p><strong>Wealth circulates.</strong> Hoarding land, money, or power violates the Jubilee spirit. Generosity is not just giving. It is releasing control.</p>
-
-      <p><strong>People matter more than property.</strong> The land could not be sold permanently because the people mattered more. Your net worth is not your worth.</p>
-
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover how your type thinks about debt, wealth concentration, and generosity — and whether you need a Jubilee reset.</p>
-    `,
-  },
-  {
-    slug: "mammon-two-masters",
-    title: "Mammon: Why You Cannot Serve Two Masters",
-    excerpt:
-      "No one can serve two masters. You cannot serve both God and money. Jesus' warning about mammon is sharper than we like to admit.",
-    date: "January 30, 2026",
-    category: "Biblical Finance",
-    readTime: "5 min read",
-    content: `
-      <p>No one can serve two masters. Either you will hate the one and love the other, or you will be devoted to the one and despise the other. You cannot serve both God and money. Matthew 6:24 uses a specific word: mammon. It is not just money. It is the spirit of wealth — the personification of riches as a rival deity.</p>
-
-      <p>Jesus does not say money is evil. He says it competes for lordship. And in a competition between God and mammon, there are no draws. Your calendar, your anxiety, your identity, your dreams — whichever master controls these is your real god.</p>
-
-      <h3>The Evidence of Service</h3>
-
-      <p>How do you know who you serve? Look at what you think about when you wake up. Look at what you sacrifice when pressured. Look at what you protect when threatened. If your first thought in crisis is financial, mammon may have more of you than you admit.</p>
-
-      <p>The antidote is not poverty. It is priority. Put God's kingdom first, Jesus says, and the rest will be added. The issue is not whether you have money. It is whether money has you.</p>
-
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover which master your financial instincts are actually serving — and how to reorient your loyalty.</p>
-    `,
-  },
-  {
-    slug: "sowing-reaping-kingdom-investing",
-    title: "Sowing and Reaping: Kingdom Principles for Investing",
-    excerpt:
-      "Do not be deceived: God cannot be mocked. A man reaps what he sows. This agricultural law applies directly to how we invest time, money, and energy.",
+      "Bitcoin, Ethereum, and digital assets did not exist in biblical times. But the principles of risk, wisdom, and stewardship still apply.",
     date: "February 2, 2026",
-    category: "Stewardship",
-    readTime: "5 min read",
-    content: `
-      <p>Do not be deceived: God cannot be mocked. A man reaps what he sows. Whoever sows to please their flesh, from the flesh will reap destruction; whoever sows to please the Spirit, from the Spirit will reap eternal life. Galatians 6:7-8 is not just about personal character. It is about every investment you make.</p>
-
-      <p>The principle is agricultural and universal. You cannot plant corn and harvest wheat. You cannot invest in selfishness and harvest joy. You cannot sow discord and reap peace. The soil does not care about your intentions. It cares about your seeds.</p>
-
-      <h3>Investing With Eternal Returns</h3>
-
-      <p>Paul tells us not to become weary in doing good, for at the proper time we will reap a harvest if we do not give up. This applies to financial investing too. Compound interest is a mathematical echo of sowing and reaping. Small, consistent investments grow exponentially over time.</p>
-
-      <p>But the principle runs deeper. When you invest in people, in relationships, in character, in generosity — these also compound. They just do it on a timeline you cannot see from here.</p>
-
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover what you are currently sowing — and whether your investments align with the harvest you actually want.</p>
-    `,
-  },
-  {
-    slug: "contentment-secret-weapon-stewardship",
-    title: "Contentment: The Secret Weapon of Every Steward",
-    excerpt:
-      "I have learned to be content whatever the circumstances. Paul's contentment was not passive resignation. It was active, trained, and powerful.",
-    date: "February 5, 2026",
-    category: "Stewardship",
-    readTime: "5 min read",
-    content: `
-      <p>I know what it is to be in need, and I know what it is to have plenty. I have learned the secret of being content in any and every situation, whether well fed or hungry, whether living in plenty or in want. Philippians 4:12 is one of Paul's most astonishing claims. He wrote it from prison.</p>
-
-      <p>Contentment is not complacency. It is not laziness, lack of ambition, or indifference to improvement. It is the settled conviction that your joy does not depend on your circumstances. And for a steward, this conviction is a superpower.</p>
-
-      <h3>Why Contentment Wins</h3>
-
-      <p>The discontent steward is vulnerable to every scam, every impulse, every comparison. He upgrades his phone because someone else did. She changes careers for a higher salary she does not need. They buy a house at the edge of affordability because society says they should.</p>
-
-      <p>The content steward is free. Free to say no. Free to give generously. Free to take risks for the kingdom. Free to stay when others chase more. Contentment is not the absence of desire. It is the presence of satisfaction.</p>
-
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover your unique discontent triggers — and receive a plan for cultivating the contentment that protects every other virtue.</p>
-    `,
-  },
-  {
-    slug: "proverbs-money-wisdom-highlights",
-    title: "Proverbs on Money: The Verses Every Christian Should Know",
-    excerpt:
-      "Proverbs mentions money more than almost any other practical topic. Here are the key verses that should shape every believer's financial life.",
-    date: "February 8, 2026",
-    category: "Practical",
-    readTime: "5 min read",
-    content: `
-      <p>Proverbs is a treasure chest of financial wisdom. Solomon, the wealthiest man of his era, distilled his experience into short, piercing sentences that still cut through modern confusion. Here are the verses every Christian should know and memorize.</p>
-
-      <p><strong>Proverbs 3:9-10:</strong> Honor the Lord with your wealth, with the firstfruits of all your crops; then your barns will be filled to overflowing. Giving comes first, not last.</p>
-
-      <p><strong>Proverbs 13:11:</strong> Dishonest money dwindles away, but whoever gathers money little by little makes it grow. Patience beats schemes.</p>
-
-      <p><strong>Proverbs 21:20:</strong> The wise store up choice food and olive oil, but fools gulp theirs down. Saving is wisdom. Immediate gratification is foolishness.</p>
-
-      <p><strong>Proverbs 22:7:</strong> The rich rule over the poor, and the borrower is slave to the lender. Debt is bondage, not freedom.</p>
-
-      <p><strong>Proverbs 28:20:</strong> A faithful person will be richly blessed, but one eager to get rich will not go unpunished. Faithfulness outlasts speed.</p>
-
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover which Proverbs speak most directly to your financial wiring — and how to apply them.</p>
-    `,
-  },
-  {
-    slug: "parable-talents-deep-dive",
-    title: "The Parable of the Talents: A Deep Dive for Modern Stewards",
-    excerpt:
-      "Well done, good and faithful servant. Jesus' parable is not about investment returns. It is about courage, responsibility, and the refusal to hide.",
-    date: "February 11, 2026",
     category: "Biblical Finance",
     readTime: "6 min read",
     content: `
-      <p>For it will be like a man going on a journey, who called his servants and entrusted to them his property. To one he gave five talents, to another two, to another one, each according to his ability. Matthew 25:14-30 is one of Jesus' most misunderstood parables. We focus on the amounts. Jesus focuses on the response.</p>
+      <p>Gold, silver, grain, and livestock were the currencies of Scripture. Cryptocurrency is none of these. It is digital, volatile, and largely unregulated. So what would a biblical steward make of Bitcoin?</p>
 
-      <p>The five-talent and two-talent servants both doubled their money. They both received identical praise. The master did not compare them to each other. He compared them to their own starting point. The one-talent servant was condemned not for losing money, but for doing nothing.</p>
+      <p>The Bible does not address specific asset classes. It addresses the heart behind them. Proverbs praises the man who considers a field before buying it. Jesus warns against building bigger barns without knowing the future. And Paul tells Timothy to flee the love of money. These principles apply whether the asset is land, livestock, or blockchain.</p>
 
-      <h3>The Sin of Hiding</h3>
+      <h3>What Cryptocurrency Is</h3>
 
-      <p>The one-talent servant buried his money because he was afraid. He viewed his master as harsh and demanding. His theology distorted his stewardship. When you see God as a tyrant, you hide what He has given. When you see Him as generous, you risk it.</p>
+      <p>At its core, cryptocurrency is a speculative digital asset. It has no cash flows, no earnings, and no intrinsic productive capacity. Its value is determined entirely by what the next buyer is willing to pay. This makes it closer to gold or art than to stocks or bonds.</p>
 
-      <p>Most modern Christians are not squandering their talents on wild living. They are burying them in fear. Fear of failure. Fear of criticism. Fear of not having enough. And the result is the same: what was given to multiply is left to rot.</p>
+      <h3>Three Stewardship Questions for Crypto</h3>
 
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover whether you are investing what God has given you — or burying it in the ground of fear.</p>
+      <p><strong>Do you understand it?</strong> Proverbs says, "The simple believe anything, but the prudent give thought to their steps." If you cannot explain blockchain to a friend, you should not invest in it.</p>
+
+      <p><strong>Can you afford to lose it?</strong> Crypto has lost 80% of its value multiple times. A position that would devastate you if lost is not stewardship. It is gambling.</p>
+
+      <p><strong>Does it serve a purpose beyond speculation?</strong> Some crypto projects aim to solve real problems — remittances, financial access, property rights. Most do not. Distinguish mission from marketing.</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover how your type approaches new and uncertain opportunities — and whether crypto fits your risk profile.</p>
     `,
   },
   {
-    slug: "wealth-vs-riches-posture",
-    title: "Wealth vs. Riches: The Posture That Makes the Difference",
+    slug: "taxes-render-to-caesar-a-christian-guide",
+    title: "Taxes: Render to Caesar — A Christian's Guide to Paying and Planning",
     excerpt:
-      "Solomon had wealth. The rich fool had riches. One built a temple. The other built bigger barns. What separates biblical wealth from worldly riches?",
-    date: "February 14, 2026",
+      "Give back to Caesar what is Caesar's, and to God what is God's. What does Jesus' famous statement actually mean for your tax return?",
+    date: "February 5, 2026",
     category: "Biblical Finance",
     readTime: "5 min read",
     content: `
-      <p>The Bible uses different words for wealth and riches, and the distinction matters. Wealth in Scripture is often associated with blessing, wisdom, and provision. Riches are associated with temptation, pride, and destruction. The same bank account can be either — depending on the posture of the heart.</p>
+      <p>Then he said to them, "Give back to Caesar what is Caesar's, and to God what is God's." Matthew 22:21 is Jesus' most direct teaching on taxes. And it is remarkably simple: pay them. Not because Caesar deserves them. But because order matters, and Christians are called to live peaceably in the societies God has placed us in.</p>
 
-      <p>Solomon's wealth built the temple, funded diplomacy, and created stability. The rich fool's riches built bigger barns for himself. Both men had money. Only one had mission. And Jesus made clear which one God called a fool.</p>
+      <p>Paul echoes this in Romans 13: "This is also why you pay taxes, for the authorities are God's servants, who give their full time to governing." Tax resistance is not a biblical norm. It is an exception reserved for times when the state directly commands what God forbids.</p>
 
-      <h3>The Posture Test</h3>
+      <h3>Paying vs. Planning</h3>
 
-      <p><strong>Direction:</strong> Does your wealth flow outward or inward? Wealth serves. Riches consume.</p>
+      <p>Paying taxes is obedience. Planning taxes is wisdom. There is no virtue in overpaying. The biblical steward uses every legitimate deduction, credit, and strategy to reduce tax liability — not to hoard, but to redirect. Money saved on taxes can be given, invested, or used for kingdom purposes.</p>
 
-      <p><strong>Gratitude:</strong> Do you see your money as earned or given? Wealth acknowledges God. Riches claims credit.</p>
+      <p>But the line between planning and evasion is real. Hiding income, falsifying deductions, or using illegal shelters is not stewardship. It is theft. And theft by another name is still sin.</p>
 
-      <p><strong>Eternity:</strong> Would your financial life make sense on your deathbed? Wealth prepares for eternity. Riches pretends there is no tomorrow.</p>
+      <h3>Three Tax Practices for Christians</h3>
 
-      <p>The amount is not the issue. The aim is. A middle-class family that gives sacrificially, raises faithful children, and supports their church may be wealthier in heaven's economy than a billionaire who hoards.</p>
+      <p><strong>Give first:</strong> Charitable deductions reduce taxable income while advancing God's purposes. This is not a loophole. It is a design feature.</p>
 
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover whether your financial life reflects wealth or riches — and how to reorient if needed.</p>
+      <p><strong>Keep records:</strong> Good documentation honors both Caesar and God. Sloppy records lead to errors, audits, and anxiety.</p>
+
+      <p><strong>Hire help when needed:</strong> Complex situations warrant professional advice. A good CPA pays for themselves — and keeps you compliant.</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover how your type approaches rules, planning, and authority — including the authority of the tax code.</p>
     `,
   },
   {
-    slug: "guardian-visionary-balanced-approach",
-    title: "Guardian and Visionary: Building a Balanced Financial Approach",
+    slug: "insurance-as-stewardship-protecting-gods-gifts",
+    title: "Insurance as Stewardship: Protecting What God Entrusted to You",
     excerpt:
-      "The Visionary sees opportunity. The Guardian sees risk. Together, they form one of the most powerful financial teams in Scripture.",
+      "The prudent see danger and take refuge. Insurance is not distrust of God. It is wisdom applied to risk.",
+    date: "February 8, 2026",
+    category: "Biblical Finance",
+    readTime: "5 min read",
+    content: `
+      <p>The prudent see danger and take refuge, but the simple keep going and pay the penalty. Proverbs 22:3 is the closest thing in Scripture to an insurance policy. The wise person anticipates risk and prepares. The fool assumes everything will work out.</p>
+
+      <p>Some Christians resist insurance as a lack of faith. "God will provide," they say, and He will. But God often provides through means — including the means of financial preparation. Joseph's grain stores were not a lack of trust in God. They were the very mechanism God used to provide.</p>
+
+      <h3>What Insurance Actually Does</h3>
+
+      <p>Insurance is the transfer of catastrophic risk to a pool. You pay a small, predictable amount so that a large, unpredictable loss does not destroy you. It is not gambling. It is not speculation. It is the collective version of Joseph's storehouse.</p>
+
+      <h3>Types of Insurance Every Steward Should Consider</h3>
+
+      <p><strong>Term life insurance:</strong> If dependents rely on your income, term life is non-negotiable. It is inexpensive and replaces income if you die prematurely.</p>
+
+      <p><strong>Health insurance:</strong> Medical expenses are the leading cause of bankruptcy. Even a high-deductible plan with an HSA is better than no coverage.</p>
+
+      <p><strong>Disability insurance:</strong> You are more likely to become disabled than to die during your working years. Protect your earning capacity.</p>
+
+      <p><strong>Homeowners or renters insurance:</strong> Protect the place God has provided for your family. Do not leave it exposed.</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover if you are a Guardian who naturally prepares — or if you need a system to protect what God has entrusted to you.</p>
+    `,
+  },
+  {
+    slug: "workplace-stewardship-beyond-the-paycheck",
+    title: "Workplace Stewardship: Faithfulness Beyond the Paycheck",
+    excerpt:
+      "Whatever you do, work at it with all your heart, as working for the Lord. Your job is not just income. It is ministry.",
+    date: "February 11, 2026",
+    category: "Stewardship",
+    readTime: "5 min read",
+    content: `
+      <p>Whatever you do, work at it with all your heart, as working for the Lord, not for human masters. Colossians 3:23 redefines work. It is not a means to a paycheck. It is a form of worship. The believer who sees work as stewardship approaches Monday differently than the believer who sees work as a necessary evil.</p>
+
+      <p>Workplace stewardship has three dimensions: excellence, integrity, and generosity. Excellence means doing your job well, even when no one is watching. Integrity means refusing shortcuts that compromise character. Generosity means using your position to serve colleagues, customers, and community.</p>
+
+      <h3>Excellence as Witness</h3>
+
+      <p>Daniel was distinguished among administrators because of his exceptional qualities. His excellence opened doors for influence. In a culture that often excuses mediocrity, competence is a form of evangelism. People notice when Christians work harder, think deeper, and deliver more.</p>
+
+      <h3>Three Practices for Workplace Stewardship</h3>
+
+      <p><strong>Show up prepared:</strong> Bring your full attention and energy. Your employer is paying for your time, but God is watching your heart.</p>
+
+      <p><strong>Speak truthfully:</strong> Do not flatter, exaggerate, or conceal. Integrity in small things builds trust for big things.</p>
+
+      <p><strong>Invest in relationships:</strong> Your coworkers are eternal souls. The spreadsheet will be forgotten. The conversation at the coffee machine might not be.</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover how your type shows up at work — and how to turn your career into a platform for faithful stewardship.</p>
+    `,
+  },
+  {
+    slug: "fasting-from-spending-a-spiritual-discipline",
+    title: "Fasting From Spending: A Spiritual Discipline for Modern Believers",
+    excerpt:
+      "We fast from food to reorient our souls. What if we also fasted from spending — to break the grip of consumerism?",
+    date: "February 14, 2026",
+    category: "Practical",
+    readTime: "5 min read",
+    content: `
+      <p>Fasting is one of the most neglected disciplines in modern Christianity. And spending fasts are virtually unheard of. But if fasting from food reorients our appetite toward God, fasting from spending reorients our materialism toward contentment.</p>
+
+      <p>A spending fast means choosing a period — a week, a month, a season — during which you buy nothing except true necessities. No restaurants. No entertainment purchases. No online shopping. No new clothes. Just food, housing, transportation, and essential bills.</p>
+
+      <h3>What a Spending Fast Reveals</h3>
+
+      <p>First, it reveals your triggers. You will notice what emotions drive your purchases. Boredom? Stress? Social comparison? Loneliness? The fast turns the spotlight on patterns you normally ignore.</p>
+
+      <p>Second, it reveals your dependencies. You may discover that you rely on retail therapy, convenience spending, or status purchases more than you realized.</p>
+
+      <p>Third, it reveals your capacity. You can live with less. Much less. And the freedom that follows is sweeter than the purchases you skipped.</p>
+
+      <h3>How to Do a Spending Fast</h3>
+
+      <p><strong>Define necessities in advance:</strong> Write them down. Do not decide in the moment.</p>
+
+      <p><strong>Tell someone:</strong> Accountability makes the fast real. Invite a friend or spouse to join you.</p>
+
+      <p><strong>Redirect the savings:</strong> Give them away, pay down debt, or add to your emergency fund. Do not let the fast become a hoarding exercise.</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover what drives your spending patterns — and how a fast might reset your financial instincts.</p>
+    `,
+  },
+  {
+    slug: "annual-financial-review-questions-for-believers",
+    title: "Annual Financial Review: Questions Every Believer Should Ask",
+    excerpt:
+      "Once a year, step back. Are you closer to faithful stewardship than you were twelve months ago? Here is your review checklist.",
     date: "February 17, 2026",
     category: "Practical",
-    readTime: "5 min read",
+    readTime: "6 min read",
     content: `
-      <p>Solomon was a Visionary. Joseph was a Guardian. Both served the same God. Both built extraordinary wealth. But their instincts were opposite. Solomon expanded trade routes and took risks no previous king had attempted. Joseph stored grain and refused to waste a single resource. Israel needed both.</p>
+      <p>Teach us to number our days, that we may gain a heart of wisdom. Psalm 90:12 is about time, but it applies to money too. Annual review is the financial equivalent of numbering your days. It is the disciplined pause that prevents years of drift.</p>
 
-      <p>Most people lean toward one instinct. The Visionary sees opportunity and wants to move. The Guardian sees danger and wants to wait. Neither is wrong. But neither is complete alone. The Visionary without a Guardian goes bankrupt. The Guardian without a Visionary goes stagnant.</p>
+      <p>Most Christians never review their finances systematically. They check account balances, pay bills, and hope for the best. But hope is not a strategy. An annual review asks hard questions, celebrates real progress, and adjusts the course for the year ahead.</p>
 
-      <h3>Building the Partnership</h3>
+      <h3>The Annual Review Checklist</h3>
 
-      <p><strong>Name your type.</strong> You cannot balance what you cannot see. The first step is honest self-assessment.</p>
+      <p><strong>Net worth:</strong> What is your total assets minus liabilities? Is it higher than last year? By how much? What drove the change?</p>
 
-      <p><strong>Find your counterweight.</strong> If you are a Visionary, seek a Guardian mentor. If you are a Guardian, find a Visionary who stretches you.</p>
+      <p><strong>Giving:</strong> What percentage of your income did you give? Was it higher or lower than the previous year? Where did it go?</p>
 
-      <p><strong>Create a decision process.</strong> Visionaries should run opportunities past Guardians before acting. Guardians should set deployment dates so preparation becomes action.</p>
+      <p><strong>Debt:</strong> What is your total debt balance? Is it decreasing? What is your payoff trajectory?</p>
 
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover your primary type — and how to build a balanced approach whether you are single, married, or leading a team.</p>
+      <p><strong>Savings rate:</strong> What percentage of income did you save? Is your emergency fund adequate? Are you on track for retirement?</p>
+
+      <p><strong>Goals:</strong> What did you set out to do last year? What did you accomplish? What fell short? Why?</p>
+
+      <p><strong>Values alignment:</strong> Does your spending reflect your stated priorities? Or has drift set in?</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover your natural financial strengths — and build a review process that leverages them.</p>
     `,
   },
   {
-    slug: "giver-builder-strategic-generosity",
-    title: "The Giver-Builder: Strategic Generosity That Lasts",
+    slug: "credit-score-for-christians-what-matters",
+    title: "Credit Score for Christians: What Matters and What Doesn't",
     excerpt:
-      "The Giver wants to give now. The Builder wants to give later, strategically. How do you combine impulse and infrastructure for maximum kingdom impact?",
+      "Your credit score is a measure of trustworthiness with borrowed money. But it is not a measure of your worth. Here's the biblical perspective.",
     date: "February 20, 2026",
     category: "Practical",
     readTime: "5 min read",
     content: `
-      <p>Some people give spontaneously. They see a need and meet it. Others give systematically. They research causes, create foundations, and optimize tax strategies. The Giver feels alive in the moment of giving. The Builder feels alive in the architecture of giving. Both are needed. Both can learn from each other.</p>
+      <p>The wicked borrow and do not repay, but the righteous give generously. Psalm 37:21 connects repayment to character. In a modern economy, that character is measured — imperfectly — by a credit score. The score itself is amoral. But the behavior behind it is not.</p>
 
-      <p>Nehemiah was a Builder who gave strategically. The Macedonians were Givers who gave spontaneously. Paul praised both. The question is not which is better. The question is which comes more naturally to you — and what you need to borrow from the other.</p>
+      <p>Christians should care about their credit score not because a high score makes them valuable, but because a low score often reflects broken promises. If you have borrowed money, you have made a promise. Keeping promises is a fruit of the Spirit.</p>
 
-      <h3>The Giver-Builder Hybrid</h3>
+      <h3>How Credit Scores Work</h3>
 
-      <p><strong>Spontaneous bucket:</strong> Set aside a percentage of giving for immediate, unplanned needs. This satisfies the Giver's instinct and trains the Builder to release control.</p>
+      <p>Payment history (35%), credit utilization (30%), length of history (15%), credit mix (10%), and new inquiries (10%). The two biggest factors are simple: pay on time, and do not max out your cards.</p>
 
-      <p><strong>Strategic bucket:</strong> Set aside a percentage for researched, planned, high-impact giving. This satisfies the Builder's instinct and trains the Giver to think long-term.</p>
+      <h3>What Matters Biblically</h3>
 
-      <p><strong>Review together:</strong> Once a quarter, evaluate both buckets. Did spontaneous giving go to real needs? Did strategic giving produce real change?</p>
+      <p><strong>Payment history:</strong> This is promise-keeping. Paying late is not just financially costly. It is ethically significant.</p>
 
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover whether you are a Giver, a Builder, or a hybrid — and how to structure your generosity for lasting impact.</p>
+      <p><strong>Debt level:</strong> High utilization often signals overextension. Proverbs warns against wearing yourself out to get rich.</p>
+
+      <p><strong>What does not matter:</strong> The exact number. A 760 and an 800 get the same rates. Obsessing over a perfect score is vanity.</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover how your type relates to debt, credit, and promise-keeping.</p>
     `,
   },
   {
-    slug: "guardian-giver-open-hand-protection",
-    title: "The Guardian-Giver: Protecting With an Open Hand",
+    slug: "envelope-system-digital-age-cash-still-works",
+    title: "The Envelope System in the Digital Age: Cash Still Works",
     excerpt:
-      "The Guardian protects resources. The Giver releases them. Together, they create a stewardship that is both safe and generous.",
+      "Divide your cash into envelopes for each category. When the envelope is empty, you stop. This old-school method has modern power.",
     date: "February 23, 2026",
     category: "Practical",
-    readTime: "5 min read",
+    readTime: "4 min read",
     content: `
-      <p>Joseph stored grain with fierce discipline. The Macedonians gave with overflowing joy. Both were faithful. Both were necessary. And the believer who combines these instincts becomes something rare: a guardian who gives, and a giver who protects.</p>
+      <p>The envelope system is simple. You withdraw cash at the start of the month. You divide it into physical envelopes labeled by category: groceries, dining out, entertainment, clothing. When an envelope is empty, spending in that category stops until next month.</p>
 
-      <p>The Guardian-Giver does not see a tension between saving and generosity. They see a partnership. The emergency fund makes spontaneous generosity possible. The giving budget makes saving meaningful. Protection without generosity becomes hoarding. Generosity without protection becomes burnout.</p>
+      <p>In a digital world, this feels archaic. But it works for a reason: cash creates friction. Swiping a card is effortless. Handing over a twenty-dollar bill is physical. You feel the loss. And that feeling is the point.</p>
 
-      <h3>The Open-Handed Guardian</h3>
+      <h3>Digital Envelope Alternatives</h3>
 
-      <p><strong>Name your margins.</strong> Know exactly how much you need to protect your household. Everything beyond that is available for deployment.</p>
+      <p>If carrying cash feels impractical, several apps replicate the envelope system digitally. They connect to your bank account and move money into virtual envelopes. The principle is the same: pre-allocated limits, visible depletion, forced restraint.</p>
 
-      <p><strong>Set giving triggers.</strong> When your emergency fund reaches a certain level, give a percentage of the surplus. This turns storage into sending.</p>
+      <p>The key is not the medium. It is the boundary. A budget without boundaries is a wish list. The envelope system makes boundaries tangible.</p>
 
-      <p><strong>Protect your giving too.</strong> The Giver-Gardian gives strategically, not just emotionally. They research causes, measure impact, and stop funding what does not work. Protection applies to generosity too.</p>
+      <h3>Who Should Use Envelopes</h3>
 
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover your combination of Guardian and Giver instincts — and how to hold resources with both wisdom and love.</p>
+      <p>The envelope system works best for categories where you tend to overspend: dining out, groceries, entertainment, personal spending. It is less useful for fixed bills, which are already predictable.</p>
+
+      <p>Try it for one month. You will be surprised how much longer your money lasts when you can see it disappearing.</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover whether a rigid system like envelopes fits your type — or whether you need more flexibility.</p>
     `,
   },
   {
-    slug: "builder-visionary-architect-future",
-    title: "The Builder-Visionary: Architecting the Future",
+    slug: "prenuptial-agreements-a-christian-perspective",
+    title: "Prenuptial Agreements: A Christian Perspective on Planning Before Vows",
     excerpt:
-      "Nehemiah built walls. Solomon built trade routes. What happens when the Builder's systems meet the Visionary's horizon?",
+      "Is a prenup planning for divorce — or is it wisdom? How should Christians think about protecting assets before marriage?",
     date: "February 26, 2026",
+    category: "Marriage",
+    readTime: "6 min read",
+    content: `
+      <p>Therefore what God has joined together, let no one separate. Jesus' teaching on marriage is clear: it is permanent, sacred, and indissoluble except in cases of sexual immorality. So how does a prenuptial agreement fit in? Is it planning for divorce? Or is it a form of stewardship?</p>
+
+      <p>The answer depends on motive. A prenup designed to protect one spouse's wealth from the other is not consistent with the one-flesh union. But a prenup designed to protect children from previous marriages, family businesses, or charitable commitments may be a different matter.</p>
+
+      <h3>The Case Against Prenups</h3>
+
+      <p>Marriage is a covenant, not a contract. Covenants are unconditional. Contracts are conditional. A prenup, by definition, defines the terms of separation. For many Christians, this undermines the very nature of the vow they are about to make.</p>
+
+      <p>Furthermore, prenups can create power imbalances. The wealthier spouse is protected. The less wealthy spouse is vulnerable. This does not reflect the mutual submission Paul commands in Ephesians 5.</p>
+
+      <h3>The Case For Limited Planning</h3>
+
+      <p>Some situations are genuinely complex. A family farm passed down for generations. A business with multiple stakeholders. Children from a prior marriage who would lose inheritance rights. In these cases, legal clarity may serve peace, not division.</p>
+
+      <p>If considering a prenup, involve a pastor or Christian counselor. Ask whether the agreement strengthens trust or erodes it. And never let legal planning replace spiritual preparation for marriage.</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> as a couple to understand how each of you approaches risk, security, and commitment.</p>
+    `,
+  },
+  {
+    slug: "surviving-financial-infidelity-in-marriage",
+    title: "Surviving Financial Infidelity in Marriage: A Path to Restoration",
+    excerpt:
+      "Hidden debt, secret accounts, and lies about spending destroy trust. But with confession, transparency, and grace, restoration is possible.",
+    date: "March 1, 2026",
+    category: "Marriage",
+    readTime: "6 min read",
+    content: `
+      <p>Financial infidelity is the hiding of money, debt, or spending from your spouse. It ranges from secret credit cards to undisclosed gambling losses to hidden bank accounts. And it is far more common than most Christians admit.</p>
+
+      <p>The damage is not just financial. It is relational. Money secrets violate the one-flesh union. They create a parallel life. And when discovered, they trigger the same trauma as other forms of betrayal: shock, anger, grief, and deep mistrust.</p>
+
+      <h3>Why It Happens</h3>
+
+      <p>Financial infidelity rarely starts with malice. It starts with shame. A spouse who grew up in poverty hides debt to avoid judgment. A spouse who feels controlled spends secretly to reclaim autonomy. A spouse with a spending addiction conceals the evidence to protect the marriage — and ends up destroying it.</p>
+
+      <h3>The Path to Restoration</h3>
+
+      <p><strong>Full confession:</strong> Partial truth is still deception. Every account, every debt, every secret must come into the light.</p>
+
+      <p><strong>Transparency systems:</strong> Joint accounts, shared passwords, regular money meetings. Trust is rebuilt through visibility, not promises.</p>
+
+      <p><strong>Professional help:</strong> A Christian financial counselor or marriage therapist can guide the healing process. Do not try to white-knuckle restoration alone.</p>
+
+      <p><strong>Time and grace:</strong> Trust rebuilds slowly. The offending spouse must accept that verification will be required for months or years. The offended spouse must be willing to forgive — eventually.</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> as a couple to understand the different financial instincts that may have contributed to the breakdown — and to rebuild on a shared foundation.</p>
+    `,
+  },
+  {
+    slug: "strategic-giving-vs-emotional-giving",
+    title: "Strategic Giving vs. Emotional Giving: Both Have a Place",
+    excerpt:
+      "Should you give to the need in front of you — or to the cause you have researched? The answer is yes. Here's how to balance both.",
+    date: "March 4, 2026",
+    category: "Giving",
+    readTime: "5 min read",
+    content: `
+      <p>Give to the one who asks you, and do not turn away from the one who wants to borrow from you. Matthew 5:42 sounds like emotional giving — respond to the need in front of you. But Paul also writes about planned, organized giving: "On the first day of every week, each one of you should set aside a sum of money in keeping with your income." Strategic giving is also biblical.</p>
+
+      <p>The tension between emotional and strategic giving is not a conflict to resolve. It is a balance to maintain. Emotional giving keeps your heart soft. Strategic giving keeps your impact large. Together, they form a complete generosity practice.</p>
+
+      <h3>Emotional Giving: The Heart</h3>
+
+      <p>Emotional giving responds to immediate need. A friend in crisis. A homeless person on the corner. A missionary with an urgent appeal. This giving trains compassion. It keeps you connected to real people in real time. Without it, generosity becomes abstract and cold.</p>
+
+      <h3>Strategic Giving: The Mind</h3>
+
+      <p>Strategic giving responds to research, values, and long-term goals. You identify causes you care about, evaluate their effectiveness, and commit regular support. This giving maximizes impact. It builds institutions, funds research, and sustains missions over decades.</p>
+
+      <h3>The Balanced Approach</h3>
+
+      <p>Allocate 80% of your giving to strategic, planned causes. Allocate 20% to spontaneous, emotional response. This gives you both consistency and compassion.</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover whether you naturally lean toward emotional or strategic giving — and how to develop the other side.</p>
+    `,
+  },
+  {
+    slug: "supporting-missions-beyond-the-checkbook",
+    title: "Supporting Missions Beyond the Checkbook",
+    excerpt:
+      "Money matters. But so do prayer, advocacy, and personal involvement. How to be a fully engaged missions supporter.",
+    date: "March 7, 2026",
+    category: "Giving",
+    readTime: "5 min read",
+    content: `
+      <p>How then will they call on him in whom they have not believed? And how are they to believe in him of whom they have never heard? Romans 10:14 reminds us that missions require senders as well as goers. And while financial support is essential, it is not the whole picture.</p>
+
+      <p>The modern missions supporter often writes a check and forgets the missionary exists. This is not partnership. It is transaction. True partnership involves prayer, communication, advocacy, and sometimes personal presence.</p>
+
+      <h3>Four Dimensions of Missions Support</h3>
+
+      <p><strong>Financial:</strong> Regular, reliable giving that allows the missionary to plan. Unpredictable support creates stress. Consistent support creates stability.</p>
+
+      <p><strong>Prayer:</strong> Ask for specific prayer requests. Pray monthly, not just when the newsletter arrives. Spiritual support is more valuable than financial support.</p>
+
+      <p><strong>Advocacy:</strong> Share their work with your church, your network, your social circle. Many missionaries struggle to find support because no one knows they exist.</p>
+
+      <p><strong>Presence:</strong> If possible, visit the field. Short-term trips, when done well, encourage missionaries, deepen your understanding, and transform your giving.</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover how your type can best support missions — whether through generous giving, strategic planning, or relational connection.</p>
+    `,
+  },
+  {
+    slug: "when-you-disagree-with-church-spending",
+    title: "When You Disagree With Church Spending: A Biblical Response",
+    excerpt:
+      "Your church bought what? Before you withhold your tithe, consider how Scripture handles disagreement within the body.",
+    date: "March 10, 2026",
+    category: "Giving",
+    readTime: "5 min read",
+    content: `
+      <p>Every church has spending decisions that someone disagrees with. A new building. A staff hire. A program cancellation. A missions budget cut. For the committed giver, these decisions can feel personal. After all, it is your money.</p>
+
+      <p>But is it? Malachi 3:10 says to bring the whole tithe into the storehouse. It does not say to bring the tithe you agree with. Once given, the tithe belongs to God and His appointed leaders. Micromanaging church spending from the pew is not stewardship. It is control.</p>
+
+      <h3>When Disagreement Is Valid</h3>
+
+      <p>Not all spending is wise. Not all leaders are faithful. If your church is engaged in illegal activity, unbiblical teaching, or gross financial mismanagement, you have grounds for serious concern — and possibly for leaving. But disagreement over priorities, aesthetics, or strategy is not the same as malfeasance.</p>
+
+      <h3>How to Respond Biblically</h3>
+
+      <p><strong>Ask questions first:</strong> Before assuming the worst, seek to understand the decision. There may be context you do not have.</p>
+
+      <p><strong>Speak privately:</strong> If you have a genuine concern, talk to a leader one-on-one. Do not gossip in the parking lot.</p>
+
+      <p><strong>Give cheerfully or not at all:</strong> 2 Corinthians 9:7 applies to church giving too. If you cannot give without resentment, it is better to pause and pray than to give bitterly.</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to understand how your type responds to institutional authority — and whether your disagreement is principled or personal.</p>
+    `,
+  },
+  {
+    slug: "debt-snowball-vs-avalanche-biblical-view",
+    title: "Debt Snowball vs. Avalanche: A Biblical View on Payoff Methods",
+    excerpt:
+      "Pay the smallest balance first for momentum, or the highest interest first for math? Here's how Scripture informs the choice.",
+    date: "March 13, 2026",
+    category: "Debt Freedom",
+    readTime: "5 min read",
+    content: `
+      <p>The debt snowball pays the smallest balance first, regardless of interest rate. The debt avalanche pays the highest interest rate first, regardless of balance. Financial purists prefer the avalanche because it saves money. Behavioral economists prefer the snowball because it wins momentum. Which is more biblical?</p>
+
+      <p>The Bible does not specify a debt payoff order. But it does value both wisdom and perseverance. The avalanche is mathematically wiser. The snowball is psychologically more sustainable. And for most people, the method they will actually finish is the best method.</p>
+
+      <h3>The Snowball: Momentum Through Victory</h3>
+
+      <p>Pay minimums on everything. Throw every extra dollar at the smallest balance. When it is gone, roll that payment into the next smallest. The wins come fast. The psychological boost is real. For people who have failed at debt payoff before, the snowball works because it builds confidence.</p>
+
+      <h3>The Avalanche: Efficiency Through Discipline</h3>
+
+      <p>Pay minimums on everything. Throw every extra dollar at the highest interest rate. When it is gone, move to the next highest. The wins come slower, but the total interest paid is lower. For highly disciplined people, the avalanche is optimal.</p>
+
+      <h3>The Biblical Verdict</h3>
+
+      <p>Proverbs says, "The plans of the diligent lead to profit." Both methods require diligence. The key is not which method you choose. It is whether you commit to it. Pick one. Start today. Do not let analysis become paralysis.</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover whether your type needs quick wins or long-term efficiency — and choose the payoff method that matches your wiring.</p>
+    `,
+  },
+  {
+    slug: "living-below-your-means-as-worship",
+    title: "Living Below Your Means as Worship",
+    excerpt:
+      "Contentment is not about how much you have. It is about wanting less than you can afford. Here's why margin is a spiritual discipline.",
+    date: "March 16, 2026",
+    category: "Stewardship",
+    readTime: "5 min read",
+    content: `
+      <p>I know what it is to be in need, and I know what it is to have plenty. I have learned the secret of being content in any and every situation. Paul's contentment in Philippians 4 was not passive. It was active. He chose to live within his means — and often below them — because his satisfaction was in Christ, not in circumstances.</p>
+
+      <p>Living below your means is the practice of spending less than you earn, consistently and intentionally. It creates margin. Margin creates freedom. And freedom creates capacity for generosity, opportunity, and peace.</p>
+
+      <h3>Why Below, Not Just Within</h3>
+
+      <p>Living within your means is basic stewardship. Living below your means is advanced. It means your lifestyle does not expand to fill your income. It means you could afford more, but you choose less. This choice trains your heart in contentment and prepares you for seasons of want.</p>
+
+      <h3>Practical Steps</h3>
+
+      <p><strong>Cap lifestyle at a percentage of income:</strong> Even as income rises, keep lifestyle at 70-80%. Save and give the rest.</p>
+
+      <p><strong>Delay upgrades:</strong> When you get a raise, wait six months before changing your lifestyle. Most of the desire will fade.</p>
+
+      <p><strong>Practice visible restraint:</strong> Let others see that you choose less. This is a witness in a culture of excess.</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover the specific temptations your type faces — and how living below your means can become a sustainable spiritual practice.</p>
+    `,
+  },
+  {
+    slug: "side-hustles-and-the-sabbath-boundary",
+    title: "Side Hustles and the Sabbath Boundary: When Extra Income Becomes Idolatry",
+    excerpt:
+      "A second income stream can be wise stewardship. But when it steals your rest, your family, and your worship, it has become mammon.",
+    date: "March 19, 2026",
     category: "Practical",
     readTime: "5 min read",
     content: `
-      <p>Nehemiah finished the wall in fifty-two days because he had a system. Solomon built fleets that sailed to Ophir because he had a vision. Both were builders. But one built what he could see. The other built what he could imagine. The modern steward needs both.</p>
+      <p>Six days you shall labor and do all your work. The commandment assumes work — even hard work, even entrepreneurial work. But it also assumes a stop. A boundary. A day when work is not just paused, but prohibited. And in the age of the side hustle, that boundary is increasingly ignored.</p>
 
-      <p>The Builder-Visionary combines patience with imagination. They do not chase every new idea, but they do not settle for maintaining the status quo either. They build infrastructure for ventures that have not launched yet. They design budgets for income they have not earned. They are architects of possibility.</p>
+      <p>Side hustles are not inherently wrong. Proverbs praises the ant for storing in summer. Many biblical figures had multiple streams — shepherds who traded, fishermen who sold, tentmakers who preached. But the side hustle becomes idolatry when it consumes what God reserved for Himself.</p>
 
-      <h3>When Systems Serve Vision</h3>
+      <h3>Warning Signs Your Side Hustle Has Become an Idol</h3>
 
-      <p><strong>The Builder provides the runway.</strong> Every vision needs cash flow, margin, and sustainability. The Builder makes sure the lights stay on while the Visionary dreams.</p>
+      <p><strong>You work on Sabbath.</strong> Not just occasionally in crisis. Regularly, habitually, with excuses.</p>
 
-      <p><strong>The Visionary provides the destination.</strong> Every system needs a purpose beyond maintenance. The Visionary reminds the Builder why the wall matters.</p>
+      <p><strong>Your family resents it.</strong> Your spouse feels abandoned. Your children do not know when you are available. This is not provision. It is neglect.</p>
 
-      <p><strong>Together, they outlast critics.</strong> Nehemiah and Solomon both faced opposition. The Builder-Visionary pair weathers storms because they have both plan and passion.</p>
+      <p><strong>You cannot stop thinking about it.</strong> The side hustle occupies your mind during worship, during meals, during rest. Your heart is divided.</p>
 
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover whether you are a Builder, a Visionary, or a powerful combination — and how to architect a future that honors both.</p>
+      <h3>A Healthy Framework</h3>
+
+      <p>Limit side hustle hours to no more than ten per week. Protect one full day of rest. Involve your family in the decision. And regularly ask: is this hustle serving my calling, or has it become my calling?</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover whether your drive for more income is faithful stewardship or restless ambition.</p>
+    `,
+  },
+  {
+    slug: "inheritance-wisdom-from-proverbs",
+    title: "Inheritance Wisdom From Proverbs: Passing It On Without Spoiling It",
+    excerpt:
+      "A good person leaves an inheritance for their children's children. But what kind of inheritance — and how much is too much?",
+    date: "March 22, 2026",
+    category: "Biblical Finance",
+    readTime: "6 min read",
+    content: `
+      <p>A good person leaves an inheritance for their children's children, but a sinner's wealth is stored up for the righteous. Proverbs 13:22 is one of the most quoted verses on generational wealth. But it raises hard questions. What kind of inheritance? How much? And what if the children are not ready?</p>
+
+      <p>The Bible presents inheritance as a covenant tool. Land was passed down by tribe and family. The Jubilee ensured that permanent dispossession did not happen. Inheritance connected generations to each other and to God's promises. It was never just money. It was identity, responsibility, and memory.</p>
+
+      <h3>Financial Inheritance: The Risks</h3>
+
+      <p>Studies show that most inherited wealth is lost within three generations. The first generation earns it. The second generation maintains it. The third generation spends it. This pattern is so common that it has a name: "shirtsleeves to shirtsleeves in three generations."</p>
+
+      <p>Large financial inheritances can also erode work ethic, create entitlement, and destroy family relationships. The parable of the prodigal son is not just about rebellion. It is about premature access to wealth.</p>
+
+      <h3>Wise Inheritance Practices</h3>
+
+      <p><strong>Give gradually:</strong> Trusts that distribute at ages 25, 30, and 35 give children time to mature before receiving large sums.</p>
+
+      <p><strong>Give conditionally:</strong> Some trusts require employment, education, or charitable involvement. This is not control. It is training.</p>
+
+      <p><strong>Give values, not just valuables:</strong> The most important inheritance is character. Write your story. Pass down your faith. Teach your children to work, give, and steward before they receive.</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to understand your own approach to wealth — and how to design an inheritance strategy that forms, not deforms, the next generation.</p>
+    `,
+  },
+  {
+    slug: "sabbath-and-your-spending-patterns",
+    title: "Sabbath and Your Spending Patterns: The Rest-Consumerism Link",
+    excerpt:
+      "Consumerism fills the void that Sabbath was designed to fill. What if rest is the antidote to compulsive spending?",
+    date: "March 25, 2026",
+    category: "Stewardship",
+    readTime: "5 min read",
+    content: `
+      <p>Consumerism is not just an economic system. It is a spiritual condition. It is the attempt to fill emptiness with acquisition. And one of its primary causes is the loss of Sabbath. When we do not rest — truly rest, in God's presence — we shop, scroll, and spend to medicate the void.</p>
+
+      <p>Sabbath is the deliberate interruption of production and consumption. It is a day when you are not earning, not buying, and not producing. You are simply being. And in that being, you discover that you are enough — not because of what you have, but because of whose you are.</p>
+
+      <h3>The Sabbath-Spending Connection</h3>
+
+      <p>Notice your spending patterns on Sundays. Do you shop online during church? Do you browse sales during rest time? Do you plan purchases to fill the boredom of a slow afternoon? These are symptoms. Sabbath rest is the treatment.</p>
+
+      <h3>Practical Sabbath Spending Boundaries</h3>
+
+      <p><strong>No shopping on Sabbath:</strong> Online or in-person. Make it a hard rule. The pause reveals how much shopping is impulse.</p>
+
+      <p><strong>No financial planning on Sabbath:</strong> Budgets, investments, and spreadsheets can wait. One day without optimization will not ruin your future.</p>
+
+      <p><strong>Replace consumption with connection:</strong> Sabbath is for God, family, and community. Fill the day with relationships, not transactions.</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover how your type relates to rest and acquisition — and how Sabbath can break the cycle of compulsive spending.</p>
+    `,
+  },
+  {
+    slug: "hospitality-on-a-budget-scripture-style",
+    title: "Hospitality on a Budget: Scripture-Style Welcome Without the Pressure",
+    excerpt:
+      "Do not forget to show hospitality to strangers. Here's how to practice biblical hospitality without overspending or burning out.",
+    date: "March 28, 2026",
+    category: "Practical",
+    readTime: "5 min read",
+    content: `
+      <p>Do not forget to show hospitality to strangers, for by so doing some people have shown hospitality to angels without knowing it. Hebrews 13:2 commands hospitality, not entertaining. The two are different. Entertaining impresses guests. Hospitality welcomes them. Entertaining requires a budget. Hospitality requires a heart.</p>
+
+      <p>The biblical model of hospitality is simple. Abraham offered bread, curds, milk, and a calf. Jesus ate fish and bread with His disciples. The early church broke bread in homes. There were no Pinterest boards, no curated tablescapes, no seven-course meals.</p>
+
+      <h3>Hospitality Without Pressure</h3>
+
+      <p><strong>Serve simple food:</strong> Soup and bread. Tacos. Breakfast for dinner. The food is an excuse for connection, not the main event.</p>
+
+      <p><strong>Invite before your house is ready:</strong> If you wait until everything is perfect, you will never invite anyone. A messy house with warm hosts beats a perfect house with cold ones.</p>
+
+      <p><strong>Share the load:</strong> Potlucks are biblical. Everyone brings something. No one is burdened. The early church did it constantly.</p>
+
+      <h3>Hospitality as Stewardship</h3>
+
+      <p>Hospitality is not an extra. It is a spiritual discipline. It forces you to open your space, your schedule, and your resources to others. It breaks isolation. It builds community. And it does not require wealth. It requires willingness.</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover how your type can practice hospitality in a way that fits your wiring — without breaking your budget.</p>
+    `,
+  },
+  {
+    slug: "gratitude-practice-and-financial-peace",
+    title: "Gratitude Practice and Financial Peace: The Science and the Spirit",
+    excerpt:
+      "Give thanks in all circumstances. Gratitude is not just a feel-good exercise. It is a weapon against discontent and overspending.",
+    date: "April 1, 2026",
+    category: "Stewardship",
+    readTime: "5 min read",
+    content: `
+      <p>Give thanks in all circumstances; for this is God's will for you in Christ Jesus. 1 Thessalonians 5:18 is not a suggestion for happy people. It is a command for all people. And it has profound financial implications. Gratitude and discontent cannot coexist. And discontent is the engine of consumerism.</p>
+
+      <p>Modern psychology confirms what Scripture has always taught. Gratitude practices measurably reduce materialism, increase satisfaction, and improve financial decision-making. People who regularly give thanks spend less, save more, and give more generously. The Spirit and the science agree.</p>
+
+      <h3>How Gratitude Changes Spending</h3>
+
+      <p>When you are grateful for what you have, the next purchase loses its urgency. The new phone, the upgraded car, the trendy jacket — these are solutions to a problem gratitude has already solved. Gratitude fills the tank. Consumerism drains it and charges for the refill.</p>
+
+      <h3>Three Gratitude Practices for Financial Peace</h3>
+
+      <p><strong>Daily three:</strong> Each evening, write three things you are grateful for. At least one must be non-material.</p>
+
+      <p><strong>Pre-purchase gratitude:</strong> Before any non-essential purchase, list five things you already own that serve the same need. This disrupts impulse.</p>
+
+      <p><strong>Thanksgiving giving:</strong> Once a week, give something away as an act of gratitude. A note, a meal, a small gift. Gratitude flows outward.</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover your type's unique struggle with discontent — and how gratitude can become your specific antidote.</p>
+    `,
+  },
+  {
+    slug: "how-to-negotiate-salary-faithfully",
+    title: "How to Negotiate Salary Faithfully: Asking Without Greed",
+    excerpt:
+      "The worker deserves his wages. But how do you ask for more without crossing into selfish ambition?",
+    date: "April 4, 2026",
+    category: "Practical",
+    readTime: "5 min read",
+    content: `
+      <p>For Scripture says, "Do not muzzle an ox while it is treading out the grain," and "The worker deserves his wages." 1 Timothy 5:18 affirms that pay should match contribution. And that includes asking for fair pay when the market supports it.</p>
+
+      <p>Many Christians — especially women and people from modest backgrounds — struggle to negotiate salary. They equate asking with greed, and silence with humility. But accepting below-market pay is not virtue. It is poor stewardship of your skills, your family, and your future generosity.</p>
+
+      <h3>Negotiation Is Not Greed</h3>
+
+      <p>Greed is wanting more than you need at others' expense. Negotiation is wanting fair value for fair work. Jesus told a parable about workers who agreed to a wage before starting. The agreement was mutual, transparent, and binding. There is no shame in discussing terms.</p>
+
+      <h3>How to Negotiate Faithfully</h3>
+
+      <p><strong>Research first:</strong> Know the market rate for your role, experience, and location. Ask from data, not desire.</p>
+
+      <p><strong>Ask for the role, not just the money:</strong> Frame your request around the value you will create. Higher pay should follow higher contribution.</p>
+
+      <p><strong>Be willing to hear no:</strong> Not every negotiation succeeds. Accept the answer with grace, and decide whether the role still fits your calling.</p>
+
+      <p><strong>Give generously from increase:</strong> If you succeed, increase your giving proportionally. This keeps negotiation in its proper place — stewardship, not self-advancement.</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover how your type approaches earning, asking, and ambition — and how to keep all three aligned with Christ.</p>
+    `,
+  },
+  {
+    slug: "widowhood-and-financial-transition",
+    title: "Widowhood and Financial Transition: A Guide for the Journey Ahead",
+    excerpt:
+      "The Lord watches over the foreigner and sustains the fatherless and the widow. When loss meets paperwork, where do you begin?",
+    date: "April 7, 2026",
+    category: "Marriage",
+    readTime: "6 min read",
+    content: `
+      <p>The Lord watches over the foreigner and sustains the fatherless and the widow. Psalm 146:9 is one of dozens of verses where God identifies Himself as the protector of widows. And in a practical sense, that protection often comes through the church, the family, and wise financial planning.</p>
+
+      <p>Widowhood is one of life's most devastating transitions. It combines profound grief with urgent financial complexity. Accounts must be located. Benefits must be claimed. Debts must be understood. And all of this happens while grief is still raw.</p>
+
+      <h3>Immediate Priorities</h3>
+
+      <p><strong>Do not make major decisions for six months:</strong> Selling the house, changing investments, or making large gifts should wait. Grief impairs judgment. Give yourself time.</p>
+
+      <p><strong>Gather documents:</strong> Wills, trusts, insurance policies, account statements, tax returns, Social Security information, and beneficiary designations. You cannot plan without visibility.</p>
+
+      <p><strong>Build a team:</strong> A trusted financial advisor, an attorney, and a CPA. Preferably people who have walked with others through this transition.</p>
+
+      <h3>Long-Term Transition</h3>
+
+      <p>Many widows face income reduction, unfamiliar financial tasks, and vulnerability to poor advice. The church can help by providing education, community, and practical support. Do not isolate. Invite others into your financial life.</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to understand your natural financial instincts — and build a support system that compensates for your blind spots during transition.</p>
+    `,
+  },
+  {
+    slug: "money-fights-how-to-stop-the-cycle",
+    title: "Money Fights: How to Stop the Cycle in Your Marriage",
+    excerpt:
+      "The same argument, different month. Here is why money fights repeat — and how to break the pattern for good.",
+    date: "April 10, 2026",
+    category: "Marriage",
+    readTime: "5 min read",
+    content: `
+      <p>Most recurring money fights are not about money. They are about power, safety, identity, and fear. The amount is just the surface. The deeper current is: Do you see me? Will you protect me? Do I matter?</p>
+
+      <p>When a husband spends without consulting his wife, she may experience it as disregard. When a wife questions a purchase, he may experience it as control. Neither is primarily about the transaction. Both are about the relationship.</p>
+
+      <h3>Why Money Fights Repeat</h3>
+
+      <p>Recurrent fights happen because the underlying need is never addressed. You argue about the restaurant bill, but the real issue is that one of you feels like the other's parent. You argue about the vacation cost, but the real issue is that one of you feels deprived while the other feels entitled.</p>
+
+      <h3>How to Break the Cycle</h3>
+
+      <p><strong>Name the pattern:</strong> "We fight about dining out every month." Naming it removes some of its power.</p>
+
+      <p><strong>Ask the deeper question:</strong> Instead of "Why did you spend that?" ask "What were you feeling when you decided to buy it?"</p>
+
+      <p><strong>Create a system:</strong> Many fights are solved by structure. Agree on spending limits that require discussion. Automate savings and giving. Remove the decision points where conflict lives.</p>
+
+      <p><strong>Get help:</strong> If you have had the same fight for years, a Christian financial counselor or marriage therapist can help you see what you cannot.</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> as a couple to discover the different instincts driving your conflict — and to build a shared language that replaces argument with understanding.</p>
+    `,
+  },
+  {
+    slug: "financial-date-night-ideas-for-couples",
+    title: "Financial Date Night Ideas for Couples: Fun, Not Frugal",
+    excerpt:
+      "Money meetings do not have to be miserable. Here are creative ways to align your finances while strengthening your marriage.",
+    date: "April 13, 2026",
+    category: "Marriage",
+    readTime: "4 min read",
+    content: `
+      <p>Money is the leading cause of marital stress. But it can also be a source of marital connection. The difference is not the numbers. It is the environment. A financial date night turns the dreaded budget meeting into an intentional, even enjoyable, ritual.</p>
+
+      <p>The key is to combine finance with relationship. Do not just review the spreadsheet. Review your dreams, your fears, and your gratitude. Make the meeting something you both look forward to, not something you endure.</p>
+
+      <h3>Financial Date Night Ideas</h3>
+
+      <p><strong>The dream board night:</strong> Bring magazines, poster board, and glue. Each of you creates a vision board for the next year. Then align your budget to the shared vision.</p>
+
+      <p><strong>The gratitude night:</strong> Review your giving for the month. Share stories about the impact. Pray for the recipients. Gratitude turns giving into joy.</p>
+
+      <p><strong>The challenge night:</strong> Pick one category to reduce next month. Make it a game. Whoever finds the most creative saving wins a prize.</p>
+
+      <p><strong>The legacy night:</strong> Write letters to your future children or grandchildren about your financial values. This connects today's decisions to tomorrow's story.</p>
+
+      <p><strong>The celebration night:</strong> Once a quarter, celebrate a win. Debt paid off. Goal reached. Milestone achieved. Mark it with a special meal or activity.</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> as a couple to understand each other's financial language — and design date nights that speak to both of you.</p>
+    `,
+  },
+  {
+    slug: "legacy-letter-to-your-children",
+    title: "Legacy Letter to Your Children: Values That Outlast Wealth",
+    excerpt:
+      "Your children will inherit your money. Will they also inherit your wisdom? Here's how to write a legacy letter that matters.",
+    date: "April 16, 2026",
+    category: "Stewardship",
+    readTime: "5 min read",
+    content: `
+      <p>My son, do not forget my teaching, but keep my commands in your heart, for they will prolong your life many years and bring you peace and prosperity. Proverbs 3:1-2 is a legacy letter. Solomon did not just leave wealth. He left wisdom. And the wisdom outlasted the wealth.</p>
+
+      <p>A legacy letter is a written document to your children — and future grandchildren — explaining your values, your story, your hopes, and your prayers for them. It is not a will. It is not legally binding. It is a love letter across time.</p>
+
+      <h3>What to Include</h3>
+
+      <p><strong>Your story:</strong> Where did you come from? What did you learn about money from your parents? What mistakes shaped you? What victories encouraged you?</p>
+
+      <p><strong>Your values:</strong> Why do you give? Why do you save? Why do you work? What do you believe about debt, generosity, and contentment?</p>
+
+      <p><strong>Your hopes:</strong> What do you pray for your children's financial lives? Not specific amounts, but specific character. Faithfulness. Generosity. Wisdom. Courage.</p>
+
+      <p><strong>Your failures:</strong> The most powerful part of a legacy letter is often honesty about where you fell short. This gives your children permission to be human too.</p>
+
+      <p>Write it now. Update it annually. Give copies when your children turn eighteen, marry, or have children of their own. The letter will outlast the estate.</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to understand your own financial story — so you can pass it on with clarity and grace.</p>
+    `,
+  },
+  {
+    slug: "generosity-in-retirement",
+    title: "Generosity in Retirement: Giving Your Best When Income Slows",
+    excerpt:
+      "Retirement does not mean the end of generosity. It may be the beginning of your most strategic giving season.",
+    date: "April 19, 2026",
+    category: "Giving",
+    readTime: "5 min read",
+    content: `
+      <p>Command them to do good, to be rich in good deeds, and to be generous and willing to share. In this way they will lay up treasure for themselves as a firm foundation for the coming age. 1 Timothy 6:18-19 was written to people with wealth. But it applies especially to those whose wealth is no longer growing. Retirement is not a time to hoard. It is a time to give strategically from what you have gathered.</p>
+
+      <p>Many retirees reduce giving because earned income stops. But retirement assets — IRAs, appreciated stock, property — can be given more tax-efficiently than ever. A donor-advised fund, a qualified charitable distribution, or a charitable remainder trust may allow you to give more in retirement than you did while working.</p>
+
+      <h3>Retirement Giving Strategies</h3>
+
+      <p><strong>Qualified charitable distributions:</strong> If you are over 70½, you can give directly from your IRA to charity. This counts toward your required minimum distribution and is not taxed as income.</p>
+
+      <p><strong>Appreciated securities:</strong> Giving stock that has grown in value avoids capital gains tax and gives you a full deduction.</p>
+
+      <p><strong>Time giving:</strong> Retirement frees your schedule. Volunteering, mentoring, and serving are forms of generosity that cost no money but change lives.</p>
+
+      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover how your type can stay generous — and even increase your impact — in the retirement season.</p>
     `,
   },
 ];

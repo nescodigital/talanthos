@@ -14,10 +14,10 @@ import { TextEffect } from "@/components/ui/text-effect";
 import { BlurFade } from "@/components/ui/blur-fade";
 
 const trust = [
-  { stat: "believers", label: "Believers assessed", live: true, start: 12847 },
-  { stat: "3-4 min", label: "To complete", live: false },
-  { stat: "47 pp", label: "Personalized report", live: false },
-  { stat: "4.9★", label: "Average rating", live: false },
+  { stat: "15", label: "Questions", live: false, start: undefined },
+  { stat: "3–4 min", label: "To complete", live: false, start: undefined },
+  { stat: "22 pp", label: "Personalized report", live: false, start: undefined },
+  { stat: "Scripture-rooted", label: "Insights", live: false, start: undefined },
 ];
 
 const fourTypes = [

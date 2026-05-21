@@ -3,6 +3,7 @@ CREATE TABLE quiz_sessions (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   completed_at TIMESTAMP WITH TIME ZONE,
+  first_name TEXT,
   ip_address TEXT,
   user_agent TEXT,
   referrer TEXT,

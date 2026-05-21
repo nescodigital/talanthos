@@ -3,12 +3,14 @@
 import { useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { QUIZ_QUESTIONS, AnswerLetter, BiblicalType, QuizQuestion, isChoiceQuestion } from "@/lib/quiz/questions";
+import { getIdentityHint, type HintResult } from "@/lib/quiz/hints";
 import TxProgress from "@/components/tx/TxProgress";
 import TxOption from "@/components/tx/TxOption";
 import TxRule from "@/components/tx/TxRule";
 import TxNav from "@/components/tx/TxNav";
 import TxFooter from "@/components/tx/TxFooter";
 import { BlurFade } from "@/components/ui/blur-fade";
+import IdentityHint from "@/components/quiz/IdentityHint";
 
 interface QuizCardProps {
   step: number;
@@ -33,6 +35,15 @@ export default function QuizCard({ step }: QuizCardProps) {
 
   const [value, setValue] = useState<string>(prevAnswer?.value || "");
   const [pending, setPending] = useState<string | null>(null);
+  const [showHint, setShowHint] = useState<HintResult | null>(null);
+
+  const gatherScoringAnswers = useCallback(() => {
+    const all: StoredAnswer[] = JSON.parse(localStorage.getItem("talanthos_answers") || "[]");
+    return all
+      .filter((a) => a.type)
+      .map((a) => ({ type: a.type! }))
+      .slice(0, 4);
+  }, []);
 
   const saveAndAdvance = useCallback(
     (answerValue: string, type?: BiblicalType, letter?: AnswerLetter) => {
@@ -61,6 +72,16 @@ export default function QuizCard({ step }: QuizCardProps) {
       }).catch(() => {});
 
       setTimeout(() => {
+        // Show identity hint after step 4 (2nd scoring) and step 8 (4th scoring)
+        if ((step === 4 || step === 8) && type) {
+          const scoringAnswers = gatherScoringAnswers();
+          const hint = getIdentityHint(scoringAnswers);
+          if (hint) {
+            setShowHint(hint);
+            return;
+          }
+        }
+
         if (step >= total) {
           router.push("/quiz/calculating");
         } else if (step === 5) {
@@ -72,7 +93,7 @@ export default function QuizCard({ step }: QuizCardProps) {
         }
       }, 380);
     },
-    [router, step, question.id, total]
+    [router, step, question.id, total, gatherScoringAnswers]
   );
 
   const handleChoice = useCallback(
@@ -107,6 +128,15 @@ export default function QuizCard({ step }: QuizCardProps) {
     router.push(`/quiz/${step - 1}`);
   };
 
+  const handleHintContinue = useCallback(() => {
+    setShowHint(null);
+    if (step === 8) {
+      router.push("/quiz/motivation/2");
+    } else {
+      router.push(`/quiz/${step + 1}`);
+    }
+  }, [router, step]);
+
   if (!question) return null;
 
   return (
@@ -116,6 +146,9 @@ export default function QuizCard({ step }: QuizCardProps) {
         <main className="tx-screen tx-quiz">
           <div className="tx-quiz-frame">
             <TxProgress step={step} total={total} />
+            {showHint ? (
+              <IdentityHint hint={showHint} onContinue={handleHintContinue} />
+            ) : (
             <div className="tx-quiz-q-wrap" key={step}>
               <div className="tx-quiz-numeral">
                 {String(step).padStart(2, "0")}
@@ -206,6 +239,7 @@ export default function QuizCard({ step }: QuizCardProps) {
                 </span>
               </div>
             </div>
+            )}
           </div>
         </main>
       </div>

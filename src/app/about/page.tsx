@@ -64,7 +64,7 @@ export default function AboutPage() {
                   The Biblical Money Type framework emerged from years of studying how Scripture portrays financial stewardship. Solomon multiplied. Joseph protected. The Macedonians gave. Nehemiah built. Each was faithful. None was the same. The question is not "Are you good with money?" The question is "How has God wired you to be faithful with it?"
                 </p>
                 <p className="tx-lede" style={{ textAlign: "left", maxWidth: "none", fontSize: 17 }}>
-                  Today, Talanthos has helped over fourteen thousand believers name their type, understand their blind spots, and take concrete steps toward faithful stewardship. Every report is personalized. Every insight is rooted in Scripture. Every dollar from every purchase goes back into building resources that serve the church.
+                  Today, Talanthos helps believers name their type, understand their blind spots, and take concrete steps toward faithful stewardship. Every report is personalized. Every insight is rooted in Scripture. We reinvest what we earn into building more resources that serve the church.
                 </p>
               </div>
             </BlurFade>

@@ -1,4 +1,5 @@
 import { BiblicalType } from './types';
+export type { BiblicalType };
 
 export interface ScoreResult {
   scores: { visionary: number; guardian: number; giver: number; builder: number };
@@ -6,14 +7,16 @@ export interface ScoreResult {
   secondaryType: BiblicalType | null;
 }
 
-export function calculateScores(answers: { type?: BiblicalType }[]): ScoreResult {
-  const scores = { visionary: 0, guardian: 0, giver: 0, builder: 0 };
-
-  for (const answer of answers) {
-    if (answer.type) {
-      scores[answer.type] = (scores[answer.type] || 0) + 1;
-    }
+export function countTypes(answers: { type?: BiblicalType }[]): Record<BiblicalType, number> {
+  const counts = { visionary: 0, guardian: 0, giver: 0, builder: 0 };
+  for (const a of answers) {
+    if (a.type) counts[a.type] = (counts[a.type] || 0) + 1;
   }
+  return counts;
+}
+
+export function calculateScores(answers: { type?: BiblicalType }[]): ScoreResult {
+  const scores = countTypes(answers);
 
   const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]) as [BiblicalType, number][];
   const primaryType = sorted[0][0];

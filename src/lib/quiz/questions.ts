@@ -40,7 +40,7 @@ export interface TextQuestion extends BaseQuestion {
 export type QuizQuestion = ChoiceQuestion | SelectQuestion | TextQuestion;
 
 export const QUIZ_QUESTIONS: QuizQuestion[] = [
-  // ── Demographics & Context ──
+  // ── Opening demographic ──
   {
     id: 'gender',
     type: 'select',
@@ -50,6 +50,19 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
       { value: 'female', text: 'A woman' },
     ],
   },
+  // ── Scoring: belief / instinct ──
+  {
+    id: 'q1',
+    type: 'choice',
+    q: "When unexpected money arrives, your first instinct is to",
+    options: [
+      { letter: 'A', text: "Run the numbers on what it could become", type: 'visionary' },
+      { letter: 'B', text: "Set most of it aside before it gets spent", type: 'guardian' },
+      { letter: 'C', text: "Think of someone who needs it more than I do", type: 'giver' },
+      { letter: 'D', text: "Apply it to the plan I'm already executing", type: 'builder' },
+    ],
+  },
+  // ── Demographics continue ──
   {
     id: 'denomination',
     type: 'select',
@@ -64,6 +77,19 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
       { value: 'exploring', text: 'Exploring faith / Not Christian' },
     ],
   },
+  // ── Scoring: behavior / friction ──
+  {
+    id: 'q2',
+    type: 'choice',
+    q: "Where you feel money is most often quietly working against you",
+    options: [
+      { letter: 'A', text: "I'm moving faster than my counsel can keep up with", type: 'visionary' },
+      { letter: 'B', text: "I'm hoarding what I was meant to deploy", type: 'guardian' },
+      { letter: 'C', text: "I'm giving from a place I haven't fully resourced", type: 'giver' },
+      { letter: 'D', text: "I'm finishing systems no one asked me to build", type: 'builder' },
+    ],
+  },
+  // ── Demographics continue ──
   {
     id: 'age',
     type: 'select',
@@ -77,6 +103,19 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
       { value: '65+', text: '65 or older' },
     ],
   },
+  // ── Scoring: scripture anchor ──
+  {
+    id: 'q3',
+    type: 'choice',
+    q: "The scripture that most often steadies your hand",
+    options: [
+      { letter: 'A', text: '"To whom much is given, much will be required."', type: 'visionary' },
+      { letter: 'B', text: '"The prudent see danger and take refuge."', type: 'guardian' },
+      { letter: 'C', text: '"It is more blessed to give than to receive."', type: 'giver' },
+      { letter: 'D', text: '"Unless the Lord builds the house, the builders labor in vain."', type: 'builder' },
+    ],
+  },
+  // ── Demographics continue ──
   {
     id: 'marital',
     type: 'select',
@@ -89,6 +128,19 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
       { value: 'widowed', text: 'Widowed' },
     ],
   },
+  // ── Scoring: season of plenty ──
+  {
+    id: 'q4',
+    type: 'choice',
+    q: "In a season of plenty, you tend to",
+    options: [
+      { letter: 'A', text: "Scout the next thing the abundance is meant to seed", type: 'visionary' },
+      { letter: 'B', text: "Quietly extend the runway against future lean", type: 'guardian' },
+      { letter: 'C', text: "Open my hand wider than my comfort", type: 'giver' },
+      { letter: 'D', text: "Reinforce the structures I've already built", type: 'builder' },
+    ],
+  },
+  // ── Remaining demographics ──
   {
     id: 'children',
     type: 'select',
@@ -128,51 +180,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     maxLength: 300,
     rows: 3,
   },
-  // ── Biblical Money Type Scoring (7 questions) ──
-  {
-    id: 'q1',
-    type: 'choice',
-    q: "When unexpected money arrives, your first instinct is to",
-    options: [
-      { letter: 'A', text: "Run the numbers on what it could become", type: 'visionary' },
-      { letter: 'B', text: "Set most of it aside before it gets spent", type: 'guardian' },
-      { letter: 'C', text: "Think of someone who needs it more than I do", type: 'giver' },
-      { letter: 'D', text: "Apply it to the plan I'm already executing", type: 'builder' },
-    ],
-  },
-  {
-    id: 'q2',
-    type: 'choice',
-    q: "Where you feel money is most often quietly working against you",
-    options: [
-      { letter: 'A', text: "I'm moving faster than my counsel can keep up with", type: 'visionary' },
-      { letter: 'B', text: "I'm hoarding what I was meant to deploy", type: 'guardian' },
-      { letter: 'C', text: "I'm giving from a place I haven't fully resourced", type: 'giver' },
-      { letter: 'D', text: "I'm finishing systems no one asked me to build", type: 'builder' },
-    ],
-  },
-  {
-    id: 'q3',
-    type: 'choice',
-    q: "The scripture that most often steadies your hand",
-    options: [
-      { letter: 'A', text: '"To whom much is given, much will be required."', type: 'visionary' },
-      { letter: 'B', text: '"The prudent see danger and take refuge."', type: 'guardian' },
-      { letter: 'C', text: '"It is more blessed to give than to receive."', type: 'giver' },
-      { letter: 'D', text: '"Unless the Lord builds the house, the builders labor in vain."', type: 'builder' },
-    ],
-  },
-  {
-    id: 'q4',
-    type: 'choice',
-    q: "In a season of plenty, you tend to",
-    options: [
-      { letter: 'A', text: "Scout the next thing the abundance is meant to seed", type: 'visionary' },
-      { letter: 'B', text: "Quietly extend the runway against future lean", type: 'guardian' },
-      { letter: 'C', text: "Open my hand wider than my comfort", type: 'giver' },
-      { letter: 'D', text: "Reinforce the structures I've already built", type: 'builder' },
-    ],
-  },
+  // ── Final scoring block (3 questions) ──
   {
     id: 'q5',
     type: 'choice',

@@ -92,7 +92,7 @@ export async function buildReportData(sessionId: string): Promise<ReportData | n
   const secondaryType = (session.secondary_type as BiblicalType) || null;
 
   return {
-    firstName: lead?.first_name || "",
+    firstName: session.first_name || lead?.first_name || "",
     email: lead?.email || "",
     generatedAt: new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }),
     primaryType,

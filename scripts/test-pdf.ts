@@ -1,71 +1,56 @@
-import { renderReportHtml } from "@/lib/pdf/templates/report-template";
-import { ReportData } from "@/lib/pdf/data-builder";
-import { generatePdf } from "@/lib/pdf/generator";
-import * as fs from "fs";
+import { MOCK_USERS } from "../src/lib/pdf/mock-data";
+import { BiblicalType } from "../src/lib/pdf/types";
+import { generateReportContent } from "../src/lib/pdf/content/generate-content";
+import { buildReportHtml } from "../src/lib/pdf/template/report.html";
+import { renderPdf } from "../src/lib/pdf/render";
 
-const mockData: ReportData = {
-  firstName: "Alex",
-  email: "alex@example.com",
-  generatedAt: "May 17, 2026",
-  primaryType: "guardian",
-  secondaryType: null,
-  primaryTypeData: {
-    id: "guardian",
-    label: "The Guardian",
-    figure: "Joseph",
-    tagline: "The Steward-Protector",
-    monogram: "II",
-    glyph: "shield",
-    blurb: "You see the lean years coming. While others spend the harvest, you store it: quietly, faithfully, with a discipline that protects families, businesses, and futures from the famine no one else is preparing for.",
-    strengths: [
-      "Disciplined saver; runway is your love language",
-      "Long-memory; learns from past scarcity",
-      "Calm in volatility; you've already modeled it",
-      "Protective instinct for dependents and team",
-      "Trusted with other people's resources",
-    ],
-    blindSpots: [
-      "Stewardship can quietly harden into hoarding",
-      "Fear of loss may eclipse calling to give",
-      "Slow to deploy capital even when it's time",
-      "May read God's provision as your own caution",
-      "Can withhold from generosity in plenty",
-    ],
-    verse: {
-      text: "Joseph stored up huge quantities of grain, like the sand of the sea; it was so much that he stopped keeping records because it was beyond measure.",
-      ref: "Genesis 41:49",
-    },
-    nextStep: "Joseph stored for seven years, then he opened the storehouses. This week, identify one storehouse in your life God may be asking you to open. Set a date. Move it from posture to plan.",
-    reportPitch: "You know how to save. But do you know when to deploy? Joseph stored grain for seven years, then he opened the storehouses. The Guardian's greatest risk isn't scarcity; it's the paralysis of never opening the door.",
-    reportFear: "The Guardian who never reads the full report keeps storing, while the famine outside their door was the very reason God asked them to gather in the first place.",
-    shareMessage: "I just took a 3-minute assessment that explained why I handle money the way I do. Turns out I'm a Guardian, the Joseph archetype.",
-  },
-  secondaryTypeData: null,
-  scores: { visionary: 2, guardian: 6, giver: 3, builder: 1 },
-  maxScore: 6,
-  demographics: {
-    gender: "male",
-    denomination: "protestant-evangelical",
-    age: "35-44",
-    marital: "married",
-    children: "2",
-    financialSituation: "comfortable",
-    biggestRegret: "Not starting to save earlier in my twenties.",
-    emotionalRelationship: "Money feels like a responsibility I can never fully discharge.",
-  },
-  answers: [],
-};
+const VALID_TYPES: BiblicalType[] = ["visionary", "guardian", "giver", "builder"];
 
-async function main() {
-  console.log("Generating HTML...");
-  const html = renderReportHtml(mockData);
-  fs.writeFileSync("/tmp/test-report.html", html);
-  console.log("HTML saved to /tmp/test-report.html");
-
-  console.log("Generating PDF...");
-  const pdf = await generatePdf({ html, sessionId: "test-session" });
-  fs.writeFileSync("/tmp/test-report.pdf", pdf);
-  console.log(`PDF saved to /tmp/test-report.pdf (${pdf.length} bytes)`);
+function parseArgs(): BiblicalType[] | "all" {
+  const args = process.argv.slice(2);
+  const typeArg = args.find((a) => !a.startsWith("-"));
+  if (!typeArg || typeArg === "all") return "all";
+  if (VALID_TYPES.includes(typeArg as BiblicalType)) return [typeArg as BiblicalType];
+  console.error(`Unknown type: ${typeArg}. Use: visionary | guardian | giver | builder | all`);
+  process.exit(1);
 }
 
-main().catch(console.error);
+async function generateType(type: BiblicalType) {
+  const user = MOCK_USERS[type];
+  console.log(`\n📄 ${type.toUpperCase()} — ${user.firstName}`);
+
+  const content = await generateReportContent(user);
+  const totalWords = Object.values(content).join(" ").split(/\s+/).length;
+  console.log(`   Total words: ${totalWords}`);
+
+  const html = buildReportHtml(user, content);
+  await renderPdf({
+    html,
+    outputPath: `/tmp/talanthos-test-${type}.pdf`,
+    saveHtml: true,
+  });
+}
+
+async function main() {
+  const target = parseArgs();
+  const types = target === "all" ? VALID_TYPES : target;
+
+  console.log("🤖 Test PDF — FULL PIPELINE (Claude API calls)");
+  console.log(`   Mode: ${target === "all" ? "all 4 types" : types[0]}`);
+  console.log(`   Model: claude-3-5-sonnet-20241022`);
+
+  for (const type of types) {
+    await generateType(type);
+  }
+
+  console.log("\n✅ Done. Generated files:");
+  for (const type of types) {
+    console.log(`   /tmp/talanthos-test-${type}.pdf`);
+    console.log(`   /tmp/talanthos-test-${type}.html`);
+  }
+}
+
+main().catch((err) => {
+  console.error("\n❌ Error:", err.message || err);
+  process.exit(1);
+});

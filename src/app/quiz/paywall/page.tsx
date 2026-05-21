@@ -252,11 +252,11 @@ function PaywallContent() {
               <div className="mx-auto max-w-3xl flex flex-wrap items-center justify-center gap-6 sm:gap-10">
                 <div className="flex items-center gap-2 text-[var(--ink-2)]">
                   <Users className="h-4 w-4 text-[var(--accent)]" strokeWidth={1.5} />
-                  <span className="text-xs font-medium">14,000+ believers assessed</span>
+                  <span className="text-xs font-medium">Personalized to your answers</span>
                 </div>
                 <div className="flex items-center gap-2 text-[var(--ink-2)]">
                   <Star className="h-4 w-4 text-[var(--accent)]" strokeWidth={1.5} />
-                  <span className="text-xs font-medium">4.9 average rating</span>
+                  <span className="text-xs font-medium">Rooted in Scripture</span>
                 </div>
                 <div className="flex items-center gap-2 text-[var(--ink-2)]">
                   <Clock className="h-4 w-4 text-[var(--accent)]" strokeWidth={1.5} />
@@ -279,7 +279,7 @@ function PaywallContent() {
                   Pay what feels right
                 </h2>
                 <p className="mt-4 text-[var(--ink-soft)]" style={{ fontFamily: "var(--serif)", fontSize: 15, lineHeight: 1.5, fontStyle: "italic", paddingLeft: 16, borderLeft: "2px solid var(--accent-soft)", textAlign: "left" }}>
-                  We rely on the generosity of people like you to keep building resources that help believers steward money faithfully. Every dollar goes back into the mission.
+                  We rely on the generosity of people like you to keep building resources that help believers steward money faithfully. We reinvest what we earn into the mission.
                 </p>
 
                 {/* Tiers */}

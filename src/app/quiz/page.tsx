@@ -6,14 +6,17 @@ import TxNav from "@/components/tx/TxNav";
 import TxFooter from "@/components/tx/TxFooter";
 import TxButton from "@/components/tx/TxButton";
 import { TextEffect } from "@/components/ui/text-effect";
+import { User } from "lucide-react";
 
 function QuizIntroContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [isStarting, setIsStarting] = useState(false);
+  const [firstName, setFirstName] = useState("");
 
   const handleBegin = async () => {
     if (isStarting) return;
+    if (!firstName.trim()) return;
     setIsStarting(true);
 
     const utmParams: Record<string, string> = {};
@@ -28,11 +31,12 @@ function QuizIntroContent() {
       const res = await fetch("/api/quiz/start", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(utmParams),
+        body: JSON.stringify({ first_name: firstName.trim(), ...utmParams }),
       });
       const data = await res.json();
       if (data.session_id) {
         localStorage.setItem("talanthos_session_id", data.session_id);
+        localStorage.setItem("talanthos_name", firstName.trim());
         localStorage.removeItem("talanthos_answers");
         router.push("/quiz/1");
       }
@@ -63,8 +67,25 @@ function QuizIntroContent() {
                   There are no right or wrong answers. Just honest ones.
                 </TextEffect>
               </p>
+
+              <div style={{ width: "100%", maxWidth: 320, marginTop: 8 }}>
+                <div style={{ position: "relative" }}>
+                  <User className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--muted)]" />
+                  <input
+                    type="text"
+                    placeholder="Your first name"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    onKeyDown={(e) => { if (e.key === "Enter") handleBegin(); }}
+                    required
+                    className="w-full rounded-full border border-[var(--rule-strong)] bg-[var(--bg)] py-3.5 pl-11 pr-5 text-[var(--ink)] placeholder-[var(--muted)]/50 outline-none transition-colors duration-200 focus:border-[var(--accent)] text-sm"
+                    style={{ fontFamily: "var(--sans)" }}
+                  />
+                </div>
+              </div>
+
               <div className="tx-cta-row">
-                <TxButton onClick={handleBegin} size="lg" disabled={isStarting}>
+                <TxButton onClick={handleBegin} size="lg" disabled={isStarting || !firstName.trim()}>
                   {isStarting ? "Starting..." : "Begin"}
                 </TxButton>
               </div>

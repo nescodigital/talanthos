@@ -13,6 +13,7 @@ export async function POST(req: NextRequest) {
     const { data, error } = await supabase
       .from("quiz_sessions")
       .insert({
+        first_name: body.first_name || null,
         ip_address: ip,
         user_agent: userAgent,
         referrer,

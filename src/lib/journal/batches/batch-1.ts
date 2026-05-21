@@ -771,34 +771,4 @@ export const BATCH_1: Article[] = [
       <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover how your type approaches risk — and whether investing aligns with your God-given wiring.</p>
     `,
   },
-  {
-    slug: "real-estate-and-scripture-a-stewards-guide",
-    title: "Real Estate and Scripture: A Steward's Guide to Property",
-    excerpt:
-      "Land was the primary form of wealth in the Bible. What does Scripture say about owning, renting, and stewarding real estate today?",
-    date: "January 29, 2026",
-    category: "Biblical Finance",
-    readTime: "6 min read",
-    content: `
-      <p>In biblical times, land was wealth. The Promised Land was the inheritance of Israel. Naboth refused to sell his vineyard to Ahab because it was his family heritage. Boaz redeemed Ruth's family property to preserve their line. Real estate was never just an asset class. It was a connection to place, family, and covenant.</p>
-
-      <p>Today, real estate remains one of the most common forms of wealth building. But the biblical principles still apply. Property is stewardship, not speculation. It serves people, not just portfolios.</p>
-
-      <h3>Owning vs. Renting</h3>
-
-      <p>The Bible does not mandate homeownership. Leviticus contains complex laws about land, but also protections for renters and sojourners. Owning provides stability and equity. Renting provides flexibility and lower risk. The right choice depends on your calling, your season, and your market.</p>
-
-      <p>What matters is the posture. Do you see your home as a tool for hospitality, family, and stability? Or as a status symbol and speculative investment? The first is stewardship. The second is idolatry.</p>
-
-      <h3>Three Questions for Real Estate Decisions</h3>
-
-      <p><strong>Can you afford it?</strong> Not just the mortgage, but maintenance, taxes, insurance, and vacancy. A house poor owner is not a faithful steward.</p>
-
-      <p><strong>Does it serve your calling?</strong> A home near your church, your children's school, and your aging parents may cost more — but serve your mission better.</p>
-
-      <p><strong>Will it help or hinder generosity?</strong> A larger mortgage may limit giving. Count the total cost, not just the square footage.</p>
-
-      <p><a href="/quiz">Take the Talanthos Biblical Money Type assessment</a> to discover how your type approaches major purchases — and whether real estate fits your stewardship style.</p>
-    `,
-  },
 ];
