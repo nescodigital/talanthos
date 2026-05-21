@@ -7,7 +7,7 @@ import TxButton from "@/components/tx/TxButton";
 import TxEyebrow from "@/components/tx/TxEyebrow";
 import TxRule from "@/components/tx/TxRule";
 import { BlurFade } from "@/components/ui/blur-fade";
-import { Mail, MapPin, Clock, Send, CheckCircle2 } from "lucide-react";
+import { Mail, Users, Clock, Send, CheckCircle2 } from "lucide-react";
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -95,7 +95,7 @@ export default function ContactPage() {
                   <div className="rounded-2xl border border-[var(--rule)] bg-[var(--surface)] p-6">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--accent-soft)]">
-                        <MapPin className="h-4 w-4 text-[var(--accent)]" strokeWidth={1.5} />
+                        <Users className="h-4 w-4 text-[var(--accent)]" strokeWidth={1.5} />
                       </div>
                       <span className="text-sm font-medium text-[var(--ink)]">Who we are</span>
                     </div>
