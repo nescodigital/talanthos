@@ -3,7 +3,7 @@ import { QuizUserData, ReportContent } from "../types";
 import { SYSTEM_PROMPT } from "./system-prompt";
 import { buildSectionPrompts } from "./section-prompts";
 
-const MODEL = "claude-3-5-sonnet-latest";
+const MODEL = "claude-3-5-sonnet-20240620";
 const MAX_TOKENS = 4000;
 const BATCH_SIZE = 5;
 
