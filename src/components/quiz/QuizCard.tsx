@@ -72,8 +72,8 @@ export default function QuizCard({ step }: QuizCardProps) {
       }).catch(() => {});
 
       setTimeout(() => {
-        // Show identity hint after step 4 (2nd scoring) and step 8 (4th scoring)
-        if ((step === 4 || step === 8) && type) {
+        // Show identity hint after step 2 (2nd scoring) and step 5 (5th scoring)
+        if ((step === 2 || step === 5) && type) {
           const scoringAnswers = gatherScoringAnswers();
           const hint = getIdentityHint(scoringAnswers);
           if (hint) {
@@ -84,10 +84,9 @@ export default function QuizCard({ step }: QuizCardProps) {
 
         if (step >= total) {
           router.push("/quiz/calculating");
-        } else if (step === 5) {
-          router.push("/quiz/motivation/1");
-        } else if (step === 8) {
-          router.push("/quiz/motivation/2");
+        } else if (step === 9) {
+          // After text questions, go to optional demographics
+          router.push("/quiz/demographics");
         } else {
           router.push(`/quiz/${step + 1}`);
         }
@@ -130,11 +129,7 @@ export default function QuizCard({ step }: QuizCardProps) {
 
   const handleHintContinue = useCallback(() => {
     setShowHint(null);
-    if (step === 8) {
-      router.push("/quiz/motivation/2");
-    } else {
-      router.push(`/quiz/${step + 1}`);
-    }
+    router.push(`/quiz/${step + 1}`);
   }, [router, step]);
 
   if (!question) return null;

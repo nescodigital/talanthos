@@ -10,7 +10,9 @@ export default async function QuizStepPage({ params }: PageProps) {
   const { step } = await params;
   const stepNum = parseInt(step, 10);
 
-  if (isNaN(stepNum) || stepNum < 1 || stepNum > QUIZ_QUESTIONS.length) {
+  // Steps 1-9 are scoring + text questions
+  // Steps 10+ are demographics, handled by /quiz/demographics
+  if (isNaN(stepNum) || stepNum < 1 || stepNum > 9) {
     notFound();
   }
 
