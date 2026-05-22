@@ -1,10 +1,10 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { QuizUserData, ReportContent } from "../types";
 import { SYSTEM_PROMPT } from "./system-prompt";
-import { buildBatchPrompts, parseBatchResponse } from "./batch-prompts";
+import { buildBatchPrompts } from "./batch-prompts";
 
 const MODEL = "claude-sonnet-4-6";
-const MAX_TOKENS = 8192;
+const MAX_TOKENS = 4096;
 
 function getClient(): Anthropic {
   const key = process.env.ANTHROPIC_API_KEY;
@@ -16,7 +16,7 @@ function getClient(): Anthropic {
   return new Anthropic({ apiKey: key });
 }
 
-async function callClaudeBatch(
+async function callClaude(
   client: Anthropic,
   batchName: string,
   prompt: string
@@ -41,13 +41,13 @@ async function callClaudeBatch(
       lastError = err as Error;
       if (attempt === 1) {
         console.log(`   ⚠️  ${batchName} failed (attempt 1), retrying...`);
-        await new Promise((r) => setTimeout(r, 1500));
+        await new Promise((r) => setTimeout(r, 2000));
       }
     }
   }
 
   throw new Error(
-    `Batch "${batchName}" failed after 2 attempts: ${lastError?.message}`
+    `Section "${batchName}" failed after 2 attempts: ${lastError?.message}`
   );
 }
 
@@ -61,30 +61,19 @@ export async function generateReportContent(
   const startTotal = Date.now();
 
   for (let i = 0; i < batches.length; i++) {
-    const { batchName, sections, prompt } = batches[i];
-    console.log(`\n🔄 Batch ${i + 1} / ${batches.length} (${sections.join(", ")})`);
+    const { batchName, section, prompt } = batches[i];
+    console.log(`\n🔄 Section ${i + 1} / ${batches.length} (${batchName})`);
 
     const t0 = Date.now();
-    const text = await callClaudeBatch(client, batchName, prompt);
-    const parsed = parseBatchResponse(text, sections);
+    const text = await callClaude(client, batchName, prompt);
     const elapsed = ((Date.now() - t0) / 1000).toFixed(1);
 
-    for (const section of sections) {
-      if (parsed[section]) {
-        (results as Record<string, string>)[section] = parsed[section];
-        console.log(`   ✅ ${section} — ${parsed[section].length} chars`);
-      } else {
-        console.error(`   ❌ ${section} missing from batch response!`);
-        // Fallback: use raw text if parsing failed for this section
-        (results as Record<string, string>)[section] = text;
-      }
-    }
+    (results as Record<string, string>)[section] = text.trim();
+    console.log(`   ✅ ${batchName} — ${text.length} chars — ${elapsed}s`);
 
-    console.log(`   ⏱️  Batch time: ${elapsed}s`);
-
-    // Small delay between batches
+    // Small delay between calls to avoid rate limits
     if (i < batches.length - 1) {
-      await new Promise((r) => setTimeout(r, 500));
+      await new Promise((r) => setTimeout(r, 300));
     }
   }
 
