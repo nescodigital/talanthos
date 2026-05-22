@@ -131,7 +131,7 @@ export default function ResultPage() {
               </h1>
               <div className="tx-result-figure">
                 <TextEffect per="word" preset="fade" delay={0.3} as="span">
-                  {`${t.figure} \u00b7 ${t.tagline}`}
+                  {`${t.figure} \&middot; ${t.tagline}`}
                 </TextEffect>
               </div>
               <TxRule width={70} />
