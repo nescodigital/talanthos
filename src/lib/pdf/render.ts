@@ -1,4 +1,5 @@
 import puppeteer from "puppeteer-core";
+import chromium from "@sparticuz/chromium-min";
 import fs from "fs";
 import path from "path";
 
@@ -35,26 +36,29 @@ export async function renderPdf(options: RenderOptions): Promise<Buffer> {
   if (isDev) {
     executablePath = getChromePath();
   } else {
-    const chromium = await import("@sparticuz/chromium");
-    // Disable graphics to reduce memory & extraction time
-    chromium.default.setGraphicsMode = false;
-    executablePath = await chromium.default.executablePath();
-    args = chromium.default.args;
+    const remotePath = process.env.CHROMIUM_REMOTE_EXEC_PATH;
+    if (remotePath) {
+      // Vercel production: download chromium from remote URL
+      executablePath = await chromium.executablePath(remotePath);
+    } else {
+      // Fallback: try local path
+      executablePath = await chromium.executablePath();
+    }
+    args = chromium.args;
   }
 
   if (!executablePath) {
-    throw new Error("Chromium executable path not found. Set CHROMIUM_EXECUTABLE_PATH or install Chrome.");
+    throw new Error("Chromium executable path not found. Set CHROMIUM_EXECUTABLE_PATH or CHROMIUM_REMOTE_EXEC_PATH.");
   }
 
   console.log("[PDF] Launching Chromium at:", executablePath);
-  console.log("[PDF] Args:", args.join(" "));
 
   let browser;
   try {
     browser = await puppeteer.launch({
       args,
       executablePath,
-      headless: "shell" as any,
+      headless: "new" as any,
     });
 
     const page = await browser.newPage();
