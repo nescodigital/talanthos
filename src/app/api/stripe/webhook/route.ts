@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { after } from "next/server";
 import Stripe from "stripe";
 import { getServiceRoleClient } from "@/lib/supabase/client";
 import { buildQuizUserData } from "@/lib/pdf/data-builder";
@@ -17,6 +18,122 @@ function getStripe() {
 function getResend() {
   const key = process.env.RESEND_API_KEY;
   return key ? new Resend(key) : null;
+}
+
+async function processPdf(orderId: string, sessionId: string, email: string) {
+  console.log("[PDF AFTER] Starting async PDF generation for order:", orderId, "session:", sessionId);
+  const supabase = getServiceRoleClient();
+
+  try {
+    // Check again if already processed (race condition guard)
+    const { data: orderCheck } = await supabase
+      .from("orders")
+      .select("pdf_generated")
+      .eq("id", orderId)
+      .single();
+
+    if (orderCheck?.pdf_generated) {
+      console.log("[PDF AFTER] Already processed, skipping");
+      return;
+    }
+
+    const quizUser = await buildQuizUserData(sessionId);
+    if (!quizUser) {
+      throw new Error("Quiz user data not found for session: " + sessionId);
+    }
+    console.log("[PDF AFTER] Quiz user data built:", quizUser.firstName, quizUser.primaryType);
+
+    // Generate content via Claude API
+    console.log("[PDF AFTER] Calling Claude API...");
+    const content = await generateReportContent(quizUser);
+    console.log("[PDF AFTER] Claude content generated, sections:", Object.keys(content).join(", "));
+
+    // Build HTML
+    console.log("[PDF AFTER] Building HTML...");
+    const html = buildReportHtml(quizUser, content);
+    console.log("[PDF AFTER] HTML built, length:", html.length);
+
+    // Render PDF
+    console.log("[PDF AFTER] Rendering PDF with Puppeteer...");
+    const pdfBuffer = await renderPdf({ html });
+    console.log("[PDF AFTER] PDF rendered, size:", pdfBuffer.length);
+
+    // Upload to Supabase Storage
+    const fileName = `${sessionId}.pdf`;
+    const { error: uploadError } = await supabase.storage
+      .from("reports")
+      .upload(fileName, pdfBuffer, {
+        contentType: "application/pdf",
+        upsert: true,
+      });
+
+    if (uploadError) {
+      console.error("[PDF AFTER UPLOAD ERROR]", uploadError);
+    }
+
+    const { data: urlData } = supabase.storage.from("reports").getPublicUrl(fileName);
+    const pdfUrl = urlData?.publicUrl || "";
+
+    await supabase
+      .from("orders")
+      .update({
+        pdf_generated: true,
+        pdf_url: pdfUrl,
+      })
+      .eq("id", orderId);
+
+    // Send email with PDF
+    const resend = getResend();
+    if (resend) {
+      const td = TYPE_DATA[quizUser.primaryType];
+      await resend.emails.send({
+        from: "Talanthos <info@talanthos.com>",
+        to: [email],
+        subject: `Your ${td.name} Report is Ready`,
+        text: `Hi ${quizUser.firstName || "there"},\n\nThank you for your purchase. Your personalized ${td.name} report is attached.\n\nYour scores:\nVision: ${quizUser.scores.vision}/7\nGuard: ${quizUser.scores.guard}/7\nGive: ${quizUser.scores.give}/7\nBuild: ${quizUser.scores.build}/7\n\nKey verse: "${td.coverVerse}" — ${td.coverVerseRef}\n\nIn His service,\nTalanthos`,
+        html: `
+          <div style="font-family: Georgia, serif; max-width: 560px; margin: 0 auto; color: #1c1a14; background: #f3ece0; padding: 40px;">
+            <div style="text-align: center; margin-bottom: 24px;"><img src="https://www.talanthos.com/assets/talanthos-mark.png" alt="" width="40" height="40" style="display: inline-block; margin-bottom: 8px;" /><div style="font-family: Georgia, serif; font-size: 18px; letter-spacing: 0.2em; color: #1c1a14; text-transform: uppercase;">Talanthos</div><div style="font-family: monospace; font-size: 9px; letter-spacing: 0.14em; color: #b88a4a; text-transform: uppercase; margin-top: 2px;">Faith &middot; Finances &middot; Purpose</div></div>
+            <h1 style="font-weight: 400; font-size: 28px; margin: 0 0 8px;">Your ${td.name} Report</h1>
+            <p style="color: #b88a4a; font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 20px;">${td.figure} &middot; ${td.tagline}</p>
+            <p style="font-size: 16px; line-height: 1.6; margin: 0 0 20px;">Hi ${quizUser.firstName || "there"},<br><br>Thank you for your purchase. Your personalized ${td.name} report is attached as a PDF.</p>
+            <div style="background: #efe6d4; padding: 16px; border-radius: 8px; margin: 20px 0;">
+              <p style="font-size: 13px; margin: 0 0 8px; font-weight: 600;">Your 4-Dimensional Score:</p>
+              <p style="font-size: 13px; margin: 0; line-height: 1.6;">
+                Vision: ${quizUser.scores.vision}/7 &middot;
+                Guard: ${quizUser.scores.guard}/7 &middot;
+                Give: ${quizUser.scores.give}/7 &middot;
+                Build: ${quizUser.scores.build}/7
+              </p>
+            </div>
+            <blockquote style="border-left: 2px solid #b88a4a; padding-left: 16px; margin: 20px 0; font-style: italic; color: #46412f;">
+              "${td.coverVerse}"
+              <br><span style="font-style: normal; font-size: 12px; color: #7a7359;">${td.coverVerseRef}</span>
+            </blockquote>
+            <p style="font-size: 14px; line-height: 1.6; margin: 0 0 16px;">Your full report is attached as a PDF. Download it, print it, and return to it often.</p>
+            <hr style="border: 0; border-top: 1px solid rgba(28,26,20,0.12); margin: 24px 0;">
+            <p style="font-size: 12px; color: #7a7359; margin: 0;">Talanthos &middot; Faith. Finances. Purpose.</p>
+          </div>
+        `,
+        attachments: [
+          {
+            filename: `Talanthos-${td.name.replace(/\s+/g, "")}-Report.pdf`,
+            content: pdfBuffer.toString("base64"),
+          },
+        ],
+      });
+
+      await supabase
+        .from("orders")
+        .update({ pdf_sent_at: new Date().toISOString() })
+        .eq("id", orderId);
+
+      console.log("[PDF AFTER] PDF generated and email sent for:", email);
+    }
+  } catch (err: any) {
+    console.error("[PDF AFTER] Failed:", err?.message || String(err));
+    console.error("[PDF AFTER] Stack:", err?.stack || "No stack");
+  }
 }
 
 export async function POST(req: NextRequest) {
@@ -40,7 +157,6 @@ export async function POST(req: NextRequest) {
     const session = event.data.object as Stripe.Checkout.Session;
     const sessionId = session.metadata?.session_id;
     const email = session.customer_email || session.customer_details?.email;
-    const type = session.metadata?.type || "unknown";
 
     if (!email) {
       console.error("[STRIPE WEBHOOK] Missing email in session");
@@ -57,11 +173,11 @@ export async function POST(req: NextRequest) {
       .single();
 
     if (orderError) {
-      console.error("[STRIPE WEBHOOK] Order lookup error:", orderError.message, "| session:", session.id, "| metadata session_id:", sessionId);
+      console.error("[STRIPE WEBHOOK] Order lookup error:", orderError.message, "| session:", session.id);
     }
 
     if (!order) {
-      console.error("[STRIPE WEBHOOK] Order not found for session:", session.id, "| metadata session_id:", sessionId);
+      console.error("[STRIPE WEBHOOK] Order not found for session:", session.id);
       return NextResponse.json({ error: "Order not found" }, { status: 404 });
     }
 
@@ -70,7 +186,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ received: true, already_processed: true });
     }
 
-    // Update order as purchased
+    // Update order as purchased immediately
     await supabase
       .from("orders")
       .update({
@@ -81,111 +197,11 @@ export async function POST(req: NextRequest) {
       })
       .eq("id", order.id);
 
-    // Generate and deliver PDF
+    // Process PDF asynchronously so Stripe doesn't timeout (60s limit)
     if (sessionId && !order.pdf_generated) {
-      try {
-        console.log("[WEBHOOK] Starting PDF generation for session:", sessionId);
-
-        const quizUser = await buildQuizUserData(sessionId);
-        if (!quizUser) {
-          throw new Error("Quiz user data not found for session: " + sessionId);
-        }
-        console.log("[WEBHOOK] Quiz user data built:", quizUser.firstName, quizUser.primaryType);
-
-        // Generate content via Claude API
-        console.log("[WEBHOOK] Calling Claude API...");
-        const content = await generateReportContent(quizUser);
-        console.log("[WEBHOOK] Claude content generated, sections:", Object.keys(content).join(", "));
-
-        // Build HTML
-        console.log("[WEBHOOK] Building HTML...");
-        const html = buildReportHtml(quizUser, content);
-        console.log("[WEBHOOK] HTML built, length:", html.length);
-
-        // Render PDF
-        console.log("[WEBHOOK] Rendering PDF with Puppeteer...");
-        const pdfBuffer = await renderPdf({ html });
-        console.log("[WEBHOOK] PDF rendered, size:", pdfBuffer.length);
-
-        // Upload to Supabase Storage
-        const fileName = `${sessionId}.pdf`;
-        const { error: uploadError } = await supabase.storage
-          .from("reports")
-          .upload(fileName, pdfBuffer, {
-            contentType: "application/pdf",
-            upsert: true,
-          });
-
-        if (uploadError) {
-          console.error("[PDF UPLOAD ERROR]", uploadError);
-        }
-
-        const { data: urlData } = supabase.storage.from("reports").getPublicUrl(fileName);
-        const pdfUrl = urlData?.publicUrl || "";
-
-        await supabase
-          .from("orders")
-          .update({
-            pdf_generated: true,
-            pdf_url: pdfUrl,
-          })
-          .eq("id", order.id);
-
-        // Send email with PDF
-        const resend = getResend();
-        if (resend) {
-          const td = TYPE_DATA[quizUser.primaryType];
-          await resend.emails.send({
-            from: "Talanthos <info@talanthos.com>",
-            to: [email],
-            subject: `Your ${td.name} Report is Ready`,
-            text: `Hi ${quizUser.firstName || "there"},\n\nThank you for your purchase. Your personalized ${td.name} report is attached.\n\nYour scores:\nVision: ${quizUser.scores.vision}/7\nGuard: ${quizUser.scores.guard}/7\nGive: ${quizUser.scores.give}/7\nBuild: ${quizUser.scores.build}/7\n\nKey verse: "${td.coverVerse}" — ${td.coverVerseRef}\n\nIn His service,\nTalanthos`,
-            html: `
-              <div style="font-family: Georgia, serif; max-width: 560px; margin: 0 auto; color: #1c1a14; background: #f3ece0; padding: 40px;">
-                <div style="text-align: center; margin-bottom: 24px;"><img src="https://www.talanthos.com/assets/talanthos-mark.png" alt="" width="40" height="40" style="display: inline-block; margin-bottom: 8px;" /><div style="font-family: Georgia, serif; font-size: 18px; letter-spacing: 0.2em; color: #1c1a14; text-transform: uppercase;">Talanthos</div><div style="font-family: monospace; font-size: 9px; letter-spacing: 0.14em; color: #b88a4a; text-transform: uppercase; margin-top: 2px;">Faith &middot; Finances &middot; Purpose</div></div>
-                <h1 style="font-weight: 400; font-size: 28px; margin: 0 0 8px;">Your ${td.name} Report</h1>
-                <p style="color: #b88a4a; font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 20px;">${td.figure} &middot; ${td.tagline}</p>
-                <p style="font-size: 16px; line-height: 1.6; margin: 0 0 20px;">Hi ${quizUser.firstName || "there"},<br><br>Thank you for your purchase. Your personalized ${td.name} report is attached as a PDF.</p>
-                <div style="background: #efe6d4; padding: 16px; border-radius: 8px; margin: 20px 0;">
-                  <p style="font-size: 13px; margin: 0 0 8px; font-weight: 600;">Your 4-Dimensional Score:</p>
-                  <p style="font-size: 13px; margin: 0; line-height: 1.6;">
-                    Vision: ${quizUser.scores.vision}/7 &middot;
-                    Guard: ${quizUser.scores.guard}/7 &middot;
-                    Give: ${quizUser.scores.give}/7 &middot;
-                    Build: ${quizUser.scores.build}/7
-                  </p>
-                </div>
-                <blockquote style="border-left: 2px solid #b88a4a; padding-left: 16px; margin: 20px 0; font-style: italic; color: #46412f;">
-                  "${td.coverVerse}"
-                  <br><span style="font-style: normal; font-size: 12px; color: #7a7359;">${td.coverVerseRef}</span>
-                </blockquote>
-                <p style="font-size: 14px; line-height: 1.6; margin: 0 0 16px;">Your full report is attached as a PDF. Download it, print it, and return to it often.</p>
-                <hr style="border: 0; border-top: 1px solid rgba(28,26,20,0.12); margin: 24px 0;">
-                <p style="font-size: 12px; color: #7a7359; margin: 0;">Talanthos &middot; Faith. Finances. Purpose.</p>
-              </div>
-            `,
-            attachments: [
-              {
-                filename: `Talanthos-${td.name.replace(/\s+/g, "")}-Report.pdf`,
-                content: pdfBuffer.toString("base64"),
-              },
-            ],
-          });
-
-          await supabase
-            .from("orders")
-            .update({ pdf_sent_at: new Date().toISOString() })
-            .eq("id", order.id);
-
-          console.log("[WEBHOOK] PDF generated and email sent for:", email);
-        }
-      } catch (err: any) {
-        console.error("[STRIPE WEBHOOK] PDF generation failed:");
-        console.error("Message:", err?.message || String(err));
-        console.error("Stack:", err?.stack || "No stack");
-        // Return 500 so Stripe retries
-        return NextResponse.json({ error: "PDF generation failed: " + (err?.message || String(err)) }, { status: 500 });
-      }
+      after(async () => {
+        await processPdf(order.id, sessionId, email);
+      });
     }
   }
 
