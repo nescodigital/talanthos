@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { QUIZ_QUESTIONS, AnswerLetter, BiblicalType, QuizQuestion, isChoiceQuestion } from "@/lib/quiz/questions";
 import { getIdentityHint, type HintResult } from "@/lib/quiz/hints";
@@ -72,16 +72,6 @@ export default function QuizCard({ step }: QuizCardProps) {
       }).catch(() => {});
 
       setTimeout(() => {
-        // Show identity hint after step 2 (2nd scoring) and step 5 (5th scoring)
-        if ((step === 2 || step === 5) && type) {
-          const scoringAnswers = gatherScoringAnswers();
-          const hint = getIdentityHint(scoringAnswers);
-          if (hint) {
-            setShowHint(hint);
-            return;
-          }
-        }
-
         if (step >= total) {
           router.push("/quiz/calculating");
         } else {
@@ -127,6 +117,17 @@ export default function QuizCard({ step }: QuizCardProps) {
   const handleHintDismiss = useCallback(() => {
     setShowHint(null);
   }, []);
+
+  // Show hint on mount for Q6 (after 2nd scoring) and Q9 (after 5th scoring)
+  useEffect(() => {
+    if (step === 6 || step === 9) {
+      const scoringAnswers = gatherScoringAnswers();
+      const hint = getIdentityHint(scoringAnswers);
+      if (hint) {
+        setShowHint(hint);
+      }
+    }
+  }, [step, gatherScoringAnswers]);
 
   if (!question) return null;
 
