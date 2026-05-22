@@ -16,8 +16,8 @@ export default function TxNav() {
 
   return (
     <nav className="relative flex items-center justify-between px-4 sm:px-6 lg:px-14 py-[18px] border-b border-[var(--rule)]">
-      {/* Left spacer — balances the logo centering */}
-      <div className="hidden md:block w-[200px]" />
+      {/* Left spacer — flex-1 so right side can balance */}
+      <div className="hidden md:block flex-1" />
 
       {/* Logo — absolutely centered */}
       <Link
@@ -27,13 +27,13 @@ export default function TxNav() {
         <TxLockup size="sm" />
       </Link>
 
-      {/* Desktop menu — right */}
-      <div className="hidden md:flex gap-8 items-center justify-end w-[200px]">
+      {/* Desktop menu — right, flex-1, items pushed to end */}
+      <div className="hidden md:flex flex-1 gap-6 lg:gap-8 items-center justify-end">
         {links.map((l) => (
           <Link
             key={l.label}
             href={l.href}
-            className="font-[var(--sans)] text-[var(--ink-2)] no-underline text-[14px] py-1.5 relative transition-colors duration-250 hover:text-[var(--accent)]"
+            className="font-[var(--sans)] text-[var(--ink-2)] no-underline text-[14px] py-1.5 relative transition-colors duration-250 hover:text-[var(--accent)] whitespace-nowrap"
           >
             <span className="after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-px after:h-px after:bg-[var(--accent)] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
               {l.label}
@@ -44,14 +44,29 @@ export default function TxNav() {
 
       {/* Mobile hamburger — right */}
       <button
-        className={`md:hidden appearance-none border-0 bg-transparent w-10 h-10 flex-col justify-center items-center gap-[5px] cursor-pointer p-0 shrink-0 ml-auto ${menuOpen ? "is-open" : ""}`}
+        className={`md:hidden appearance-none border-0 bg-transparent w-10 h-10 flex flex-col justify-center items-center gap-[5px] cursor-pointer p-0 shrink-0 ml-auto ${menuOpen ? "is-open" : ""}`}
         onClick={() => setMenuOpen((v) => !v)}
         aria-label="Menu"
         aria-expanded={menuOpen}
       >
-        <span className="block h-[1.5px] w-[22px] bg-[var(--ink)] transition-all duration-250" />
-        <span className="block h-[1.5px] w-[22px] bg-[var(--ink)] transition-all duration-200" />
-        <span className="block h-[1.5px] w-[22px] bg-[var(--ink)] transition-all duration-250" />
+        <span
+          className="block h-[2px] w-[22px] bg-[var(--ink)] transition-all duration-250"
+          style={{
+            transform: menuOpen ? "translateY(7px) rotate(45deg)" : "none",
+          }}
+        />
+        <span
+          className="block h-[2px] w-[22px] bg-[var(--ink)] transition-all duration-200"
+          style={{
+            opacity: menuOpen ? 0 : 1,
+          }}
+        />
+        <span
+          className="block h-[2px] w-[22px] bg-[var(--ink)] transition-all duration-250"
+          style={{
+            transform: menuOpen ? "translateY(-7px) rotate(-45deg)" : "none",
+          }}
+        />
       </button>
 
       {/* Mobile menu */}
