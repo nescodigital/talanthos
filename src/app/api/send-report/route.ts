@@ -63,6 +63,7 @@ Talanthos
       `.trim(),
       html: `
         <div style="font-family: Georgia, serif; max-width: 560px; margin: 0 auto; color: #1c1a14; background: #f3ece0; padding: 40px;">
+          <img src="https://www.talanthos.com/assets/talanthos-logo-full.png" alt="Talanthos" width="160" style="display: block; margin: 0 auto 24px;" />
           <h1 style="font-weight: 400; font-size: 32px; margin: 0 0 8px;">You are ${t.label}</h1>
           <p style="color: #b88a4a; font-size: 14px; text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 24px;">${t.figure} · ${t.tagline}</p>
           <p style="font-size: 17px; line-height: 1.6; margin: 0 0 24px;">${t.blurb}</p>

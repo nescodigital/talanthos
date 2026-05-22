@@ -38,6 +38,7 @@ export async function POST(req: NextRequest) {
       subject: `Contact form: ${name}`,
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
       html: `
+        <img src="https://www.talanthos.com/assets/talanthos-logo-full.png" alt="Talanthos" width="160" style="display: block; margin: 0 0 16px;" />
         <p><strong>Name:</strong> ${escapeHtml(name)}</p>
         <p><strong>Email:</strong> ${escapeHtml(email)}</p>
         <p><strong>Message:</strong></p>

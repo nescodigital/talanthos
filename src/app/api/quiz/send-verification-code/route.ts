@@ -66,6 +66,7 @@ export async function POST(req: NextRequest) {
       text: `Hi there,\n\nYour verification code is: ${code}\n\nEnter this code on the Talanthos quiz page to continue.\n\nThis code expires in 10 minutes.\n\nIf you did not request this code, you can safely ignore this email.\n\nTalanthos — Faith. Finances. Purpose.`,
       html: `
         <div style="font-family: Georgia, serif; max-width: 480px; margin: 0 auto; color: #1c1a14; background: #f3ece0; padding: 40px;">
+          <img src="https://www.talanthos.com/assets/talanthos-logo-full.png" alt="Talanthos" width="160" style="display: block; margin: 0 auto 24px;" />
           <h2 style="font-weight: 400; font-size: 22px; margin: 0 0 16px;">Your Verification Code</h2>
           <p style="font-size: 15px; line-height: 1.6; margin: 0 0 24px;">Enter this code on the Talanthos quiz page to continue:</p>
           <div style="background: #efe6d4; padding: 20px; border-radius: 8px; text-align: center; margin: 24px 0;">

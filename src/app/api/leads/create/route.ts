@@ -85,6 +85,7 @@ export async function POST(req: NextRequest) {
         text: `Hi there,\n\nThank you for taking the Talanthos Biblical Money Type assessment.\n\nWe have received your request and your personalized report will be sent to this address shortly.\n\nIn His service,\nTalanthos`,
         html: `
           <div style="font-family: Georgia, serif; max-width: 560px; margin: 0 auto; color: #1c1a14; background: #f3ece0; padding: 40px;">
+            <img src="https://www.talanthos.com/assets/talanthos-logo-full.png" alt="Talanthos" width="160" style="display: block; margin: 0 auto 24px;" />
             <h1 style="font-weight: 400; font-size: 24px; margin: 0 0 16px;">Thank you</h1>
             <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">
               Thank you for taking the Talanthos Biblical Money Type assessment.
