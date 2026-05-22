@@ -68,6 +68,7 @@ export default function QuizCard({ step }: QuizCardProps) {
           question_id: question.id,
           answer_letter: letter || null,
           answer_value: answerValue,
+          type: type || null,
         }),
       }).catch(() => {});
 

@@ -14,6 +14,7 @@ export async function POST(req: NextRequest) {
         question_id: body.question_id || `q${body.question_number}`,
         answer_letter: body.answer_letter || null,
         answer_value: body.answer_value || body.answer_letter || "",
+        type: body.type || null,
         time_spent_seconds: body.time_spent_seconds || null,
       })
       .select()

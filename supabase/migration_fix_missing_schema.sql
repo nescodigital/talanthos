@@ -48,6 +48,7 @@ CREATE TABLE IF NOT EXISTS quiz_answers (
   question_id TEXT NOT NULL,
   answer_letter TEXT,
   answer_value TEXT NOT NULL,
+  type TEXT,
   answered_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   time_spent_seconds INT
 );
@@ -160,6 +161,9 @@ ALTER TABLE quiz_sessions
   ADD COLUMN IF NOT EXISTS verification_code_expires_at TIMESTAMP WITH TIME ZONE,
   ADD COLUMN IF NOT EXISTS marketing_consent BOOLEAN DEFAULT FALSE,
   ADD COLUMN IF NOT EXISTS demographic_data JSONB;
+
+ALTER TABLE quiz_answers
+  ADD COLUMN IF NOT EXISTS type TEXT;
 
 ALTER TABLE leads 
   ADD COLUMN IF NOT EXISTS email_verified BOOLEAN DEFAULT FALSE;
