@@ -1,11 +1,10 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { QuizUserData, ReportContent } from "../types";
 import { SYSTEM_PROMPT } from "./system-prompt";
-import { buildSectionPrompts } from "./section-prompts";
+import { buildBatchPrompts, parseBatchResponse } from "./batch-prompts";
 
 const MODEL = "claude-sonnet-4-6";
-const MAX_TOKENS = 4000;
-const BATCH_SIZE = 5;
+const MAX_TOKENS = 8192;
 
 function getClient(): Anthropic {
   const key = process.env.ANTHROPIC_API_KEY;
@@ -17,9 +16,9 @@ function getClient(): Anthropic {
   return new Anthropic({ apiKey: key });
 }
 
-async function callClaude(
+async function callClaudeBatch(
   client: Anthropic,
-  section: string,
+  batchName: string,
   prompt: string
 ): Promise<string> {
   let lastError: Error | undefined;
@@ -37,18 +36,18 @@ async function callClaude(
       if (content.type === "text") {
         return content.text;
       }
-      throw new Error(`Unexpected response type for ${section}`);
+      throw new Error(`Unexpected response type for ${batchName}`);
     } catch (err) {
       lastError = err as Error;
       if (attempt === 1) {
-        console.log(`   ⚠️  ${section} failed (attempt 1), retrying...`);
+        console.log(`   ⚠️  ${batchName} failed (attempt 1), retrying...`);
         await new Promise((r) => setTimeout(r, 1500));
       }
     }
   }
 
   throw new Error(
-    `Section "${section}" failed after 2 attempts: ${lastError?.message}`
+    `Batch "${batchName}" failed after 2 attempts: ${lastError?.message}`
   );
 }
 
@@ -56,34 +55,35 @@ export async function generateReportContent(
   user: QuizUserData
 ): Promise<ReportContent> {
   const client = getClient();
-  const prompts = buildSectionPrompts(user);
+  const batches = buildBatchPrompts(user);
 
   const results: Partial<ReportContent> = {};
   const startTotal = Date.now();
 
-  // Process in batches to avoid rate limits
-  for (let i = 0; i < prompts.length; i += BATCH_SIZE) {
-    const batch = prompts.slice(i, i + BATCH_SIZE);
-    console.log(
-      `\n🔄 Batch ${Math.floor(i / BATCH_SIZE) + 1} / ${Math.ceil(prompts.length / BATCH_SIZE)} (${batch.length} sections)`
-    );
+  for (let i = 0; i < batches.length; i++) {
+    const { batchName, sections, prompt } = batches[i];
+    console.log(`\n🔄 Batch ${i + 1} / ${batches.length} (${sections.join(", ")})`);
 
-    const batchPromises = batch.map(async ({ section, prompt }) => {
-      const t0 = Date.now();
-      const text = await callClaude(client, section, prompt);
-      const elapsed = ((Date.now() - t0) / 1000).toFixed(1);
-      console.log(`   ✅ ${section} — ${elapsed}s`);
-      return { section, text };
-    });
+    const t0 = Date.now();
+    const text = await callClaudeBatch(client, batchName, prompt);
+    const parsed = parseBatchResponse(text, sections);
+    const elapsed = ((Date.now() - t0) / 1000).toFixed(1);
 
-    const batchResults = await Promise.all(batchPromises);
-
-    for (const { section, text } of batchResults) {
-      (results as Record<string, string>)[section] = text;
+    for (const section of sections) {
+      if (parsed[section]) {
+        (results as Record<string, string>)[section] = parsed[section];
+        console.log(`   ✅ ${section} — ${parsed[section].length} chars`);
+      } else {
+        console.error(`   ❌ ${section} missing from batch response!`);
+        // Fallback: use raw text if parsing failed for this section
+        (results as Record<string, string>)[section] = text;
+      }
     }
 
+    console.log(`   ⏱️  Batch time: ${elapsed}s`);
+
     // Small delay between batches
-    if (i + BATCH_SIZE < prompts.length) {
+    if (i < batches.length - 1) {
       await new Promise((r) => setTimeout(r, 500));
     }
   }
