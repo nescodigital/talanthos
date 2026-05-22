@@ -84,9 +84,6 @@ export default function QuizCard({ step }: QuizCardProps) {
 
         if (step >= total) {
           router.push("/quiz/calculating");
-        } else if (step === 9) {
-          // After text questions, go to optional demographics
-          router.push("/quiz/demographics");
         } else {
           router.push(`/quiz/${step + 1}`);
         }
@@ -127,10 +124,9 @@ export default function QuizCard({ step }: QuizCardProps) {
     router.push(`/quiz/${step - 1}`);
   };
 
-  const handleHintContinue = useCallback(() => {
+  const handleHintDismiss = useCallback(() => {
     setShowHint(null);
-    router.push(`/quiz/${step + 1}`);
-  }, [router, step]);
+  }, []);
 
   if (!question) return null;
 
@@ -141,10 +137,8 @@ export default function QuizCard({ step }: QuizCardProps) {
         <main className="tx-screen tx-quiz">
           <div className="tx-quiz-frame">
             <TxProgress step={step} total={total} />
-            {showHint ? (
-              <IdentityHint hint={showHint} onContinue={handleHintContinue} />
-            ) : (
             <div className="tx-quiz-q-wrap" key={step}>
+              {showHint && <IdentityHint hint={showHint} onDismiss={handleHintDismiss} />}
               <div className="tx-quiz-numeral">
                 {String(step).padStart(2, "0")}
                 <span className="tx-quiz-numeral-of">/{String(total).padStart(2, "0")}</span>
@@ -234,7 +228,6 @@ export default function QuizCard({ step }: QuizCardProps) {
                 </span>
               </div>
             </div>
-            )}
           </div>
         </main>
       </div>
