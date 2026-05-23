@@ -136,3 +136,9 @@ ALTER TABLE quiz_sessions ADD COLUMN IF NOT EXISTS marketing_consent BOOLEAN DEF
 -- Security columns (added May 2026)
 ALTER TABLE quiz_sessions ADD COLUMN IF NOT EXISTS verification_attempts INT DEFAULT 0;
 ALTER TABLE quiz_sessions ADD COLUMN IF NOT EXISTS verification_locked_until TIMESTAMP WITH TIME ZONE;
+
+-- Email sequence tracking (added May 2026)
+ALTER TABLE leads ADD COLUMN IF NOT EXISTS email_sequence TEXT;
+ALTER TABLE leads ADD COLUMN IF NOT EXISTS email_step INT DEFAULT 0;
+ALTER TABLE leads ADD COLUMN IF NOT EXISTS last_email_at TIMESTAMP WITH TIME ZONE;
+ALTER TABLE leads ADD COLUMN IF NOT EXISTS email_sequence_status TEXT DEFAULT 'active';

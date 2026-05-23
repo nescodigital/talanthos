@@ -164,6 +164,12 @@ ALTER TABLE quiz_sessions
   ADD COLUMN IF NOT EXISTS verification_attempts INT DEFAULT 0,
   ADD COLUMN IF NOT EXISTS verification_locked_until TIMESTAMP WITH TIME ZONE;
 
+ALTER TABLE leads 
+  ADD COLUMN IF NOT EXISTS email_sequence TEXT,
+  ADD COLUMN IF NOT EXISTS email_step INT DEFAULT 0,
+  ADD COLUMN IF NOT EXISTS last_email_at TIMESTAMP WITH TIME ZONE,
+  ADD COLUMN IF NOT EXISTS email_sequence_status TEXT DEFAULT 'active';
+
 ALTER TABLE quiz_answers
   ADD COLUMN IF NOT EXISTS type TEXT;
 
