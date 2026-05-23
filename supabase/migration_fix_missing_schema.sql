@@ -160,7 +160,9 @@ ALTER TABLE quiz_sessions
   ADD COLUMN IF NOT EXISTS verification_code TEXT,
   ADD COLUMN IF NOT EXISTS verification_code_expires_at TIMESTAMP WITH TIME ZONE,
   ADD COLUMN IF NOT EXISTS marketing_consent BOOLEAN DEFAULT FALSE,
-  ADD COLUMN IF NOT EXISTS demographic_data JSONB;
+  ADD COLUMN IF NOT EXISTS demographic_data JSONB,
+  ADD COLUMN IF NOT EXISTS verification_attempts INT DEFAULT 0,
+  ADD COLUMN IF NOT EXISTS verification_locked_until TIMESTAMP WITH TIME ZONE;
 
 ALTER TABLE quiz_answers
   ADD COLUMN IF NOT EXISTS type TEXT;

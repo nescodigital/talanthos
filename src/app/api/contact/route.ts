@@ -1,10 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { rateLimit } from "@/lib/rate-limit";
 
 const resendApiKey = process.env.RESEND_API_KEY;
 const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
 export async function POST(req: NextRequest) {
+  // Rate limiting
+  const limit = rateLimit(req, { max: 5, windowMs: 60_000, keyPrefix: "contact" });
+  if (!limit.success) {
+    return NextResponse.json(
+      { error: "Too many requests. Please try again later." },
+      { status: 429 }
+    );
+  }
+
   try {
     const body = await req.json();
     const { name, email, message } = body;
@@ -22,6 +32,13 @@ export async function POST(req: NextRequest) {
         { error: "Please enter a valid email address." },
         { status: 400 }
       );
+    }
+
+    if (typeof name !== "string" || name.length > 100) {
+      return NextResponse.json({ error: "Name too long." }, { status: 400 });
+    }
+    if (typeof message !== "string" || message.length > 2000) {
+      return NextResponse.json({ error: "Message too long." }, { status: 400 });
     }
 
     if (!resend) {

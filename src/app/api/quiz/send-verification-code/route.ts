@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getServiceRoleClient } from "@/lib/supabase/client";
 import { Resend } from "resend";
+import { rateLimit } from "@/lib/rate-limit";
 
 function generateCode(): string {
   return Math.floor(100000 + Math.random() * 900000).toString();
@@ -11,7 +12,18 @@ function getResend() {
   return key ? new Resend(key) : null;
 }
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export async function POST(req: NextRequest) {
+  // Rate limiting: max 3 code sends per minute per IP
+  const limit = rateLimit(req, { max: 3, windowMs: 60_000, keyPrefix: "verify-send" });
+  if (!limit.success) {
+    return NextResponse.json(
+      { error: "Too many requests. Please try again later." },
+      { status: 429 }
+    );
+  }
+
   try {
     const body = await req.json();
     const { session_id, email } = body;
@@ -23,7 +35,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    if (!email.includes("@") || email.length > 100) {
+    if (!EMAIL_REGEX.test(email) || email.length > 100) {
       return NextResponse.json(
         { error: "Invalid email address" },
         { status: 400 }
@@ -40,6 +52,8 @@ export async function POST(req: NextRequest) {
         email,
         verification_code: code,
         verification_code_expires_at: expiresAt,
+        verification_attempts: 0,
+        verification_locked_until: null,
       })
       .eq("id", session_id);
 

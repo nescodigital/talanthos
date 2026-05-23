@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { Resend } from "resend";
 import { getServiceRoleClient } from "@/lib/supabase/client";
+import { rateLimit } from "@/lib/rate-limit";
 
 const resendApiKey = process.env.RESEND_API_KEY;
 const resend = resendApiKey ? new Resend(resendApiKey) : null;
@@ -15,6 +16,15 @@ const leadSchema = z.object({
 });
 
 export async function POST(req: NextRequest) {
+  // Rate limiting
+  const limit = rateLimit(req, { max: 10, windowMs: 60_000, keyPrefix: "leads" });
+  if (!limit.success) {
+    return NextResponse.json(
+      { error: "Too many requests. Please try again later." },
+      { status: 429 }
+    );
+  }
+
   try {
     const body = await req.json();
     const parsed = leadSchema.safeParse(body);

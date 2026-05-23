@@ -1,10 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import { getServiceRoleClient } from "@/lib/supabase/client";
+import { rateLimit } from "@/lib/rate-limit";
 
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 
 export async function POST(req: NextRequest) {
+  const limit = rateLimit(req, { max: 10, windowMs: 60_000, keyPrefix: "checkout" });
+  if (!limit.success) {
+    return NextResponse.json(
+      { error: "Too many requests. Please try again later." },
+      { status: 429 }
+    );
+  }
+
   try {
     if (!stripeSecretKey) {
       return NextResponse.json(

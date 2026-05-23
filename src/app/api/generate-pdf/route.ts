@@ -3,13 +3,22 @@ import { getServiceRoleClient } from "@/lib/supabase/client";
 import { buildReportData } from "@/lib/pdf/data-builder";
 import { renderReportHtml } from "@/lib/pdf/templates/report-template";
 import { generatePdf } from "@/lib/pdf/generator";
+import { rateLimit } from "@/lib/rate-limit";
 
 export async function POST(req: NextRequest) {
+  const limit = rateLimit(req, { max: 5, windowMs: 60_000, keyPrefix: "generate-pdf" });
+  if (!limit.success) {
+    return NextResponse.json(
+      { error: "Too many requests. Please try again later." },
+      { status: 429 }
+    );
+  }
+
   try {
     const body = await req.json();
     const { session_id } = body;
 
-    if (!session_id) {
+    if (!session_id || typeof session_id !== "string") {
       return NextResponse.json({ error: "session_id is required" }, { status: 400 });
     }
 

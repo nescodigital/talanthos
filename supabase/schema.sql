@@ -132,3 +132,7 @@ ALTER TABLE quiz_sessions ADD COLUMN IF NOT EXISTS email_verified BOOLEAN DEFAUL
 ALTER TABLE quiz_sessions ADD COLUMN IF NOT EXISTS verification_code TEXT;
 ALTER TABLE quiz_sessions ADD COLUMN IF NOT EXISTS verification_code_expires_at TIMESTAMP WITH TIME ZONE;
 ALTER TABLE quiz_sessions ADD COLUMN IF NOT EXISTS marketing_consent BOOLEAN DEFAULT FALSE;
+
+-- Security columns (added May 2026)
+ALTER TABLE quiz_sessions ADD COLUMN IF NOT EXISTS verification_attempts INT DEFAULT 0;
+ALTER TABLE quiz_sessions ADD COLUMN IF NOT EXISTS verification_locked_until TIMESTAMP WITH TIME ZONE;

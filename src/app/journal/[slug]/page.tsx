@@ -8,6 +8,7 @@ import { BlurFade } from "@/components/ui/blur-fade";
 import { getArticleBySlug, getAllArticles } from "@/lib/journal/articles";
 import { ArticleSchema } from "@/lib/seo/json-ld";
 import Link from "next/link";
+import DOMPurify from "isomorphic-dompurify";
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>;
@@ -82,6 +83,15 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const prevArticle = currentIndex > 0 ? allArticles[currentIndex - 1] : null;
   const nextArticle = currentIndex < allArticles.length - 1 ? allArticles[currentIndex + 1] : null;
 
+  // Sanitize HTML content before rendering
+  const sanitizedContent = DOMPurify.sanitize(article.content, {
+    ALLOWED_TAGS: [
+      "p", "br", "strong", "em", "a", "h1", "h2", "h3", "h4", "h5", "h6",
+      "ul", "ol", "li", "blockquote", "pre", "code", "span", "div", "hr",
+    ],
+    ALLOWED_ATTR: ["href", "target", "rel", "style", "class"],
+  });
+
   return (
     <div className="tx-page">
       <ArticleSchema
@@ -149,7 +159,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <BlurFade delay={0.1}>
               <div
                 className="article-body"
-                dangerouslySetInnerHTML={{ __html: article.content }}
+                dangerouslySetInnerHTML={{ __html: sanitizedContent }}
                 style={{
                   fontSize: 16,
                   lineHeight: 1.7,
