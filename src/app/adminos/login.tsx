@@ -19,25 +19,12 @@ export default function AdminLogin({ onLogin, error, loading }: AdminLoginProps)
         alignItems: "center",
         justifyContent: "center",
         background: "#f3ece0",
+        fontFamily: "'Inter', system-ui, sans-serif",
         padding: 24,
       }}
     >
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          onLogin(password);
-        }}
-        style={{
-          width: "100%",
-          maxWidth: 360,
-          background: "#fff",
-          borderRadius: 16,
-          padding: "40px 32px",
-          boxShadow: "0 4px 24px rgba(28,26,20,0.08)",
-          border: "1px solid rgba(28,26,20,0.08)",
-        }}
-      >
-        <div style={{ textAlign: "center", marginBottom: 32 }}>
+      <div style={{ width: "100%", maxWidth: 380 }}>
+        <div style={{ marginBottom: 32, textAlign: "center" }}>
           <div
             style={{
               fontFamily: "Georgia, serif",
@@ -50,79 +37,92 @@ export default function AdminLogin({ onLogin, error, loading }: AdminLoginProps)
           >
             Talanthos
           </div>
-          <div
-            style={{
-              fontFamily: "monospace",
-              fontSize: 10,
-              letterSpacing: "0.12em",
-              color: "#b88a4a",
-              textTransform: "uppercase",
-            }}
-          >
-            Admin
-          </div>
+          <div style={{ fontSize: 13, color: "#7a7359" }}>Admin Panel</div>
         </div>
 
-        <div style={{ marginBottom: 16 }}>
-          <label
-            style={{
-              display: "block",
-              fontSize: 11,
-              fontWeight: 600,
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-              color: "#7a7359",
-              marginBottom: 8,
-            }}
-          >
-            Password
-          </label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            autoFocus
-            style={{
-              width: "100%",
-              padding: "12px 14px",
-              fontSize: 15,
-              borderRadius: 10,
-              border: "1px solid #d4c8b0",
-              background: "#faf8f4",
-              color: "#1c1a14",
-              outline: "none",
-              fontFamily: "inherit",
-            }}
-            placeholder="Enter admin password"
-          />
-        </div>
-
-        {error && (
-          <p style={{ color: "#c45c4a", fontSize: 13, marginBottom: 16, textAlign: "center" }}>
-            {error}
-          </p>
-        )}
-
-        <button
-          type="submit"
-          disabled={loading || !password}
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            onLogin(password);
+          }}
           style={{
-            width: "100%",
-            padding: "14px",
-            fontSize: 14,
-            fontWeight: 600,
-            borderRadius: 10,
-            border: "none",
-            background: "#1c1a14",
-            color: "#f3ece0",
-            cursor: "pointer",
-            opacity: loading || !password ? 0.5 : 1,
-            transition: "opacity 0.2s",
+            background: "#fff",
+            border: "1px solid rgba(28,26,20,0.08)",
+            borderRadius: 16,
+            padding: "28px 24px",
           }}
         >
-          {loading ? "Verifying..." : "Enter Dashboard"}
-        </button>
-      </form>
+          {error && (
+            <div
+              style={{
+                marginBottom: 16,
+                padding: "10px 14px",
+                background: "rgba(196,92,74,0.08)",
+                border: "1px solid rgba(196,92,74,0.2)",
+                borderRadius: 8,
+                fontSize: 13,
+                color: "#c45c4a",
+              }}
+            >
+              {error}
+            </div>
+          )}
+
+          <div style={{ marginBottom: 16 }}>
+            <label
+              style={{
+                display: "block",
+                fontSize: 11,
+                color: "#7a7359",
+                textTransform: "uppercase",
+                letterSpacing: 1,
+                marginBottom: 8,
+                fontWeight: 600,
+              }}
+            >
+              Password
+            </label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              autoFocus
+              style={{
+                width: "100%",
+                padding: "11px 14px",
+                fontSize: 14,
+                borderRadius: 10,
+                border: "1px solid rgba(28,26,20,0.12)",
+                background: "#faf8f4",
+                color: "#1c1a14",
+                outline: "none",
+                transition: "border-color 0.15s",
+              }}
+              placeholder="Enter admin password"
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={loading || !password}
+            style={{
+              width: "100%",
+              padding: "12px",
+              borderRadius: 10,
+              background: "#b88a4a",
+              color: "#fff",
+              border: "none",
+              fontWeight: 700,
+              fontSize: 14,
+              cursor: loading ? "default" : "pointer",
+              opacity: loading || !password ? 0.6 : 1,
+              transition: "opacity 0.15s",
+            }}
+          >
+            {loading ? "Verifying..." : "Enter Dashboard"}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
