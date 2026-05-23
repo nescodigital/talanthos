@@ -705,6 +705,21 @@ export default function AdminPage() {
             searchPlaceholder="Search name or email..."
           />
         )}
+
+        {tab === "emails" && (
+          <EmailSequencesTab
+            leads={leads}
+            sessions={sessions}
+            orders={orders}
+            sequences={emailSequences}
+            password={password}
+            preview={emailPreview}
+            onPreview={previewEmail}
+            onSend={sendSequenceEmail}
+            sendLoading={sendEmailLoading}
+            sendResult={sendEmailResult}
+          />
+        )}
       </main>
     </div>
   );
@@ -806,8 +821,110 @@ function DataTable({
   );
 }
 
+function getSegment(lead: any, allSessions: any[], allOrders: any[]): { name: string; color: string; steps: number } {
+  // Check if lead has a purchased order
+  const hasPurchased = allOrders.some((o) => o.email === lead.email && o.purchased === true);
+  if (hasPurchased) return { name: "advocate", color: "#5a7d5a", steps: 3 };
+
+  // Check session status
+  const session = allSessions.find((s) => s.id === lead.session_id);
+  if (session) {
+    if (session.status === "completed") return { name: "non_buyer", color: "#b88a4a", steps: 4 };
+    return { name: "abandoned_quiz", color: "#7a7a5a", steps: 3 };
+  }
+
+  return { name: "lead_only", color: "#9c9689", steps: 3 };
+}
+
+function EmailFlowCircles({
+  segment,
+  currentSequence,
+  currentStep,
+}: {
+  segment: { name: string; steps: number };
+  currentSequence: string | null;
+  currentStep: number;
+}) {
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+      {Array.from({ length: segment.steps }, (_, i) => {
+        const isSent =
+          currentSequence === segment.name && currentStep > i;
+        const isActive =
+          currentSequence === segment.name && currentStep === i;
+        return (
+          <div
+            key={i}
+            style={{
+              width: 28,
+              height: 28,
+              borderRadius: "50%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: 10,
+              fontWeight: 700,
+              background: isSent
+                ? "#5a7d5a"
+                : isActive
+                ? "#b88a4a"
+                : "#e5dfd4",
+              color: isSent || isActive ? "#fff" : "#7a7359",
+              border: isActive ? "2px solid #1c1a14" : "2px solid transparent",
+              transition: "all 0.2s",
+            }}
+            title={`Email ${i + 1}${isSent ? " — sent" : isActive ? " — next" : ""}`}
+          >
+            E{i + 1}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function SegmentBadge({ segment }: { segment: { name: string; color: string } }) {
+  const labels: Record<string, string> = {
+    advocate: "Paid",
+    non_buyer: "Completed",
+    abandoned_quiz: "Abandoned",
+    lead_only: "Lead Only",
+  };
+  return (
+    <span
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 4,
+        padding: "3px 10px",
+        borderRadius: 20,
+        fontSize: 10,
+        fontWeight: 700,
+        textTransform: "uppercase",
+        letterSpacing: "0.06em",
+        background: segment.color + "18",
+        color: segment.color,
+        border: `1px solid ${segment.color}33`,
+      }}
+    >
+      <span
+        style={{
+          width: 6,
+          height: 6,
+          borderRadius: "50%",
+          background: segment.color,
+          display: "inline-block",
+        }}
+      />
+      {labels[segment.name] || segment.name}
+    </span>
+  );
+}
+
 function EmailSequencesTab({
   leads,
+  sessions,
+  orders,
   sequences,
   password,
   preview,
@@ -817,6 +934,8 @@ function EmailSequencesTab({
   sendResult,
 }: {
   leads: any[];
+  sessions: any[];
+  orders: any[];
   sequences: any[];
   password: string;
   preview: any;
@@ -864,7 +983,7 @@ function EmailSequencesTab({
 
       {/* Step selector */}
       {seqInfo && (
-        <div style={{ display: "flex", gap: 6, marginBottom: 16, flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: 6, marginBottom: 16, flexWrap: "wrap", alignItems: "center" }}>
           {Array.from({ length: seqInfo.steps }, (_, i) => (
             <button
               key={i}
@@ -928,7 +1047,7 @@ function EmailSequencesTab({
         </div>
       )}
 
-      {/* Leads table with send buttons */}
+      {/* Leads table with segment badges + flow circles */}
       <div style={{ marginBottom: 12 }}>
         <input
           type="text"
@@ -953,11 +1072,11 @@ function EmailSequencesTab({
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
           <thead>
             <tr style={{ borderBottom: `1px solid ${BORDER}` }}>
-              {["Email", "Name", "Type", "Sequence", "Step", "Last Sent", "Action"].map((h) => (
+              {["Email", "Name", "Type", "Segment", "Flow", "Last Sent", "Action"].map((h) => (
                 <th
                   key={h}
                   style={{
-                    textAlign: "left",
+                    textAlign: h === "Flow" ? "center" : "left",
                     padding: "10px 12px",
                     color: TXT_SUB,
                     fontWeight: 600,
@@ -981,6 +1100,7 @@ function EmailSequencesTab({
               </tr>
             )}
             {filteredLeads.map((lead, i) => {
+              const segment = getSegment(lead, sessions, orders);
               const sendKey = `${lead.id}-${selectedSequence}-${selectedStep}`;
               const isLoading = sendLoading === sendKey;
               const result = sendResult?.key === sendKey ? sendResult : null;
@@ -997,11 +1117,15 @@ function EmailSequencesTab({
                   <td style={{ padding: "10px 12px", color: ACCENT, fontWeight: 600, textTransform: "capitalize" }}>
                     {lead.primary_type || "—"}
                   </td>
-                  <td style={{ padding: "10px 12px", color: TXT_SUB, fontSize: 12 }}>
-                    {lead.email_sequence || "—"}
+                  <td style={{ padding: "10px 12px" }}>
+                    <SegmentBadge segment={segment} />
                   </td>
-                  <td style={{ padding: "10px 12px", color: TXT_SUB, fontSize: 12 }}>
-                    {lead.email_step ?? 0}
+                  <td style={{ padding: "10px 12px", textAlign: "center" }}>
+                    <EmailFlowCircles
+                      segment={segment}
+                      currentSequence={lead.email_sequence}
+                      currentStep={lead.email_step ?? 0}
+                    />
                   </td>
                   <td style={{ padding: "10px 12px", color: TXT_SUB, fontSize: 12, whiteSpace: "nowrap" }}>
                     {lead.last_email_at ? new Date(lead.last_email_at).toLocaleDateString() : "—"}
