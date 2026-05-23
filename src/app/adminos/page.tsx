@@ -118,7 +118,7 @@ export default function AdminPage() {
     if (res.ok) {
       const data = await res.json();
       const template = data.templates[step];
-      setEmailPreview({ sequence, step, ...template });
+      setEmailPreview({ sequence, step, delayLabels: data.delayLabels, ...template });
     }
   }
 
@@ -836,49 +836,69 @@ function getSegment(lead: any, allSessions: any[], allOrders: any[]): { name: st
   return { name: "lead_only", color: "#9c9689", steps: 3 };
 }
 
+function formatDelay(hours: number): string {
+  if (hours === 0) return "now";
+  if (hours < 24) return `${hours}h`;
+  return `${Math.round(hours / 24)}d`;
+}
+
 function EmailFlowCircles({
-  segment,
-  currentSequence,
-  currentStep,
+  sequenceName,
+  sequenceSteps,
+  delayLabels,
+  leadSequence,
+  leadStep,
 }: {
-  segment: { name: string; steps: number };
-  currentSequence: string | null;
-  currentStep: number;
+  sequenceName: string;
+  sequenceSteps: number;
+  delayLabels: string[];
+  leadSequence: string | null;
+  leadStep: number;
 }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-      {Array.from({ length: segment.steps }, (_, i) => {
-        const isSent =
-          currentSequence === segment.name && currentStep > i;
-        const isActive =
-          currentSequence === segment.name && currentStep === i;
-        return (
-          <div
-            key={i}
-            style={{
-              width: 28,
-              height: 28,
-              borderRadius: "50%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 10,
-              fontWeight: 700,
-              background: isSent
-                ? "#5a7d5a"
-                : isActive
-                ? "#b88a4a"
-                : "#e5dfd4",
-              color: isSent || isActive ? "#fff" : "#7a7359",
-              border: isActive ? "2px solid #1c1a14" : "2px solid transparent",
-              transition: "all 0.2s",
-            }}
-            title={`Email ${i + 1}${isSent ? " — sent" : isActive ? " — next" : ""}`}
-          >
-            E{i + 1}
-          </div>
-        );
-      })}
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+        {Array.from({ length: sequenceSteps }, (_, i) => {
+          const isSent = leadSequence === sequenceName && leadStep > i;
+          const isActive = leadSequence === sequenceName && leadStep === i;
+          const isOtherSeq = leadSequence && leadSequence !== sequenceName;
+          return (
+            <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
+              <div
+                style={{
+                  width: 28,
+                  height: 28,
+                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: 10,
+                  fontWeight: 700,
+                  background: isSent
+                    ? "#5a7d5a"
+                    : isActive
+                    ? "#b88a4a"
+                    : isOtherSeq
+                    ? "#d4c8b0"
+                    : "#e5dfd4",
+                  color: isSent || isActive ? "#fff" : isOtherSeq ? "#9c9689" : "#7a7359",
+                  border: isActive ? "2px solid #1c1a14" : "2px solid transparent",
+                  transition: "all 0.2s",
+                  opacity: isOtherSeq ? 0.5 : 1,
+                }}
+                title={`Email ${i + 1}${isSent ? " — sent" : isActive ? " — next" : isOtherSeq ? " — different sequence" : ""}`}
+              >
+                E{i + 1}
+              </div>
+              {delayLabels[i] && (
+                <span style={{ fontSize: 8, color: "#9c9689", letterSpacing: "0.04em", whiteSpace: "nowrap" }}>
+                  +{delayLabels[i]}
+                </span>
+              )}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
@@ -1122,9 +1142,14 @@ function EmailSequencesTab({
                   </td>
                   <td style={{ padding: "10px 12px", textAlign: "center" }}>
                     <EmailFlowCircles
-                      segment={segment}
-                      currentSequence={lead.email_sequence}
-                      currentStep={lead.email_step ?? 0}
+                      sequenceName={selectedSequence}
+                      sequenceSteps={seqInfo?.steps ?? 3}
+                      delayLabels={
+                        preview?.delayLabels ??
+                        Array.from({ length: seqInfo?.steps ?? 3 }, () => "")
+                      }
+                      leadSequence={lead.email_sequence}
+                      leadStep={lead.email_step ?? 0}
                     />
                   </td>
                   <td style={{ padding: "10px 12px", color: TXT_SUB, fontSize: 12, whiteSpace: "nowrap" }}>

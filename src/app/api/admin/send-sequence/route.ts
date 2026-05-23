@@ -134,7 +134,13 @@ export async function GET(req: NextRequest) {
       subjectPreview: typeof t.subject === "string" ? t.subject : "(dynamic)",
     }));
 
-    return NextResponse.json({ sequence, templates });
+    const delayLabels = EMAIL_SEQUENCES[sequence].map((t) => {
+      if (t.delayHours === 0) return "now";
+      if (t.delayHours < 24) return `${t.delayHours}h`;
+      return `${Math.round(t.delayHours / 24)}d`;
+    });
+
+    return NextResponse.json({ sequence, templates, delayLabels });
   } catch (err: any) {
     console.error("[SEQUENCE LIST]", err);
     return NextResponse.json({ error: err.message }, { status: 500 });
