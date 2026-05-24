@@ -40,7 +40,7 @@ const nextConfig: NextConfig = {
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "img-src 'self' data: https:",
               "font-src 'self' https://fonts.gstatic.com",
-              "connect-src 'self' https://*.supabase.co https://api.stripe.com https://www.google-analytics.com https://*.clarity.ms https://accounts.google.com",
+              "connect-src 'self' https://*.supabase.co https://api.stripe.com https://www.google-analytics.com https://*.google-analytics.com https://*.clarity.ms https://accounts.google.com",
               "frame-src https://js.stripe.com https://hooks.stripe.com https://accounts.google.com",
               "object-src 'none'",
               "base-uri 'self'",
