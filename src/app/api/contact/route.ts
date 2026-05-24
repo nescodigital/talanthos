@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { rateLimit } from "@/lib/rate-limit";
+import { getServiceRoleClient } from "@/lib/supabase/client";
 
 const resendApiKey = process.env.RESEND_API_KEY;
 const resend = resendApiKey ? new Resend(resendApiKey) : null;
@@ -41,6 +42,21 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Message too long." }, { status: 400 });
     }
 
+    // ── Store in database first ──
+    const supabase = getServiceRoleClient();
+    const ipAddress = req.headers.get("x-forwarded-for") || null;
+
+    const { data: dbMessage, error: dbError } = await supabase
+      .from("contact_messages")
+      .insert({ name, email, message, ip_address: ipAddress })
+      .select("id")
+      .single();
+
+    if (dbError) {
+      console.error("[CONTACT DB ERROR]", dbError);
+      // Continue to send email even if DB insert fails
+    }
+
     if (!resend) {
       return NextResponse.json(
         { error: "Email service not configured." },
@@ -69,6 +85,14 @@ export async function POST(req: NextRequest) {
         { error: "Failed to send message. Please try again." },
         { status: 500 }
       );
+    }
+
+    // Update resend_id on the stored message
+    if (dbMessage?.id && data?.id) {
+      await supabase
+        .from("contact_messages")
+        .update({ resend_id: data.id })
+        .eq("id", dbMessage.id);
     }
 
     return NextResponse.json({ success: true, id: data?.id });

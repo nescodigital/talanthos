@@ -12,7 +12,7 @@ import {
 import AdminLogin from "./login";
 
 type Period = "1" | "7" | "30" | "90";
-type Tab = "overview" | "leads" | "orders" | "sessions" | "emails";
+type Tab = "overview" | "leads" | "orders" | "sessions" | "emails" | "messages";
 
 interface Stats {
   totalSessions: number;
@@ -48,6 +48,7 @@ export default function AdminPage() {
   const [emailPreview, setEmailPreview] = useState<any>(null);
   const [sendEmailLoading, setSendEmailLoading] = useState<string | null>(null);
   const [sendEmailResult, setSendEmailResult] = useState<any>(null);
+  const [contactMessages, setContactMessages] = useState<any[]>([]);
 
   useEffect(() => {
     const saved = localStorage.getItem("admin_pw_talanthos");
@@ -95,6 +96,7 @@ export default function AdminPage() {
       if (ordersRes.ok) setOrders((await ordersRes.json()).orders);
       if (sessionsRes.ok) setSessions((await sessionsRes.json()).sessions);
       await fetchEmailSequences(pw);
+      await fetchContactMessages(pw);
     } catch (err) {
       console.error("[admin fetch]", err);
     }
@@ -108,6 +110,37 @@ export default function AdminPage() {
       if (res.ok) setEmailSequences((await res.json()).sequences);
     } catch (err) {
       console.error("[email sequences]", err);
+    }
+  }
+
+  async function fetchContactMessages(pw: string) {
+    try {
+      const res = await fetch("/api/admin/contact-messages", {
+        headers: { "x-admin-password": pw },
+      });
+      if (res.ok) setContactMessages((await res.json()).messages);
+    } catch (err) {
+      console.error("[contact messages]", err);
+    }
+  }
+
+  async function updateMessageStatus(id: string, status: string) {
+    try {
+      const res = await fetch("/api/admin/contact-messages", {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          "x-admin-password": password,
+        },
+        body: JSON.stringify({ id, status }),
+      });
+      if (res.ok) {
+        setContactMessages((prev) =>
+          prev.map((m) => (m.id === id ? { ...m, status } : m))
+        );
+      }
+    } catch (err) {
+      console.error("[update message status]", err);
     }
   }
 
@@ -301,6 +334,7 @@ export default function AdminPage() {
           { key: "orders" as Tab, label: `Orders (${orders.length})` },
           { key: "sessions" as Tab, label: `Sessions (${sessions.length})` },
           { key: "emails" as Tab, label: "Email Sequences" },
+          { key: "messages" as Tab, label: `Messages (${contactMessages.filter((m) => m.status === "unread").length})` },
         ]).map((t) => (
           <button
             key={t.key}
@@ -718,6 +752,13 @@ export default function AdminPage() {
             onSend={sendSequenceEmail}
             sendLoading={sendEmailLoading}
             sendResult={sendEmailResult}
+          />
+        )}
+
+        {tab === "messages" && (
+          <MessagesTab
+            messages={contactMessages}
+            onUpdateStatus={updateMessageStatus}
           />
         )}
       </main>
@@ -1185,6 +1226,185 @@ function EmailSequencesTab({
                         {result.success ? "✓ Sent" : `✗ ${result.error || "Failed"}`}
                       </span>
                     )}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+function MessagesTab({
+  messages,
+  onUpdateStatus,
+}: {
+  messages: any[];
+  onUpdateStatus: (id: string, status: string) => void;
+}) {
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [search, setSearch] = useState("");
+
+  const filtered = messages.filter((m) =>
+    search
+      ? m.name?.toLowerCase().includes(search.toLowerCase()) ||
+        m.email?.toLowerCase().includes(search.toLowerCase()) ||
+        m.message?.toLowerCase().includes(search.toLowerCase())
+      : true
+  );
+
+  const statusColor: Record<string, string> = {
+    unread: ACCENT,
+    read: TXT_SUB,
+    replied: "#5a7d5a",
+  };
+
+  return (
+    <div>
+      <div style={{ marginBottom: 16 }}>
+        <input
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Search messages..."
+          style={{
+            width: "100%",
+            maxWidth: 320,
+            padding: "10px 14px",
+            fontSize: 14,
+            borderRadius: 10,
+            border: `1px solid ${BORDER}`,
+            background: CARD,
+            color: TXT,
+            outline: "none",
+            fontFamily: "inherit",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          background: CARD,
+          borderRadius: 12,
+          padding: 16,
+          border: `1px solid ${BORDER}`,
+          overflowX: "auto",
+        }}
+      >
+        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
+          <thead>
+            <tr style={{ borderBottom: `1px solid ${BORDER}` }}>
+              {["Name", "Email", "Message", "Status", "Date", "Action"].map((h) => (
+                <th
+                  key={h}
+                  style={{
+                    textAlign: "left",
+                    padding: "10px 12px",
+                    color: TXT_SUB,
+                    fontWeight: 600,
+                    fontSize: 10,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.06em",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {filtered.length === 0 && (
+              <tr>
+                <td colSpan={6} style={{ padding: 32, textAlign: "center", color: TXT_SUB }}>
+                  No messages found
+                </td>
+              </tr>
+            )}
+            {filtered.map((m, i) => {
+              const isExpanded = expandedId === m.id;
+              return (
+                <tr
+                  key={m.id}
+                  onClick={() => setExpandedId(isExpanded ? null : m.id)}
+                  style={{
+                    borderBottom: `1px solid ${BORDER}`,
+                    background: i % 2 === 0 ? "transparent" : "rgba(28,26,20,0.02)",
+                    cursor: "pointer",
+                  }}
+                >
+                  <td style={{ padding: "10px 12px", color: TXT, fontWeight: m.status === "unread" ? 600 : 400 }}>
+                    {m.name}
+                  </td>
+                  <td style={{ padding: "10px 12px", color: TXT_SUB }}>{m.email}</td>
+                  <td style={{ padding: "10px 12px", color: TXT_MID, maxWidth: 300 }}>
+                    <div style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: isExpanded ? "normal" : "nowrap" }}>
+                      {m.message}
+                    </div>
+                  </td>
+                  <td style={{ padding: "10px 12px" }}>
+                    <span
+                      style={{
+                        fontSize: 10,
+                        fontWeight: 700,
+                        textTransform: "uppercase",
+                        letterSpacing: "0.06em",
+                        color: statusColor[m.status] || TXT_SUB,
+                        background: `${statusColor[m.status] || TXT_SUB}15`,
+                        padding: "3px 8px",
+                        borderRadius: 6,
+                      }}
+                    >
+                      {m.status}
+                    </span>
+                  </td>
+                  <td style={{ padding: "10px 12px", color: TXT_SUB, fontSize: 12, whiteSpace: "nowrap" }}>
+                    {new Date(m.created_at).toLocaleDateString()}
+                  </td>
+                  <td style={{ padding: "10px 12px" }}>
+                    <div style={{ display: "flex", gap: 6 }}>
+                      {m.status === "unread" && (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onUpdateStatus(m.id, "read");
+                          }}
+                          style={{
+                            padding: "4px 10px",
+                            fontSize: 11,
+                            fontWeight: 600,
+                            borderRadius: 6,
+                            border: "none",
+                            background: "#1c1a14",
+                            color: "#f3ece0",
+                            cursor: "pointer",
+                          }}
+                        >
+                          Mark read
+                        </button>
+                      )}
+                      {m.status !== "replied" && (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onUpdateStatus(m.id, "replied");
+                          }}
+                          style={{
+                            padding: "4px 10px",
+                            fontSize: 11,
+                            fontWeight: 600,
+                            borderRadius: 6,
+                            border: `1px solid ${BORDER}`,
+                            background: CARD,
+                            color: TXT_MID,
+                            cursor: "pointer",
+                          }}
+                        >
+                          Replied
+                        </button>
+                      )}
+                    </div>
                   </td>
                 </tr>
               );

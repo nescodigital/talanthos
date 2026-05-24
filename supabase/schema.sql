@@ -142,3 +142,20 @@ ALTER TABLE leads ADD COLUMN IF NOT EXISTS email_sequence TEXT;
 ALTER TABLE leads ADD COLUMN IF NOT EXISTS email_step INT DEFAULT 0;
 ALTER TABLE leads ADD COLUMN IF NOT EXISTS last_email_at TIMESTAMP WITH TIME ZONE;
 ALTER TABLE leads ADD COLUMN IF NOT EXISTS email_sequence_status TEXT DEFAULT 'active';
+
+-- Contact messages (added May 2026)
+CREATE TABLE IF NOT EXISTS contact_messages (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  message TEXT NOT NULL,
+  status TEXT DEFAULT 'unread',
+  resend_id TEXT,
+  ip_address TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_contact_messages_created ON contact_messages(created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_contact_messages_status ON contact_messages(status);
+
+ALTER TABLE contact_messages ENABLE ROW LEVEL SECURITY;
