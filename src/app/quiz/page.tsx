@@ -167,43 +167,46 @@ function QuizIntroContent() {
   // ── Google Identity Services ──
   useEffect(() => {
     if (typeof window === "undefined") return;
+
+    function initGoogleButton() {
+      const g = (window as any).google;
+      if (!g?.accounts?.id) {
+        // Retry in 100ms if Google API not ready yet
+        setTimeout(initGoogleButton, 100);
+        return;
+      }
+      g.accounts.id.initialize({
+        client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!,
+        callback: handleGoogleResponse,
+        auto_select: false,
+        cancel_on_tap_outside: true,
+      });
+      const btn = document.getElementById("google-signin-button");
+      if (btn) {
+        btn.innerHTML = "";
+        g.accounts.id.renderButton(btn, {
+          theme: "outline",
+          size: "large",
+          width: Math.max(btn.clientWidth, 320),
+          text: "continue_with",
+          shape: "pill",
+        });
+      }
+    }
+
     if ((window as any).google) {
-      setGoogleReady(true);
+      initGoogleButton();
       return;
     }
+
     const script = document.createElement("script");
     script.src = "https://accounts.google.com/gsi/client";
     script.async = true;
     script.defer = true;
-    script.onload = () => setGoogleReady(true);
+    script.onload = initGoogleButton;
     document.body.appendChild(script);
-    return () => { document.body.removeChild(script); };
+    return () => { if (script.parentNode) script.parentNode.removeChild(script); };
   }, []);
-
-  useEffect(() => {
-    if (!googleReady) return;
-    const g = (window as any).google;
-    if (!g?.accounts?.id) return;
-
-    g.accounts.id.initialize({
-      client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!,
-      callback: handleGoogleResponse,
-      auto_select: false,
-      cancel_on_tap_outside: true,
-    });
-
-    const btn = document.getElementById("google-signin-button");
-    if (btn) {
-      btn.innerHTML = "";
-      g.accounts.id.renderButton(btn, {
-        theme: "outline",
-        size: "large",
-        width: btn.clientWidth || 320,
-        text: "continue_with",
-        shape: "pill",
-      });
-    }
-  }, [googleReady]);
 
   const handleGoogleResponse = async (response: any) => {
     setIsSubmitting(true);
