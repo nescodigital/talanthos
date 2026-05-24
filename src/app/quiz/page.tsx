@@ -187,7 +187,7 @@ function QuizIntroContent() {
         g.accounts.id.renderButton(btn, {
           theme: "outline",
           size: "large",
-          width: Math.max(btn.clientWidth, 320),
+          width: 400,
           text: "continue_with",
           shape: "pill",
         });
@@ -337,19 +337,6 @@ function QuizIntroContent() {
                   />
                 </div>
 
-                {/* Email */}
-                <div style={{ position: "relative" }}>
-                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--muted)]" />
-                  <input
-                    type="email"
-                    placeholder="you@example.com"
-                    value={email}
-                    onChange={(e) => { setEmail(e.target.value); setError(""); }}
-                    className="w-full rounded-full border border-[var(--rule-strong)] bg-[var(--bg)] py-3.5 pl-11 pr-5 text-[var(--ink)] placeholder-[var(--muted)]/50 outline-none transition-colors duration-200 focus:border-[var(--accent)] text-sm"
-                    style={{ fontFamily: "var(--sans)" }}
-                  />
-                </div>
-
                 {/* Consent */}
                 <label className="flex items-start gap-3 text-sm text-[var(--muted)] text-left">
                   <input
@@ -361,7 +348,7 @@ function QuizIntroContent() {
                   <span>I agree to receive my report and occasional biblical finance insights from Talanthos.</span>
                 </label>
 
-                {/* Google Sign In */}
+                {/* Google Sign In — first and full width */}
                 {!codeSent && (
                   <>
                     <div id="google-signin-button" style={{ width: "100%", minHeight: 44 }} />
@@ -371,6 +358,21 @@ function QuizIntroContent() {
                       <div style={{ flex: 1, height: 1, background: "var(--rule)" }} />
                     </div>
                   </>
+                )}
+
+                {/* Email */}
+                {!codeSent && (
+                  <div style={{ position: "relative" }}>
+                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--muted)]" />
+                    <input
+                      type="email"
+                      placeholder="you@example.com"
+                      value={email}
+                      onChange={(e) => { setEmail(e.target.value); setError(""); }}
+                      className="w-full rounded-full border border-[var(--rule-strong)] bg-[var(--bg)] py-3.5 pl-11 pr-5 text-[var(--ink)] placeholder-[var(--muted)]/50 outline-none transition-colors duration-200 focus:border-[var(--accent)] text-sm"
+                      style={{ fontFamily: "var(--sans)" }}
+                    />
+                  </div>
                 )}
 
                 {/* Send code button */}
