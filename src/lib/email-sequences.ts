@@ -1,13 +1,19 @@
 /**
- * Email sequences for Talanthos — written in the style of Alex Hormozi.
- * 
+ * Email sequences for Talanthos — Hormozi-style copy framed through
+ * the biblical mirror of James 1:23-25.
+ *
+ * Core theme: "Anyone who listens to the word but does not do what it says
+ * is like someone who looks at his face in a mirror and, after looking at
+ * himself, goes away and immediately forgets what he looks like."
+ *
  * Principles:
  * - One idea per email
  * - Short paragraphs (1-2 sentences max)
  * - Bold the key points
  * - Single CTA
  * - No fluff. No explanations. Assume intelligence.
- * - Subject lines are promises, not questions.
+ * - Pain first. Pleasure second. Identity always.
+ * - Every email asks: "What does it cost you to do nothing?"
  */
 
 import { BiblicalType, BIBLICAL_TYPES } from "./quiz/types";
@@ -64,29 +70,40 @@ function htmlWrapper(title: string, content: string): string {
 // ─────────────────────────────────────────────────────────────
 // SEQUENCE 1: ABANDONED QUIZ
 // Trigger: session started, not completed
+// Theme: You looked in the mirror. Then you walked away.
 // ─────────────────────────────────────────────────────────────
 
 const ABANDONED_QUIZ_TEMPLATES: EmailTemplate[] = [
-  // Email 1: 30 min after start
+  // Email 1: immediately after abandonment
   {
     delayHours: 0,
-    subject: "You started something",
+    subject: "You looked in the mirror. Then you walked away.",
     text: (ctx) =>
       `${greeting(ctx)}\n\n` +
-      `You started the Biblical Money Type assessment 30 minutes ago.\n\n` +
-      `You have 9 questions left. Less time than it takes to drink a coffee.\n\n` +
-      `**Most people never get clarity on how God wired them with money.**\n\n` +
-      `You were 60 seconds away from it.\n\n` +
+      `You started the Biblical Money Type assessment.\n\n` +
+      `You saw your reflection starting to form.\n\n` +
+      `**Then you walked away.**\n\n` +
+      `James 1:23 says the man who hears the word but does not do it is like someone who looks in a mirror, then goes away and forgets what he looks like.\n\n` +
+      `You were 9 questions from clarity.\n\n` +
+      `Not generic financial advice.\nNot another budget template.\n\n` +
+      `The answer to why you make the money decisions you make.\n\n` +
+      `**Most people never look.**\n\n` +
+      `You looked. Don't be the one who forgets.\n\n` +
       `Finish here: ${ctx.quizUrl || "https://talanthos.com/quiz"}\n\n` +
       `— Talanthos`,
     html: (ctx) =>
       htmlWrapper(
-        "You started something",
+        "You looked in the mirror. Then you walked away.",
         `
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">You started the Biblical Money Type assessment 30 minutes ago.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">You have 9 questions left. Less time than it takes to drink a coffee.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>Most people never get clarity on how God wired them with money.</strong></p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 24px;">You were 60 seconds away from it.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">You started the Biblical Money Type assessment.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">You saw your reflection starting to form.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>Then you walked away.</strong></p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px; font-style: italic; color: #46412f;">James 1:23 says the man who hears the word but does not do it is like someone who looks in a mirror, then goes away and forgets what he looks like.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">You were 9 questions from clarity.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Not generic financial advice.<br>Not another budget template.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">The answer to why you make the money decisions you make.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>Most people never look.</strong></p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 24px;">You looked. Don't be the one who forgets.</p>
         <div style="text-align: center; margin: 24px 0;">
           <a href="${ctx.quizUrl || "https://talanthos.com/quiz"}" style="display: inline-block; background: #1c1a14; color: #f3ece0; font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 10px; text-decoration: none;">Finish My Assessment</a>
         </div>
@@ -96,27 +113,33 @@ const ABANDONED_QUIZ_TEMPLATES: EmailTemplate[] = [
   // Email 2: 24h after start
   {
     delayHours: 24,
-    subject: "3 minutes vs. 30 years",
+    subject: "In one year, you'll be the same person. Unless...",
     text: (ctx) =>
       `${greeting(ctx)}\n\n` +
-      `The assessment takes 3 minutes.\n\n` +
-      `The confusion it resolves lasts 30 years.\n\n` +
-      `**Most Christians never name their financial wiring.** They just copy what culture tells them. Save 15%. Give 10%. Avoid debt.\n\n` +
-      `Generic advice applied to the wrong wiring creates guilt, not growth.\n\n` +
-      `Your type — Visionary, Guardian, Giver, or Builder — already has a name. You just haven't met it yet.\n\n` +
-      `3 minutes: ${ctx.quizUrl || "https://talanthos.com/quiz"}\n\n` +
+      `Yesterday you started something.\n\n` +
+      `You didn't finish it.\n\n` +
+      `Here's what I know about tomorrow, next month, and next year:\n\n` +
+      `**If you don't change what you know about yourself, you won't change what you do with money.**\n\n` +
+      `Same anxiety before opening the bank app.\nSame guilt about giving — or not giving.\nSame conversations with your spouse that go nowhere.\n\n` +
+      `The assessment is 3 minutes.\n\n` +
+      `The clarity it creates rewires decades.\n\n` +
+      `But only if you finish.\n\n` +
+      `${ctx.quizUrl || "https://talanthos.com/quiz"}\n\n` +
       `— Talanthos`,
     html: (ctx) =>
       htmlWrapper(
-        "3 minutes vs. 30 years",
+        "In one year, you'll be the same person. Unless...",
         `
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">The assessment takes 3 minutes.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">The confusion it resolves lasts 30 years.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>Most Christians never name their financial wiring.</strong> They just copy what culture tells them. Save 15%. Give 10%. Avoid debt.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Generic advice applied to the wrong wiring creates guilt, not growth.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 24px;">Your type — Visionary, Guardian, Giver, or Builder — already has a name. You just haven't met it yet.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Yesterday you started something.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">You didn't finish it.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Here's what I know about tomorrow, next month, and next year:</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>If you don't change what you know about yourself, you won't change what you do with money.</strong></p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Same anxiety before opening the bank app.<br>Same guilt about giving — or not giving.<br>Same conversations with your spouse that go nowhere.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">The assessment is 3 minutes.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">The clarity it creates rewires decades.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 24px;">But only if you finish.</p>
         <div style="text-align: center; margin: 24px 0;">
-          <a href="${ctx.quizUrl || "https://talanthos.com/quiz"}" style="display: inline-block; background: #1c1a14; color: #f3ece0; font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 10px; text-decoration: none;">Take the 3-Minute Assessment</a>
+          <a href="${ctx.quizUrl || "https://talanthos.com/quiz"}" style="display: inline-block; background: #1c1a14; color: #f3ece0; font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 10px; text-decoration: none;">Finish What I Started</a>
         </div>
         `
       ),
@@ -124,37 +147,35 @@ const ABANDONED_QUIZ_TEMPLATES: EmailTemplate[] = [
   // Email 3: 72h after start
   {
     delayHours: 48,
-    subject: "The question your pastor won't ask",
+    subject: "This is your last chance to look",
     text: (ctx) =>
       `${greeting(ctx)}\n\n` +
-      `Your pastor preaches on stewardship.\n\n` +
-      `He never asks: **"What kind of steward are you?"**\n\n` +
-      `Because the Bible presents at least four distinct financial archetypes. Solomon the Visionary. Joseph the Guardian. The Macedonians the Givers. Nehemiah the Builder.\n\n` +
-      `Each faithful. None the same.\n\n` +
-      `Knowing your type gives you three things:\n` +
-      `• Clarity about why you make the money decisions you make\n` +
-      `• Language for conversations with your spouse, advisor, or pastor\n` +
-      `• A path — specific, actionable, rooted in Scripture\n\n` +
-      `The assessment is free. The clarity is permanent.\n\n` +
+      `Three days ago you almost met yourself.\n\n` +
+      `Not the you that shows up on Instagram.\nNot the you that answers "fine" when someone asks how you're doing.\n\n` +
+      `The real you.\n\n` +
+      `**The you that God wired with a specific relationship to money.**\n\n` +
+      `You were 3 minutes away from naming it.\n\n` +
+      `Most people live their entire lives without that name.\nThey copy what culture tells them. Save 15%. Give 10%. Don't talk about it.\n\n` +
+      `And they wonder why they feel lost.\n\n` +
+      `You have one more chance to look in the mirror.\n\n` +
+      `Don't walk away again.\n\n` +
       `${ctx.quizUrl || "https://talanthos.com/quiz"}\n\n` +
       `— Talanthos`,
     html: (ctx) =>
       htmlWrapper(
-        "The question your pastor won't ask",
+        "This is your last chance to look",
         `
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Your pastor preaches on stewardship.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">He never asks: <strong>"What kind of steward are you?"</strong></p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Because the Bible presents at least four distinct financial archetypes. Solomon the Visionary. Joseph the Guardian. The Macedonians the Givers. Nehemiah the Builder.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Each faithful. None the same.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Knowing your type gives you three things:</p>
-        <ul style="font-size: 16px; line-height: 1.7; margin: 0 0 16px; padding-left: 20px;">
-          <li>Clarity about why you make the money decisions you make</li>
-          <li>Language for conversations with your spouse, advisor, or pastor</li>
-          <li>A path — specific, actionable, rooted in Scripture</li>
-        </ul>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 24px;">The assessment is free. The clarity is permanent.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Three days ago you almost met yourself.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Not the you that shows up on Instagram.<br>Not the you that answers "fine" when someone asks how you're doing.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">The real you.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>The you that God wired with a specific relationship to money.</strong></p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">You were 3 minutes away from naming it.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Most people live their entire lives without that name.<br>They copy what culture tells them. Save 15%. Give 10%. Don't talk about it.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">And they wonder why they feel lost.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">You have one more chance to look in the mirror.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 24px;">Don't walk away again.</p>
         <div style="text-align: center; margin: 24px 0;">
-          <a href="${ctx.quizUrl || "https://talanthos.com/quiz"}" style="display: inline-block; background: #1c1a14; color: #f3ece0; font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 10px; text-decoration: none;">Find My Type (Free)</a>
+          <a href="${ctx.quizUrl || "https://talanthos.com/quiz"}" style="display: inline-block; background: #1c1a14; color: #f3ece0; font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 10px; text-decoration: none;">Look in the Mirror (Free)</a>
         </div>
         `
       ),
@@ -164,6 +185,8 @@ const ABANDONED_QUIZ_TEMPLATES: EmailTemplate[] = [
 // ─────────────────────────────────────────────────────────────
 // SEQUENCE 2: NON-BUYER
 // Trigger: quiz completed, no purchase
+// Theme: You looked. You saw. You walked away and forgot.
+// This is the hardest sequence. No mercy. Only truth.
 // ─────────────────────────────────────────────────────────────
 
 function getTypeData(type?: BiblicalType | null) {
@@ -186,28 +209,33 @@ function getTypeData(type?: BiblicalType | null) {
 }
 
 const NON_BUYER_TEMPLATES: EmailTemplate[] = [
-  // Email 1: immediately after quiz
+  // Email 1: immediately after quiz — the mirror verse, raw
   {
     delayHours: 0,
     subject: (ctx) => {
       const td = getTypeData(ctx.primaryType);
-      return `You are ${td.label}. Here's what's missing.`;
+      return `You are ${td.label}. And you're already forgetting.`;
     },
     text: (ctx) => {
       const td = getTypeData(ctx.primaryType);
       return (
         `${greeting(ctx)}\n\n` +
         `You are ${td.label}, the ${td.figure} archetype.\n\n` +
-        `That's not a label. It's a lens.\n\n` +
-        `**But knowing your type without reading the full report is like knowing you're a carpenter and never touching wood.**\n\n` +
-        `The free result told you your type. The paid report tells you what to do with it.\n\n` +
+        `You read your result. You felt the rush of recognition.\n\n` +
+        `**Then you closed the tab.**\n\n` +
+        `James 1:24 calls that man a fool. He looks in the mirror, sees himself clearly, then walks away and forgets what he looks like.\n\n` +
+        `That's you right now.\n\n` +
+        `You know your type. But you don't know what to do with it.\n\n` +
+        `The free result is a label.\nThe paid report is a roadmap.\n\n` +
         `Specifically:\n` +
         `• Your four-dimensional score breakdown\n` +
-        `• The blind spot most likely to derail you\n` +
+        `• The blind spot that's costing you right now\n` +
         `• A 30-day action plan calibrated to your wiring\n` +
         `• Scripture references mapped to your financial decisions\n\n` +
         `${td.reportPitch}\n\n` +
-        `$14.99. One-time. No subscription.\n\n` +
+        `$14.99. One-time. Less than you spent on coffee this week.\n\n` +
+        `**The question isn't whether you can afford it.**\n\n` +
+        `The question is whether you can afford to stay the same.\n\n` +
         `${ctx.quizUrl || "https://talanthos.com/quiz/paywall"}\n\n` +
         `— Talanthos`
       );
@@ -215,136 +243,168 @@ const NON_BUYER_TEMPLATES: EmailTemplate[] = [
     html: (ctx) => {
       const td = getTypeData(ctx.primaryType);
       return htmlWrapper(
-        `You are ${td.label}. Here's what's missing.`,
+        `You are ${td.label}. And you're already forgetting.`,
         `
         <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">You are ${td.label}, the ${td.figure} archetype.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">That's not a label. It's a lens.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>But knowing your type without reading the full report is like knowing you're a carpenter and never touching wood.</strong></p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">The free result told you your type. The paid report tells you what to do with it.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">You read your result. You felt the rush of recognition.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>Then you closed the tab.</strong></p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px; font-style: italic; color: #46412f;">James 1:24 calls that man a fool. He looks in the mirror, sees himself clearly, then walks away and forgets what he looks like.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">That's you right now.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">You know your type. But you don't know what to do with it.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">The free result is a label.<br>The paid report is a roadmap.</p>
         <p style="font-size: 16px; line-height: 1.6; margin: 0 0 8px;">Specifically:</p>
         <ul style="font-size: 16px; line-height: 1.7; margin: 0 0 16px; padding-left: 20px;">
           <li>Your four-dimensional score breakdown</li>
-          <li>The blind spot most likely to derail you</li>
+          <li>The blind spot that's costing you right now</li>
           <li>A 30-day action plan calibrated to your wiring</li>
           <li>Scripture references mapped to your financial decisions</li>
         </ul>
         <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px; font-style: italic; color: #46412f;">${td.reportPitch}</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 24px;"><strong>$14.99.</strong> One-time. No subscription.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>$14.99.</strong> One-time. Less than you spent on coffee this week.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>The question isn't whether you can afford it.</strong></p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 24px;">The question is whether you can afford to stay the same.</p>
         <div style="text-align: center; margin: 24px 0;">
-          <a href="${ctx.quizUrl || "https://talanthos.com/quiz/paywall"}" style="display: inline-block; background: #1c1a14; color: #f3ece0; font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 10px; text-decoration: none;">Get My Full Report — $14.99</a>
+          <a href="${ctx.quizUrl || "https://talanthos.com/quiz/paywall"}" style="display: inline-block; background: #1c1a14; color: #f3ece0; font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 10px; text-decoration: none;">Get My Roadmap — $14.99</a>
         </div>
         `
       );
     },
   },
-  // Email 2: 24h after quiz
+  // Email 2: 24h after quiz — cost of inaction, future self
   {
     delayHours: 24,
     subject: (ctx) => {
       const td = getTypeData(ctx.primaryType);
-      return `Why most ${td.label}s stay stuck`;
+      return `The ${td.label} who never changes`;
     },
     text: (ctx) => {
       const td = getTypeData(ctx.primaryType);
       return (
         `${greeting(ctx)}\n\n` +
-        `You know your type.\n\n` +
-        `Most ${td.label}s stop there.\n\n` +
-        `They take the free result, feel the rush of recognition, and go back to the same patterns.\n\n` +
-        `**Recognition without action is entertainment.**\n\n` +
-        `The report isn't entertainment. It's a 20-page operating manual for how God wired you with money.\n\n` +
-        `• The strength that's currently over-functioning\n` +
+        `Yesterday you learned you're a ${td.label}.\n\n` +
+        `Today you're making the same money decisions you made last week.\n\n` +
+        `**That's not a personality type. That's a prison.**\n\n` +
+        `Here's what I know about you, ${ctx.firstName || "friend"}:\n\n` +
+        `You don't need more information.\nYou need a system.\n\n` +
+        `The report isn't information. It's a 20-page operating manual for how God wired you with money.\n\n` +
+        `• The strength that's currently over-functioning and hurting you\n` +
         `• The blind spot you can't see because it's behind your eye\n` +
         `• The one habit that changes everything in 30 days\n\n` +
         `${td.reportFear || ""}\n\n` +
-        `The difference between people who know their type and people who steward it?\n\n` +
-        `One bought the report. The other didn't.\n\n` +
-        `$14.99: ${ctx.quizUrl || "https://talanthos.com/quiz/paywall"}\n\n` +
+        `A year from now, there are two versions of you.\n\n` +
+        `One read the free result and moved on.\nSame patterns. Same frustration. Same prayers that go nowhere.\n\n` +
+        `The other bought the report.\nApplied it.\nBecame someone who stewards instead of survives.\n\n` +
+        `**The difference? $14.99 and a decision.**\n\n` +
+        `${ctx.quizUrl || "https://talanthos.com/quiz/paywall"}\n\n` +
         `— Talanthos`
       );
     },
     html: (ctx) => {
       const td = getTypeData(ctx.primaryType);
       return htmlWrapper(
-        `Why most ${td.label}s stay stuck`,
+        `The ${td.label} who never changes`,
         `
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">You know your type.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Most ${td.label}s stop there.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">They take the free result, feel the rush of recognition, and go back to the same patterns.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>Recognition without action is entertainment.</strong></p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">The report isn't entertainment. It's a 20-page operating manual for how God wired you with money.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Yesterday you learned you're a ${td.label}.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Today you're making the same money decisions you made last week.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>That's not a personality type. That's a prison.</strong></p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Here's what I know about you, ${ctx.firstName || "friend"}:</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">You don't need more information.<br>You need a system.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">The report isn't information. It's a 20-page operating manual for how God wired you with money.</p>
         <ul style="font-size: 16px; line-height: 1.7; margin: 0 0 16px; padding-left: 20px;">
-          <li>The strength that's currently over-functioning</li>
+          <li>The strength that's currently over-functioning and hurting you</li>
           <li>The blind spot you can't see because it's behind your eye</li>
           <li>The one habit that changes everything in 30 days</li>
         </ul>
         <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px; font-style: italic; color: #46412f;">${td.reportFear || ""}</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">The difference between people who know their type and people who steward it?</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 24px;">One bought the report. The other didn't.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">A year from now, there are two versions of you.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">One read the free result and moved on.<br>Same patterns. Same frustration. Same prayers that go nowhere.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">The other bought the report.<br>Applied it.<br>Became someone who stewards instead of survives.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 24px;"><strong>The difference? $14.99 and a decision.</strong></p>
         <div style="text-align: center; margin: 24px 0;">
-          <a href="${ctx.quizUrl || "https://talanthos.com/quiz/paywall"}" style="display: inline-block; background: #1c1a14; color: #f3ece0; font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 10px; text-decoration: none;">Get My Report — $14.99</a>
+          <a href="${ctx.quizUrl || "https://talanthos.com/quiz/paywall"}" style="display: inline-block; background: #1c1a14; color: #f3ece0; font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 10px; text-decoration: none;">Choose the Better Version — $14.99</a>
         </div>
         `
       );
     },
   },
-  // Email 3: 72h after quiz
+  // Email 3: 72h after quiz — the real cost
   {
     delayHours: 48,
-    subject: "The $14.99 gap",
+    subject: "$14.99 vs. the price of staying blind",
     text: (ctx) =>
       `${greeting(ctx)}\n\n` +
-      `The average Christian spends $47/month on streaming services.\n\n` +
-      `$14.99 is a one-time purchase for a report that maps how God wired you with money.\n\n` +
-      `**That's not an expense. It's a mirror.**\n\n` +
-      `Most people pay hundreds for financial advice that doesn't fit their wiring.\n\n` +
-      `Generic budgeting for a Giver creates shame.\n` +
-      `Generic investing advice for a Guardian creates paralysis.\n\n` +
-      `The report is calibrated. Not generic.\n\n` +
+      `Let's talk about what $14.99 actually buys.\n\n` +
+      `Not a PDF.\nNot another personality test.\n\n` +
+      `**It buys you sight.**\n\n` +
+      `Right now you're flying blind. You know your type, but you don't know your blind spot. You don't know why you keep making the same money mistakes. You don't know what Scripture says specifically about how God wired you.\n\n` +
+      `Here's what staying blind costs:\n\n` +
+      `• The wrong financial advice, applied to the wrong wiring, creating guilt instead of growth\n` +
+      `• The same argument with your spouse, every month, because you don't have language for how you're wired\n` +
+      `• The opportunity you miss because you can't see your own strength\n\n` +
+      `Generic budgeting for a Giver creates shame.\nGeneric investing advice for a Guardian creates paralysis.\n\n` +
+      `**The report is calibrated. Not generic. It's a mirror you can't walk away from.**\n\n` +
       `One-time. $14.99. PDF to your inbox in 60 seconds.\n\n` +
       `${ctx.quizUrl || "https://talanthos.com/quiz/paywall"}\n\n` +
       `— Talanthos`,
     html: (ctx) =>
       htmlWrapper(
-        "The $14.99 gap",
+        "$14.99 vs. the price of staying blind",
         `
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">The average Christian spends $47/month on streaming services.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">$14.99 is a one-time purchase for a report that maps how God wired you with money.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>That's not an expense. It's a mirror.</strong></p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Most people pay hundreds for financial advice that doesn't fit their wiring.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Let's talk about what $14.99 actually buys.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Not a PDF.<br>Not another personality test.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>It buys you sight.</strong></p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Right now you're flying blind. You know your type, but you don't know your blind spot. You don't know why you keep making the same money mistakes. You don't know what Scripture says specifically about how God wired you.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Here's what staying blind costs:</p>
+        <ul style="font-size: 16px; line-height: 1.7; margin: 0 0 16px; padding-left: 20px;">
+          <li>The wrong financial advice, applied to the wrong wiring, creating guilt instead of growth</li>
+          <li>The same argument with your spouse, every month, because you don't have language for how you're wired</li>
+          <li>The opportunity you miss because you can't see your own strength</li>
+        </ul>
         <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Generic budgeting for a Giver creates shame.<br>Generic investing advice for a Guardian creates paralysis.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">The report is calibrated. Not generic.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>The report is calibrated. Not generic. It's a mirror you can't walk away from.</strong></p>
         <p style="font-size: 16px; line-height: 1.6; margin: 0 0 24px;">One-time. $14.99. PDF to your inbox in 60 seconds.</p>
         <div style="text-align: center; margin: 24px 0;">
-          <a href="${ctx.quizUrl || "https://talanthos.com/quiz/paywall"}" style="display: inline-block; background: #1c1a14; color: #f3ece0; font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 10px; text-decoration: none;">Get My Report — $14.99</a>
+          <a href="${ctx.quizUrl || "https://talanthos.com/quiz/paywall"}" style="display: inline-block; background: #1c1a14; color: #f3ece0; font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 10px; text-decoration: none;">Buy the Mirror — $14.99</a>
         </div>
         `
       ),
   },
-  // Email 4: 7 days after quiz
+  // Email 4: 7 days after quiz — final, no apology
   {
     delayHours: 96,
-    subject: "This is the last email",
+    subject: "I'm done emailing you about this",
     text: (ctx) =>
       `${greeting(ctx)}\n\n` +
-      `I'm not going to keep emailing you about the report.\n\n` +
-      `**You either want clarity or you don't.**\n\n` +
-      `If you do, it's $14.99 and 60 seconds away.\n\n` +
-      `If you don't, no hard feelings. The free result is still yours.\n\n` +
-      `But if you're the kind of person who finishes what they start, here's the link one last time:\n\n` +
+      `This is the last email about the report.\n\n` +
+      `**Not because I don't care. Because I do.**\n\n` +
+      `You know your type. You've known it for a week.\n\n` +
+      `And nothing has changed.\n\n` +
+      `James 1:25 says the man who looks intently into the perfect law and continues in it — not forgetting what he has heard, but doing it — will be blessed in what he does.\n\n` +
+      `You looked.\nYou forgot.\n\n` +
+      `**Will you do it?**\n\n` +
+      `If yes: $14.99. 60 seconds. The mirror you can't walk away from.\n\n` +
+      `If no: no hard feelings. The free result is still yours.\n\n` +
+      `But know this: a year from now, you'll be the same person making the same decisions with the same frustration.\n\n` +
+      `Unless you choose otherwise.\n\n` +
       `${ctx.quizUrl || "https://talanthos.com/quiz/paywall"}\n\n` +
       `— Talanthos`,
     html: (ctx) =>
       htmlWrapper(
-        "This is the last email",
+        "I'm done emailing you about this",
         `
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">I'm not going to keep emailing you about the report.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>You either want clarity or you don't.</strong></p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">If you do, it's $14.99 and 60 seconds away.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">If you don't, no hard feelings. The free result is still yours.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 24px;">But if you're the kind of person who finishes what they start, here's the link one last time:</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">This is the last email about the report.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>Not because I don't care. Because I do.</strong></p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">You know your type. You've known it for a week.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">And nothing has changed.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px; font-style: italic; color: #46412f;">James 1:25 says the man who looks intently into the perfect law and continues in it — not forgetting what he has heard, but doing it — will be blessed in what he does.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">You looked.<br>You forgot.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>Will you do it?</strong></p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">If yes: $14.99. 60 seconds. The mirror you can't walk away from.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">If no: no hard feelings. The free result is still yours.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">But know this: a year from now, you'll be the same person making the same decisions with the same frustration.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 24px;">Unless you choose otherwise.</p>
         <div style="text-align: center; margin: 24px 0;">
-          <a href="${ctx.quizUrl || "https://talanthos.com/quiz/paywall"}" style="display: inline-block; background: #1c1a14; color: #f3ece0; font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 10px; text-decoration: none;">Get My Report — $14.99</a>
+          <a href="${ctx.quizUrl || "https://talanthos.com/quiz/paywall"}" style="display: inline-block; background: #1c1a14; color: #f3ece0; font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 10px; text-decoration: none;">Choose Otherwise — $14.99</a>
         </div>
         `
       ),
@@ -354,6 +414,7 @@ const NON_BUYER_TEMPLATES: EmailTemplate[] = [
 // ─────────────────────────────────────────────────────────────
 // SEQUENCE 3: ADVOCATE
 // Trigger: purchased
+// Theme: You have the mirror. Now use it. Then share it.
 // ─────────────────────────────────────────────────────────────
 
 const ADVOCATE_TEMPLATES: EmailTemplate[] = [
@@ -362,38 +423,40 @@ const ADVOCATE_TEMPLATES: EmailTemplate[] = [
     delayHours: 0,
     subject: (ctx) => {
       const td = getTypeData(ctx.primaryType);
-      return `Your ${td.label} Report is ready. Read this first.`;
+      return `Your ${td.label} Report is ready. Don't just read it.`;
     },
     text: (ctx) => {
       const td = getTypeData(ctx.primaryType);
       return (
         `${greeting(ctx)}\n\n` +
         `Your ${td.label} Report is attached.\n\n` +
-        `**Don't just read it. Use it.**\n\n` +
-        `Here's how:\n` +
-        `1. Print it.\n` +
-        `2. Read the blind spot section twice.\n` +
-        `3. Pick ONE action from the 30-day plan. Do it today.\n\n` +
-        `The report tells you what God has already wired into you. The action plan tells you what to do with it.\n\n` +
-        `Information without application is just entertainment.\n\n` +
+        `**This is not a book to finish. This is a mirror to use.**\n\n` +
+        `James 1:25 says the man who looks intently into the perfect law and continues in it — not forgetting, but doing — will be blessed in what he does.\n\n` +
+        `Here's how to not forget:\n\n` +
+        `1. Print it. Don't read it on a screen.\n` +
+        `2. Read the blind spot section twice. Highlight what hurts.\n` +
+        `3. Pick ONE action from the 30-day plan. Do it today. Not tomorrow. Today.\n\n` +
+        `The report tells you what God wired into you.\nThe action plan tells you what to do with it.\n\n` +
+        `**Information without application is just entertainment. And you're not here to be entertained.**\n\n` +
         `— Talanthos`
       );
     },
     html: (ctx) => {
       const td = getTypeData(ctx.primaryType);
       return htmlWrapper(
-        `Your ${td.label} Report is ready. Read this first.`,
+        `Your ${td.label} Report is ready. Don't just read it.`,
         `
         <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Your ${td.label} Report is attached.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>Don't just read it. Use it.</strong></p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 8px;">Here's how:</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>This is not a book to finish. This is a mirror to use.</strong></p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px; font-style: italic; color: #46412f;">James 1:25 says the man who looks intently into the perfect law and continues in it — not forgetting, but doing — will be blessed in what he does.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 8px;">Here's how to not forget:</p>
         <ol style="font-size: 16px; line-height: 1.7; margin: 0 0 16px; padding-left: 20px;">
-          <li>Print it.</li>
-          <li>Read the blind spot section twice.</li>
-          <li>Pick <strong>ONE</strong> action from the 30-day plan. Do it today.</li>
+          <li>Print it. Don't read it on a screen.</li>
+          <li>Read the blind spot section twice. Highlight what hurts.</li>
+          <li>Pick <strong>ONE</strong> action from the 30-day plan. Do it today. Not tomorrow. Today.</li>
         </ol>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">The report tells you what God has already wired into you. The action plan tells you what to do with it.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>Information without application is just entertainment.</strong></p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">The report tells you what God wired into you.<br>The action plan tells you what to do with it.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>Information without application is just entertainment. And you're not here to be entertained.</strong></p>
         `
       );
     },
@@ -401,43 +464,47 @@ const ADVOCATE_TEMPLATES: EmailTemplate[] = [
   // Email 2: 3 days after purchase
   {
     delayHours: 72,
-    subject: "One favor",
+    subject: "One person. That's the mission.",
     text: (ctx) =>
       `${greeting(ctx)}\n\n` +
       `You've had the report for 3 days.\n\n` +
-      `If it gave you clarity, I have one favor:\n\n` +
-      `**Forward this email to one person who needs it.**\n\n` +
-      `Not a group chat. Not social media. One person.\n\n` +
+      `If it showed you something true about yourself, I have one question:\n\n` +
+      `**Who else needs to look in this mirror?**\n\n` +
+      `Not a group chat.\nNot a Facebook post.\n\n` +
+      `One person.\n\n` +
       `The person who came to mind when you read that? That's the one.\n\n` +
-      `Here's a message you can copy and paste:\n\n` +
+      `Here's exactly what to send them:\n\n` +
       `———\n` +
-      `Hey — I just took a 3-minute assessment that named something about money I could never articulate. It might do the same for you.\n\n` +
+      `Hey — I just took a 3-minute assessment that named something about money I could never articulate. It was uncomfortable. It was true. It might do the same for you.\n\n` +
       `https://talanthos.com/quiz\n` +
       `———\n\n` +
-      `That's it.\n\n` +
+      `One conversation. One forward. One person who finally sees themselves clearly.\n\n` +
+      `**That's the whole mission.**\n\n` +
       `— Talanthos`,
     html: (ctx) =>
       htmlWrapper(
-        "One favor",
+        "One person. That's the mission.",
         `
         <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">You've had the report for 3 days.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">If it gave you clarity, I have one favor:</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>Forward this email to one person who needs it.</strong></p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Not a group chat. Not social media. One person.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">If it showed you something true about yourself, I have one question:</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>Who else needs to look in this mirror?</strong></p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Not a group chat.<br>Not a Facebook post.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">One person.</p>
         <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">The person who came to mind when you read that? That's the one.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 8px;">Here's a message you can copy and paste:</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 8px;">Here's exactly what to send them:</p>
         <div style="background: #efe6d4; padding: 16px; border-radius: 8px; margin: 16px 0; font-size: 14px; line-height: 1.6; color: #46412f;">
-          <p style="margin: 0 0 8px;">Hey — I just took a 3-minute assessment that named something about money I could never articulate. It might do the same for you.</p>
+          <p style="margin: 0 0 8px;">Hey — I just took a 3-minute assessment that named something about money I could never articulate. It was uncomfortable. It was true. It might do the same for you.</p>
           <p style="margin: 0;"><a href="https://talanthos.com/quiz" style="color: #b88a4a; text-decoration: none;">https://talanthos.com/quiz</a></p>
         </div>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">That's it.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">One conversation. One forward. One person who finally sees themselves clearly.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>That's the whole mission.</strong></p>
         `
       ),
   },
   // Email 3: 7 days after purchase
   {
     delayHours: 96,
-    subject: "Who else needs this?",
+    subject: "You finished. Most people don't. Now help someone else.",
     text: (ctx) => {
       const td = getTypeData(ctx.primaryType);
       const shareMsg = BIBLICAL_TYPES[ctx.primaryType!]?.shareMessage ||
@@ -445,18 +512,19 @@ const ADVOCATE_TEMPLATES: EmailTemplate[] = [
       return (
         `${greeting(ctx)}\n\n` +
         `7 days ago you bought the ${td.label} Report.\n\n` +
-        `Here's what I know about you: **you finish things.**\n\n` +
-        `Most people start assessments and never complete them. Most people read reports and never apply them.\n\n` +
+        `Here's what that tells me about you:\n\n` +
+        `**You don't just look in the mirror. You do something about what you see.**\n\n` +
+        `Most people start assessments and never complete them.\nMost people read reports and never apply them.\n\n` +
         `You did both.\n\n` +
-        `Now — who else in your life needs the same clarity?\n\n` +
-        `Your spouse? Your business partner? Your small group?\n\n` +
-        `Here's exactly what to send them:\n\n` +
+        `Now — who else in your life is flying blind?\n\n` +
+        `Your spouse? Your business partner? Your small group? That friend who always talks about money but never changes?\n\n` +
+        `Send them this:\n\n` +
         `———\n` +
         `${shareMsg}\n\n` +
         `https://talanthos.com/quiz\n` +
         `———\n\n` +
-        `One conversation. One forward. One person who finally understands how God wired them.\n\n` +
-        `That's the whole mission.\n\n` +
+        `One person who finally sees themselves.\nOne conversation that changes a marriage, a business, a life.\n\n` +
+        `**You looked in the mirror. Don't let them stay blind.**\n\n` +
         `— Talanthos`
       );
     },
@@ -465,21 +533,22 @@ const ADVOCATE_TEMPLATES: EmailTemplate[] = [
       const shareMsg = BIBLICAL_TYPES[ctx.primaryType!]?.shareMessage ||
         `I just took a 3-minute assessment that named something about money I could never articulate. What is your Biblical Money Type?`;
       return htmlWrapper(
-        "Who else needs this?",
+        "You finished. Most people don't. Now help someone else.",
         `
         <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">7 days ago you bought the ${td.label} Report.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Here's what I know about you: <strong>you finish things.</strong></p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Most people start assessments and never complete them. Most people read reports and never apply them.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Here's what that tells me about you:</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>You don't just look in the mirror. You do something about what you see.</strong></p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Most people start assessments and never complete them.<br>Most people read reports and never apply them.</p>
         <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">You did both.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Now — who else in your life needs the same clarity?</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Your spouse? Your business partner? Your small group?</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 8px;">Here's exactly what to send them:</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Now — who else in your life is flying blind?</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Your spouse? Your business partner? Your small group? That friend who always talks about money but never changes?</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 8px;">Send them this:</p>
         <div style="background: #efe6d4; padding: 16px; border-radius: 8px; margin: 16px 0; font-size: 14px; line-height: 1.6; color: #46412f;">
           <p style="margin: 0 0 8px;">${shareMsg}</p>
           <p style="margin: 0;"><a href="https://talanthos.com/quiz" style="color: #b88a4a; text-decoration: none;">https://talanthos.com/quiz</a></p>
         </div>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">One conversation. One forward. One person who finally understands how God wired them.</p>
-        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>That's the whole mission.</strong></p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">One person who finally sees themselves.<br>One conversation that changes a marriage, a business, a life.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>You looked in the mirror. Don't let them stay blind.</strong></p>
         `
       );
     },
