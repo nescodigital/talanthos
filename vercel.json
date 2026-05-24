@@ -3,5 +3,11 @@
     "src/app/api/stripe/webhook/route.ts": {
       "maxDuration": 300
     }
-  }
+  },
+  "crons": [
+    {
+      "path": "/api/cron/send-sequences",
+      "schedule": "0 * * * *"
+    }
+  ]
 }

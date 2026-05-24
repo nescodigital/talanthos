@@ -197,6 +197,30 @@ export async function POST(req: NextRequest) {
       })
       .eq("id", order.id);
 
+    // ── Update lead to advocate sequence ──
+    try {
+      const { data: lead } = await supabase
+        .from("leads")
+        .select("id")
+        .eq("email", email)
+        .single();
+
+      if (lead?.id) {
+        await supabase
+          .from("leads")
+          .update({
+            email_sequence: "advocate",
+            email_step: 0,
+            email_sequence_status: "active",
+            last_email_at: null,
+          })
+          .eq("id", lead.id);
+        console.log(`[STRIPE WEBHOOK] Lead ${email} switched to advocate sequence`);
+      }
+    } catch (leadErr) {
+      console.error("[STRIPE WEBHOOK] Failed to update lead sequence:", leadErr);
+    }
+
     // Process PDF asynchronously so Stripe doesn't timeout (60s limit)
     if (sessionId && !order.pdf_generated) {
       after(async () => {

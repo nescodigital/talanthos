@@ -86,6 +86,33 @@ export async function POST(req: NextRequest) {
       console.log(`[LEAD CREATED] ${parsed.data.email} → ${parsed.data.primary_type}`);
     }
 
+    // ── Auto-assign email sequence based on quiz status ──
+    if (parsed.data.marketing_consent) {
+      try {
+        const { data: session } = await supabase
+          .from("quiz_sessions")
+          .select("status")
+          .eq("id", parsed.data.session_id)
+          .single();
+
+        const sequence = session?.status === "completed" ? "non_buyer" : "abandoned_quiz";
+
+        await supabase
+          .from("leads")
+          .update({
+            email_sequence: sequence,
+            email_step: 0,
+            email_sequence_status: "active",
+            last_email_at: null,
+          })
+          .eq("id", leadId);
+
+        console.log(`[LEAD SEQUENCE] ${parsed.data.email} → ${sequence}`);
+      } catch (seqErr) {
+        console.error("[LEAD SEQUENCE ERROR]", seqErr);
+      }
+    }
+
     if (resend) {
       try {
         await resend.emails.send({
