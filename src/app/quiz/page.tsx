@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, Suspense } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { User, Mail, KeyRound, AlertCircle, Check } from "lucide-react";
 import TxNav from "@/components/tx/TxNav";
@@ -21,6 +21,7 @@ function QuizIntroContent() {
   const [error, setError] = useState("");
   const [countdown, setCountdown] = useState(0);
   const [sessionId, setSessionId] = useState("");
+  const [googleReady, setGoogleReady] = useState(false);
 
   const startCountdown = () => {
     setCountdown(30);
@@ -163,6 +164,81 @@ function QuizIntroContent() {
     setIsSubmitting(false);
   };
 
+  // ── Google Identity Services ──
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if ((window as any).google) {
+      setGoogleReady(true);
+      return;
+    }
+    const script = document.createElement("script");
+    script.src = "https://accounts.google.com/gsi/client";
+    script.async = true;
+    script.defer = true;
+    script.onload = () => setGoogleReady(true);
+    document.body.appendChild(script);
+    return () => { document.body.removeChild(script); };
+  }, []);
+
+  useEffect(() => {
+    if (!googleReady || !sessionId) return;
+    const g = (window as any).google;
+    if (!g?.accounts?.id) return;
+
+    g.accounts.id.initialize({
+      client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!,
+      callback: handleGoogleResponse,
+      auto_select: false,
+      cancel_on_tap_outside: true,
+    });
+
+    const btn = document.getElementById("google-signin-button");
+    if (btn) {
+      btn.innerHTML = "";
+      g.accounts.id.renderButton(btn, {
+        theme: "outline",
+        size: "large",
+        width: btn.clientWidth || 320,
+        text: "continue_with",
+        shape: "pill",
+      });
+    }
+  }, [googleReady, sessionId]);
+
+  const handleGoogleResponse = async (response: any) => {
+    if (!sessionId) {
+      setError("Please enter your name first.");
+      return;
+    }
+    setIsSubmitting(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/quiz/verify-google", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          credential: response.credential,
+          session_id: sessionId,
+          marketing_consent: marketingConsent,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error || "Google sign-in failed.");
+        setIsSubmitting(false);
+        return;
+      }
+      localStorage.setItem("talanthos_email", data.email);
+      localStorage.setItem("talanthos_email_consent", String(marketingConsent));
+      if (data.name) localStorage.setItem("talanthos_name", data.name);
+      router.push("/quiz/1");
+    } catch {
+      setError("Network error.");
+    }
+    setIsSubmitting(false);
+  };
+
   return (
     <div className="tx-page">
       <TxNav />
@@ -244,6 +320,18 @@ function QuizIntroContent() {
                   />
                   <span>I agree to receive my report and occasional biblical finance insights from Talanthos.</span>
                 </label>
+
+                {/* Google Sign In */}
+                {!codeSent && sessionId && (
+                  <>
+                    <div id="google-signin-button" style={{ width: "100%", minHeight: 44 }} />
+                    <div style={{ display: "flex", alignItems: "center", gap: 12, color: "var(--muted)", fontSize: 12, fontFamily: "var(--mono)", letterSpacing: "0.06em" }}>
+                      <div style={{ flex: 1, height: 1, background: "var(--rule)" }} />
+                      <span>OR USE EMAIL</span>
+                      <div style={{ flex: 1, height: 1, background: "var(--rule)" }} />
+                    </div>
+                  </>
+                )}
 
                 {/* Send code button */}
                 {!codeSent && (

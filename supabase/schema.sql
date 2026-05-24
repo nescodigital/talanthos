@@ -143,6 +143,10 @@ ALTER TABLE leads ADD COLUMN IF NOT EXISTS email_step INT DEFAULT 0;
 ALTER TABLE leads ADD COLUMN IF NOT EXISTS last_email_at TIMESTAMP WITH TIME ZONE;
 ALTER TABLE leads ADD COLUMN IF NOT EXISTS email_sequence_status TEXT DEFAULT 'active';
 
+-- Auth provider tracking (added May 2026)
+ALTER TABLE leads ADD COLUMN IF NOT EXISTS auth_provider TEXT DEFAULT 'email';
+ALTER TABLE leads ADD COLUMN IF NOT EXISTS google_id TEXT;
+
 -- Contact messages (added May 2026)
 CREATE TABLE IF NOT EXISTS contact_messages (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
