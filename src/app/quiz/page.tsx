@@ -322,10 +322,26 @@ function QuizIntroContent() {
               </p>
 
               <div style={{ width: "100%", display: "flex", flexDirection: "column", gap: 14, marginTop: 8 }}>
-                {/* Google Sign In — first and full width */}
+                {/* Google Sign In — first, centered, with glow */}
                 {!codeSent && (
                   <>
-                    <div id="google-signin-button" style={{ width: "100%", minHeight: 44 }} />
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        padding: "4px",
+                        borderRadius: 14,
+                        animation: "googlePulse 2s ease-in-out infinite",
+                      }}
+                    >
+                      <div id="google-signin-button" style={{ minHeight: 44 }} />
+                    </div>
+                    <style>{`
+                      @keyframes googlePulse {
+                        0%, 100% { box-shadow: 0 0 0 0 rgba(184,138,74,0); }
+                        50% { box-shadow: 0 0 0 4px rgba(184,138,74,0.25); }
+                      }
+                    `}</style>
                     <div style={{ display: "flex", alignItems: "center", gap: 12, color: "var(--muted)", fontSize: 12, fontFamily: "var(--mono)", letterSpacing: "0.06em" }}>
                       <div style={{ flex: 1, height: 1, background: "var(--rule)" }} />
                       <span>OR USE EMAIL</span>
