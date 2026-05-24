@@ -322,32 +322,6 @@ function QuizIntroContent() {
               </p>
 
               <div style={{ width: "100%", display: "flex", flexDirection: "column", gap: 14, marginTop: 8 }}>
-                {/* Name */}
-                <div style={{ position: "relative" }}>
-                  <User className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--muted)]" />
-                  <input
-                    type="text"
-                    placeholder="Your first name"
-                    value={firstName}
-                    onChange={(e) => { setFirstName(e.target.value); setError(""); }}
-                    onBlur={handleStart}
-                    onKeyDown={(e) => { if (e.key === "Enter") handleStart(); }}
-                    className="w-full rounded-full border border-[var(--rule-strong)] bg-[var(--bg)] py-3.5 pl-11 pr-5 text-[var(--ink)] placeholder-[var(--muted)]/50 outline-none transition-colors duration-200 focus:border-[var(--accent)] text-sm"
-                    style={{ fontFamily: "var(--sans)" }}
-                  />
-                </div>
-
-                {/* Consent */}
-                <label className="flex items-start gap-3 text-sm text-[var(--muted)] text-left">
-                  <input
-                    type="checkbox"
-                    checked={marketingConsent}
-                    onChange={(e) => setMarketingConsent(e.target.checked)}
-                    className="mt-0.5 h-4 w-4 rounded border-[var(--rule)] bg-[var(--bg)] text-[var(--accent)]"
-                  />
-                  <span>I agree to receive my report and occasional biblical finance insights from Talanthos.</span>
-                </label>
-
                 {/* Google Sign In — first and full width */}
                 {!codeSent && (
                   <>
@@ -358,6 +332,23 @@ function QuizIntroContent() {
                       <div style={{ flex: 1, height: 1, background: "var(--rule)" }} />
                     </div>
                   </>
+                )}
+
+                {/* Name */}
+                {!codeSent && (
+                  <div style={{ position: "relative" }}>
+                    <User className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--muted)]" />
+                    <input
+                      type="text"
+                      placeholder="Your first name"
+                      value={firstName}
+                      onChange={(e) => { setFirstName(e.target.value); setError(""); }}
+                      onBlur={handleStart}
+                      onKeyDown={(e) => { if (e.key === "Enter") handleStart(); }}
+                      className="w-full rounded-full border border-[var(--rule-strong)] bg-[var(--bg)] py-3.5 pl-11 pr-5 text-[var(--ink)] placeholder-[var(--muted)]/50 outline-none transition-colors duration-200 focus:border-[var(--accent)] text-sm"
+                      style={{ fontFamily: "var(--sans)" }}
+                    />
+                  </div>
                 )}
 
                 {/* Email */}
@@ -373,6 +364,19 @@ function QuizIntroContent() {
                       style={{ fontFamily: "var(--sans)" }}
                     />
                   </div>
+                )}
+
+                {/* Consent */}
+                {!codeSent && (
+                  <label className="flex items-start gap-3 text-sm text-[var(--muted)] text-left">
+                    <input
+                      type="checkbox"
+                      checked={marketingConsent}
+                      onChange={(e) => setMarketingConsent(e.target.checked)}
+                      className="mt-0.5 h-4 w-4 rounded border-[var(--rule)] bg-[var(--bg)] text-[var(--accent)]"
+                    />
+                    <span>I agree to receive my report and occasional biblical finance insights from Talanthos.</span>
+                  </label>
                 )}
 
                 {/* Send code button */}
