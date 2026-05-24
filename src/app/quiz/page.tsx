@@ -181,7 +181,7 @@ function QuizIntroContent() {
   }, []);
 
   useEffect(() => {
-    if (!googleReady || !sessionId) return;
+    if (!googleReady) return;
     const g = (window as any).google;
     if (!g?.accounts?.id) return;
 
@@ -203,23 +203,60 @@ function QuizIntroContent() {
         shape: "pill",
       });
     }
-  }, [googleReady, sessionId]);
+  }, [googleReady]);
 
   const handleGoogleResponse = async (response: any) => {
-    if (!sessionId) {
-      setError("Please enter your name first.");
-      return;
-    }
     setIsSubmitting(true);
     setError("");
 
     try {
+      // Decode JWT to get name for session creation
+      let googleName = "";
+      try {
+        const parts = response.credential.split(".");
+        const base64 = parts[1].replace(/-/g, "+").replace(/_/g, "/");
+        const pad = 4 - (base64.length % 4);
+        const padded = pad !== 4 ? base64 + "=".repeat(pad) : base64;
+        const payload = JSON.parse(atob(padded));
+        googleName = payload.name || payload.given_name || "";
+      } catch { /* ignore decode errors */ }
+
+      // Ensure we have a session
+      let currentSessionId = sessionId;
+      if (!currentSessionId) {
+        const utmParams: Record<string, string> = {};
+        ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "fbclid", "gclid", "referrer"].forEach(
+          (key) => {
+            const value = searchParams.get(key);
+            if (value) utmParams[key] = value;
+          }
+        );
+
+        const res = await fetch("/api/quiz/start", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ first_name: googleName || "Friend", ...utmParams }),
+        });
+        const data = await res.json();
+        if (!res.ok || !data.session_id) {
+          setError(data.error || "Something went wrong.");
+          setIsSubmitting(false);
+          return;
+        }
+        currentSessionId = data.session_id;
+        localStorage.setItem("talanthos_session_id", data.session_id);
+        localStorage.setItem("talanthos_name", googleName || "Friend");
+        localStorage.removeItem("talanthos_answers");
+        localStorage.removeItem("talanthos_email");
+        setSessionId(data.session_id);
+      }
+
       const res = await fetch("/api/quiz/verify-google", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           credential: response.credential,
-          session_id: sessionId,
+          session_id: currentSessionId,
           marketing_consent: marketingConsent,
         }),
       });
@@ -322,7 +359,7 @@ function QuizIntroContent() {
                 </label>
 
                 {/* Google Sign In */}
-                {!codeSent && sessionId && (
+                {!codeSent && (
                   <>
                     <div id="google-signin-button" style={{ width: "100%", minHeight: 44 }} />
                     <div style={{ display: "flex", alignItems: "center", gap: 12, color: "var(--muted)", fontSize: 12, fontFamily: "var(--mono)", letterSpacing: "0.06em" }}>
