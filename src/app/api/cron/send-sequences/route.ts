@@ -127,6 +127,10 @@ export async function POST(req: NextRequest) {
           subject,
           text,
           html,
+          headers: {
+            "List-Unsubscribe": `<mailto:unsubscribe@talanthos.com?subject=Unsubscribe>, <https://talanthos.com/unsubscribe?email=${encodeURIComponent(lead.email)}>`,
+            "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+          },
         });
 
         if (sendError) {
