@@ -147,6 +147,9 @@ ALTER TABLE leads ADD COLUMN IF NOT EXISTS email_sequence_status TEXT DEFAULT 'a
 ALTER TABLE leads ADD COLUMN IF NOT EXISTS auth_provider TEXT DEFAULT 'email';
 ALTER TABLE leads ADD COLUMN IF NOT EXISTS google_id TEXT;
 
+CREATE INDEX IF NOT EXISTS idx_leads_auth_provider ON leads(auth_provider);
+CREATE INDEX IF NOT EXISTS idx_leads_google_id ON leads(google_id);
+
 -- Contact messages (added May 2026)
 CREATE TABLE IF NOT EXISTS contact_messages (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
