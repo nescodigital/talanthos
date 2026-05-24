@@ -180,7 +180,10 @@ function QuizIntroContent() {
         callback: handleGoogleResponse,
         auto_select: false,
         cancel_on_tap_outside: true,
+        itp_support: false,
       });
+      // Disable One Tap prompt — force rendered button only
+      try { g.accounts.id.cancel(); } catch { /* ignore */ }
       const btn = document.getElementById("google-signin-button");
       if (btn) {
         btn.innerHTML = "";
@@ -329,17 +332,18 @@ function QuizIntroContent() {
                       style={{
                         display: "flex",
                         justifyContent: "center",
-                        padding: "4px",
-                        borderRadius: 14,
-                        animation: "googlePulse 2s ease-in-out infinite",
+                        padding: "6px",
+                        borderRadius: 9999,
+                        background: "rgba(184,138,74,0.08)",
+                        animation: "googlePulse 2.4s ease-in-out infinite",
                       }}
                     >
                       <div id="google-signin-button" style={{ minHeight: 44 }} />
                     </div>
                     <style>{`
                       @keyframes googlePulse {
-                        0%, 100% { box-shadow: 0 0 0 0 rgba(184,138,74,0); }
-                        50% { box-shadow: 0 0 0 4px rgba(184,138,74,0.25); }
+                        0%, 100% { background: rgba(184,138,74,0.04); transform: scale(1); }
+                        50% { background: rgba(184,138,74,0.12); transform: scale(1.01); }
                       }
                     `}</style>
                     <div style={{ display: "flex", alignItems: "center", gap: 12, color: "var(--muted)", fontSize: 12, fontFamily: "var(--mono)", letterSpacing: "0.06em" }}>
