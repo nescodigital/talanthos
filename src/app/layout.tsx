@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Instrument_Serif, Cormorant_Garamond } from "next/font/google";
 import Script from "next/script";
 import { OrganizationSchema, WebSiteSchema } from "@/lib/seo/json-ld";
+import MetaPixel from "@/components/MetaPixel";
 import "./globals.css";
 
 const geist = Geist({
@@ -94,6 +95,7 @@ export default function RootLayout({
             __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "wum00qqpqo");`,
           }}
         />
+        <MetaPixel />
       </head>
       <body className="min-h-full antialiased">
         <OrganizationSchema />
