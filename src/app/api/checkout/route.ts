@@ -63,8 +63,8 @@ export async function POST(req: NextRequest) {
 
     const sessionConfig: Stripe.Checkout.SessionCreateParams = {
       mode: "payment",
-      success_url: `${req.headers.get("origin") || "https://talanthos.com"}/quiz/thank-you?type=${encodeURIComponent(type)}`,
-      cancel_url: `${req.headers.get("origin") || "https://talanthos.com"}/quiz/paywall?type=${encodeURIComponent(type)}&session=${encodeURIComponent(sessionId)}`,
+      ui_mode: "embedded" as any,
+      return_url: `${req.headers.get("origin") || "https://talanthos.com"}/quiz/thank-you?type=${encodeURIComponent(type)}&session_id=${encodeURIComponent(sessionId)}`,
       line_items: [
         {
           price_data: {
@@ -116,7 +116,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    return NextResponse.json({ url: stripeSession.url, id: stripeSession.id });
+    return NextResponse.json({ clientSecret: stripeSession.client_secret, id: stripeSession.id });
   } catch (err: any) {
     console.error("[CHECKOUT ERROR]", err);
     return NextResponse.json(

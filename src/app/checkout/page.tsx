@@ -2,8 +2,12 @@
 
 import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { loadStripe } from "@stripe/stripe-js";
+import { EmbeddedCheckoutProvider, EmbeddedCheckout } from "@stripe/react-stripe-js";
 import TxNav from "@/components/tx/TxNav";
 import TxFooter from "@/components/tx/TxFooter";
+
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 function CheckoutContent() {
   const router = useRouter();
@@ -13,7 +17,8 @@ function CheckoutContent() {
   const session = searchParams.get("session") || "";
   const promo = searchParams.get("promo") || "";
 
-  const [status, setStatus] = useState<"loading" | "redirecting" | "error">("loading");
+  const [clientSecret, setClientSecret] = useState("");
+  const [status, setStatus] = useState<"loading" | "error">("loading");
   const [errorMsg, setErrorMsg] = useState("");
 
   useEffect(() => {
@@ -32,9 +37,9 @@ function CheckoutContent() {
 
         const data = await res.json();
 
-        if (data.url) {
-          setStatus("redirecting");
-          window.location.href = data.url;
+        if (data.clientSecret) {
+          setClientSecret(data.clientSecret);
+          setStatus("loading"); // embedded checkout will show its own loader
         } else {
           setStatus("error");
           setErrorMsg(data.error || "Checkout failed");
@@ -48,34 +53,47 @@ function CheckoutContent() {
     createCheckout();
   }, [amount, type, session, promo]);
 
+  if (status === "error") {
+    return (
+      <div className="flex min-h-full flex-col relative z-[1]">
+        <TxNav />
+        <main className="flex-1 flex flex-col items-center justify-center px-5 sm:px-6 lg:px-14 py-24 text-center">
+          <p className="text-[var(--ink)]" style={{ fontFamily: "var(--serif)", fontSize: 24 }}>Something went wrong</p>
+          <p className="mt-2 text-[var(--muted)]">{errorMsg}</p>
+          <button
+            onClick={() => router.push(`/quiz/paywall?type=${encodeURIComponent(type)}&session=${encodeURIComponent(session)}`)}
+            className="mt-6 tx-btn tx-btn-primary"
+          >
+            Go back
+          </button>
+        </main>
+        <TxFooter />
+      </div>
+    );
+  }
+
+  if (!clientSecret) {
+    return (
+      <div className="flex min-h-full flex-col relative z-[1]">
+        <TxNav />
+        <main className="flex-1 flex flex-col items-center justify-center px-5 sm:px-6 lg:px-14 py-24 text-center">
+          <div className="h-10 w-10 animate-spin rounded-full border-2" style={{ borderColor: "var(--rule)", borderTopColor: "var(--accent)" }} />
+          <p className="mt-4 text-[var(--muted)]">Preparing your checkout...</p>
+        </main>
+        <TxFooter />
+      </div>
+    );
+  }
+
   return (
     <div className="flex min-h-full flex-col relative z-[1]">
       <TxNav />
-      <main className="flex-1 flex flex-col items-center justify-center px-5 sm:px-6 lg:px-14 py-24 text-center">
-        {status === "loading" && (
-          <>
-            <div className="h-10 w-10 animate-spin rounded-full border-2" style={{ borderColor: "var(--rule)", borderTopColor: "var(--accent)" }} />
-            <p className="mt-4 text-[var(--muted)]">Preparing your checkout...</p>
-          </>
-        )}
-        {status === "redirecting" && (
-          <>
-            <div className="h-10 w-10 animate-spin rounded-full border-2" style={{ borderColor: "var(--rule)", borderTopColor: "var(--accent)" }} />
-            <p className="mt-4 text-[var(--muted)]">Redirecting to secure payment...</p>
-          </>
-        )}
-        {status === "error" && (
-          <>
-            <p className="text-[var(--ink)]" style={{ fontFamily: "var(--serif)", fontSize: 24 }}>Something went wrong</p>
-            <p className="mt-2 text-[var(--muted)]">{errorMsg}</p>
-            <button
-              onClick={() => router.push(`/quiz/paywall?type=${encodeURIComponent(type)}&session=${encodeURIComponent(session)}`)}
-              className="mt-6 tx-btn tx-btn-primary"
-            >
-              Go back
-            </button>
-          </>
-        )}
+      <main className="flex-1 px-5 sm:px-6 lg:px-14 py-12">
+        <div className="mx-auto max-w-[600px]">
+          <EmbeddedCheckoutProvider stripe={stripePromise} options={{ clientSecret }}>
+            <EmbeddedCheckout />
+          </EmbeddedCheckoutProvider>
+        </div>
       </main>
       <TxFooter />
     </div>
