@@ -40,8 +40,10 @@ export default function Home() {
       <div className="tx-route">
         <main className="tx-screen tx-landing">
           <div className="tx-landing-frame">
-            <div className="tx-landing-hero" style={{ paddingTop: "clamp(48px, 8vw, 96px)", paddingBottom: "clamp(48px, 8vw, 96px)" }}>
-              <TxMark size={56} />
+            <div className="tx-landing-hero">
+              <div className="hidden md:block">
+                <TxMark size={56} />
+              </div>
               <TxEyebrow align="center">A Stewardship Assessment</TxEyebrow>
               <h1 className="tx-display">
                 <TextEffect per="word" preset="blur" as="span">
