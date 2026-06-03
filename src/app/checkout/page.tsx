@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useCallback, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { loadStripe } from "@stripe/stripe-js";
 import { EmbeddedCheckoutProvider, EmbeddedCheckout } from "@stripe/react-stripe-js";
@@ -17,43 +17,34 @@ function CheckoutContent() {
   const session = searchParams.get("session") || "";
   const promo = searchParams.get("promo") || "";
 
-  const [clientSecret, setClientSecret] = useState("");
-  const [status, setStatus] = useState<"loading" | "error">("loading");
   const [errorMsg, setErrorMsg] = useState("");
 
-  useEffect(() => {
-    async function createCheckout() {
-      try {
-        const res = await fetch("/api/checkout", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            amount: parseInt(amount, 10),
-            type,
-            session_id: session,
-            promoCode: promo,
-          }),
-        });
+  const fetchClientSecret = useCallback(async () => {
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          amount: parseInt(amount, 10),
+          type,
+          session_id: session,
+          promoCode: promo,
+        }),
+      });
 
-        const data = await res.json();
+      const data = await res.json();
 
-        if (data.clientSecret) {
-          setClientSecret(data.clientSecret);
-          setStatus("loading"); // embedded checkout will show its own loader
-        } else {
-          setStatus("error");
-          setErrorMsg(data.error || "Checkout failed");
-        }
-      } catch (err) {
-        setStatus("error");
-        setErrorMsg("Network error. Please try again.");
+      if (data.clientSecret) {
+        return data.clientSecret;
       }
+      throw new Error(data.error || "Checkout failed");
+    } catch (err: any) {
+      setErrorMsg(err.message || "Network error. Please try again.");
+      throw err;
     }
-
-    createCheckout();
   }, [amount, type, session, promo]);
 
-  if (status === "error") {
+  if (errorMsg) {
     return (
       <div className="flex min-h-full flex-col relative z-[1]">
         <TxNav />
@@ -72,25 +63,12 @@ function CheckoutContent() {
     );
   }
 
-  if (!clientSecret) {
-    return (
-      <div className="flex min-h-full flex-col relative z-[1]">
-        <TxNav />
-        <main className="flex-1 flex flex-col items-center justify-center px-5 sm:px-6 lg:px-14 py-24 text-center">
-          <div className="h-10 w-10 animate-spin rounded-full border-2" style={{ borderColor: "var(--rule)", borderTopColor: "var(--accent)" }} />
-          <p className="mt-4 text-[var(--muted)]">Preparing your checkout...</p>
-        </main>
-        <TxFooter />
-      </div>
-    );
-  }
-
   return (
     <div className="flex min-h-full flex-col relative z-[1]">
       <TxNav />
       <main className="flex-1 px-5 sm:px-6 lg:px-14 py-12">
         <div className="mx-auto max-w-[600px]">
-          <EmbeddedCheckoutProvider stripe={stripePromise} options={{ clientSecret }}>
+          <EmbeddedCheckoutProvider stripe={stripePromise} options={{ fetchClientSecret }}>
             <EmbeddedCheckout />
           </EmbeddedCheckoutProvider>
         </div>
