@@ -13,3 +13,4 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Deploy
 
 Conectat la Vercel via GitHub.
+# Wed Jun  3 14:22:40 EEST 2026
