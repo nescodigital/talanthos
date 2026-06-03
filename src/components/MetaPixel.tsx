@@ -1,10 +1,17 @@
 "use client";
 
+import { useEffect } from "react";
 import Script from "next/script";
+import { sendCapiEvent } from "@/lib/meta-capi";
 
 const META_PIXEL_ID = "2401459223710739";
 
 export default function MetaPixel() {
+  useEffect(() => {
+    // Send PageView to CAPI on every route change
+    sendCapiEvent("PageView");
+  }, []);
+
   return (
     <>
       <Script

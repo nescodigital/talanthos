@@ -8,6 +8,7 @@ import { buildReportHtml } from "@/lib/pdf/template/report.html";
 import { renderPdf } from "@/lib/pdf/render";
 import { Resend } from "resend";
 import { TYPE_DATA } from "@/lib/pdf/type-data";
+import { sendServerSideCapiEvent } from "@/lib/meta-capi-server";
 
 function getStripe() {
   const key = process.env.STRIPE_SECRET_KEY;
@@ -196,6 +197,32 @@ export async function POST(req: NextRequest) {
         stripe_customer_id: session.customer as string,
       })
       .eq("id", order.id);
+
+    // Send Purchase event to Meta CAPI (server-side)
+    try {
+      const amount = session.amount_total ? session.amount_total / 100 : 0;
+      await sendServerSideCapiEvent({
+        eventName: "Purchase",
+        eventId: `purchase_${session.id}_${Date.now()}`,
+        eventTime: Math.floor(Date.now() / 1000),
+        eventSourceUrl: "https://talanthos.com/quiz/thank-you",
+        userData: {
+          email: email || undefined,
+          externalId: sessionId || undefined,
+        },
+        customData: {
+          value: amount,
+          currency: session.currency?.toUpperCase() || "USD",
+          content_ids: [session.metadata?.type || "report"],
+          content_name: "Talanthos Report",
+          content_type: "product",
+          order_id: order.id,
+          stripe_session_id: session.id,
+        },
+      });
+    } catch (capiErr) {
+      console.error("[STRIPE WEBHOOK] CAPI Purchase error:", capiErr);
+    }
 
     // ── Update lead to advocate sequence ──
     try {

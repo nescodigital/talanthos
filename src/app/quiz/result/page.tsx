@@ -14,6 +14,7 @@ import TxIcon from "@/components/tx/TxIcon";
 import ExitIntentShare from "@/components/quiz/ExitIntentShare";
 import { TextEffect } from "@/components/ui/text-effect";
 import { BlurFade } from "@/components/ui/blur-fade";
+import { trackEvent } from "@/lib/meta-pixel";
 
 interface StoredAnswer {
   step: number;
@@ -80,6 +81,15 @@ export default function ResultPage() {
       setTypeId(result.primaryType);
       setScores(result.scores);
       setLoading(false);
+
+      trackEvent("ViewContent", {
+        contentName: result.primaryType,
+        contentType: "quiz_result",
+        customData: {
+          primary_type: result.primaryType,
+          scores: result.scores,
+        },
+      });
     }
 
     computeResult();

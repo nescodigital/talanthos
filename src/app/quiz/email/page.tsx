@@ -11,6 +11,7 @@ import Link from "next/link";
 import TxNav from "@/components/tx/TxNav";
 import TxFooter from "@/components/tx/TxFooter";
 import TxButton from "@/components/tx/TxButton";
+import { trackEvent } from "@/lib/meta-pixel";
 
 const TYPE_NAMES: Record<string, string> = {
   builder: "The Builder",
@@ -67,6 +68,12 @@ function EmailCaptureContent() {
         setError("email", { message: result.error || "Something went wrong. Please try again." });
         return;
       }
+
+      await trackEvent("Lead", {
+        email: data.email,
+        contentName: typeName,
+        customData: { session_id: session, primary_type: type },
+      });
 
       router.push(
         `/quiz/paywall?type=${encodeURIComponent(type || "")}&session=${encodeURIComponent(session || "")}&email=${encodeURIComponent(data.email)}`

@@ -7,6 +7,7 @@ import TxFooter from "@/components/tx/TxFooter";
 import TxButton from "@/components/tx/TxButton";
 import { CheckCircle2, Mail, Clock, FileText } from "lucide-react";
 import Link from "next/link";
+import { trackEvent } from "@/lib/meta-pixel";
 
 function ThankYouContent() {
   const searchParams = useSearchParams();
@@ -23,6 +24,17 @@ function ThankYouContent() {
   const typeName = type
     ? type.charAt(0).toUpperCase() + type.slice(1)
     : "Your Biblical Money Type";
+
+  useEffect(() => {
+    if (type) {
+      trackEvent("Purchase", {
+        value: 19,
+        currency: "USD",
+        contentName: typeName,
+        customData: { primary_type: type },
+      });
+    }
+  }, [type, typeName]);
 
   return (
     <div className="tx-page">

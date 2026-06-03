@@ -31,6 +31,7 @@ import TxButton from "@/components/tx/TxButton";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { TextEffect } from "@/components/ui/text-effect";
 import { BlurFade } from "@/components/ui/blur-fade";
+import { trackEvent } from "@/lib/meta-pixel";
 
 const TYPE_NAMES: Record<string, string> = {
   builder: "The Builder",
@@ -136,6 +137,16 @@ function PaywallContent() {
   const typeName = TYPE_NAMES[type || ""] || "Your Type";
   const gradient = TYPE_GRADIENTS[type || ""] || TYPE_GRADIENTS.guardian;
   const tagline = TYPE_TAGLINES[type || ""] || "You have taken the first step. The next one matters more.";
+
+  useEffect(() => {
+    if (type) {
+      trackEvent("InitiateCheckout", {
+        email: email || undefined,
+        contentName: typeName,
+        customData: { session_id: session, primary_type: type },
+      });
+    }
+  }, [type, session, email, typeName]);
 
   return (
     <div className="flex min-h-full flex-col relative z-[1]">
