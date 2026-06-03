@@ -32,6 +32,7 @@ import { AuroraBackground } from "@/components/ui/aurora-background";
 import { TextEffect } from "@/components/ui/text-effect";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { trackEvent } from "@/lib/meta-pixel";
+import EmailConfirmModal from "@/components/quiz/EmailConfirmModal";
 
 const TYPE_NAMES: Record<string, string> = {
   builder: "The Builder",
@@ -127,12 +128,33 @@ function PaywallContent() {
   const session = searchParams.get("session");
   const email = searchParams.get("email");
   const [customAmount, setCustomAmount] = useState("");
+  const [showEmailModal, setShowEmailModal] = useState(false);
+  const [pendingCheckoutUrl, setPendingCheckoutUrl] = useState("");
 
   useEffect(() => {
     if (!type || !TYPE_NAMES[type]) {
       router.push("/");
     }
   }, [type, router]);
+
+  const savedEmail = typeof window !== "undefined" ? localStorage.getItem("talanthos_email") : "";
+
+  const handleTierClick = (amount: number) => {
+    const url = `/checkout?amount=${amount}&type=${encodeURIComponent(type || "")}&session=${encodeURIComponent(session || "")}`;
+    if (!savedEmail) {
+      router.push(`/quiz/email?type=${encodeURIComponent(type || "")}&session=${encodeURIComponent(session || "")}&redirect=paywall`);
+      return;
+    }
+    setPendingCheckoutUrl(url);
+    setShowEmailModal(true);
+  };
+
+  const handleConfirmEmail = (confirmedEmail: string) => {
+    setShowEmailModal(false);
+    if (pendingCheckoutUrl) {
+      router.push(pendingCheckoutUrl + `&email=${encodeURIComponent(confirmedEmail)}`);
+    }
+  };
 
   const typeName = TYPE_NAMES[type || ""] || "Your Type";
   const gradient = TYPE_GRADIENTS[type || ""] || TYPE_GRADIENTS.guardian;
@@ -296,9 +318,9 @@ function PaywallContent() {
                 {/* Tiers */}
                 <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4">
                   {TIERS.map((tier) => (
-                    <Link
+                    <button
                       key={tier.amount}
-                      href={`/checkout?amount=${tier.amount}&type=${encodeURIComponent(type || "")}&session=${encodeURIComponent(session || "")}`}
+                      onClick={() => handleTierClick(tier.amount)}
                       className={`relative flex flex-col items-center rounded-xl border p-4 sm:p-5 text-center transition-all hover:-translate-y-px hover:shadow-[0_12px_30px_-16px_rgba(40,30,10,0.25)] ${
                         tier.popular
                           ? "border-[var(--accent)] bg-[var(--accent-soft)]/40 shadow-[0_8px_24px_-12px_rgba(40,30,10,0.3)]"
@@ -314,7 +336,7 @@ function PaywallContent() {
                         {tier.label}
                       </span>
                       <span className="mt-1 text-xs text-[var(--muted)]">{tier.desc}</span>
-                    </Link>
+                    </button>
                   ))}
                 </div>
 
@@ -333,12 +355,12 @@ function PaywallContent() {
                       className="w-24 rounded-lg border border-[var(--rule-strong)] bg-[var(--bg)] px-3 py-2 text-center text-[var(--ink)] outline-none transition-colors focus:border-[var(--accent)]"
                       style={{ fontFamily: "var(--serif)", fontSize: 18 }}
                     />
-                    <Link
-                      href={`/checkout?amount=${Math.max(1000, parseInt(customAmount || "15", 10) * 100)}&type=${encodeURIComponent(type || "")}&session=${encodeURIComponent(session || "")}`}
+                    <button
+                      onClick={() => handleTierClick(Math.max(1000, parseInt(customAmount || "15", 10) * 100))}
                       className="rounded-full bg-[var(--accent)] px-5 py-2.5 text-sm font-medium text-white transition-all hover:-translate-y-px hover:shadow-[0_12px_24px_-16px_rgba(40,30,10,0.6)] inline-flex items-center gap-1.5"
                     >
                       Continue
-                    </Link>
+                    </button>
                   </div>
                   <p className="mt-2 text-[10px] text-[var(--muted)]" style={{ fontFamily: "var(--mono)" }}>Minimum $10</p>
                 </div>
@@ -366,6 +388,13 @@ function PaywallContent() {
               </div>
             </BlurFade>
           </section>
+
+          <EmailConfirmModal
+            isOpen={showEmailModal}
+            onClose={() => setShowEmailModal(false)}
+            onConfirm={handleConfirmEmail}
+            defaultEmail={savedEmail || ""}
+          />
 
           {/* Section 6: Risk Reversal */}
           <section className="px-5 sm:px-6 lg:px-14 py-10">

@@ -244,8 +244,12 @@ export default function ResultPage() {
                 <div style={{ marginTop: 28, display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
                   <TxButton size="lg" icon="arrow" onClick={() => {
                     const savedEmail = localStorage.getItem("talanthos_email");
-                    const base = `/quiz/paywall?type=${encodeURIComponent(typeId)}&session=${encodeURIComponent(localStorage.getItem("talanthos_session_id") || "")}`;
-                    router.push(savedEmail ? `${base}&email=${encodeURIComponent(savedEmail)}` : base);
+                    const sessionId = localStorage.getItem("talanthos_session_id") || "";
+                    if (!savedEmail) {
+                      router.push(`/quiz/email?type=${encodeURIComponent(typeId)}&session=${encodeURIComponent(sessionId)}`);
+                      return;
+                    }
+                    router.push(`/quiz/paywall?type=${encodeURIComponent(typeId)}&session=${encodeURIComponent(sessionId)}&email=${encodeURIComponent(savedEmail)}`);
                   }}>
                     Get my full report
                   </TxButton>
@@ -368,8 +372,12 @@ export default function ResultPage() {
                 <div style={{ display: "flex", flexDirection: "column", gap: 12, alignItems: "flex-start" }}>
                   <TxButton size="lg" icon="arrow" onClick={() => {
                     const savedEmail = localStorage.getItem("talanthos_email");
-                    const base = `/quiz/paywall?type=${encodeURIComponent(typeId)}&session=${encodeURIComponent(localStorage.getItem("talanthos_session_id") || "")}`;
-                    router.push(savedEmail ? `${base}&email=${encodeURIComponent(savedEmail)}` : base);
+                    const sessionId = localStorage.getItem("talanthos_session_id") || "";
+                    if (!savedEmail) {
+                      router.push(`/quiz/email?type=${encodeURIComponent(typeId)}&session=${encodeURIComponent(sessionId)}`);
+                      return;
+                    }
+                    router.push(`/quiz/paywall?type=${encodeURIComponent(typeId)}&session=${encodeURIComponent(sessionId)}&email=${encodeURIComponent(savedEmail)}`);
                   }}>
                     Get my full report
                   </TxButton>
