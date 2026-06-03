@@ -243,13 +243,8 @@ export default function ResultPage() {
               <BlurFade delay={0.6}>
                 <div style={{ marginTop: 28, display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
                   <TxButton size="lg" icon="arrow" onClick={() => {
-                    const savedEmail = localStorage.getItem("talanthos_email");
                     const sessionId = localStorage.getItem("talanthos_session_id") || "";
-                    if (!savedEmail) {
-                      router.push(`/quiz/email?type=${encodeURIComponent(typeId)}&session=${encodeURIComponent(sessionId)}`);
-                      return;
-                    }
-                    router.push(`/quiz/paywall?type=${encodeURIComponent(typeId)}&session=${encodeURIComponent(sessionId)}&email=${encodeURIComponent(savedEmail)}`);
+                    router.push(`/quiz/paywall?type=${encodeURIComponent(typeId)}&session=${encodeURIComponent(sessionId)}`);
                   }}>
                     Get my full report
                   </TxButton>
@@ -371,13 +366,8 @@ export default function ResultPage() {
 
                 <div style={{ display: "flex", flexDirection: "column", gap: 12, alignItems: "flex-start" }}>
                   <TxButton size="lg" icon="arrow" onClick={() => {
-                    const savedEmail = localStorage.getItem("talanthos_email");
                     const sessionId = localStorage.getItem("talanthos_session_id") || "";
-                    if (!savedEmail) {
-                      router.push(`/quiz/email?type=${encodeURIComponent(typeId)}&session=${encodeURIComponent(sessionId)}`);
-                      return;
-                    }
-                    router.push(`/quiz/paywall?type=${encodeURIComponent(typeId)}&session=${encodeURIComponent(sessionId)}&email=${encodeURIComponent(savedEmail)}`);
+                    router.push(`/quiz/paywall?type=${encodeURIComponent(typeId)}&session=${encodeURIComponent(sessionId)}`);
                   }}>
                     Get my full report
                   </TxButton>

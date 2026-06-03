@@ -19,7 +19,7 @@ export default function EmailConfirmModal({
   defaultEmail = "",
 }: EmailConfirmModalProps) {
   const [email, setEmail] = useState(defaultEmail);
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(!defaultEmail);
   const [error, setError] = useState("");
 
   const handleConfirm = () => {

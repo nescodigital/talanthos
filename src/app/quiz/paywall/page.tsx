@@ -141,10 +141,6 @@ function PaywallContent() {
 
   const handleTierClick = (amount: number) => {
     const url = `/checkout?amount=${amount}&type=${encodeURIComponent(type || "")}&session=${encodeURIComponent(session || "")}`;
-    if (!savedEmail) {
-      router.push(`/quiz/email?type=${encodeURIComponent(type || "")}&session=${encodeURIComponent(session || "")}&redirect=paywall`);
-      return;
-    }
     setPendingCheckoutUrl(url);
     setShowEmailModal(true);
   };
