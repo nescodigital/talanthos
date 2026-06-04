@@ -67,8 +67,27 @@ function CheckoutContent() {
     <div className="flex min-h-full flex-col relative z-[1]">
       <TxNav />
       <main className="flex-1 px-5 sm:px-6 lg:px-14 py-12">
-        <div className="mx-auto max-w-[600px]">
-          <EmbeddedCheckoutProvider stripe={stripePromise} options={{ fetchClientSecret }}>
+        <div
+          className="mx-auto max-w-[600px] rounded-2xl p-6 sm:p-8"
+          style={{ background: "var(--surface)", border: "1px solid var(--rule)" }}
+        >
+          <EmbeddedCheckoutProvider
+            stripe={stripePromise}
+            options={{
+              fetchClientSecret,
+              appearance: {
+                theme: "flat",
+                variables: {
+                  colorBackground: "#f8f2e6",
+                  colorText: "#1c1a14",
+                  colorPrimary: "#b88a4a",
+                  colorDanger: "#c25e5e",
+                  borderRadius: "12px",
+                  fontFamily: "ui-sans-serif, system-ui, -apple-system, sans-serif",
+                },
+              },
+            }}
+          >
             <EmbeddedCheckout />
           </EmbeddedCheckoutProvider>
         </div>
