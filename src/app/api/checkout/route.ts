@@ -63,7 +63,7 @@ export async function POST(req: NextRequest) {
 
     const sessionConfig: Stripe.Checkout.SessionCreateParams = {
       mode: "payment",
-      ui_mode: "embedded_page",
+      ui_mode: "embedded",
       return_url: `${req.headers.get("origin") || "https://talanthos.com"}/quiz/thank-you?type=${encodeURIComponent(type)}&session_id=${encodeURIComponent(sessionId)}`,
       line_items: [
         {
