@@ -14,11 +14,9 @@ export async function GET(req: NextRequest) {
     let query = supabase
       .from("orders")
       .select("*, quiz_sessions(first_name, email, utm_source, referrer, fbclid, gclid)")
+      .eq("purchased", true)
       .order("created_at", { ascending: false })
       .limit(limit);
-
-    if (filter === "paid") query = query.eq("purchased", true);
-    if (filter === "pending") query = query.eq("purchased", false);
 
     const { data, error } = await query;
 

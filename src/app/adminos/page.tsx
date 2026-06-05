@@ -695,7 +695,7 @@ export default function AdminPage() {
         {tab === "funnel" && (
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-              <span style={{ fontSize: 13, fontWeight: 700, color: TXT }}>Conversion Funnel</span>
+              <span style={{ fontSize: 13, fontWeight: 700, color: TXT }}>Biblical Money Type Funnel</span>
               <span style={{ fontSize: 11, color: TXT_SUB }}>Last {period} days</span>
             </div>
 
@@ -709,8 +709,9 @@ export default function AdminPage() {
                   }}
                 >
                   {[
-                    { label: "Email Submitted", value: funnel.emailSubmitted, rate: null, color: TXT_MID },
-                    { label: "Quiz Completed", value: funnel.quizCompletes, rate: funnel.rates.emailToComplete, target: funnel.targets.emailToComplete, color: "#5a7d5a" },
+                    { label: "Quiz Started", value: funnel.quizStarted, rate: null, color: TXT_MID },
+                    { label: "Email Subscribed", value: funnel.emailSubscribed, rate: funnel.rates.startToEmail, target: funnel.targets.startToEmail, color: "#5a7d5a" },
+                    { label: "Quiz Completed", value: funnel.quizCompleted, rate: funnel.rates.emailToComplete, target: funnel.targets.emailToComplete, color: "#5a7d5a" },
                     { label: "Paywall Reached", value: funnel.paywallReached, rate: funnel.rates.completeToPaywall, target: funnel.targets.completeToPaywall, color: "#5a7d5a" },
                     { label: "Purchases", value: funnel.purchases, rate: funnel.rates.paywallToPurchase, target: funnel.targets.paywallToPurchase, color: "#5a7d5a" },
                   ].map((step) => {
@@ -759,7 +760,8 @@ export default function AdminPage() {
                   </div>
                   <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                     {[
-                      { label: "Email Submitted → Quiz Completed", rate: funnel.rates.emailToComplete, target: funnel.targets.emailToComplete },
+                      { label: "Quiz Started → Email Subscribed", rate: funnel.rates.startToEmail, target: funnel.targets.startToEmail },
+                      { label: "Email Subscribed → Quiz Completed", rate: funnel.rates.emailToComplete, target: funnel.targets.emailToComplete },
                       { label: "Quiz Completed → Paywall Reached", rate: funnel.rates.completeToPaywall, target: funnel.targets.completeToPaywall },
                       { label: "Paywall Reached → Purchase", rate: funnel.rates.paywallToPurchase, target: funnel.targets.paywallToPurchase },
                     ].map((bar) => {

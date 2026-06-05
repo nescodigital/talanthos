@@ -12,39 +12,46 @@ export async function GET(req: NextRequest) {
     const since = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString();
 
     const [
-      { count: emailSubmitted },
-      { count: quizCompletes },
+      { count: quizStarted },
+      { count: emailSubscribed },
+      { count: quizCompleted },
       { count: paywallReached },
       { count: purchasesCount },
     ] = await Promise.all([
+      supabase.from("quiz_sessions").select("*", { count: "exact", head: true }).gte("created_at", since),
       supabase.from("quiz_sessions").select("*", { count: "exact", head: true }).not("email", "is", null).gte("created_at", since),
       supabase.from("quiz_sessions").select("*", { count: "exact", head: true }).eq("status", "completed").gte("created_at", since),
       supabase.from("orders").select("*", { count: "exact", head: true }).gte("created_at", since),
       supabase.from("orders").select("*", { count: "exact", head: true }).eq("purchased", true).gte("created_at", since),
     ]);
 
-    const es = emailSubmitted || 0;
-    const qc = quizCompletes || 0;
+    const qs = quizStarted || 0;
+    const es = emailSubscribed || 0;
+    const qc = quizCompleted || 0;
     const pw = paywallReached || 0;
     const pr = purchasesCount || 0;
 
     const rates = {
+      startToEmail: qs > 0 ? (es / qs) * 100 : 0,
       emailToComplete: es > 0 ? (qc / es) * 100 : 0,
       completeToPaywall: qc > 0 ? (pw / qc) * 100 : 0,
       paywallToPurchase: pw > 0 ? (pr / pw) * 100 : 0,
     };
 
     return NextResponse.json({
-      emailSubmitted: es,
-      quizCompletes: qc,
+      quizStarted: qs,
+      emailSubscribed: es,
+      quizCompleted: qc,
       paywallReached: pw,
       purchases: pr,
       rates: {
+        startToEmail: Number(rates.startToEmail.toFixed(1)),
         emailToComplete: Number(rates.emailToComplete.toFixed(1)),
         completeToPaywall: Number(rates.completeToPaywall.toFixed(1)),
         paywallToPurchase: Number(rates.paywallToPurchase.toFixed(1)),
       },
       targets: {
+        startToEmail: { min: 95, max: 100 },
         emailToComplete: { min: 50, max: 70 },
         completeToPaywall: { min: 40, max: 60 },
         paywallToPurchase: { min: 3, max: 8 },
