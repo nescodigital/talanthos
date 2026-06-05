@@ -17,7 +17,6 @@ import {
   Lock,
   Zap,
   CheckCircle2,
-  Heart,
   ArrowRight,
   ChevronDown,
   Star,
@@ -351,15 +350,15 @@ function PaywallContent() {
                     <button
                       key={tier.amount}
                       onClick={() => handleTierClick(tier.amount)}
-                      className={`relative flex flex-col items-center rounded-xl border p-4 sm:p-5 text-center transition-all hover:-translate-y-px hover:shadow-[0_12px_30px_-16px_rgba(40,30,10,0.25)] ${
+                      className={`relative flex flex-col items-center rounded-xl border text-center transition-all hover:-translate-y-px hover:shadow-[0_12px_30px_-16px_rgba(40,30,10,0.25)] p-4 sm:p-5 ${
                         tier.popular
-                          ? "border-[var(--accent)] bg-[var(--accent-soft)]/40 shadow-[0_8px_24px_-12px_rgba(40,30,10,0.3)]"
+                          ? "border-[var(--accent)] bg-[var(--accent-soft)]/40 shadow-[0_8px_24px_-12px_rgba(40,30,10,0.3)] pt-6 sm:pt-7"
                           : "border-[var(--rule)] bg-[var(--surface)] shadow-[var(--shadow)] hover:border-[var(--accent-line)]"
                       }`}
                     >
                       {tier.popular && (
-                        <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-[var(--accent)] px-2.5 py-0.5 text-[10px] font-medium text-white uppercase tracking-wider">
-                          <Heart className="h-3 w-3" /> Most chosen
+                        <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 inline-flex items-center rounded-full bg-[var(--accent)] px-2.5 py-0.5 text-[10px] font-medium text-white tracking-wide">
+                          Most chosen
                         </span>
                       )}
                       <span className="text-[var(--ink)] m-0" style={{ fontFamily: "var(--serif)", fontSize: "clamp(22px, 3vw, 30px)", fontWeight: 400 }}>
@@ -495,10 +494,10 @@ function PaywallContent() {
         {showFloatingBtn && (
           <button
             onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
-            className="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-[var(--surface)] border-t border-[var(--rule)] px-5 py-3.5 text-sm font-medium text-[var(--ink)] shadow-[0_-8px_24px_-8px_rgba(28,26,20,0.15)] transition-transform"
+            className="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-[var(--accent)] px-5 py-3.5 text-sm font-semibold text-white shadow-[0_-12px_32px_-8px_rgba(40,30,10,0.35)] transition-transform hover:-translate-y-px active:translate-y-0 rounded-t-2xl"
             style={{ fontFamily: "var(--sans)" }}
           >
-            Pay what feels right
+            Get My Full Report
           </button>
         )}
       </div>
