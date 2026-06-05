@@ -32,6 +32,26 @@ const TXT = "#1c1a14";
 const TXT_MID = "#46412f";
 const TXT_SUB = "#7a7359";
 
+function getSource(row: any) {
+  if (row.fbclid || /facebook|instagram|meta/i.test(row.utm_source || "")) return "Meta Ads";
+  if (row.gclid || /google|adwords/i.test(row.utm_source || "")) return "Google Ads";
+  if (row.utm_source) return row.utm_source;
+  if (row.referrer) {
+    try { return new URL(row.referrer).hostname; } catch { return row.referrer; }
+  }
+  return "Direct";
+}
+
+function formatDuration(created: string, completed: string | null, status: string) {
+  if (!completed) return status === "completed" ? "—" : "—";
+  const diff = new Date(completed).getTime() - new Date(created).getTime();
+  if (diff <= 0) return "—";
+  const m = Math.floor(diff / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  if (m > 0) return `${m}m ${s}s`;
+  return `${s}s`;
+}
+
 export default function AdminPage() {
   const [authed, setAuthed] = useState(false);
   const [password, setPassword] = useState("");
@@ -579,7 +599,7 @@ export default function AdminPage() {
                   <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
                     <thead>
                       <tr style={{ borderBottom: `1px solid ${BORDER}` }}>
-                        {["Name", "Email", "Type", "Status", "Date"].map((h) => (
+                        {["Name", "Email", "Type", "Source", "Status", "Duration", "Date", "Time"].map((h) => (
                           <th
                             key={h}
                             style={{
@@ -621,6 +641,9 @@ export default function AdminPage() {
                               {row.primary_type || "—"}
                             </span>
                           </td>
+                          <td style={{ padding: "10px 12px", color: TXT_SUB, fontSize: 12, whiteSpace: "nowrap" }}>
+                            {getSource(row)}
+                          </td>
                           <td style={{ padding: "10px 12px" }}>
                             <span
                               style={{
@@ -638,7 +661,13 @@ export default function AdminPage() {
                             </span>
                           </td>
                           <td style={{ padding: "10px 12px", color: TXT_SUB, fontSize: 12, whiteSpace: "nowrap" }}>
+                            {formatDuration(row.created_at, row.completed_at, row.status)}
+                          </td>
+                          <td style={{ padding: "10px 12px", color: TXT_SUB, fontSize: 12, whiteSpace: "nowrap" }}>
                             {new Date(row.created_at).toLocaleDateString()}
+                          </td>
+                          <td style={{ padding: "10px 12px", color: TXT_SUB, fontSize: 12, whiteSpace: "nowrap" }}>
+                            {new Date(row.created_at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
                           </td>
                         </tr>
                       ))}

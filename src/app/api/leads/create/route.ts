@@ -86,6 +86,19 @@ export async function POST(req: NextRequest) {
       console.log(`[LEAD CREATED] ${parsed.data.email} → ${parsed.data.primary_type}`);
     }
 
+    // ── Sync email (and first_name) back to quiz_sessions ──
+    try {
+      await supabase
+        .from("quiz_sessions")
+        .update({
+          email: parsed.data.email,
+          ...(parsed.data.first_name ? { first_name: parsed.data.first_name } : {}),
+        })
+        .eq("id", parsed.data.session_id);
+    } catch (syncErr) {
+      console.error("[LEAD SESSION SYNC ERROR]", syncErr);
+    }
+
     // ── Auto-assign email sequence based on quiz status ──
     if (parsed.data.marketing_consent) {
       try {

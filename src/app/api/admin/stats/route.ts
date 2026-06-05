@@ -32,7 +32,7 @@ export async function GET(req: NextRequest) {
         .order("created_at", { ascending: true }),
       supabase
         .from("quiz_sessions")
-        .select("id, created_at, first_name, email, status, primary_type, completed_at")
+        .select("id, created_at, first_name, email, status, primary_type, completed_at, utm_source, utm_medium, referrer, fbclid, gclid")
         .order("created_at", { ascending: false })
         .limit(50),
     ]);
