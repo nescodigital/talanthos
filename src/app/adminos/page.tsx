@@ -225,8 +225,17 @@ export default function AdminPage() {
   const filteredLeads = leads.filter((l) =>
     search ? l.email?.toLowerCase().includes(search.toLowerCase()) : true
   );
-  const filteredOrders = orders.filter((o) =>
-    search ? o.email?.toLowerCase().includes(search.toLowerCase()) : true
+  const enrichedOrders = orders.map((o: any) => ({
+    ...o,
+    displayName: o.quiz_sessions?.first_name || "—",
+    displayEmail: o.quiz_sessions?.email || o.email,
+    displaySource: o.quiz_sessions ? getSource(o.quiz_sessions) : "Direct",
+  }));
+  const filteredOrders = enrichedOrders.filter((o) =>
+    search
+      ? o.displayEmail?.toLowerCase().includes(search.toLowerCase()) ||
+        o.displayName?.toLowerCase().includes(search.toLowerCase())
+      : true
   );
   const filteredSessions = sessions.filter((s) =>
     search
@@ -700,11 +709,10 @@ export default function AdminPage() {
                   }}
                 >
                   {[
-                    { label: "Ad Clicks (Landing)", value: funnel.landingViews, rate: null, color: TXT_MID },
-                    { label: "Quiz Starts", value: funnel.quizStarts, rate: funnel.rates.clickToStart, target: funnel.targets.clickToStart, color: "#5a7d5a" },
-                    { label: "Quiz Completes", value: funnel.quizCompletes, rate: funnel.rates.startToComplete, target: funnel.targets.startToComplete, color: "#5a7d5a" },
-                    { label: "Email Submits", value: funnel.leads, rate: funnel.rates.completeToLead, target: funnel.targets.completeToLead, color: "#5a7d5a" },
-                    { label: "Purchases", value: funnel.purchases, rate: funnel.rates.leadToPurchase, target: funnel.targets.leadToPurchase, color: "#5a7d5a" },
+                    { label: "Email Submitted", value: funnel.emailSubmitted, rate: null, color: TXT_MID },
+                    { label: "Quiz Completed", value: funnel.quizCompletes, rate: funnel.rates.emailToComplete, target: funnel.targets.emailToComplete, color: "#5a7d5a" },
+                    { label: "Paywall Reached", value: funnel.paywallReached, rate: funnel.rates.completeToPaywall, target: funnel.targets.completeToPaywall, color: "#5a7d5a" },
+                    { label: "Purchases", value: funnel.purchases, rate: funnel.rates.paywallToPurchase, target: funnel.targets.paywallToPurchase, color: "#5a7d5a" },
                   ].map((step) => {
                     const rateColor = step.rate != null && step.target
                       ? step.rate >= step.target.min
@@ -751,10 +759,9 @@ export default function AdminPage() {
                   </div>
                   <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                     {[
-                      { label: "Ad Clicks → Quiz Starts", rate: funnel.rates.clickToStart, target: funnel.targets.clickToStart },
-                      { label: "Quiz Starts → Completes", rate: funnel.rates.startToComplete, target: funnel.targets.startToComplete },
-                      { label: "Completes → Email Submit", rate: funnel.rates.completeToLead, target: funnel.targets.completeToLead },
-                      { label: "Email Submit → Purchase", rate: funnel.rates.leadToPurchase, target: funnel.targets.leadToPurchase },
+                      { label: "Email Submitted → Quiz Completed", rate: funnel.rates.emailToComplete, target: funnel.targets.emailToComplete },
+                      { label: "Quiz Completed → Paywall Reached", rate: funnel.rates.completeToPaywall, target: funnel.targets.completeToPaywall },
+                      { label: "Paywall Reached → Purchase", rate: funnel.rates.paywallToPurchase, target: funnel.targets.paywallToPurchase },
                     ].map((bar) => {
                       const width = Math.min(100, (bar.rate / (bar.target.max * 1.5)) * 100);
                       const barColor = bar.rate >= bar.target.min ? "#5a7d5a" : bar.rate >= bar.target.min * 0.6 ? "#b88a4a" : "#c25e5e";
@@ -808,7 +815,9 @@ export default function AdminPage() {
           <DataTable
             data={filteredOrders}
             columns={[
-              { key: "email", label: "Email" },
+              { key: "displayName", label: "Name" },
+              { key: "displayEmail", label: "Email" },
+              { key: "displaySource", label: "Source" },
               { key: "amount_total_cents", label: "Amount", format: (v: number) => `$${((v || 0) / 100).toFixed(2)}` },
               {
                 key: "purchased",
@@ -835,7 +844,7 @@ export default function AdminPage() {
             ]}
             search={search}
             onSearch={setSearch}
-            searchPlaceholder="Search email..."
+            searchPlaceholder="Search name or email..."
           />
         )}
 
