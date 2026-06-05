@@ -75,17 +75,6 @@ function CheckoutContent() {
             stripe={stripePromise}
             options={{
               fetchClientSecret,
-              appearance: {
-                theme: "flat",
-                variables: {
-                  colorBackground: "#f8f2e6",
-                  colorText: "#1c1a14",
-                  colorPrimary: "#b88a4a",
-                  colorDanger: "#c25e5e",
-                  borderRadius: "12px",
-                  fontFamily: "ui-sans-serif, system-ui, -apple-system, sans-serif",
-                },
-              },
             }}
           >
             <EmbeddedCheckout />
