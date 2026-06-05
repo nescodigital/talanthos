@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, Suspense, useState, useRef } from "react";
+import { useEffect, Suspense, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -131,7 +131,7 @@ function PaywallContent() {
   const [showEmailModal, setShowEmailModal] = useState(false);
   const [pendingCheckoutUrl, setPendingCheckoutUrl] = useState("");
   const [showFloatingBtn, setShowFloatingBtn] = useState(true);
-  const pricingRef = useRef<HTMLElement>(null);
+  const [pricingEl, setPricingEl] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
     if (!type || !TYPE_NAMES[type]) {
@@ -189,16 +189,16 @@ function PaywallContent() {
   }, [type, session, email, typeName]);
 
   useEffect(() => {
-    if (!pricingRef.current) return;
+    if (!pricingEl) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
         setShowFloatingBtn(!entry.isIntersecting);
       },
       { threshold: 0.1 }
     );
-    observer.observe(pricingRef.current);
+    observer.observe(pricingEl);
     return () => observer.disconnect();
-  }, []);
+  }, [pricingEl]);
 
   return (
     <div className="flex min-h-full flex-col relative z-[1]">
@@ -334,7 +334,7 @@ function PaywallContent() {
           </section>
 
           {/* Section 5: Pricing + CTA */}
-          <section id="pricing" ref={pricingRef} className="px-5 sm:px-6 lg:px-14 py-14">
+          <section id="pricing" ref={setPricingEl} className="px-5 sm:px-6 lg:px-14 py-14">
             <BlurFade delay={0.1}>
               <div className="mx-auto max-w-[640px] text-center">
                 <p className="text-xs font-medium uppercase tracking-widest text-[var(--accent)]">Choose what it is worth to you</p>
