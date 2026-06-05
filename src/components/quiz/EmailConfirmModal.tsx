@@ -19,7 +19,10 @@ export default function EmailConfirmModal({
   defaultEmail = "",
 }: EmailConfirmModalProps) {
   const [email, setEmail] = useState(defaultEmail);
-  const [marketingConsent, setMarketingConsent] = useState(false);
+  const [marketingConsent, setMarketingConsent] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return localStorage.getItem("talanthos_marketing_consent") === "true";
+  });
   const [error, setError] = useState("");
 
   const handleConfirm = () => {
