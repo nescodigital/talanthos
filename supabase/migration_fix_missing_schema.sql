@@ -163,7 +163,49 @@ CREATE TABLE IF NOT EXISTS landing_views (
 
 CREATE INDEX IF NOT EXISTS idx_landing_views_created ON landing_views(created_at DESC);
 
--- 9. Enable RLS on all tables
+-- 10. ask_conversations
+CREATE TABLE IF NOT EXISTS ask_conversations (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  session_id UUID NOT NULL,
+  email TEXT,
+  question TEXT NOT NULL,
+  response TEXT NOT NULL,
+  is_money_related BOOLEAN DEFAULT FALSE,
+  contextual_push_shown BOOLEAN DEFAULT FALSE,
+  tokens_input INT,
+  tokens_output INT,
+  cost_cents NUMERIC(10,4),
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_ask_conversations_session ON ask_conversations(session_id);
+CREATE INDEX IF NOT EXISTS idx_ask_conversations_email ON ask_conversations(email);
+CREATE INDEX IF NOT EXISTS idx_ask_conversations_created ON ask_conversations(created_at DESC);
+
+-- 11. ask_rate_limits
+CREATE TABLE IF NOT EXISTS ask_rate_limits (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  email TEXT UNIQUE,
+  session_id UUID,
+  ip_address TEXT,
+  questions_today INT DEFAULT 0,
+  last_reset_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  questions_this_month INT DEFAULT 0,
+  month_reset_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  cost_this_month_cents NUMERIC(10,4) DEFAULT 0,
+  total_questions_ever INT DEFAULT 0,
+  suspended BOOLEAN DEFAULT FALSE,
+  suspended_at TIMESTAMP WITH TIME ZONE,
+  suspended_reason TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_ask_rate_limits_email ON ask_rate_limits(email);
+CREATE INDEX IF NOT EXISTS idx_ask_rate_limits_session ON ask_rate_limits(session_id);
+CREATE INDEX IF NOT EXISTS idx_ask_rate_limits_ip ON ask_rate_limits(ip_address);
+
+-- 12. Enable RLS on all tables
 ALTER TABLE quiz_sessions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE quiz_answers ENABLE ROW LEVEL SECURITY;
 ALTER TABLE leads ENABLE ROW LEVEL SECURITY;
@@ -171,6 +213,8 @@ ALTER TABLE orders ENABLE ROW LEVEL SECURITY;
 ALTER TABLE pixel_events ENABLE ROW LEVEL SECURITY;
 ALTER TABLE email_logs ENABLE ROW LEVEL SECURITY;
 ALTER TABLE landing_views ENABLE ROW LEVEL SECURITY;
+ALTER TABLE ask_conversations ENABLE ROW LEVEL SECURITY;
+ALTER TABLE ask_rate_limits ENABLE ROW LEVEL SECURITY;
 
 -- 9. Add any missing columns to existing tables (safe if already exist)
 ALTER TABLE quiz_sessions 
@@ -194,5 +238,8 @@ ALTER TABLE quiz_answers
 
 ALTER TABLE leads 
   ADD COLUMN IF NOT EXISTS email_verified BOOLEAN DEFAULT FALSE;
+
+ALTER TABLE leads 
+  ADD COLUMN IF NOT EXISTS source TEXT;
 
 SELECT 'Schema fix complete!' as status;

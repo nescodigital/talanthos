@@ -111,3 +111,35 @@ export interface LandingView {
   gclid: string | null;
   created_at: string;
 }
+
+export interface AskConversation {
+  id: string;
+  session_id: string;
+  email: string | null;
+  question: string;
+  response: string;
+  is_money_related: boolean;
+  contextual_push_shown: boolean;
+  tokens_input: number | null;
+  tokens_output: number | null;
+  cost_cents: number | null;
+  created_at: string;
+}
+
+export interface AskRateLimit {
+  id: string;
+  email: string | null;
+  session_id: string | null;
+  ip_address: string | null;
+  questions_today: number;
+  last_reset_at: string;
+  questions_this_month: number;
+  month_reset_at: string;
+  cost_this_month_cents: number;
+  total_questions_ever: number;
+  suspended: boolean;
+  suspended_at: string | null;
+  suspended_reason: string | null;
+  created_at: string;
+  updated_at: string;
+}
