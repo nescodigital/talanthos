@@ -13,11 +13,19 @@ function QuizIntroContent() {
   const searchParams = useSearchParams();
 
   const [firstName, setFirstName] = useState("");
+  const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
 
   const handleStart = async () => {
-    if (!firstName.trim()) return;
+    if (!firstName.trim()) {
+      setError("Please enter your first name.");
+      return;
+    }
+    if (!email.trim() || !email.includes("@") || !email.includes(".")) {
+      setError("Please enter a valid email address.");
+      return;
+    }
     setIsSubmitting(true);
     setError("");
 
@@ -33,7 +41,7 @@ function QuizIntroContent() {
       const res = await fetch("/api/quiz/start", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ first_name: firstName.trim(), ...utmParams }),
+        body: JSON.stringify({ first_name: firstName.trim(), email: email.trim(), ...utmParams }),
       });
       const data = await res.json();
       if (!res.ok || !data.session_id) {
@@ -43,8 +51,8 @@ function QuizIntroContent() {
       }
       localStorage.setItem("talanthos_session_id", data.session_id);
       localStorage.setItem("talanthos_name", firstName.trim());
+      localStorage.setItem("talanthos_email", email.trim());
       localStorage.removeItem("talanthos_answers");
-      localStorage.removeItem("talanthos_email");
       router.push("/quiz/1");
     } catch {
       setError("Network error. Please try again.");
@@ -108,7 +116,20 @@ function QuizIntroContent() {
                   />
                 </div>
 
-                <TxButton onClick={handleStart} size="lg" disabled={isSubmitting || !firstName.trim()}>
+                <div style={{ position: "relative" }}>
+                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--muted)]" />
+                  <input
+                    type="email"
+                    placeholder="Your email address"
+                    value={email}
+                    onChange={(e) => { setEmail(e.target.value); setError(""); }}
+                    onKeyDown={(e) => { if (e.key === "Enter") handleStart(); }}
+                    className="w-full rounded-full border border-[var(--rule-strong)] bg-[var(--bg)] py-3.5 pl-11 pr-5 text-[var(--ink)] placeholder-[var(--muted)]/50 outline-none transition-colors duration-200 focus:border-[var(--accent)] text-sm"
+                    style={{ fontFamily: "var(--sans)" }}
+                  />
+                </div>
+
+                <TxButton onClick={handleStart} size="lg" disabled={isSubmitting || !firstName.trim() || !email.trim()}>
                   {isSubmitting ? "Starting..." : "Begin the assessment"}
                 </TxButton>
 

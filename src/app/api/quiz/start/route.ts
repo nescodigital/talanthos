@@ -5,6 +5,7 @@ import { rateLimit } from "@/lib/rate-limit";
 
 const startSchema = z.object({
   first_name: z.string().max(50).optional().nullable(),
+  email: z.string().email().max(100).optional().nullable(),
   referrer: z.string().max(500).optional().nullable(),
   utm_source: z.string().max(100).optional().nullable(),
   utm_medium: z.string().max(100).optional().nullable(),
@@ -45,6 +46,7 @@ export async function POST(req: NextRequest) {
       .from("quiz_sessions")
       .insert({
         first_name: parsed.data.first_name || null,
+        email: parsed.data.email || null,
         ip_address: ip,
         user_agent: userAgent,
         referrer,

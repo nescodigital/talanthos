@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, Suspense, useState } from "react";
+import { useEffect, Suspense, useState, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -130,6 +130,8 @@ function PaywallContent() {
   const [customAmount, setCustomAmount] = useState("");
   const [showEmailModal, setShowEmailModal] = useState(false);
   const [pendingCheckoutUrl, setPendingCheckoutUrl] = useState("");
+  const [showFloatingBtn, setShowFloatingBtn] = useState(true);
+  const pricingRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (!type || !TYPE_NAMES[type]) {
@@ -145,8 +147,28 @@ function PaywallContent() {
     setShowEmailModal(true);
   };
 
-  const handleConfirmEmail = (confirmedEmail: string) => {
+  const handleConfirmEmail = async (confirmedEmail: string, marketingConsent: boolean) => {
     setShowEmailModal(false);
+
+    // Create/update lead with consent before checkout
+    if (session && confirmedEmail) {
+      try {
+        await fetch("/api/leads/create", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: confirmedEmail,
+            session_id: session,
+            primary_type: type || "unknown",
+            marketing_consent: marketingConsent,
+            first_name: typeof window !== "undefined" ? localStorage.getItem("talanthos_name") || "" : "",
+          }),
+        });
+      } catch {
+        // Non-blocking: continue to checkout even if lead sync fails
+      }
+    }
+
     if (pendingCheckoutUrl) {
       router.push(pendingCheckoutUrl + `&email=${encodeURIComponent(confirmedEmail)}`);
     }
@@ -165,6 +187,18 @@ function PaywallContent() {
       });
     }
   }, [type, session, email, typeName]);
+
+  useEffect(() => {
+    if (!pricingRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setShowFloatingBtn(!entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(pricingRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="flex min-h-full flex-col relative z-[1]">
@@ -300,7 +334,7 @@ function PaywallContent() {
           </section>
 
           {/* Section 5: Pricing + CTA */}
-          <section id="pricing" className="px-5 sm:px-6 lg:px-14 py-14">
+          <section id="pricing" ref={pricingRef} className="px-5 sm:px-6 lg:px-14 py-14">
             <BlurFade delay={0.1}>
               <div className="mx-auto max-w-[640px] text-center">
                 <p className="text-xs font-medium uppercase tracking-widest text-[var(--accent)]">Choose what it is worth to you</p>
@@ -456,6 +490,17 @@ function PaywallContent() {
           </section>
         </main>
         <TxFooter />
+
+        {/* Mobile floating scroll-to-pricing button */}
+        {showFloatingBtn && (
+          <button
+            onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+            className="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-[var(--surface)] border-t border-[var(--rule)] px-5 py-3.5 text-sm font-medium text-[var(--ink)] shadow-[0_-8px_24px_-8px_rgba(28,26,20,0.15)] transition-transform"
+            style={{ fontFamily: "var(--sans)" }}
+          >
+            Pay what feels right
+          </button>
+        )}
       </div>
     </div>
   );

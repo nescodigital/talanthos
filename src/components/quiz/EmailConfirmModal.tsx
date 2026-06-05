@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Pencil, ArrowRight, X } from "lucide-react";
+import { Mail, ArrowRight, X } from "lucide-react";
 import TxButton from "@/components/tx/TxButton";
 
 interface EmailConfirmModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onConfirm: (email: string) => void;
+  onConfirm: (email: string, marketingConsent: boolean) => void;
   defaultEmail?: string;
 }
 
@@ -19,17 +19,18 @@ export default function EmailConfirmModal({
   defaultEmail = "",
 }: EmailConfirmModalProps) {
   const [email, setEmail] = useState(defaultEmail);
-  const [isEditing, setIsEditing] = useState(!defaultEmail);
+  const [marketingConsent, setMarketingConsent] = useState(false);
   const [error, setError] = useState("");
 
   const handleConfirm = () => {
-    if (!email.includes("@") || !email.includes(".")) {
+    const trimmed = email.trim().toLowerCase();
+    if (!trimmed.includes("@") || !trimmed.includes(".")) {
       setError("Please enter a valid email address.");
       return;
     }
     setError("");
-    localStorage.setItem("talanthos_email", email);
-    onConfirm(email);
+    localStorage.setItem("talanthos_email", trimmed);
+    onConfirm(trimmed, marketingConsent);
   };
 
   return (
@@ -75,33 +76,30 @@ export default function EmailConfirmModal({
                 </p>
               </div>
 
-              {isEditing ? (
-                <div className="w-full">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => { setEmail(e.target.value); setError(""); }}
-                    placeholder="you@example.com"
-                    autoFocus
-                    className="w-full rounded-full border border-[var(--rule-strong)] bg-[var(--bg)] py-3 px-5 text-[var(--ink)] placeholder-[var(--muted)]/50 outline-none transition-colors focus:border-[var(--accent)] text-sm text-center"
-                    style={{ fontFamily: "var(--sans)" }}
-                  />
-                  {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
-                </div>
-              ) : (
-                <div className="w-full rounded-xl border border-[var(--rule)] bg-[var(--bg)] py-4 px-5 flex items-center justify-between gap-3">
-                  <span className="text-sm text-[var(--ink)] truncate" style={{ fontFamily: "var(--sans)" }}>
-                    {email || "No email saved"}
-                  </span>
-                  <button
-                    onClick={() => setIsEditing(true)}
-                    className="shrink-0 text-xs text-[var(--accent)] hover:underline flex items-center gap-1"
-                  >
-                    <Pencil className="h-3 w-3" />
-                    Edit
-                  </button>
-                </div>
-              )}
+              <div className="w-full">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => { setEmail(e.target.value); setError(""); }}
+                  placeholder="you@example.com"
+                  autoFocus
+                  className="w-full rounded-full border border-[var(--rule-strong)] bg-[var(--bg)] py-3 px-5 text-[var(--ink)] placeholder-[var(--muted)]/50 outline-none transition-colors focus:border-[var(--accent)] text-sm text-center"
+                  style={{ fontFamily: "var(--sans)" }}
+                />
+                {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
+              </div>
+
+              <label className="flex items-start gap-2.5 w-full cursor-pointer px-1">
+                <input
+                  type="checkbox"
+                  checked={marketingConsent}
+                  onChange={(e) => setMarketingConsent(e.target.checked)}
+                  className="mt-0.5 h-3.5 w-3.5 shrink-0 rounded border-[var(--rule-strong)] text-[var(--accent)] accent-[var(--accent)] cursor-pointer"
+                />
+                <span className="text-left text-[11px] leading-relaxed text-[var(--muted)]" style={{ fontFamily: "var(--sans)" }}>
+                  Send me occasional insights on faith, finances, and stewardship. No spam. Unsubscribe anytime.
+                </span>
+              </label>
 
               <TxButton
                 size="lg"
