@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, Suspense } from "react";
+import { useState, Suspense, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { User, Check, Mail, AlertCircle } from "lucide-react";
 import TxNav from "@/components/tx/TxNav";
@@ -66,6 +66,21 @@ function QuizIntroContent() {
   const [marketingConsent, setMarketingConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    const utmParams: Record<string, string> = {};
+    ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "fbclid", "gclid", "referrer"].forEach(
+      (key) => {
+        const value = searchParams.get(key);
+        if (value) utmParams[key] = value;
+      }
+    );
+    fetch("/api/quiz/landing-view", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(utmParams),
+    }).catch(() => {});
+  }, [searchParams]);
 
   const handleStart = async () => {
     if (!firstName.trim()) {

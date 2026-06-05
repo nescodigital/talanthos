@@ -96,3 +96,18 @@ export interface EmailLog {
   status: string;
   sent_at: string;
 }
+
+export interface LandingView {
+  id: string;
+  ip_address: string | null;
+  user_agent: string | null;
+  referrer: string | null;
+  utm_source: string | null;
+  utm_medium: string | null;
+  utm_campaign: string | null;
+  utm_content: string | null;
+  utm_term: string | null;
+  fbclid: string | null;
+  gclid: string | null;
+  created_at: string;
+}

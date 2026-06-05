@@ -12,7 +12,7 @@ import {
 import AdminLogin from "./login";
 
 type Period = "1" | "7" | "30" | "90";
-type Tab = "overview" | "leads" | "orders" | "sessions" | "emails" | "messages";
+type Tab = "overview" | "funnel" | "leads" | "orders" | "sessions" | "emails" | "messages";
 
 interface Stats {
   totalSessions: number;
@@ -60,6 +60,7 @@ export default function AdminPage() {
   const [period, setPeriod] = useState<Period>("7");
   const [tab, setTab] = useState<Tab>("overview");
   const [stats, setStats] = useState<Stats | null>(null);
+  const [funnel, setFunnel] = useState<any>(null);
   const [leads, setLeads] = useState<any[]>([]);
   const [orders, setOrders] = useState<any[]>([]);
   const [sessions, setSessions] = useState<any[]>([]);
@@ -105,13 +106,15 @@ export default function AdminPage() {
   async function fetchAll(pw: string, p: Period) {
     const headers = { "x-admin-password": pw };
     try {
-      const [statsRes, leadsRes, ordersRes, sessionsRes] = await Promise.all([
+      const [statsRes, funnelRes, leadsRes, ordersRes, sessionsRes] = await Promise.all([
         fetch(`/api/admin/stats?days=${p}`, { headers }),
+        fetch(`/api/admin/funnel?days=${p}`, { headers }),
         fetch(`/api/admin/leads?limit=200`, { headers }),
         fetch(`/api/admin/orders?limit=200`, { headers }),
         fetch(`/api/admin/sessions?limit=200`, { headers }),
       ]);
       if (statsRes.ok) setStats(await statsRes.json());
+      if (funnelRes.ok) setFunnel(await funnelRes.json());
       if (leadsRes.ok) setLeads((await leadsRes.json()).leads);
       if (ordersRes.ok) setOrders((await ordersRes.json()).orders);
       if (sessionsRes.ok) setSessions((await sessionsRes.json()).sessions);
@@ -350,6 +353,7 @@ export default function AdminPage() {
       >
         {([
           { key: "overview" as Tab, label: "Overview" },
+          { key: "funnel" as Tab, label: "Funnel" },
           { key: "leads" as Tab, label: `Leads (${leads.length})` },
           { key: "orders" as Tab, label: `Orders (${orders.length})` },
           { key: "sessions" as Tab, label: `Sessions (${sessions.length})` },
@@ -677,6 +681,111 @@ export default function AdminPage() {
               </div>
             </div>
           </>
+        )}
+
+        {tab === "funnel" && (
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+              <span style={{ fontSize: 13, fontWeight: 700, color: TXT }}>Conversion Funnel</span>
+              <span style={{ fontSize: 11, color: TXT_SUB }}>Last {period} days</span>
+            </div>
+
+            {funnel ? (
+              <>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
+                    gap: 12,
+                  }}
+                >
+                  {[
+                    { label: "Ad Clicks (Landing)", value: funnel.landingViews, rate: null, color: TXT_MID },
+                    { label: "Quiz Starts", value: funnel.quizStarts, rate: funnel.rates.clickToStart, target: funnel.targets.clickToStart, color: "#5a7d5a" },
+                    { label: "Quiz Completes", value: funnel.quizCompletes, rate: funnel.rates.startToComplete, target: funnel.targets.startToComplete, color: "#5a7d5a" },
+                    { label: "Email Submits", value: funnel.leads, rate: funnel.rates.completeToLead, target: funnel.targets.completeToLead, color: "#5a7d5a" },
+                    { label: "Purchases", value: funnel.purchases, rate: funnel.rates.leadToPurchase, target: funnel.targets.leadToPurchase, color: "#5a7d5a" },
+                  ].map((step) => {
+                    const rateColor = step.rate != null && step.target
+                      ? step.rate >= step.target.min
+                        ? "#5a7d5a"
+                        : step.rate >= step.target.min * 0.6
+                        ? "#b88a4a"
+                        : "#c25e5e"
+                      : TXT_SUB;
+                    return (
+                      <div
+                        key={step.label}
+                        style={{
+                          background: CARD,
+                          borderRadius: 12,
+                          padding: "18px 16px",
+                          border: `1px solid ${BORDER}`,
+                        }}
+                      >
+                        <div style={{ fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: TXT_SUB, marginBottom: 8, fontWeight: 600 }}>
+                          {step.label}
+                        </div>
+                        <div style={{ fontSize: 26, fontWeight: 800, color: TXT, letterSpacing: "-0.02em" }}>
+                          {step.value.toLocaleString()}
+                        </div>
+                        {step.rate != null && (
+                          <div style={{ marginTop: 6, fontSize: 13, fontWeight: 700, color: rateColor }}>
+                            {step.rate.toFixed(1)}% conversion
+                            {step.target && (
+                              <span style={{ fontSize: 10, fontWeight: 500, color: TXT_SUB, marginLeft: 6 }}>
+                                (target {step.target.min}-{step.target.max}%)
+                              </span>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Funnel bar visualization */}
+                <div style={{ background: CARD, borderRadius: 12, padding: 20, border: `1px solid ${BORDER}` }}>
+                  <div style={{ fontSize: 11, fontWeight: 700, color: TXT_MID, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>
+                    Funnel Flow
+                  </div>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                    {[
+                      { label: "Ad Clicks → Quiz Starts", rate: funnel.rates.clickToStart, target: funnel.targets.clickToStart },
+                      { label: "Quiz Starts → Completes", rate: funnel.rates.startToComplete, target: funnel.targets.startToComplete },
+                      { label: "Completes → Email Submit", rate: funnel.rates.completeToLead, target: funnel.targets.completeToLead },
+                      { label: "Email Submit → Purchase", rate: funnel.rates.leadToPurchase, target: funnel.targets.leadToPurchase },
+                    ].map((bar) => {
+                      const width = Math.min(100, (bar.rate / (bar.target.max * 1.5)) * 100);
+                      const barColor = bar.rate >= bar.target.min ? "#5a7d5a" : bar.rate >= bar.target.min * 0.6 ? "#b88a4a" : "#c25e5e";
+                      return (
+                        <div key={bar.label}>
+                          <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, fontWeight: 600, color: TXT_MID, marginBottom: 4 }}>
+                            <span>{bar.label}</span>
+                            <span style={{ color: barColor }}>{bar.rate.toFixed(1)}%</span>
+                          </div>
+                          <div style={{ height: 8, background: BORDER, borderRadius: 4, overflow: "hidden" }}>
+                            <div
+                              style={{
+                                width: `${width}%`,
+                                height: "100%",
+                                background: barColor,
+                                borderRadius: 4,
+                                transition: "width 0.6s ease",
+                              }}
+                            />
+                          </div>
+                          <div style={{ fontSize: 10, color: TXT_SUB, marginTop: 2 }}>Target: {bar.target.min}-{bar.target.max}%</div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </>
+            ) : (
+              <div style={{ textAlign: "center", padding: 40, color: TXT_SUB, fontSize: 13 }}>Loading funnel data...</div>
+            )}
+          </div>
         )}
 
         {tab === "leads" && (

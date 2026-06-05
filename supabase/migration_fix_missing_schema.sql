@@ -145,13 +145,32 @@ CREATE TABLE IF NOT EXISTS promo_codes (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- 8. Enable RLS on all tables
+-- 8. landing_views
+CREATE TABLE IF NOT EXISTS landing_views (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  ip_address TEXT,
+  user_agent TEXT,
+  referrer TEXT,
+  utm_source TEXT,
+  utm_medium TEXT,
+  utm_campaign TEXT,
+  utm_content TEXT,
+  utm_term TEXT,
+  fbclid TEXT,
+  gclid TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_landing_views_created ON landing_views(created_at DESC);
+
+-- 9. Enable RLS on all tables
 ALTER TABLE quiz_sessions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE quiz_answers ENABLE ROW LEVEL SECURITY;
 ALTER TABLE leads ENABLE ROW LEVEL SECURITY;
 ALTER TABLE orders ENABLE ROW LEVEL SECURITY;
 ALTER TABLE pixel_events ENABLE ROW LEVEL SECURITY;
 ALTER TABLE email_logs ENABLE ROW LEVEL SECURITY;
+ALTER TABLE landing_views ENABLE ROW LEVEL SECURITY;
 
 -- 9. Add any missing columns to existing tables (safe if already exist)
 ALTER TABLE quiz_sessions 
