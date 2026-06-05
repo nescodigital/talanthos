@@ -404,10 +404,10 @@ export default function AdminPage() {
               }}
             >
               {[
-                { label: "Quiz Sessions", value: s?.totalSessions ?? 0, color: TXT },
-                { label: "Completed", value: s?.completedSessions ?? 0, color: ACCENT },
-                { label: "Leads", value: s?.totalLeads ?? 0, color: "#5a7d5a" },
-                { label: "Orders", value: s?.totalOrders ?? 0, color: "#7a5a5a" },
+                { label: "Email Submitted", value: s?.totalSessions ?? 0, color: TXT },
+                { label: "Quiz Completed", value: s?.completedSessions ?? 0, color: ACCENT },
+                { label: "Paywall Reached", value: s?.totalOrders ?? 0, color: "#7a5a5a" },
+                { label: "Purchases", value: (orders || []).filter((o: any) => o.purchased).length, color: "#5a7d5a" },
                 { label: "Revenue", value: `$${s?.revenueUsd ?? "0.00"}`, color: TXT },
                 { label: "Completion Rate", value: `${convRate}%`, color: ACCENT },
               ].map((c) => (

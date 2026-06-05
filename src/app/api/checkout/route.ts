@@ -116,6 +116,23 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // Trigger abandoned cart sequence for existing leads
+    if (email && email !== "pending") {
+      try {
+        await supabase
+          .from("leads")
+          .update({
+            email_sequence: "abandoned_cart",
+            email_step: 0,
+            email_sequence_status: "active",
+            last_email_at: null,
+          })
+          .eq("email", email);
+      } catch (e) {
+        console.error("[CHECKOUT] Abandoned cart trigger error:", e);
+      }
+    }
+
     return NextResponse.json({ clientSecret: stripeSession.client_secret, id: stripeSession.id });
   } catch (err: any) {
     console.error("[CHECKOUT ERROR]", err);

@@ -18,7 +18,7 @@
 
 import { BiblicalType, BIBLICAL_TYPES } from "./quiz/types";
 
-export type SequenceName = "abandoned_quiz" | "non_buyer" | "advocate";
+export type SequenceName = "abandoned_quiz" | "non_buyer" | "advocate" | "abandoned_cart";
 
 interface EmailTemplate {
   subject: string | ((ctx: EmailContext) => string);
@@ -412,6 +412,183 @@ const NON_BUYER_TEMPLATES: EmailTemplate[] = [
 ];
 
 // ─────────────────────────────────────────────────────────────
+// SEQUENCE 4: ABANDONED CART
+// Trigger: order created but not purchased
+// Theme: You were one click away. Don't let clarity slip.
+// ─────────────────────────────────────────────────────────────
+
+const ABANDONED_CART_TEMPLATES: EmailTemplate[] = [
+  // Email 1: 1 hour after abandonment — reminder
+  {
+    delayHours: 1,
+    subject: "You were one click away from clarity",
+    text: (ctx) =>
+      `${greeting(ctx)}\n\n` +
+      `You chose your amount. You saw the report waiting for you.\n\n` +
+      `**Then something stopped you.**\n\n` +
+      `Maybe it was the cost. Maybe it was doubt. Maybe life interrupted.\n\n` +
+      `Here's what I know:\n\n` +
+      `The free quiz named your type.\nThe paid report tells you what to do with it.\n\n` +
+      `One is a label.\nThe other is a roadmap.\n\n` +
+      `Your report is still reserved. One click finishes it.\n\n` +
+      `${ctx.quizUrl || "https://talanthos.com/quiz/paywall"}\n\n` +
+      `— Talanthos`,
+    html: (ctx) =>
+      htmlWrapper(
+        "You were one click away from clarity",
+        `
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">You chose your amount. You saw the report waiting for you.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>Then something stopped you.</strong></p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Maybe it was the cost. Maybe it was doubt. Maybe life interrupted.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Here's what I know:</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">The free quiz named your type.<br>The paid report tells you what to do with it.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 24px;">One is a label.<br>The other is a roadmap.</p>
+        <div style="text-align: center; margin: 24px 0;">
+          <a href="${ctx.quizUrl || "https://talanthos.com/quiz/paywall"}" style="display: inline-block; background: #1c1a14; color: #f3ece0; font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 10px; text-decoration: none;">Complete My Order</a>
+        </div>
+        <p style="font-size: 14px; line-height: 1.5; margin: 16px 0 0; color: #7a7359; font-style: italic;">Your report is still reserved. One click finishes it.</p>
+        `
+      ),
+  },
+  // Email 2: 24h — teaching on procrastination
+  {
+    delayHours: 23,
+    subject: "The cost of waiting",
+    text: (ctx) =>
+      `${greeting(ctx)}\n\n` +
+      `James 4:17 says whoever knows the right thing to do and fails to do it, for him it is sin.\n\n` +
+      `Harsh word. But true.\n\n` +
+      `You know something now that you didn't know before the quiz.\nYou know your Biblical Money Type.\n\n` +
+      `**Knowing and not acting is worse than not knowing at all.**\n\n` +
+      `Because now you have no excuse for the same patterns.\nThe same anxiety. The same conversations that go nowhere.\n\n` +
+      `The report is 20 pages that turn knowledge into action.\n\n` +
+      `Not someday. Today.\n\n` +
+      `${ctx.quizUrl || "https://talanthos.com/quiz/paywall"}\n\n` +
+      `— Talanthos`,
+    html: (ctx) =>
+      htmlWrapper(
+        "The cost of waiting",
+        `
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px; font-style: italic; color: #46412f;">James 4:17 says whoever knows the right thing to do and fails to do it, for him it is sin.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Harsh word. But true.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">You know something now that you didn't know before the quiz.<br>You know your Biblical Money Type.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>Knowing and not acting is worse than not knowing at all.</strong></p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Because now you have no excuse for the same patterns.<br>The same anxiety. The same conversations that go nowhere.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 24px;">The report is 20 pages that turn knowledge into action.<br>Not someday. Today.</p>
+        <div style="text-align: center; margin: 24px 0;">
+          <a href="${ctx.quizUrl || "https://talanthos.com/quiz/paywall"}" style="display: inline-block; background: #1c1a14; color: #f3ece0; font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 10px; text-decoration: none;">Get My Roadmap</a>
+        </div>
+        `
+      ),
+  },
+  // Email 3: 48h — social proof / urgency
+  {
+    delayHours: 24,
+    subject: "They finished. You haven't yet.",
+    text: (ctx) =>
+      `${greeting(ctx)}\n\n` +
+      `Yesterday, someone just like you bought the report.\n\n` +
+      `Same type. Same questions. Same hesitation.\n\n` +
+      `**The difference? They decided.**\n\n` +
+      `The report isn't information. It's a mirror that doesn't lie.\n\n` +
+      `• Your blind spot, named\n` +
+      `• Your strength, calibrated\n` +
+      `• Your 30-day action plan, mapped\n\n` +
+      `Most people read the free result and move on.\nSame patterns. Same frustration.\n\n` +
+      `A few buy the report and finally see clearly.\n\n` +
+      `**Which one are you?**\n\n` +
+      `${ctx.quizUrl || "https://talanthos.com/quiz/paywall"}\n\n` +
+      `— Talanthos`,
+    html: (ctx) =>
+      htmlWrapper(
+        "They finished. You haven't yet.",
+        `
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Yesterday, someone just like you bought the report.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Same type. Same questions. Same hesitation.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>The difference? They decided.</strong></p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">The report isn't information. It's a mirror that doesn't lie.</p>
+        <ul style="font-size: 16px; line-height: 1.7; margin: 0 0 16px; padding-left: 20px;">
+          <li>Your blind spot, named</li>
+          <li>Your strength, calibrated</li>
+          <li>Your 30-day action plan, mapped</li>
+        </ul>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Most people read the free result and move on.<br>Same patterns. Same frustration.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 24px;">A few buy the report and finally see clearly.<br><strong>Which one are you?</strong></p>
+        <div style="text-align: center; margin: 24px 0;">
+          <a href="${ctx.quizUrl || "https://talanthos.com/quiz/paywall"}" style="display: inline-block; background: #1c1a14; color: #f3ece0; font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 10px; text-decoration: none;">I Decide Now</a>
+        </div>
+        `
+      ),
+  },
+  // Email 4: 72h — 10% discount
+  {
+    delayHours: 24,
+    subject: "A small nudge for someone who hesitates",
+    text: (ctx) =>
+      `${greeting(ctx)}\n\n` +
+      `I know $14.99 isn't free.\n\n` +
+      `But I also know what clarity costs when you don't have it.\n\n` +
+      `Same mistakes. Same anxiety. Same prayers that go nowhere.\n\n` +
+      `**Here's 10% off. Because I want you to have this.**\n\n` +
+      `Use code ABANDON10 at checkout.\n\n` +
+      `${ctx.quizUrl || "https://talanthos.com/quiz/paywall"}\n\n` +
+      `This code expires in 48 hours.\n\n` +
+      `— Talanthos`,
+    html: (ctx) =>
+      htmlWrapper(
+        "A small nudge for someone who hesitates",
+        `
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">I know $14.99 isn't free.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">But I also know what clarity costs when you don't have it.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Same mistakes. Same anxiety. Same prayers that go nowhere.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>Here's 10% off. Because I want you to have this.</strong></p>
+        <div style="background: #efe6d4; padding: 16px; border-radius: 8px; margin: 16px 0; text-align: center;">
+          <p style="font-size: 18px; font-weight: 700; margin: 0; color: #1c1a14; letter-spacing: 0.1em;">ABANDON10</p>
+          <p style="font-size: 12px; margin: 4px 0 0; color: #7a7359;">10% off — expires in 48 hours</p>
+        </div>
+        <div style="text-align: center; margin: 24px 0;">
+          <a href="${ctx.quizUrl || "https://talanthos.com/quiz/paywall"}" style="display: inline-block; background: #1c1a14; color: #f3ece0; font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 10px; text-decoration: none;">Apply 10% Off</a>
+        </div>
+        `
+      ),
+  },
+  // Email 5: 96h — 20% discount, last chance
+  {
+    delayHours: 24,
+    subject: "Last chance: 20% off. Then I'm done emailing you.",
+    text: (ctx) =>
+      `${greeting(ctx)}\n\n` +
+      `This is the last email about the report.\n\n` +
+      `Not because I don't believe in it.\nBecause I do. And I don't chase.\n\n` +
+      `**Here's 20% off. One time. Expires in 24 hours.**\n\n` +
+      `Use code ABANDON20 at checkout.\n\n` +
+      `${ctx.quizUrl || "https://talanthos.com/quiz/paywall"}\n\n` +
+      `If you buy it, I'll send you the report and we'll never speak of money again unless you want to.\n\n` +
+      `If you don't, no hard feelings. The free result is still yours.\n\n` +
+      `But know this: a year from now, you'll either have clarity or you'll still be guessing.\n\n` +
+      `**Clarity is one decision away.**\n\n` +
+      `— Talanthos`,
+    html: (ctx) =>
+      htmlWrapper(
+        "Last chance: 20% off. Then I'm done emailing you.",
+        `
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">This is the last email about the report.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Not because I don't believe in it.<br>Because I do. And I don't chase.</p>
+        <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;"><strong>Here's 20% off. One time. Expires in 24 hours.</strong></p>
+        <div style="background: #efe6d4; padding: 16px; border-radius: 8px; margin: 16px 0; text-align: center;">
+          <p style="font-size: 18px; font-weight: 700; margin: 0; color: #1c1a14; letter-spacing: 0.1em;">ABANDON20</p>
+          <p style="font-size: 12px; margin: 4px 0 0; color: #7a7359;">20% off — expires in 24 hours</p>
+        </div>
+        <div style="text-align: center; margin: 24px 0;">
+          <a href="${ctx.quizUrl || "https://talanthos.com/quiz/paywall"}" style="display: inline-block; background: #1c1a14; color: #f3ece0; font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 10px; text-decoration: none;">Claim 20% Off — Last Chance</a>
+        </div>
+        <p style="font-size: 14px; line-height: 1.5; margin: 16px 0 0; color: #7a7359; font-style: italic;">If you buy it, I'll send you the report and we'll never speak of money again unless you want to.<br>If you don't, no hard feelings. But a year from now, you'll either have clarity or you'll still be guessing.</p>
+        `
+      ),
+  },
+];
+
+// ─────────────────────────────────────────────────────────────
 // SEQUENCE 3: ADVOCATE
 // Trigger: purchased
 // Theme: You have the mirror. Now use it. Then share it.
@@ -563,6 +740,7 @@ export const EMAIL_SEQUENCES: Record<SequenceName, EmailTemplate[]> = {
   abandoned_quiz: ABANDONED_QUIZ_TEMPLATES,
   non_buyer: NON_BUYER_TEMPLATES,
   advocate: ADVOCATE_TEMPLATES,
+  abandoned_cart: ABANDONED_CART_TEMPLATES,
 };
 
 export function getSequenceStepCount(name: SequenceName): number {
