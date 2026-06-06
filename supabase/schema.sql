@@ -228,3 +228,41 @@ CREATE INDEX IF NOT EXISTS idx_contact_messages_created ON contact_messages(crea
 CREATE INDEX IF NOT EXISTS idx_contact_messages_status ON contact_messages(status);
 
 ALTER TABLE contact_messages ENABLE ROW LEVEL SECURITY;
+
+-- Subscriptions (added June 2026)
+CREATE TABLE IF NOT EXISTS subscriptions (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  lead_id UUID REFERENCES leads(id),
+  email TEXT NOT NULL,
+  stripe_customer_id TEXT NOT NULL,
+  stripe_subscription_id TEXT UNIQUE NOT NULL,
+  stripe_price_id TEXT NOT NULL,
+  status TEXT NOT NULL,
+  trial_start TIMESTAMP WITH TIME ZONE,
+  trial_end TIMESTAMP WITH TIME ZONE,
+  current_period_start TIMESTAMP WITH TIME ZONE,
+  current_period_end TIMESTAMP WITH TIME ZONE,
+  canceled_at TIMESTAMP WITH TIME ZONE,
+  questions_this_month INT DEFAULT 0,
+  month_reset_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  cost_this_month_cents NUMERIC(10,4) DEFAULT 0,
+  suspended BOOLEAN DEFAULT FALSE,
+  suspended_at TIMESTAMP WITH TIME ZONE,
+  suspended_reason TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_subscriptions_email ON subscriptions(email);
+CREATE INDEX IF NOT EXISTS idx_subscriptions_stripe_sub ON subscriptions(stripe_subscription_id);
+CREATE INDEX IF NOT EXISTS idx_subscriptions_status ON subscriptions(status);
+CREATE INDEX IF NOT EXISTS idx_subscriptions_lead ON subscriptions(lead_id);
+
+ALTER TABLE subscriptions ENABLE ROW LEVEL SECURITY;
+
+-- Orders subscription tracking (added June 2026)
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS stripe_subscription_id TEXT;
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS subscription_active BOOLEAN DEFAULT FALSE;
+
+-- Leads Stripe customer tracking (added June 2026)
+ALTER TABLE leads ADD COLUMN IF NOT EXISTS stripe_customer_id TEXT;

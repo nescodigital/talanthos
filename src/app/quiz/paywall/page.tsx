@@ -128,7 +128,7 @@ function PaywallContent() {
   const email = searchParams.get("email");
   const [customAmount, setCustomAmount] = useState("");
   const [showEmailModal, setShowEmailModal] = useState(false);
-  const [pendingCheckoutUrl, setPendingCheckoutUrl] = useState("");
+  const [pendingAmount, setPendingAmount] = useState(0);
   const [showFloatingBtn, setShowFloatingBtn] = useState(true);
   const [pricingEl, setPricingEl] = useState<HTMLElement | null>(null);
 
@@ -141,8 +141,7 @@ function PaywallContent() {
   const savedEmail = typeof window !== "undefined" ? localStorage.getItem("talanthos_email") : "";
 
   const handleTierClick = (amount: number) => {
-    const url = `/checkout?amount=${amount}&type=${encodeURIComponent(type || "")}&session=${encodeURIComponent(session || "")}`;
-    setPendingCheckoutUrl(url);
+    setPendingAmount(amount);
     setShowEmailModal(true);
   };
 
@@ -168,8 +167,27 @@ function PaywallContent() {
       }
     }
 
-    if (pendingCheckoutUrl) {
-      router.push(pendingCheckoutUrl + `&email=${encodeURIComponent(confirmedEmail)}`);
+    // Call new Stripe checkout
+    try {
+      const res = await fetch("/api/stripe/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: confirmedEmail,
+          primaryType: type || "unknown",
+          sessionId: session || "",
+        }),
+      });
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        console.error("[PAYWALL] Checkout error:", data.error);
+        alert("Checkout failed. Please try again.");
+      }
+    } catch (e) {
+      console.error("[PAYWALL] Checkout request failed:", e);
+      alert("Checkout failed. Please try again.");
     }
   };
 
@@ -344,6 +362,23 @@ function PaywallContent() {
                   We rely on the generosity of people like you to keep building resources that help believers steward money faithfully. We reinvest what we earn into the mission.
                 </p>
 
+                {/* Transparent disclosure */}
+                <div className="mt-6 rounded-xl border border-[var(--rule)] bg-[var(--surface)] p-5 text-left">
+                  <p className="text-xs font-medium uppercase tracking-widest text-[var(--accent)] mb-3">What you&apos;re paying today</p>
+                  <p className="text-sm text-[var(--ink)] leading-relaxed">
+                    <strong>Today: $19</strong> — Your personalized PDF reading, yours forever
+                  </p>
+                  <p className="text-sm text-[var(--ink)] leading-relaxed mt-1">
+                    <strong>Plus 7 days free:</strong> Talanthos Companion AI guide
+                  </p>
+                  <p className="text-sm text-[var(--ink)] leading-relaxed mt-1">
+                    <strong>After 7 days:</strong> $9/month for continued Companion access
+                  </p>
+                  <p className="text-sm text-[var(--muted)] leading-relaxed mt-1">
+                    Cancel anytime from your account. No hidden fees.
+                  </p>
+                </div>
+
                 {/* Tiers */}
                 <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4">
                   {TIERS.map((tier) => (
@@ -394,26 +429,16 @@ function PaywallContent() {
                   <p className="mt-2 text-[10px] text-[var(--muted)]" style={{ fontFamily: "var(--mono)" }}>Minimum $10</p>
                 </div>
 
-                {/* Promo code */}
-                <div className="mt-4 rounded-xl border border-dashed border-[var(--rule-strong)] bg-[var(--surface)]/50 p-4">
-                  <p className="text-xs font-medium uppercase tracking-widest text-[var(--muted)] mb-2">Have a promo code?</p>
-                  <div className="flex items-center justify-center gap-3">
-                    <input
-                      type="text"
-                      placeholder="META20"
-                      className="w-32 rounded-lg border border-[var(--rule-strong)] bg-[var(--bg)] px-3 py-2 text-center text-[var(--ink)] uppercase outline-none transition-colors focus:border-[var(--accent)]"
-                      style={{ fontFamily: "var(--mono)", fontSize: 13, letterSpacing: "0.08em" }}
-                    />
-                    <span className="text-xs text-[var(--muted)]">Applied at checkout</span>
-                  </div>
-                </div>
-
                 {/* Trust signals */}
                 <div className="mt-6 space-y-2 text-xs text-[var(--muted)]">
                   <p className="flex items-center justify-center gap-1.5"><Shield className="h-3.5 w-3.5" />Instant email delivery</p>
                   <p className="flex items-center justify-center gap-1.5"><Lock className="h-3.5 w-3.5" />Secure checkout via Stripe</p>
                   <p className="flex items-center justify-center gap-1.5"><Zap className="h-3.5 w-3.5" />Delivered within 30 minutes</p>
                 </div>
+
+                <p className="mt-4 text-[10px] text-[var(--muted)] text-center leading-relaxed" style={{ fontFamily: "var(--mono)", textTransform: "uppercase", letterSpacing: "0.12em" }}>
+                  By continuing, you agree to start a 7-day free trial of Talanthos Companion, which converts to $9/month if not canceled. Manage or cancel anytime.
+                </p>
               </div>
             </BlurFade>
           </section>

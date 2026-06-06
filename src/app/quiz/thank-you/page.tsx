@@ -5,36 +5,30 @@ import { useSearchParams } from "next/navigation";
 import TxNav from "@/components/tx/TxNav";
 import TxFooter from "@/components/tx/TxFooter";
 import TxButton from "@/components/tx/TxButton";
-import { CheckCircle2, Mail, Clock, FileText } from "lucide-react";
+import { CheckCircle2, Mail, Clock, FileText, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { trackEvent } from "@/lib/meta-pixel";
 
 function ThankYouContent() {
   const searchParams = useSearchParams();
-  const type = searchParams.get("type") || "";
-  const [countdown, setCountdown] = useState(30);
+  const sessionId = searchParams.get("session_id") || "";
+  const [firstName, setFirstName] = useState("");
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCountdown((c) => Math.max(0, c - 1));
-    }, 1000);
-    return () => clearInterval(timer);
+    const name = typeof window !== "undefined" ? localStorage.getItem("talanthos_name") : "";
+    setFirstName(name || "");
   }, []);
 
-  const typeName = type
-    ? type.charAt(0).toUpperCase() + type.slice(1)
-    : "Your Biblical Money Type";
-
   useEffect(() => {
-    if (type) {
-      trackEvent("Purchase", {
-        value: 19,
-        currency: "USD",
-        contentName: typeName,
-        customData: { primary_type: type },
-      });
-    }
-  }, [type, typeName]);
+    trackEvent("Purchase", {
+      value: 19,
+      currency: "USD",
+      contentName: "Talanthos Report + Companion",
+      customData: { stripe_session_id: sessionId },
+    });
+  }, [sessionId]);
+
+  const greeting = firstName ? `Thank you, ${firstName}.` : "Thank you for your purchase.";
 
   return (
     <div className="tx-page">
@@ -52,11 +46,11 @@ function ThankYouContent() {
               className="tx-display"
               style={{ fontSize: "clamp(32px, 5vw, 48px)", margin: 0 }}
             >
-              Thank you for your purchase
+              {greeting}
             </h1>
 
             <p className="mt-4 text-lg text-[var(--ink-2)]" style={{ fontFamily: "var(--serif)" }}>
-              Your <strong>{typeName}</strong> report is being prepared.
+              Your reading is being prepared.
             </p>
 
             <div className="mt-10 rounded-2xl border border-[var(--rule)] bg-[var(--surface)] p-6 sm:p-8 text-left space-y-5">
@@ -79,8 +73,7 @@ function ThankYouContent() {
                 <div>
                   <p className="font-medium text-[var(--ink)]">Delivered to your inbox</p>
                   <p className="text-sm text-[var(--ink-2)]">
-                    You will receive an email with your PDF attached within a few minutes.
-                    Check your spam folder if you do not see it.
+                    Check your email for the download link. It usually arrives within 2 minutes.
                   </p>
                 </div>
               </div>
@@ -96,20 +89,34 @@ function ThankYouContent() {
                   </p>
                 </div>
               </div>
+
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--accent-soft)]">
+                  <Sparkles className="h-5 w-5 text-[var(--accent)]" strokeWidth={1.5} />
+                </div>
+                <div>
+                  <p className="font-medium text-[var(--ink)]">Your Companion trial is active</p>
+                  <p className="text-sm text-[var(--ink-2)]">
+                    You have 7 days free access to Talanthos Companion — ask the Bible anything, especially about money.
+                  </p>
+                </div>
+              </div>
             </div>
 
             <div className="mt-10 flex flex-col items-center gap-4">
               <p className="text-sm text-[var(--muted)]">
+                Want to start exploring now?
+              </p>
+              <Link href="/ask">
+                <TxButton size="lg" icon="arrow">Visit Companion</TxButton>
+              </Link>
+              <p className="text-xs text-[var(--muted)]">
                 Did not receive it?{" "}
                 <Link href="/contact" className="text-[var(--accent)] hover:underline">
                   Contact us
                 </Link>
                 {" "}and we will resend it immediately.
               </p>
-
-              <TxButton size="lg" icon="arrow" onClick={() => window.location.href = "/"}>
-                Back to home
-              </TxButton>
             </div>
           </div>
         </main>
