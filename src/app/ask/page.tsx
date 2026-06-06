@@ -3,6 +3,9 @@
 import { useState, useRef, useEffect, Suspense } from "react";
 import { useRouter } from "next/navigation";
 import { Flame, Send, BookOpen, AlertTriangle, Loader2 } from "lucide-react";
+import TxNav from "@/components/tx/TxNav";
+import TxFooter from "@/components/tx/TxFooter";
+import TxEyebrow from "@/components/tx/TxEyebrow";
 import EmailGateModal from "@/components/ask/EmailGateModal";
 
 interface ChatMessage {
@@ -189,67 +192,78 @@ function AskContent() {
 
   return (
     <div className="flex flex-col min-h-[100dvh] bg-[var(--bg)]" style={{ fontFamily: "var(--sans)" }}>
-      {/* Header */}
-      <header className="sticky top-0 z-30 bg-[var(--surface)]/80 backdrop-blur-md border-b border-[var(--rule)]">
-        <div className="mx-auto max-w-[720px] px-4 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="text-[var(--accent)] font-bold text-sm tracking-wider uppercase">Talanthos</span>
-          </div>
-          <div className="flex items-center gap-3">
-            <span className="hidden sm:inline text-xs text-[var(--muted)] italic" style={{ fontFamily: "var(--serif)" }}>
-              Ask the Bible anything. Especially about money.
-            </span>
+      <TxNav />
+
+      {/* Intro */}
+      <div className="tx-screen" style={{ paddingBottom: 0 }}>
+        <div className="tx-landing-frame">
+          <div className="tx-landing-hero" style={{ paddingBottom: 16, gap: 14 }}>
+            <TxEyebrow align="center">Ask the Bible Anything</TxEyebrow>
+            <h1 className="tx-display" style={{ fontSize: "clamp(32px, 5vw, 52px)" }}>
+              Wisdom is here for you.
+            </h1>
+            <p className="tx-lede">
+              Ask anything from Scripture. Especially about money.
+            </p>
             <button
               onClick={() => router.push(hasQuizSession ? "/quiz/result" : "/quiz")}
-              className="text-xs font-medium text-[var(--accent)] hover:underline whitespace-nowrap"
+              className="tx-link tx-link-sm"
+              style={{ marginTop: 4 }}
             >
-              View My Reading
+              View My Reading →
             </button>
           </div>
         </div>
-      </header>
-
-      {/* Hero */}
-      <div
-        className="shrink-0"
-        style={{
-          background: "linear-gradient(135deg, #1a1a1f 0%, #2a2620 50%, #1a1a1f 100%)",
-          padding: "clamp(24px, 5vw, 48px) 16px",
-          textAlign: "center",
-        }}
-      >
-        <h1
-          className="text-white m-0"
-          style={{ fontFamily: "var(--serif)", fontSize: "clamp(22px, 4vw, 32px)", fontWeight: 400, lineHeight: 1.2 }}
-        >
-          Ask the Bible Anything
-        </h1>
-        <p className="mt-2 text-sm text-white/60" style={{ fontFamily: "var(--serif)", fontStyle: "italic" }}>
-          Wisdom is here for you.
-        </p>
       </div>
 
       {/* Chat area */}
       <main className="flex-1 overflow-y-auto">
-        <div className="mx-auto max-w-[720px] px-4 py-6">
+        <div
+          className="mx-auto w-full"
+          style={{ maxWidth: "var(--maxw)", padding: "0 clamp(20px, 5vw, 56px)" }}
+        >
           {messages.length === 0 && !limitError && (
-            <div className="flex flex-col items-center gap-6 py-8">
+            <div className="flex flex-col items-center gap-6 py-6">
               <div
-                className="text-center rounded-2xl border border-[var(--rule)] bg-[var(--surface)] p-6 max-w-md"
-                style={{ boxShadow: "var(--shadow)" }}
+                className="text-center w-full"
+                style={{
+                  background: "var(--surface)",
+                  border: "1px solid var(--rule)",
+                  borderRadius: 14,
+                  padding: "28px 24px",
+                  boxShadow: "var(--shadow)",
+                  maxWidth: 480,
+                }}
               >
                 <BookOpen className="h-6 w-6 text-[var(--accent)] mx-auto mb-3" strokeWidth={1.5} />
                 <p className="text-[var(--ink)] text-sm" style={{ fontFamily: "var(--serif)" }}>
                   Ask anything from Scripture. Wisdom is here for you.
                 </p>
               </div>
-              <div className="flex flex-wrap justify-center gap-2 max-w-md">
+              <div className="flex flex-wrap justify-center gap-2.5 max-w-md">
                 {EXAMPLE_QUESTIONS.map((q) => (
                   <button
                     key={q}
                     onClick={() => sendMessage(q)}
-                    className="rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] px-4 py-2 text-xs text-[var(--ink)] hover:border-[var(--accent-line)] hover:bg-[var(--accent-soft)]/20 transition-colors"
-                    style={{ fontFamily: "var(--serif)" }}
+                    className="transition-all duration-200 hover:-translate-y-px"
+                    style={{
+                      fontFamily: "var(--serif)",
+                      fontSize: 13,
+                      background: "var(--surface)",
+                      border: "1px solid var(--rule)",
+                      borderRadius: 999,
+                      padding: "10px 18px",
+                      color: "var(--ink)",
+                      cursor: "pointer",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = "var(--accent-line)";
+                      e.currentTarget.style.background = "var(--surface-2)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = "var(--rule)";
+                      e.currentTarget.style.background = "var(--surface)";
+                    }}
                   >
                     {q}
                   </button>
@@ -258,29 +272,44 @@ function AskContent() {
             </div>
           )}
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-5 pb-6">
             {messages.map((msg, i) => (
               <div
                 key={i}
                 className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
               >
                 {msg.role === "assistant" && (
-                  <div className="flex items-start gap-2 max-w-[85%] sm:max-w-[80%]">
-                    <div className="mt-1 shrink-0">
+                  <div className="flex items-start gap-3 max-w-[90%] sm:max-w-[82%]">
+                    <div className="mt-2 shrink-0">
                       <Flame className="h-4 w-4 text-[var(--accent)]" strokeWidth={1.5} />
                     </div>
                     <div
-                      className="rounded-2xl rounded-tl-sm px-4 py-3 text-sm leading-relaxed bg-white border border-[var(--rule)]"
-                      style={{ color: "var(--ink)" }}
+                      style={{
+                        background: "var(--surface)",
+                        border: "1px solid var(--rule)",
+                        borderRadius: 14,
+                        padding: "16px 20px",
+                        color: "var(--ink)",
+                        boxShadow: "var(--shadow)",
+                      }}
                     >
-                      <VerseText text={msg.content} />
+                      <p className="text-sm leading-relaxed" style={{ fontFamily: "var(--serif)" }}>
+                        <VerseText text={msg.content} />
+                      </p>
                     </div>
                   </div>
                 )}
                 {msg.role === "user" && (
                   <div
-                    className="max-w-[85%] sm:max-w-[80%] rounded-2xl rounded-tr-sm px-4 py-3 text-sm"
-                    style={{ background: "#f5efe2", color: "var(--ink)" }}
+                    className="max-w-[90%] sm:max-w-[82%] text-sm"
+                    style={{
+                      fontFamily: "var(--serif)",
+                      color: "var(--ink)",
+                      borderLeft: "2px solid var(--accent)",
+                      paddingLeft: 12,
+                      lineHeight: 1.6,
+                      textAlign: "right",
+                    }}
                   >
                     {msg.content}
                   </div>
@@ -290,12 +319,20 @@ function AskContent() {
 
             {loading && (
               <div className="flex justify-start">
-                <div className="flex items-start gap-2 max-w-[85%] sm:max-w-[80%]">
-                  <div className="mt-1 shrink-0">
+                <div className="flex items-start gap-3 max-w-[90%] sm:max-w-[82%]">
+                  <div className="mt-2 shrink-0">
                     <Flame className="h-4 w-4 text-[var(--accent)]" strokeWidth={1.5} />
                   </div>
-                  <div className="rounded-2xl rounded-tl-sm px-4 py-3 bg-white border border-[var(--rule)]">
-                    <div className="flex gap-1">
+                  <div
+                    style={{
+                      background: "var(--surface)",
+                      border: "1px solid var(--rule)",
+                      borderRadius: 14,
+                      padding: "16px 20px",
+                      boxShadow: "var(--shadow)",
+                    }}
+                  >
+                    <div className="flex gap-1.5">
                       <span className="h-2 w-2 rounded-full bg-[var(--muted)] animate-bounce" style={{ animationDelay: "0ms" }} />
                       <span className="h-2 w-2 rounded-full bg-[var(--muted)] animate-bounce" style={{ animationDelay: "150ms" }} />
                       <span className="h-2 w-2 rounded-full bg-[var(--muted)] animate-bounce" style={{ animationDelay: "300ms" }} />
@@ -308,8 +345,15 @@ function AskContent() {
             {limitError && (
               <div className="flex justify-center py-4">
                 <div
-                  className="w-full max-w-md rounded-2xl border border-[var(--rule)] bg-[var(--surface)] p-6 text-center"
-                  style={{ boxShadow: "var(--shadow)" }}
+                  className="w-full text-center"
+                  style={{
+                    background: "var(--surface)",
+                    border: "1px solid var(--rule)",
+                    borderRadius: 14,
+                    padding: "28px 24px",
+                    boxShadow: "var(--shadow)",
+                    maxWidth: 480,
+                  }}
                 >
                   <AlertTriangle className="h-6 w-6 text-[var(--accent)] mx-auto mb-3" strokeWidth={1.5} />
                   <p className="text-sm text-[var(--ink)]" style={{ fontFamily: "var(--serif)" }}>
@@ -349,11 +393,28 @@ function AskContent() {
         </div>
       </main>
 
-      {/* Footer / Input */}
-      <footer className="shrink-0 bg-[var(--surface)] border-t border-[var(--rule)]">
-        <div className="mx-auto max-w-[720px] px-4 py-3">
+      {/* Input bar */}
+      <footer
+        className="shrink-0"
+        style={{
+          background: "var(--bg)",
+          borderTop: "1px solid var(--rule)",
+        }}
+      >
+        <div
+          className="mx-auto w-full"
+          style={{ maxWidth: "var(--maxw)", padding: "12px clamp(20px, 5vw, 56px)" }}
+        >
           {limitError ? (
-            <div className="text-center py-2 text-xs text-[var(--muted)]" style={{ fontFamily: "var(--serif)" }}>
+            <div
+              className="text-center py-2"
+              style={{
+                fontFamily: "var(--serif)",
+                fontSize: 13,
+                color: "var(--muted)",
+                fontStyle: "italic",
+              }}
+            >
               Conversation paused. {limitError.ctaText} to continue.
             </div>
           ) : (
@@ -366,40 +427,91 @@ function AskContent() {
                   onKeyDown={handleKeyDown}
                   placeholder="Ask anything from Scripture..."
                   rows={1}
-                  className="flex-1 resize-none rounded-xl border border-[var(--rule-strong)] bg-[var(--bg)] px-4 py-3 text-sm text-[var(--ink)] placeholder-[var(--muted)]/50 outline-none transition-colors focus:border-[var(--accent)] max-h-[120px]"
-                  style={{ fontFamily: "var(--sans)" }}
+                  className="flex-1 resize-none rounded-xl outline-none transition-colors max-h-[120px]"
+                  style={{
+                    fontFamily: "var(--sans)",
+                    fontSize: 15,
+                    background: "var(--bg)",
+                    border: "1px solid var(--rule-strong)",
+                    padding: "12px 16px",
+                    color: "var(--ink)",
+                    lineHeight: 1.5,
+                  }}
+                  onFocus={(e) => {
+                    e.currentTarget.style.borderColor = "var(--accent)";
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.borderColor = "var(--rule-strong)";
+                  }}
                 />
                 <button
                   onClick={() => sendMessage(input)}
                   disabled={!input.trim() || loading}
-                  className="mb-0.5 inline-flex items-center justify-center rounded-full bg-[var(--accent)] p-3 text-white transition-all hover:-translate-y-px hover:shadow-[0_8px_16px_-12px_rgba(40,30,10,0.5)] disabled:opacity-40"
+                  className="mb-0.5 inline-flex items-center justify-center rounded-full text-white transition-all hover:-translate-y-px disabled:opacity-40 disabled:cursor-not-allowed"
+                  style={{
+                    background: "var(--accent)",
+                    padding: "12px 14px",
+                    boxShadow: "0 1px 0 rgba(255,255,255,0.2) inset, 0 12px 24px -16px rgba(40,30,10,0.6)",
+                  }}
                 >
                   {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
                 </button>
               </div>
 
               {/* Rate limit indicators */}
-              <div className="mt-2 flex items-center justify-between">
+              <div className="mt-2.5 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   {approachingDaily && (
-                    <span className="text-[11px] text-[var(--accent)] font-medium">
+                    <span
+                      style={{
+                        fontFamily: "var(--mono)",
+                        fontSize: 11,
+                        textTransform: "uppercase",
+                        letterSpacing: "0.16em",
+                        color: "var(--accent)",
+                      }}
+                    >
                       {questionsRemaining} question{questionsRemaining !== 1 ? "s" : ""} left today
                     </span>
                   )}
                   {approachingMonthly && (
-                    <span className="text-[11px] text-[var(--accent)] font-medium">
+                    <span
+                      style={{
+                        fontFamily: "var(--mono)",
+                        fontSize: 11,
+                        textTransform: "uppercase",
+                        letterSpacing: "0.16em",
+                        color: "var(--accent)",
+                      }}
+                    >
                       Approaching monthly limit — consider Companion for unlimited
                     </span>
                   )}
                   {!approachingDaily && !approachingMonthly && (
-                    <span className="text-[11px] text-[var(--muted)]">
+                    <span
+                      style={{
+                        fontFamily: "var(--mono)",
+                        fontSize: 11,
+                        textTransform: "uppercase",
+                        letterSpacing: "0.16em",
+                        color: "var(--muted)",
+                      }}
+                    >
                       {emailCaptured
                         ? `${questionsRemaining} questions remaining today`
                         : `${questionsRemaining} free questions remaining`}
                     </span>
                   )}
                 </div>
-                <span className="text-[10px] text-[var(--muted)]" style={{ fontFamily: "var(--mono)" }}>
+                <span
+                  style={{
+                    fontFamily: "var(--mono)",
+                    fontSize: 10,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.16em",
+                    color: "var(--muted)",
+                  }}
+                >
                   {emailCaptured ? "Free tier" : "Anonymous"}
                 </span>
               </div>
@@ -407,6 +519,8 @@ function AskContent() {
           )}
         </div>
       </footer>
+
+      <TxFooter />
 
       <EmailGateModal
         isOpen={emailGateOpen}
